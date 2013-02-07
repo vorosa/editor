@@ -4,8 +4,8 @@ Copyright 2012-2013 xtUML.org
 
 ---
 
-xtUML Project Implementation Note
-Share ui.graphics plug-in
+xtUML Project Implementation Note  
+Share ui.graphics plug-in  
 
 
 1. Abstract
@@ -82,7 +82,7 @@ None.
   
 9. Code Changes
 ---------------
-Branch name: CVS R3_6_3-SKB-943313
+Branch name: CVS R3_6_3-SKB-943313  
 com.mentor.nucleus.bp.ui.graphics/src/com.mentor.nucleus.bp.ui.graphics/
     Activator.java
 com.mentor.nucleus.bp.ui.graphics/src/com.mentor.nucleus.bp.ui.graphics/
@@ -387,7 +387,7 @@ com.mentor.nucleus.bp.ui.graphics/about.html
 com.mentor.nucleus.bp.ui.graphics/generate.xml
 com.mentor.nucleus.bp.ui.graphics/plugin.xml
 
-Branch: CVS HEAD
+Branch: CVS HEAD  
 com.mentor.nucleus.bp.internal.tools/convert_to_apache_license.xml
 
 End
