@@ -1,0 +1,25 @@
+---
+
+Copyright 2012-2013 xtUML.org
+
+---
+
+xtUML Project Review Meeting Minutes
+
+Reviewed: dts0100688535dnt.md
+Present:  Campbell, Nehad, Heba
+
+
+-- Number Type  Who         Section    Comment
+o- 01     min   CMC         General    there is no, revision stamp
+x- 02     min   CMC         7.1        Rephrase the error message to something 
+                                       like:
+                                       "Supertype event is not polymorphic"
+x- 03     min   CMC         10         take new line for each new section
+ 
+   
+No major observations, a re-review is not required.
+ 
+
+---
+End

@@ -1,0 +1,24 @@
+---
+
+Copyright 2012-2013 xtUML.org
+
+---
+
+xtUML Project Review Meeting Minutes  
+
+Reviewed: dts0100948048dnt - commit 8a356e2a24462f86f58010539f1fc7f06f08a4c8 
+Present:   Nehad, Bob and Heba
+
+-- Num Type  Who  Section  Comment
+x- 01  min   Bob  6.1      reward 6.1 section  
+x- 02  min   Bob  6.1      if you call a line number then a revision should
+                           be called too   
+x- 03  min   Bob  6.3      remove the word therefore  
+x- 04  min   Bob  6.3      State the impact of the performance only happens for the wizard dialog
+x- 05  min   Bob  7.1      Query -> Querying
+   
+No major observations, a re-review is not required.  
+ 
+
+End
+---
