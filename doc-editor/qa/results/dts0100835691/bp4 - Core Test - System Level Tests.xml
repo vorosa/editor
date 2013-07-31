@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testrun name="bp4 - Core Test - System Level Tests" project="com.mentor.nucleus.bp.core.test" tests="25" started="25" failures="0" errors="0" ignored="0">
+  <testsuite name="SystemLevelTestSuite" time="32.386">
+    <testsuite name="com.mentor.nucleus.bp.core.test.SystemLevelTestsSuite" time="0.14">
+      <testcase name="testSystemLevelsTestSuite" classname="com.mentor.nucleus.bp.core.test.SystemLevelTestsSuite" time="0.14"/>
+    </testsuite>
+    <testsuite name="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="11.701">
+      <testcase name="testContextMenuDeleteActionOnCL_IC" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="9.57"/>
+      <testcase name="testContextMenuDisconnectActionOnCL_IR" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.127"/>
+      <testcase name="testContextMenuDisconnectActionOnCL_IP" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.093"/>
+      <testcase name="testContextMenuDisconnectActionOnC_P" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.171"/>
+      <testcase name="testContextMenuDisconnectActionOnC_R" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.053"/>
+      <testcase name="testContextMenuUnassignActionOnCL_IC" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.099"/>
+      <testcase name="testContextMenuDeleteActionOnIP_IP" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.123"/>
+      <testcase name="testContextMenuRenameActionOnIP_IP" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.028"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXN" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.431"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXNInnerComponent" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.165"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXNCantUseSameTwice" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.172"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXNCantUseSameTwiceInnerComponent" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.142"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXNGoesAway" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.177"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXNInteractionWithEvent" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.101"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXNGoesAwayInnerComponent" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.17"/>
+      <testcase name="testContextMenuAssignSignalActionOnSM_TXNInteractionWithEventInnerComponent" classname="com.mentor.nucleus.bp.core.test.ComponentContextMenuTests" time="0.078"/>
+    </testsuite>
+    <testsuite name="com.mentor.nucleus.bp.core.test.ComponentFormalizationTests" time="9.325">
+      <testcase name="testFormalizedComponentClassOperationDTAssignement" classname="com.mentor.nucleus.bp.core.test.ComponentFormalizationTests" time="8.414"/>
+      <testcase name="testLinkWithEditorForNewlyFormalizedComponent" classname="com.mentor.nucleus.bp.core.test.ComponentFormalizationTests" time="0.131"/>
+      <testcase name="testFormalizedComponentNames" classname="com.mentor.nucleus.bp.core.test.ComponentFormalizationTests" time="0.78"/>
+    </testsuite>
+    <testsuite name="com.mentor.nucleus.bp.core.test.ImportedComponentIFTests" time="4.771">
+      <testcase name="testSingleComponentInScopeInterface" classname="com.mentor.nucleus.bp.core.test.ImportedComponentIFTests" time="4.569"/>
+      <testcase name="testMultipleComponentAtLeastOneInScopeIF" classname="com.mentor.nucleus.bp.core.test.ImportedComponentIFTests" time="0.05"/>
+      <testcase name="testRemovalOfImportedReferenceOnReFormalization" classname="com.mentor.nucleus.bp.core.test.ImportedComponentIFTests" time="0.152"/>
+    </testsuite>
+    <testsuite name="com.mentor.nucleus.bp.core.test.RemoveSignalTests" time="6.449">
+      <testcase name="testRemoveSignal" classname="com.mentor.nucleus.bp.core.test.RemoveSignalTests" time="5.773"/>
+      <testcase name="testDeleteTransitionThatHasAnAssignedSignal" classname="com.mentor.nucleus.bp.core.test.RemoveSignalTests" time="0.676"/>
+    </testsuite>
+  </testsuite>
+</testrun>

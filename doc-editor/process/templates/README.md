@@ -1,0 +1,1 @@
+This folder contains templates for various documents that are artifacts of the development process.

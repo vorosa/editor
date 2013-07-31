@@ -1,0 +1,22 @@
+---
+
+Copyright 2012-2013 xtUML.org
+
+---
+
+xtUML Project Review Meeting Minutes  
+
+Reviewed: https://github.com/xtuml/doc/blob/master/development/notes/dts0100835691/dts0100835691dnt.md   
+Present: Nehad, Travis, Keith   
+
+-- Num Type  Who  Section  Comment
+x- 01  min   KB   1        indicated > indicate    
+x- 02  min   KB   6.1      fix formatting to remove gray box    
+x- 03  min   KB   6.2,6.3  add two spaces to the end of the lines to force line breaks  
+x- 04  min   KB   10       add two spaces to the end of the lines
+   
+No major observations, a re-review is not required.  
+
+
+End
+---
