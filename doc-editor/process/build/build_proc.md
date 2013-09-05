@@ -82,25 +82,25 @@ code uncompilable.  Use this mark only for the full integration generation.
 - Edit xtumlmc_build.exe and omit the V_* and ACT_* instances from
 the code generation.  Do this by changing the lines:
 ```
-if ( ! ( ( /^INSERT INTO ACT_/ ) ||
+        if ( ! ( ( /^INSERT INTO ACT_/ ) ||
 ```
 and this line
 ```
-( /^INSERT INTO V_/ ) ||
+        ( /^INSERT INTO V_/ ) ||
 ```
 to
 ```
-if ( ! ( ( /^INSERT INTO xxxACT_/ ) ||
+        if ( ! ( ( /^INSERT INTO xxxACT_/ ) ||
 ```
 and
 ```
-( /^INSERT INTO xxxV_/ ) ||
+        ( /^INSERT INTO xxxV_/ ) ||
 ```
 - Add markings to the deployment project to keep the event queues
 that your project needs.
 ```
-.invoke TagMaximumSelfDirectedEvents( 5 )  
-.invoke TagMaximumNonSelfDirectedEvents( 5 )
+        .invoke TagMaximumSelfDirectedEvents( 5 ) 
+        .invoke TagMaximumNonSelfDirectedEvents( 5 )
 ```
 - Generate code for the _deployment_ model.
 - Copy the source code from each of the component projects into
