@@ -64,7 +64,6 @@ add the following query:
 		.assign s_sys.Name = "SYS"
 	.end for
 ```
-
 - In each of the component projects, mark the wiring of the ports in
 the "home component" to the ports in the "foreign components" to which
 it communicates across interfaces.  For example, in domain.mark:
@@ -72,7 +71,6 @@ it communicates across interfaces.  For example, in domain.mark:
 ```
 .invoke MarkPortWiring( "one" "Port1" "two" "Port1" )
 ```
-
 (Note, a combined marking for the ports of the entire system can exist
 in each of the component projects.  A superset of port markings
 will not interfere the code generation for a single model.)
@@ -89,21 +87,15 @@ the code generation.  Do this by changing the lines:
 ```
 	if ( ! ( ( /^INSERT INTO ACT_/ ) ||
 ```
-
 and this line
-
 ```
 	( /^INSERT INTO V_/ ) ||
 ```
-
 to
-
 ```
 	if ( ! ( ( /^INSERT INTO xxxACT_/ ) ||
 ```
-
 and
-
 ```
 	( /^INSERT INTO xxxV_/ ) ||
 ```
