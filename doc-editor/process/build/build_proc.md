@@ -99,7 +99,7 @@ and
 - Add markings to the deployment project to keep the event queues
 that your project needs.
 ```
-.invoke TagMaximumSelfDirectedEvents( 5 )
+.invoke TagMaximumSelfDirectedEvents( 5 )  
 .invoke TagMaximumNonSelfDirectedEvents( 5 )
 ```
 - Generate code for the _deployment_ model.
