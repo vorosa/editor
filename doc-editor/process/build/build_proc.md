@@ -57,18 +57,22 @@ Follow these steps:
 - In all projects, add a mark to give your system a consistent name
 in each component project and in the deployment project.  In system.mark,
 add the following query:
-```SQL
+
+```
 	.select many s_syss from instances of S_SYS
 	.for each s_sys in s_syss
 		.assign s_sys.Name = "SYS"
 	.end for
 ```
+
 - In each of the component projects, mark the wiring of the ports in
 the "home component" to the ports in the "foreign components" to which
 it communicates across interfaces.  For example, in domain.mark:
+
 ```
 .invoke MarkPortWiring( "one" "Port1" "two" "Port1" )
 ```
+
 (Note, a combined marking for the ports of the entire system can exist
 in each of the component projects.  A superset of port markings
 will not interfere the code generation for a single model.)
@@ -81,23 +85,31 @@ mark will add #include statements that will render the component project
 code uncompilable.  Use this mark only for the full integration generation.
 - Edit xtumlmc_build.exe and omit the V_* and ACT_* instances from
 the code generation.  Do this by changing the lines:
+
 ```
 	if ( ! ( ( /^INSERT INTO ACT_/ ) ||
 ```
+
 and this line
+
 ```
 	( /^INSERT INTO V_/ ) ||
 ```
+
 to
+
 ```
 	if ( ! ( ( /^INSERT INTO xxxACT_/ ) ||
 ```
+
 and
+
 ```
 	( /^INSERT INTO xxxV_/ ) ||
 ```
 - Add markings to the deployment project to keep the event queues
 that your project needs.
+
 ```
 	.invoke TagMaximumSelfDirectedEvents( 5 ) 
 	.invoke TagMaximumNonSelfDirectedEvents( 5 )
