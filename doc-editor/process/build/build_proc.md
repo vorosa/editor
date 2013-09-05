@@ -41,5 +41,56 @@ that are sharing in interface and data types.
 The second special project is _deployment_.  This project contains a component
 reference diagram with interfaces wired together.
 
+### Large Model Considerations
+
+The above organization of projects is good practice (even "best practice").
+It allows each component to be carefully modeled and tested using unit test
+components and "testbenching".  (Testbenching is documented in a testbenching
+project on github and in videos on the xtUML Youtube Channel.)
+
+For very large models, this prescribed project organization enables a 
+work-around to scale code generation beyond exsting technology that exist
+using the heritage gen_erate.exe application.  (Memory usage is limited
+to 4GB in gen_erate.exe.)
+
+Follow these steps:
+- In each of the component projects, mark the wiring of the ports in
+the "home component" to the ports in the "foreign components" to which
+it communicates across interfaces.  For example, in domain.mark:
+```
+.invoke MarkPortWiring( "one" "Port1" "two" "Port1" )
+```
+(Note, a combined marking for the ports of the entire system can exist
+in each of the component projects.  A superset of port markings
+will not interfere the code generation for a single model.)
+- Edit q.component.arc to enable the code generation scaling feature.
+Search for "CDS".  Two sections of code will be marked with this comment.
+In these two places, enable the _if_ statement by matching your project
+name (or skipping the project name test).
+- Generate code for each component project.  Note that the *MarkPortWiring*
+mark will add #include statements that will render the component project
+code uncompilable.  Use this mark only for the full integration generation.
+- Edit xtumlmc_build.exe and omit the V_* and ACT_* instances from
+the code generation.  Do this by changing the lines:
+```
+if ( ! ( ( /^INSERT INTO ACT_/ ) ||
+```
+and this line
+```
+( /^INSERT INTO V_/ ) ||
+```
+to
+```
+if ( ! ( ( /^INSERT INTO xxxACT_/ ) ||
+```
+and
+```
+( /^INSERT INTO xxxV_/ ) ||
+```
+- Generate code for the _deployment_ model.
+- Except for sys_xtuml.c and *sys_types.h, copy the source code from
+each of the component projects into the *src* folder of the _deployment_
+project.
+
 
 ## Integration of Generated with Realized Code
