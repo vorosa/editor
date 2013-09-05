@@ -54,6 +54,15 @@ using the heritage gen_erate.exe application.  (Memory usage is limited
 to 4GB in gen_erate.exe.)
 
 Follow these steps:
+- In all projects, add a mark to give your system a consistent name
+in each component project and in the deployment project.  In system.mark,
+add the following query:
+```
+.select many s_syss from instances of S_SYS
+.for each s_sys in s_syss
+  .assign s_sys.Name = "SYS"
+.end for
+```
 - In each of the component projects, mark the wiring of the ports in
 the "home component" to the ports in the "foreign components" to which
 it communicates across interfaces.  For example, in domain.mark:
@@ -87,10 +96,17 @@ and
 ```
 ( /^INSERT INTO xxxV_/ ) ||
 ```
+- Add markings to the deployment project to keep the event queues
+that your project needs.
+```
+.invoke TagMaximumSelfDirectedEvents( 5 )
+.invoke TagMaximumNonSelfDirectedEvents( 5 )
+```
 - Generate code for the _deployment_ model.
-- Except for sys_xtuml.c and *sys_types.h, copy the source code from
-each of the component projects into the *src* folder of the _deployment_
-project.
+- Copy the source code from each of the component projects into
+the *src* folder of the _deployment_ project.  Copy all of the
+"component" and "class" files.  In other words, copy the application
+code but not the "sys_*" files.
 
 
 ## Integration of Generated with Realized Code
