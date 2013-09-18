@@ -81,11 +81,15 @@ name (or skipping the project name test).
 - Generate code for each component project.  Note that the *MarkPortWiring*
 mark will add #include statements that will render the component project
 code uncompilable.  Use this mark only for the full integration generation.
-- Edit xtumlmc_build.exe and omit the V_* and ACT_* instances from
+- Edit xtumlmc_build.exe and omit the V_*, E_* and ACT_* instances from
 the code generation.  Do this by changing the lines:
 
 ```
 	if ( ! ( ( /^INSERT INTO ACT_/ ) ||
+```
+and this line
+```
+	( /^INSERT INTO E_/ ) ||
 ```
 and this line
 ```
@@ -94,6 +98,9 @@ and this line
 to
 ```
 	if ( ! ( ( /^INSERT INTO xxxACT_/ ) ||
+```
+```
+	( /^INSERT INTO xxxE_/ ) ||
 ```
 and
 ```
