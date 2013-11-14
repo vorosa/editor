@@ -222,6 +222,7 @@ public class GenerateFunctionsFromList implements IActionDelegate {
 			while (in.hasNextLine()) {
 				contents.add(in.nextLine());
 			}
+			in.close();
 		} catch (FileNotFoundException e) {
 			CorePlugin.logError("Unable to read function file.", e);
 		}
