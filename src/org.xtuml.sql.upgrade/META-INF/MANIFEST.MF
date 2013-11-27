@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Upgrade
+Bundle-SymbolicName: org.xtuml.sql.upgrade;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.xtuml.sql.upgrade.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.mentor.nucleus.bp.core,
+ com.mentor.nucleus.bp.io.core,
+ com.mentor.nucleus.bp.io.mdl,
+ org.eclipse.core.resources,
+ com.mentor.nucleus.bp.utilities
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

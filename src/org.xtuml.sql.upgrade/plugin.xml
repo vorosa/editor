@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <viewerContribution
+            id="org.xtuml.sql.upgrade.UpgradeContribution"
+            targetID="com.mentor.nucleus.bp.ui.explorer.ExplorerView">
+         <action
+               class="org.xtuml.sql.upgrade.actions.SqlUpgradeAction"
+               id="org.xtuml.sql.upgrade.action1"
+               label="Upgrade SQL Model"
+               menubarPath="additions">
+         </action>
+      </viewerContribution>
+   </extension>
+
+</plugin>
