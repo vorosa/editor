@@ -145,7 +145,7 @@ public class GenerateFunctionsFromList implements IActionDelegate {
 					}
 					CorePlugin
 							.logError(
-									"Unable to start transaction for function creation.",
+									"Unable to start transaction for function creation.  Check the format of the input file: \"" + functionListFile + "\"" + ".",
 									e);
 				}
 			}
@@ -230,9 +230,14 @@ public class GenerateFunctionsFromList implements IActionDelegate {
 	}
 
 	private String getFunctionListFile() {
+		String result = "";
 		FileDialog dialog = new FileDialog(PlatformUI.getWorkbench()
 				.getActiveWorkbenchWindow().getShell());
-		return dialog.open();
+		result = dialog.open();
+		if (result ==null) {
+			result = "";
+		}
+		return result;
 	}
 
 	@Override
