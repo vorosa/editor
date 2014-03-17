@@ -1,14 +1,17 @@
 HOWTO Build xtUML Editor (using xtUML Editor)
 ----------------------------------------------
-Note: Prior to using this checklist you should already have an account
-      on github.  
-	  
-- Download the latest released version of the xtUML Editor.  You will find all the releases here: https://www.xtuml.org/download/
 
-- Run the installer down-loaded in the previous step.  You can install wherever you like, but these instructions assume the default: c:/MentorGraphics/xtUML Editor
-   
-- Launch the tool using the desktop shortcut that was created and open a new eclipse workspace that will become your development workspace.  _Example:  c:/workspace/xtumlEditor_ 
+# Setup
+- Create an account on github (https://github.com)
 	  
+- Download the latest released version of the xtUML Editor from https://www.xtuml.org/download/
+
+- Run the xtUML Editor installer
+   
+
+# Configuration
+- Launch xtuml Editor.  Enter the name of a new eclipse workspace that will become your development workspace.  _Example:  c:/workspace/xtumlEditor_ 
+
 - Install required add-ons:
   - Open the Navigator view
   - Right-click in white space
@@ -17,12 +20,13 @@ Note: Prior to using this checklist you should already have an account
   - Select Finish
   - Files are installed and you are prompted to restart. Restart.
   	  
-- Select the option to clone and add to view:  ```URI: https://github.com/xtuml/editor.git```
+- Open Git Repository Exploring perspective.  Select the option to _Clone a Git repository_
+  - URI: ```https://github.com/xtuml/editor.git```
   - Enter your user name and password
   - Select Next
   - Select all the branches
   - Select Next
-  - For the Local Destination select your desired github/repos folder location. __NOTE: DO NOT SELECT YOUR WORKSPACE!  This is the local RCS repository.__
+  - For the Local Destination select your desired github/repos folder location. __NOTE: DO NOT SELECT YOUR WORKSPACE!  Store this local git repository outside your workspace.__
   - Select Finish
   
 - Import the projects into your workspace
@@ -33,11 +37,6 @@ Note: Prior to using this checklist you should already have an account
   - Ensure "Search for nested projects" is UNchecked.
   - Select Finish
    
-- Switch to the Java perspective
-
-- Select Project > Build Automatically
-  - __Result:__ The build is successful
-
 - Prepare to run unit tests (on MS Windows):
   - Exit BridgePoint
   - Configure Windows Vista or Windows 7 for unit test running
@@ -74,5 +73,14 @@ Note: Prior to using this checklist you should already have an account
   - Select the drop-down arrow in the upper-right of the view
   - Select the History... option
   - Set "Maximum count of remembered test runs" to 30 
-    
-- __Result:__ Your environment is now built and ready for unit testing.
+
+
+# Build
+- Switch to the Java perspective
+
+- Select Project > Build Automatically
+  - __Result:__ The build is successful.  The Problems view does not display any errors.
+
+
+
+Congratulations.  Your environment is now built and ready for unit testing.
