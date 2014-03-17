@@ -86,7 +86,7 @@ HOWTO Build xtUML Editor (using xtUML Editor)
 
 - Select Project > Build Automatically
   - __Result:__ The build is successful.  The Problems view does not display any errors.
-
+  - Note that the eclipse build will occasionally indicate problems with ```org.eclipse*``` imports not being found.  If this happens you can restart xtUML Editor and try building again and/or touch a file in bp.core by adding a space, removing it, and saving.
 
 
 Congratulations.  Your environment is now built and ready for unit testing.
