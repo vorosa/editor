@@ -1,7 +1,7 @@
 HOWTO Build xtUML Editor (using xtUML Editor)
 ----------------------------------------------
 
-# Setup
+### Setup
 - Create an account on github (https://github.com)
 	  
 - Download the latest released version of the xtUML Editor from https://www.xtuml.org/download/
@@ -12,8 +12,8 @@ HOWTO Build xtUML Editor (using xtUML Editor)
   - Right-click on the file ```xtuml_dev_eclipse_addons.p2f``` and save it to disk
 
 
-# Configuration
-- Launch xtuml Editor.  Enter the name of a new eclipse workspace that will become your development workspace.  _Example:  c:/workspace/xtumlEditor_ 
+### Configuration
+- Launch xtuml Editor.  Enter the name of a new eclipse workspace that will become your development workspace.  _Example:  c:/workspaces/xtumlEditor_ 
 
 - Install required add-ons:
   - Open the Navigator view
@@ -81,7 +81,7 @@ HOWTO Build xtUML Editor (using xtUML Editor)
   - Set "Maximum count of remembered test runs" to 30 
 
 
-# Build
+### Build
 - Switch to the Java perspective
 
 - Select Project > Build Automatically
