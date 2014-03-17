@@ -8,6 +8,9 @@ HOWTO Build xtUML Editor (using xtUML Editor)
 
 - Run the xtUML Editor installer
    
+- Navigate to https://github.com/xtuml/editor/tree/master/doc-editor/development/workspace-config
+  - Right-click on the file ```xtuml_dev_eclipse_addons.p2f``` and save it to disk
+
 
 # Configuration
 - Launch xtuml Editor.  Enter the name of a new eclipse workspace that will become your development workspace.  _Example:  c:/workspace/xtumlEditor_ 
@@ -16,7 +19,7 @@ HOWTO Build xtUML Editor (using xtUML Editor)
   - Open the Navigator view
   - Right-click in white space
   - Import... > Install > Install Software Items from File
-  - Select ```"git"/internal/doc-internal/process/templates/checklists/development-workspace-setup/xtUML_dev_eclipse_addons.p2f```
+  - Select ```xtUML_dev_eclipse_addons.p2f``` you saved to disk earlier
   - Select Finish
   - Files are installed and you are prompted to restart. Restart.
   	  
@@ -64,6 +67,9 @@ HOWTO Build xtUML Editor (using xtUML Editor)
               Personalize > Display > "Make it easier to read what is on your machine"
               That setting must be set to "smaller" 100%
               It is is adjusted your graphical compare restuls will not match,
+              
+        It is recommended to save this modified theme to make it easier to switch back to 
+        at a later time.
 ```
 
   - Launch BridgePoint
