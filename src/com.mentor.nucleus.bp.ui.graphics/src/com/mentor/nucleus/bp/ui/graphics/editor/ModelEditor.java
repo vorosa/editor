@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: ModelEditor.java,v $
-//Version:   $Revision: 1.10.6.2 $
-//Modified:  $Date: 2013/01/29 22:09:37 $
+//Version:   $Revision: 1.11 $
+//Modified:  $Date: 2013/05/13 19:02:46 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -47,6 +47,7 @@ import org.eclipse.ui.part.MultiPageEditorPart;
 import org.eclipse.ui.texteditor.InfoForm;
 
 import com.mentor.nucleus.bp.core.CorePlugin;
+import com.mentor.nucleus.bp.core.common.NonRootModelElement;
 import com.mentor.nucleus.bp.core.common.PersistableModelComponent;
 import com.mentor.nucleus.bp.core.common.PersistenceManager;
 import com.mentor.nucleus.bp.ui.canvas.CanvasPlugin;
@@ -54,6 +55,7 @@ import com.mentor.nucleus.bp.ui.canvas.Model_c;
 import com.mentor.nucleus.bp.ui.canvas.util.GraphicsUtil;
 import com.mentor.nucleus.bp.ui.explorer.ILinkWithEditorListener;
 import com.mentor.nucleus.bp.ui.graphics.Activator;
+import com.mentor.nucleus.bp.ui.graphics.parts.ShapeEditPart;
 
 public class ModelEditor extends MultiPageEditorPart implements ILinkWithEditorListener {
 
@@ -191,6 +193,7 @@ public class ModelEditor extends MultiPageEditorPart implements ILinkWithEditorL
 	
 	@Override
 	public void notifySelectionLink() {
+		if(getGraphicalEditor() == null) { return; }
 		// this notification is sent immediately after
 		// a selection has been transferred from the explorer
 		// tree
@@ -217,5 +220,19 @@ public class ModelEditor extends MultiPageEditorPart implements ILinkWithEditorL
 		if(zoomSelected) {
 			getGraphicalEditor().zoomSelected();
 		}
+	}
+
+	@Override
+	public NonRootModelElement getFirstSelectedElement() {
+		if(getGraphicalEditor() == null) { return null; }
+		IStructuredSelection selection = (IStructuredSelection) getGraphicalEditor()
+				.getEditorSite().getSelectionProvider().getSelection();
+		for(Object selected : selection.toList()) {
+			if (selected instanceof ShapeEditPart) {
+				NonRootModelElement nrme = (NonRootModelElement) ((ShapeEditPart)selected).getGraphicalElement().getRepresents();
+				return nrme;
+			}
+		}
+		return null;
 	}
 }

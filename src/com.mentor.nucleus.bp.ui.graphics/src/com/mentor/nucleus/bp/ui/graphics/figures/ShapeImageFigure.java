@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: ShapeImageFigure.java,v $
-//Version:   $Revision: 1.8.12.2 $
-//Modified:  $Date: 2013/01/29 22:10:04 $
+//Version:   $Revision: 1.8 $
+//Modified:  $Date: 2013/01/10 23:06:17 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -291,7 +291,7 @@ public class ShapeImageFigure extends RectangleFigure implements IMapMode {
 	 */
 	@Override
 	public IFigure getParent() {
-		if(part == null) {
+		if(part == null || part.getViewer()==null) {
 			// initializing
 			return super.getParent();
 		}

@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: GraphicsUtil.java,v $
-//Version:   $Revision: 1.6.12.2 $
-//Modified:  $Date: 2013/01/29 22:10:10 $
+//Version:   $Revision: 1.6 $
+//Modified:  $Date: 2013/01/10 23:06:24 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -78,14 +78,14 @@ public class GraphicsUtil {
 			point.setLocation(reference.x, point.y);
 			if (point instanceof PrecisionPoint) {
 				PrecisionPoint precisionPoint = (PrecisionPoint) point;
-				precisionPoint.preciseX = point.x;
+				precisionPoint.setPreciseX(point.x);
 			}
 		}
 		if (Math.abs(point.y - reference.y) <= tolerance) {
 			point.setLocation(point.x, reference.y);
 			if (point instanceof PrecisionPoint) {
 				PrecisionPoint precisionPoint = (PrecisionPoint) point;
-				precisionPoint.preciseY = point.y;
+				precisionPoint.setPreciseY(point.y);
 			}
 		}
 	}

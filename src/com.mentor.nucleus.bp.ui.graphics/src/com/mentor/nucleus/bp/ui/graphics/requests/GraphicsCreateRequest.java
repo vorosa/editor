@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: GraphicsCreateRequest.java,v $
-//Version:   $Revision: 1.5.12.2 $
-//Modified:  $Date: 2013/01/29 22:09:41 $
+//Version:   $Revision: 1.5 $
+//Modified:  $Date: 2013/01/10 23:06:33 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at

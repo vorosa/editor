@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: ElementMap.java,v $
-//Version:   $Revision: 1.5.6.2 $
-//Modified:  $Date: 2013/01/29 22:10:10 $
+//Version:   $Revision: 1.5 $
+//Modified:  $Date: 2013/01/17 03:29:32 $
 //
+//Copyright (c) 2005-2014 Mentor Graphics Corporation.  All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at

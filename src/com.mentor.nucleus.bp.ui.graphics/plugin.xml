@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
-<!-- 
- © 2013 Mentor Graphics Corporation
- Licensed under the Apache License, Version 2.0 (the "License"); you may not 
- use this file except in compliance with the License.  You may obtain a copy 
- of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing, software 
- distributed under the License is distributed on an "AS IS" BASIS, WITHOUT 
- WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the 
- License for the specific language governing permissions and limitations under
- the License.
- -->
 <plugin>
    <extension-point id="com.mentor.nucleus.bp.ui.graphics.editorTab" name="Graphical Editor Tab" schema="schema/editorTab.exsd"/>
    <extension
@@ -2267,12 +2253,6 @@
             </terminator>
             <terminator
                   end="end"
-                  name="End Component Container"
-                  symbol="Component Container"
-                  type="shape">
-            </terminator>
-            <terminator
-                  end="end"
                   name="End Component"
                   symbol="Component"
                   symbolClass="com.mentor.nucleus.bp.core.Component_c"
@@ -2312,6 +2292,14 @@
                   symbol="Component"
                   symbolClass="com.mentor.nucleus.bp.core.Component_c"
                   type="shape">
+            </terminator>
+            <terminator
+                  end="end"
+                  name="End Component"
+                  symbol="Component"
+                  symbolClass="com.mentor.nucleus.bp.core.Component_c"
+                  type="shape">
+                  <automaticCreation symbol="Required Interface" />
             </terminator>
             <terminator
                   end="end"
@@ -2367,6 +2355,14 @@
                   symbol="Component"
                   symbolClass="com.mentor.nucleus.bp.core.Component_c"
                   type="shape">
+            </terminator>
+            <terminator
+                  end="end"
+                  name="End Component"
+                  symbol="Component"
+                  symbolClass="com.mentor.nucleus.bp.core.Component_c"
+                  type="shape">
+                  <automaticCreation symbol="Provided Interface" />
             </terminator>
             <terminator
                   end="end"
@@ -4031,7 +4027,7 @@
          label="UML Diagram Text"
          defaultsTo="org.eclipse.jface.dialogfont">
          <description>
-            This is the font used on BridgePoint UML Diagrams
+            This is the font used on xtUML Diagrams
          </description>
       </fontDefinition>
    </extension>

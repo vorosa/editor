@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: GraphicalCommandStack.java,v $
-//Version:   $Revision: 1.11.12.2 $
-//Modified:  $Date: 2013/01/29 22:09:38 $
+//Version:   $Revision: 1.11 $
+//Modified:  $Date: 2013/01/10 23:06:03 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -23,21 +23,17 @@
 
 package com.mentor.nucleus.bp.ui.graphics.editor;
 
-import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.ui.PlatformUI;
 
 import com.mentor.nucleus.bp.core.CorePlugin;
-import com.mentor.nucleus.bp.core.common.BridgePointPreferencesStore;
 import com.mentor.nucleus.bp.core.common.Transaction;
-import com.mentor.nucleus.bp.core.util.UIUtil;
 import com.mentor.nucleus.bp.ui.canvas.Cl_c;
 import com.mentor.nucleus.bp.ui.graphics.commands.GraphicalCloneCommand;
 import com.mentor.nucleus.bp.ui.graphics.commands.IExecutionValidationCommand;
 import com.mentor.nucleus.bp.ui.graphics.commands.IValidateDeltaCommand;
-import com.mentor.nucleus.bp.ui.graphics.commands.ShapeCreationCommand;
 
 public class GraphicalCommandStack extends CommandStack {
 
@@ -53,6 +49,11 @@ public class GraphicalCommandStack extends CommandStack {
 			}
 		}
 		if (!shouldCompleteExecution(command)) {
+			return;
+		}
+		if(command instanceof GraphicalCloneCommand) {
+			// we do not need to start a transaction here just execute
+			super.execute(command);
 			return;
 		}
 		Transaction transaction = Cl_c.Starttransaction(fModelElement, command

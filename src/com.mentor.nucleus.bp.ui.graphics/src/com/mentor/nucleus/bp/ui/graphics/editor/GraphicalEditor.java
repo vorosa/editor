@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: GraphicalEditor.java,v $
-//Version:   $Revision: 1.23.12.2 $
-//Modified:  $Date: 2013/01/29 22:09:35 $
+//Version:   $Revision: 1.24 $
+//Modified:  $Date: 2013/05/10 05:37:55 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -79,7 +79,6 @@ import org.eclipse.gef.ui.parts.ScrollingGraphicalViewer;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.IDialogSettings;
-import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.preference.JFacePreferences;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.util.IPropertyChangeListener;
@@ -251,6 +250,7 @@ public class GraphicalEditor extends GraphicalEditorWithFlyoutPalette implements
 				}
 
 			};
+			getEditDomain().setActiveTool(tool.createTool());
 			controlGroup.add(tool);
 			ToolEntry zoomToolEntry = new ZoomToolEntry(
 					"Zoom Tool",

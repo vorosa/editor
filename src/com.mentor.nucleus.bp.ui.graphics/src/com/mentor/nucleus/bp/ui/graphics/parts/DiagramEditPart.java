@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: DiagramEditPart.java,v $
-//Version:   $Revision: 1.52.6.2 $
-//Modified:  $Date: 2013/01/29 22:09:04 $
+//Version:   $Revision: 1.57.2.1 $
+//Modified:  $Date: 2013/07/08 14:32:23 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -57,6 +57,7 @@ import org.eclipse.gef.requests.LocationRequest;
 import org.eclipse.jface.preference.JFacePreferences;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.ui.IActionFilter;
+import org.eclipse.ui.PlatformUI;
 
 import com.mentor.nucleus.bp.core.CorePlugin;
 import com.mentor.nucleus.bp.core.common.BridgePointPreferencesStore;
@@ -252,7 +253,7 @@ public class DiagramEditPart extends AbstractGraphicalEditPart implements
 	// We will keep a list of prior versions, plus the current version
 	// here.  Use these to determine when upgrades should occur.
 	// 
-	public static String CURRENT_GRAPHICS_VERSION = "3.6.3"; // $NON-NLS-1$ 
+	public static String CURRENT_GRAPHICS_VERSION = "4.1.7"; // $NON-NLS-1$ 
 	
 	public void upgradeModelData() {
 		Model_c model = (Model_c) getModel();
@@ -499,7 +500,13 @@ public class DiagramEditPart extends AbstractGraphicalEditPart implements
 				udl.removeLayerFromModelMap(this);
 			}
 		}
-		getFigure().repaint();
+		// guarantee this is done on the UI thread
+		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
+			@Override
+			public void run() {
+				getFigure().repaint();
+			}
+		});
 	}
 
 	private boolean userDefinedLayerContains(IFigure figure, boolean connection) {
@@ -558,7 +565,8 @@ public class DiagramEditPart extends AbstractGraphicalEditPart implements
 				&& getChildren().get(0) instanceof ShapeEditPart
 				&& ((ShapeEditPart) getChildren().get(0)).isContainerShape()) {
 			if (getViewer().getSelectedEditParts().contains(
-					getChildren().get(0))) {
+					getChildren().get(0))
+					&& request instanceof ChangeBoundsRequest) {
 				return super.getTargetEditPart(request);
 			}
 			if(request instanceof LocationRequest) {
