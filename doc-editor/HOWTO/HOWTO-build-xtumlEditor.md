@@ -13,7 +13,7 @@ HOWTO Build xtUML Editor (using xtUML Editor)
 
 
 ### Configuration
-- Launch xtuml Editor.  Enter the name of a new eclipse workspace that will become your development workspace.  _Example:  c:/workspaces/xtumlEditor_ 
+- Launch xtuml Editor.  Enter the name of a new eclipse workspace that will become your development workspace. (_Example:  c:/workspaces/xtumlEditor_)
 
 - Install required add-ons:
   - Open the Navigator view
@@ -29,7 +29,7 @@ HOWTO Build xtUML Editor (using xtUML Editor)
   - Select Next
   - Select all the branches
   - Select Next
-  - For the Local Destination select your desired github/repos folder location. __NOTE: DO NOT SELECT YOUR WORKSPACE!  Store this local git repository outside your workspace.__   _Example:  c:/git/xtuml/editor_ 
+  - For the Local Destination select your desired github/repos folder location. __NOTE: DO NOT SELECT YOUR WORKSPACE!  Store this local git repository outside your workspace.__   (_Example:  c:/git/xtuml/editor_)
   - Select Finish
   
 - Import the projects into your workspace
