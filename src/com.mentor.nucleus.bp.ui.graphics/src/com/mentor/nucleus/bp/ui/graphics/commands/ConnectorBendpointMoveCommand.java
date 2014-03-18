@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: ConnectorBendpointMoveCommand.java,v $
-//Version:   $Revision: 1.9.12.2 $
-//Modified:  $Date: 2013/01/29 22:08:44 $
+//Version:   $Revision: 1.9 $
+//Modified:  $Date: 2013/01/10 23:05:45 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -24,6 +24,7 @@ package com.mentor.nucleus.bp.ui.graphics.commands;
 
 import java.util.UUID;
 
+import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gef.EditPart;
@@ -89,8 +90,8 @@ public class ConnectorBendpointMoveCommand extends Command implements
 		// the original location then this command
 		// should not execute
 		Connector_c connector = (Connector_c) part.getModel();
-		Point location = request.getLocation().getCopy();
-		part.getFigure().translateToRelative(location);
+		Point location = ((Connection) request.getSource().getFigure())
+				.getPoints().getPoint(request.getIndex());
 		UUID waypointID = connector.Getwaypointatindex(request.getIndex());
 		if (part.getConnectionFigure().getConnectionRouter() instanceof RectilinearRouter) {
 			waypointID = connector.Getwaypointatindex(request.getIndex() - 1);

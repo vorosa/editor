@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: CreateConnectionCommand.java,v $
-//Version:   $Revision: 1.13.12.2 $
-//Modified:  $Date: 2013/01/29 22:08:45 $
+//Version:   $Revision: 1.13 $
+//Modified:  $Date: 2013/01/10 23:05:45 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -60,6 +60,7 @@ public class CreateConnectionCommand extends Command {
 
 	private CreateConnectionRequest fRequest;
 	private PolylineConnection fFeedback;
+	public Connector_c result;
 
 	public CreateConnectionCommand(CreateConnectionRequest request,
 			PolylineConnection feedback) {
@@ -150,6 +151,7 @@ public class CreateConnectionCommand extends Command {
 			Connector_c newCon = Connector_c
 					.getOneGD_CONOnR2(GraphicalElement_c
 							.getOneGD_GEOnR23(newGraphele));
+			result = newCon;
 			createBendpoints(newCon);
 			createAnchorOnSegmentInstances(newCon, startPoint, endPoint);
 			if (isAnchorHost(newCon)) {
@@ -255,10 +257,12 @@ public class CreateConnectionCommand extends Command {
 		con.relateAcrossR311To(newElem);
 		con.relateAcrossR321To(targetEdge);
 		AnchorOnSegment_c aos = AnchorOnSegment_c.getOneGD_AOSOnR26(con);
-		LineSegment_c segment = LineSegment_c.getOneGD_LSOnR26(aos);
-		aos.unrelateAcrossR26From(segment);
-		LineSegment_c newSeg = LineSegment_c.getOneGD_LSOnR6(newCon);
-		aos.relateAcrossR26To(newSeg);
+		if(aos != null) {
+			LineSegment_c segment = LineSegment_c.getOneGD_LSOnR26(aos);
+			aos.unrelateAcrossR26From(segment);
+			LineSegment_c newSeg = LineSegment_c.getOneGD_LSOnR6(newCon);
+			aos.relateAcrossR26To(newSeg);
+		}
 	}
 
 	private boolean isAnchorHost(Connector_c newCon) {

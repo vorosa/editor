@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: CanvasDummyIFile.java,v $
-//Version:   $Revision: 1.6.12.2 $
-//Modified:  $Date: 2013/01/29 22:09:36 $
+//Version:   $Revision: 1.7 $
+//Modified:  $Date: 2013/03/14 02:49:38 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -44,6 +44,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFileState;
 import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IPathVariableManager;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
 import org.eclipse.core.resources.IResourceProxy;
@@ -668,5 +669,20 @@ class CanvasDummyIFile implements IFile
     public boolean isTeamPrivateMember(int options) {
         return false;
     }
+  	
+	@Override
+	public IPathVariableManager getPathVariableManager() {
+		return null;
+	}
+
+	@Override
+	public boolean isVirtual() {
+		return false;
+	}
+
+	@Override
+	public void setDerived(boolean isDerived, IProgressMonitor monitor)
+			throws CoreException {
+	}
   	
   }

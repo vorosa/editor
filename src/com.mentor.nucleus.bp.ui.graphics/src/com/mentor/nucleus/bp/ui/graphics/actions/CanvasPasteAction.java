@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: CanvasPasteAction.java,v $
-//Version:   $Revision: 1.10.12.2 $
-//Modified:  $Date: 2013/01/29 22:09:20 $
+//Version:   $Revision: 1.11 $
+//Modified:  $Date: 2013/05/10 05:37:56 $
 //
+//(c) Copyright 2007-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -481,10 +481,8 @@ public class CanvasPasteAction extends PasteAction {
 					if(!result)
 						break;
 				}
-				if(types.length == 0)
+				if(types.length == 0) {
 					result = false;
-				if(result) {
-					
 				}
 			} else {
 				result = false;

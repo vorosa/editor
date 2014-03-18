@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: DynamicLayersContributionItem.java,v $
-//Version:   $Revision: 1.5.12.2 $
-//Modified:  $Date: 2013/01/29 22:09:17 $
+//Version:   $Revision: 1.6 $
+//Modified:  $Date: 2013/05/12 22:29:18 $
 //
+//Copyright (c) 2005-2014 Mentor Graphics Corporation.  All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -54,7 +54,7 @@ public class DynamicLayersContributionItem extends ContributionItem {
 		}
 		final GraphicalEditor editor = ((ModelEditor) activeEditor)
 				.getGraphicalEditor();
-		if(editor.getCanvas().getMenu() != menu) {
+		if(editor == null || editor.getCanvas().getMenu() != menu) {
 			// only support the graphical menu
 			return;
 		}

@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: ShapeAnchor.java,v $
-//Version:   $Revision: 1.7.12.2 $
-//Modified:  $Date: 2013/01/29 22:08:48 $
+//Version:   $Revision: 1.7 $
+//Modified:  $Date: 2013/01/10 23:05:47 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -147,14 +147,14 @@ public class ShapeAnchor extends AbstractConnectionAnchor implements
 		Rectangle bounds = getOwner().getBounds().getCopy();
 		PrecisionRectangle r = new PrecisionRectangle(bounds);
 		PrecisionPointList ptList = new PrecisionPointList(5);
-		ptList.addPoint(new PrecisionPoint(r.preciseX, r.preciseY));
-		ptList.addPoint(new PrecisionPoint(r.preciseX + r.preciseWidth,
-				r.preciseY));
-		ptList.addPoint(new PrecisionPoint(r.preciseX + r.preciseWidth,
-				r.preciseY + r.preciseHeight));
-		ptList.addPoint(new PrecisionPoint(r.preciseX, r.preciseY
-				+ r.preciseHeight));
-		ptList.addPoint(new PrecisionPoint(r.preciseX, r.preciseY));
+		ptList.addPoint(new PrecisionPoint(r.preciseX(), r.preciseY()));
+		ptList.addPoint(new PrecisionPoint(r.preciseX() + r.preciseWidth(),
+				r.preciseY()));
+		ptList.addPoint(new PrecisionPoint(r.preciseX() + r.preciseWidth(),
+				r.preciseY() + r.preciseHeight()));
+		ptList.addPoint(new PrecisionPoint(r.preciseX(), r.preciseY()
+				+ r.preciseHeight()));
+		ptList.addPoint(new PrecisionPoint(r.preciseX(), r.preciseY()));
 		return ptList;
 	}
 

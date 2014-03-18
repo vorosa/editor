@@ -1,25 +1,4 @@
 package com.mentor.nucleus.bp.ui.graphics.preferences;
-//=====================================================================
-//
-// File:      $RCSfile: GraphicalEditorPreferences.java,v $
-// Version:   $Revision: 1.4.104.2 $
-// Modified:  $Date: 2013/01/29 22:09:49 $
-//
-//
-//=====================================================================
-// © 2013 Mentor Graphics Corporation
-// Licensed under the Apache License, Version 2.0 (the "License"); you may not 
-// use this file except in compliance with the License.  You may obtain a copy 
-// of the License at
-//
-//       http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software 
-// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT 
-// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the 
-// License for the specific language governing permissions and limitations under
-// the License.
-//=====================================================================
 
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.preference.BooleanFieldEditor;
@@ -247,12 +226,20 @@ public class GraphicalEditorPreferences extends FieldEditorPreferencePage implem
 	}
 
 	public boolean performOk() {
-		CorePlugin plugin = CorePlugin.getDefault();
+        super.performOk();
+
+        // When closing the preferences UI, the performOk() for each page the user
+        // viewed will be called. Those other performOk()'s may have caused the
+        // store to be updated. So we need to make sure our copy of the
+        // preferences model is up to date before we modify and save it.
+        model.getStore().loadModel(getPreferenceStore(), null, model);
+
 		BridgePointPreferencesModel bpPrefs = (BridgePointPreferencesModel) model;
 		if (showGrid.getBooleanValue()) {
 			bpPrefs.showGrid = true;
-		} else
+		} else {
 			bpPrefs.showGrid = false;
+		}
 		if (snapToGrid.getBooleanValue()) {
 			bpPrefs.snapToGrid = true;
 		} else {
@@ -284,11 +271,46 @@ public class GraphicalEditorPreferences extends FieldEditorPreferencePage implem
 		}
 		RGB rgb = gradientBaseColor.getColorValue();
 		bpPrefs.gradientBaseColor = convertToLong(rgb);
-		model.getStore().saveModel(plugin.getPreferenceStore(), model);
+		model.getStore().saveModel(getPreferenceStore(), model);
 		GraphicalEditor.redrawAll();
 		return true;
 	}
 
+    private void syncUIWithPreferences() {
+        BridgePointPreferencesModel bpPrefs = (BridgePointPreferencesModel) model;
+
+        // NOTE: We do NOT want to call model.loadModel(...) here.  The model will
+        // have already been set up with the correct data (either from the store
+        // or defaults) before this function is called.  Calling model.loadModel(...)
+        // here would overwrite the population of the default model data in
+        // performDefaults().
+
+        Integer spacing = new Integer(bpPrefs.gridSpacing);
+        gridSpacing.setStringValue(spacing.toString());
+        
+        if (bpPrefs.disableGradients == true) {
+            disableGradients.setSelection( true );
+        } else {
+            disableGradients.setSelection( false );
+        }
+
+        if (bpPrefs.invertGradients == true) {
+            invertGradients.setSelection( true );
+        } else {
+            invertGradients.setSelection( false );
+        }
+
+        gradientBaseColor.setColorValue( convertToRGB( bpPrefs.gradientBaseColor ) );
+
+        if ( disableGradients.getSelection() == true ) {
+            invertGradients.setEnabled( false );
+            clrLabel.setEnabled( false );
+            gradientBaseColor.setEnabled( false );
+        }
+        
+        // NOTE: The show grid, snap to grid, and routing style controls are 
+        // handled by eclipse, we don't have to handle them manually.
+    }
 	protected long convertToLong( RGB rgb ) {
 		long rVal = (rgb.red << 16) | (rgb.green << 8) | rgb.blue;
 		return rVal;
@@ -298,6 +320,7 @@ public class GraphicalEditorPreferences extends FieldEditorPreferencePage implem
 	protected void performDefaults() {
 		super.performDefaults();
 		model.getStore().restoreModelDefaults(model);
+		syncUIWithPreferences();
 	}
 
 	protected int convertHorizontalDLUsToPixels(Control control, int dlus) {

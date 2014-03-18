@@ -1,12 +1,12 @@
 //========================================================================
 //
 //File:      $RCSfile: GraphicsEditorListener.java,v $
-//Version:   $Revision: 1.12.12.2 $
-//Modified:  $Date: 2013/01/29 22:09:46 $
+//Version:   $Revision: 1.13 $
+//Modified:  $Date: 2013/05/10 13:29:00 $
 //
+//(c) Copyright 2005-2014 by Mentor Graphics Corp. All rights reserved.
 //
 //========================================================================
-// © 2013 Mentor Graphics Corporation
 // Licensed under the Apache License, Version 2.0 (the "License"); you may not 
 // use this file except in compliance with the License.  You may obtain a copy 
 // of the License at
@@ -25,7 +25,6 @@ package com.mentor.nucleus.bp.ui.graphics.listeners;
 import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 
 import com.mentor.nucleus.bp.core.ClassStateMachine_c;
@@ -46,7 +45,6 @@ import com.mentor.nucleus.bp.core.common.NonRootModelElement;
 import com.mentor.nucleus.bp.core.common.PersistableModelComponent;
 import com.mentor.nucleus.bp.core.common.Transaction;
 import com.mentor.nucleus.bp.ui.canvas.CanvasModelListener;
-import com.mentor.nucleus.bp.ui.canvas.CanvasPlugin;
 import com.mentor.nucleus.bp.ui.canvas.Cl_c;
 import com.mentor.nucleus.bp.ui.canvas.ElementSpecification_c;
 import com.mentor.nucleus.bp.ui.canvas.GraphicalElement_c;
@@ -132,6 +130,17 @@ public class GraphicsEditorListener extends ModelChangeAdapter implements ITrans
 					graph.setRepresents(null);
 					m_editor.refresh();
 				}
+			}
+		}
+	}
+	
+	@Override
+	public void systemAboutToBeDisabled(SystemModel_c system) {
+		if (m_editor != null && m_editor.getCanvas() != null
+				&& !m_editor.getCanvas().isDisposed()) {
+			if (system.getFile().getParent().getFullPath().isPrefixOf(
+					m_editor.getModel().getFile().getFullPath())) {
+				closeEditor(m_editor);
 			}
 		}
 	}
@@ -290,9 +299,16 @@ public class GraphicsEditorListener extends ModelChangeAdapter implements ITrans
 		}
 	}
 
-	private void closeEditor(GraphicalEditor editor) {
-		PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-				.closeEditor(editor.getParentEditor(), false);
+	private void closeEditor(final GraphicalEditor editor) {
+		PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+						.getActivePage().closeEditor(editor.getParentEditor(),
+								false);	
+			}
+		});
 	}
 
 	// public and static for unit test visibility
