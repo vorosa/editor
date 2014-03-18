@@ -17,3 +17,6 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   See the
 License for the specific language governing permissions and limitations under
 the License.
 </pre>
+
+
+If you are interested in building the code, see https://github.com/xtuml/editor/blob/master/doc-editor/HOWTO/HOWTO-build-xtumlEditor.md 
