@@ -29,7 +29,7 @@ HOWTO Build xtUML Editor (using xtUML Editor)
   - Select Next
   - Select all the branches
   - Select Next
-  - For the Local Destination select your desired github/repos folder location. __NOTE: DO NOT SELECT YOUR WORKSPACE!  Store this local git repository outside your workspace.__
+  - For the Local Destination select your desired github/repos folder location. __NOTE: DO NOT SELECT YOUR WORKSPACE!  Store this local git repository outside your workspace.__   _Example:  c:/git/xtuml/editor_ 
   - Select Finish
   
 - Import the projects into your workspace
@@ -40,6 +40,17 @@ HOWTO Build xtUML Editor (using xtUML Editor)
   - Ensure "Search for nested projects" is UNchecked.
   - Select Finish
    
+- Open Git Repository Exploring perspective.  Select the button to _Clone a Git Repository and add the clone to this view_
+  - Using the wizard as performed previously, clone ```https://github.com/xtuml/models.git``` to a local repository ( _Example:  c:/git/xtuml/models_)
+
+- Open ```c:/MentorGraphics/xtUMLEditor/eclipse/Launcher.bat``` in a text editor
+  - After the ```set BP_JVM=...``` line add the following (adjusted for your previously chosen repository locations)
+
+```
+set XTUML_TEST_MODEL_REPOSITORY=C:/git/xtuml/models/test/
+set XTUML_DEVELOPMENT_REPOSITORY=C:/git/xtum/editor
+```
+
 - Prepare to run unit tests (on MS Windows):
   - Exit BridgePoint
   - Configure Windows Vista or Windows 7 for unit test running
