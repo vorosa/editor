@@ -52,7 +52,7 @@ set XTUML_DEVELOPMENT_REPOSITORY=C:/git/xtum/editor
 ```
 
 - Prepare to run unit tests (on MS Windows):
-  - Exit BridgePoint
+  - Exit xtUML Editor
   - Configure Windows Vista or Windows 7 for unit test running
 
 ```
@@ -83,7 +83,7 @@ set XTUML_DEVELOPMENT_REPOSITORY=C:/git/xtum/editor
         at a later time.
 ```
 
-  - Launch BridgePoint
+  - Launch xtUML Editor
 
 - Set the unit test history to assure the test summary tool capture all results
   - Open the Junit view
