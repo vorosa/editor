@@ -8,8 +8,10 @@ HOWTO Build xtUML Editor (using xtUML Editor)
 
 - Run the xtUML Editor installer
    
-- Navigate to https://github.com/xtuml/editor/tree/master/doc-editor/development/workspace-config
-  - Right-click on the file ```xtuml_dev_eclipse_addons.p2f``` and save it to disk
+- Navigate to https://github.com/xtuml/editor/blob/master/doc-editor/development/workspace-config/xtUML_dev_eclipse_addons.p2f
+  - Select "Raw" to open the file
+  - Right-click on the file ```xtuml_dev_eclipse_addons.p2f``` and save it to disk.
+    - Make sure that the file name extension is ".p2f"
 
 
 ### Configuration
