@@ -45,6 +45,20 @@
                           PackageableElement_c.getManyPE_PEsOnR8000(start));
 </pre>
 
+Note that because the xtUML editor is generated, its API is very regular.
+Calls to traverse the metamodel all rigidly follow the rule:
+<pre>
+{element name}_c element = {element name}_c.get{cardinality}{element key letters}OnR{association number}({related element})
+</pre>
+
+and accessors all follow the rule:
+<pre>
+{attribute type} get{attribute name}()
+</pre>
+
+Once this becomes clear, you can do without this document and synthesize the
+calls yourself, with just a little help from java code completion.
+
 =============================================================================
 
 #### AutomaticWiring_c
@@ -58,12 +72,12 @@
 
 ###### R3201 - Automatic Wiring *connects bridge execution to* Function
 
-######  select one <Automatic Wiring instance> related by <Function target>->S_AW[R3201]
+######  select one {Automatic Wiring instance} related by {Function target}->S_AW[R3201]
 <pre>
 AutomaticWiring_c getOneS_AWOnR3201(Function_c target)
 AutomaticWiring_c getOneS_AWOnR3201(Function_c[] targets)
 </pre>
-######  select many <Automatic Wiring set> related by <Function target>->S_AW[R3201]
+######  select many {Automatic Wiring set} related by {Function target}->S_AW[R3201]
 <pre>
 AutomaticWiring_c[] getManyS_AWsOnR3201(Function_c target)
 AutomaticWiring_c[] getManyS_AWsOnR3201(Function_c[] targets)
@@ -71,12 +85,12 @@ AutomaticWiring_c[] getManyS_AWsOnR3201(Function_c[] targets)
 
 ###### R3200 - Automatic Wiring *for bridge execution* Bridge
 
-######  select one <Automatic Wiring instance> related by <Bridge target>->S_AW[R3200]
+######  select one {Automatic Wiring instance} related by {Bridge target}->S_AW[R3200]
 <pre>
 AutomaticWiring_c getOneS_AWOnR3200(Bridge_c target)
 AutomaticWiring_c getOneS_AWOnR3200(Bridge_c[] targets)
 </pre>
-######  select many <Automatic Wiring set> related by <Bridge target>->S_AW[R3200]
+######  select many {Automatic Wiring set} related by {Bridge target}->S_AW[R3200]
 <pre>
 AutomaticWiring_c[] getManyS_AWsOnR3200(Bridge_c target)
 AutomaticWiring_c[] getManyS_AWsOnR3200(Bridge_c[] targets)
@@ -97,23 +111,23 @@ AutomaticWiring_c[] getManyS_AWsOnR3200(Bridge_c[] targets)
 
 ###### R110 - Referred To Class in Assoc *is identified in this association by* Class Identifier Attribute (via Referred To Identifier Attribute)
 
-######  select one <Referred To Identifier Attribute instance> related by <Referred To Class in Assoc target>->O_RTIDA[R110]
+######  select one {Referred To Identifier Attribute instance} related by {Referred To Class in Assoc target}->O_RTIDA[R110]
 <pre>
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR110(ReferredToClassInAssoc_c target)
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR110(ReferredToClassInAssoc_c[] targets)
 </pre>
-######  select many <Referred To Identifier Attribute set> related by <Referred To Class in Assoc target>->O_RTIDA[R110]
+######  select many {Referred To Identifier Attribute set} related by {Referred To Class in Assoc target}->O_RTIDA[R110]
 <pre>
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR110(ReferredToClassInAssoc_c target)
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR110(ReferredToClassInAssoc_c[] targets)
 </pre>
 
-######  select one <Referred To Identifier Attribute instance> related by <Class Identifier Attribute target>->O_RTIDA[R110]
+######  select one {Referred To Identifier Attribute instance} related by {Class Identifier Attribute target}->O_RTIDA[R110]
 <pre>
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR110(ClassIdentifierAttribute_c target)
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR110(ClassIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Referred To Identifier Attribute set> related by <Class Identifier Attribute target>->O_RTIDA[R110]
+######  select many {Referred To Identifier Attribute set} related by {Class Identifier Attribute target}->O_RTIDA[R110]
 <pre>
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR110(ClassIdentifierAttribute_c target)
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR110(ClassIdentifierAttribute_c[] targets)
@@ -121,23 +135,23 @@ ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR110(ClassIdentifierAttribute
 
 ###### R111 - Referred To Identifier Attribute *is used to refer class by* Referring Class In Assoc (via Attribute Reference in Class)
 
-######  select one <Referred To Identifier Attribute instance> related by <Referring Class In Assoc target>->O_RTIDA[R111]
+######  select one {Referred To Identifier Attribute instance} related by {Referring Class In Assoc target}->O_RTIDA[R111]
 <pre>
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR111(ReferringClassInAssoc_c target)
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR111(ReferringClassInAssoc_c[] targets)
 </pre>
-######  select many <Referred To Identifier Attribute set> related by <Referring Class In Assoc target>->O_RTIDA[R111]
+######  select many {Referred To Identifier Attribute set} related by {Referring Class In Assoc target}->O_RTIDA[R111]
 <pre>
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR111(ReferringClassInAssoc_c target)
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR111(ReferringClassInAssoc_c[] targets)
 </pre>
 
-######  select one <Referred To Identifier Attribute instance> related by <Attribute Reference in Class target>->O_RTIDA[R111]
+######  select one {Referred To Identifier Attribute instance} related by {Attribute Reference in Class target}->O_RTIDA[R111]
 <pre>
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR111(AttributeReferenceInClass_c target)
 ReferredToIdentifierAttribute_c getOneO_RTIDAOnR111(AttributeReferenceInClass_c[] targets)
 </pre>
-######  select many <Referred To Identifier Attribute set> related by <Attribute Reference in Class target>->O_RTIDA[R111]
+######  select many {Referred To Identifier Attribute set} related by {Attribute Reference in Class target}->O_RTIDA[R111]
 <pre>
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR111(AttributeReferenceInClass_c target)
 ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR111(AttributeReferenceInClass_c[] targets)
@@ -155,10 +169,10 @@ ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR111(AttributeReferenceInClas
 
 <pre>
   -  int         	getRef_mode()
-  - void			setRef_mode(int          newValue)
+  -  void			setRef_mode(int          newValue)
 
   -  String      	getBaseattrname()
-  - void			setBaseattrname(String       newValue)
+  -  void			setBaseattrname(String       newValue)
 
 </pre>
 
@@ -169,12 +183,12 @@ ReferredToIdentifierAttribute_c[] getManyO_RTIDAsOnR111(AttributeReferenceInClas
 
 ###### R113 - Referential Attribute *navigates back to* Base Attribute
 
-######  select one <Referential Attribute instance> related by <Base Attribute target>->O_RATTR[R113]
+######  select one {Referential Attribute instance} related by {Base Attribute target}->O_RATTR[R113]
 <pre>
 ReferentialAttribute_c getOneO_RATTROnR113(BaseAttribute_c target)
 ReferentialAttribute_c getOneO_RATTROnR113(BaseAttribute_c[] targets)
 </pre>
-######  select many <Referential Attribute set> related by <Base Attribute target>->O_RATTR[R113]
+######  select many {Referential Attribute set} related by {Base Attribute target}->O_RATTR[R113]
 <pre>
 ReferentialAttribute_c[] getManyO_RATTRsOnR113(BaseAttribute_c target)
 ReferentialAttribute_c[] getManyO_RATTRsOnR113(BaseAttribute_c[] targets)
@@ -182,12 +196,12 @@ ReferentialAttribute_c[] getManyO_RATTRsOnR113(BaseAttribute_c[] targets)
 
 ###### R108 - Referential Attribute *resolves * Attribute Reference in Class
 
-######  select one <Referential Attribute instance> related by <Attribute Reference in Class target>->O_RATTR[R108]
+######  select one {Referential Attribute instance} related by {Attribute Reference in Class target}->O_RATTR[R108]
 <pre>
 ReferentialAttribute_c getOneO_RATTROnR108(AttributeReferenceInClass_c target)
 ReferentialAttribute_c getOneO_RATTROnR108(AttributeReferenceInClass_c[] targets)
 </pre>
-######  select many <Referential Attribute set> related by <Attribute Reference in Class target>->O_RATTR[R108]
+######  select many {Referential Attribute set} related by {Attribute Reference in Class target}->O_RATTR[R108]
 <pre>
 ReferentialAttribute_c[] getManyO_RATTRsOnR108(AttributeReferenceInClass_c target)
 ReferentialAttribute_c[] getManyO_RATTRsOnR108(AttributeReferenceInClass_c[] targets)
@@ -195,22 +209,23 @@ ReferentialAttribute_c[] getManyO_RATTRsOnR108(AttributeReferenceInClass_c[] tar
 
 ###### R119
 
-######  select one <Referential Attribute instance> related by <Referential Attribute Visited Recorder target>->O_RATTR[R119]
+######  select one {Referential Attribute instance} related by {Referential Attribute Visited Recorder target}->O_RATTR[R119]
 <pre>
 ReferentialAttribute_c getOneO_RATTROnR119(ReferentialAttributeVisitedRecorder_c target)
 ReferentialAttribute_c getOneO_RATTROnR119(ReferentialAttributeVisitedRecorder_c[] targets)
 </pre>
-######  select many <Referential Attribute set> related by <Referential Attribute Visited Recorder target>->O_RATTR[R119]
+######  select many {Referential Attribute set} related by {Referential Attribute Visited Recorder target}->O_RATTR[R119]
 <pre>
 ReferentialAttribute_c[] getManyO_RATTRsOnR119(ReferentialAttributeVisitedRecorder_c target)
 ReferentialAttribute_c[] getManyO_RATTRsOnR119(ReferentialAttributeVisitedRecorder_c[] targets)
 </pre>
+###### R106 (Subtype)
 
-######  select one <Referential Attribute instance> related by <Attribute target>->O_RATTR[R106]
+######  select one {Referential Attribute instance} related by {Attribute target}->O_RATTR[R106]
 <pre>
 ReferentialAttribute_c getOneO_RATTROnR106(Attribute_c target)
 </pre>
-######  select many <Referential Attribute set> related by <Attribute target>->O_RATTR[R106]
+######  select many {Referential Attribute set} related by {Attribute target}->O_RATTR[R106]
 <pre>
 ReferentialAttribute_c[] getManyO_RATTRsOnR106(Attribute_c[] targets)
 </pre>
@@ -227,19 +242,19 @@ ReferentialAttribute_c[] getManyO_RATTRsOnR106(Attribute_c[] targets)
 
 <pre>
   -  java.util.UUID        	getTparm_id()
-  - void			setTparm_id(java.util.UUID         newValue)
+  -  void			setTparm_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  int         	getBy_ref()
-  - void			setBy_ref(int          newValue)
+  -  void			setBy_ref(int          newValue)
 
   -  String      	getDimensions()
-  - void			setDimensions(String       newValue)
+  -  void			setDimensions(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -250,12 +265,12 @@ ReferentialAttribute_c[] getManyO_RATTRsOnR106(Attribute_c[] targets)
 
 ###### R833 - Parameter Value *is a value of* Operation Parameter
 
-######  select one <Operation Parameter instance> related by <Parameter Value target>->O_TPARM[R833]
+######  select one {Operation Parameter instance} related by {Parameter Value target}->O_TPARM[R833]
 <pre>
 OperationParameter_c getOneO_TPARMOnR833(ParameterValue_c target)
 OperationParameter_c getOneO_TPARMOnR833(ParameterValue_c[] targets)
 </pre>
-######  select many <Operation Parameter set> related by <Parameter Value target>->O_TPARM[R833]
+######  select many {Operation Parameter set} related by {Parameter Value target}->O_TPARM[R833]
 <pre>
 OperationParameter_c[] getManyO_TPARMsOnR833(ParameterValue_c target)
 OperationParameter_c[] getManyO_TPARMsOnR833(ParameterValue_c[] targets)
@@ -263,12 +278,12 @@ OperationParameter_c[] getManyO_TPARMsOnR833(ParameterValue_c[] targets)
 
 ###### R117 - Operation Parameter *is part of * Operation
 
-######  select one <Operation Parameter instance> related by <Operation target>->O_TPARM[R117]
+######  select one {Operation Parameter instance} related by {Operation target}->O_TPARM[R117]
 <pre>
 OperationParameter_c getOneO_TPARMOnR117(Operation_c target)
 OperationParameter_c getOneO_TPARMOnR117(Operation_c[] targets)
 </pre>
-######  select many <Operation Parameter set> related by <Operation target>->O_TPARM[R117]
+######  select many {Operation Parameter set} related by {Operation target}->O_TPARM[R117]
 <pre>
 OperationParameter_c[] getManyO_TPARMsOnR117(Operation_c target)
 OperationParameter_c[] getManyO_TPARMsOnR117(Operation_c[] targets)
@@ -276,12 +291,12 @@ OperationParameter_c[] getManyO_TPARMsOnR117(Operation_c[] targets)
 
 ###### R118 - Operation Parameter *is defined by* Data Type
 
-######  select one <Operation Parameter instance> related by <Data Type target>->O_TPARM[R118]
+######  select one {Operation Parameter instance} related by {Data Type target}->O_TPARM[R118]
 <pre>
 OperationParameter_c getOneO_TPARMOnR118(DataType_c target)
 OperationParameter_c getOneO_TPARMOnR118(DataType_c[] targets)
 </pre>
-######  select many <Operation Parameter set> related by <Data Type target>->O_TPARM[R118]
+######  select many {Operation Parameter set} related by {Data Type target}->O_TPARM[R118]
 <pre>
 OperationParameter_c[] getManyO_TPARMsOnR118(DataType_c target)
 OperationParameter_c[] getManyO_TPARMsOnR118(DataType_c[] targets)
@@ -289,12 +304,12 @@ OperationParameter_c[] getManyO_TPARMsOnR118(DataType_c[] targets)
 
 ###### R121 - Operation Parameter *may have* Dimensions
 
-######  select one <Operation Parameter instance> related by <Dimensions target>->O_TPARM[R121]
+######  select one {Operation Parameter instance} related by {Dimensions target}->O_TPARM[R121]
 <pre>
 OperationParameter_c getOneO_TPARMOnR121(Dimensions_c target)
 OperationParameter_c getOneO_TPARMOnR121(Dimensions_c[] targets)
 </pre>
-######  select many <Operation Parameter set> related by <Dimensions target>->O_TPARM[R121]
+######  select many {Operation Parameter set} related by {Dimensions target}->O_TPARM[R121]
 <pre>
 OperationParameter_c[] getManyO_TPARMsOnR121(Dimensions_c target)
 OperationParameter_c[] getManyO_TPARMsOnR121(Dimensions_c[] targets)
@@ -304,12 +319,12 @@ OperationParameter_c[] getManyO_TPARMsOnR121(Dimensions_c[] targets)
 
 ###### R1015 - Operation Parameter *represents* Operation Argument
 
-######  select one <Operation Parameter instance> related by <Operation Argument target>->O_TPARM[R1015]
+######  select one {Operation Parameter instance} related by {Operation Argument target}->O_TPARM[R1015]
 <pre>
 OperationParameter_c getOneO_TPARMOnR1015(OperationArgument_c target)
 OperationParameter_c getOneO_TPARMOnR1015(OperationArgument_c[] targets)
 </pre>
-######  select many <Operation Parameter set> related by <Operation Argument target>->O_TPARM[R1015]
+######  select many {Operation Parameter set} related by {Operation Argument target}->O_TPARM[R1015]
 <pre>
 OperationParameter_c[] getManyO_TPARMsOnR1015(OperationArgument_c target)
 OperationParameter_c[] getManyO_TPARMsOnR1015(OperationArgument_c[] targets)
@@ -317,12 +332,12 @@ OperationParameter_c[] getManyO_TPARMsOnR1015(OperationArgument_c[] targets)
 
 ###### R3008
 
-######  select one <Operation Parameter instance> related by <Local target>->O_TPARM[R3008]
+######  select one {Operation Parameter instance} related by {Local target}->O_TPARM[R3008]
 <pre>
 OperationParameter_c getOneO_TPARMOnR3008(Local_c target)
 OperationParameter_c getOneO_TPARMOnR3008(Local_c[] targets)
 </pre>
-######  select many <Operation Parameter set> related by <Local target>->O_TPARM[R3008]
+######  select many {Operation Parameter set} related by {Local target}->O_TPARM[R3008]
 <pre>
 OperationParameter_c[] getManyO_TPARMsOnR3008(Local_c target)
 OperationParameter_c[] getManyO_TPARMsOnR3008(Local_c[] targets)
@@ -340,28 +355,28 @@ OperationParameter_c[] getManyO_TPARMsOnR3008(Local_c[] targets)
 
 <pre>
   -  java.util.UUID        	getTfr_id()
-  - void			setTfr_id(java.util.UUID         newValue)
+  -  void			setTfr_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  int 	getInstance_based()
-  - void			setInstance_based(int  newValue)
+  -  void			setInstance_based(int  newValue)
 
   -  String      	getAction_semantics()
-  - void			setAction_semantics(String       newValue)
+  -  void			setAction_semantics(String       newValue)
 
   -  int 	getSuc_pars()
-  - void			setSuc_pars(int  newValue)
+  -  void			setSuc_pars(int  newValue)
 
   -  String      	getAction_semantics_internal()
-  - void			setAction_semantics_internal(String       newValue)
+  -  void			setAction_semantics_internal(String       newValue)
 
   -  String      	getReturn_dimensions()
-  - void			setReturn_dimensions(String       newValue)
+  -  void			setReturn_dimensions(String       newValue)
 
 </pre>
 
@@ -372,12 +387,12 @@ OperationParameter_c[] getManyO_TPARMsOnR3008(Local_c[] targets)
 
 ###### R117 - Operation *contains* Operation Parameter
 
-######  select one <Operation instance> related by <Operation Parameter target>->O_TFR[R117]
+######  select one {Operation instance} related by {Operation Parameter target}->O_TFR[R117]
 <pre>
 Operation_c getOneO_TFROnR117(OperationParameter_c target)
 Operation_c getOneO_TFROnR117(OperationParameter_c[] targets)
 </pre>
-######  select many <Operation set> related by <Operation Parameter target>->O_TFR[R117]
+######  select many {Operation set} related by {Operation Parameter target}->O_TFR[R117]
 <pre>
 Operation_c[] getManyO_TFRsOnR117(OperationParameter_c target)
 Operation_c[] getManyO_TFRsOnR117(OperationParameter_c[] targets)
@@ -385,12 +400,12 @@ Operation_c[] getManyO_TFRsOnR117(OperationParameter_c[] targets)
 
 ###### R829
 
-######  select one <Operation instance> related by <Operation Value target>->O_TFR[R829]
+######  select one {Operation instance} related by {Operation Value target}->O_TFR[R829]
 <pre>
 Operation_c getOneO_TFROnR829(OperationValue_c target)
 Operation_c getOneO_TFROnR829(OperationValue_c[] targets)
 </pre>
-######  select many <Operation set> related by <Operation Value target>->O_TFR[R829]
+######  select many {Operation set} related by {Operation Value target}->O_TFR[R829]
 <pre>
 Operation_c[] getManyO_TFRsOnR829(OperationValue_c target)
 Operation_c[] getManyO_TFRsOnR829(OperationValue_c[] targets)
@@ -398,12 +413,12 @@ Operation_c[] getManyO_TFRsOnR829(OperationValue_c[] targets)
 
 ###### R116 - Operation *return code is defined by* Data Type
 
-######  select one <Operation instance> related by <Data Type target>->O_TFR[R116]
+######  select one {Operation instance} related by {Data Type target}->O_TFR[R116]
 <pre>
 Operation_c getOneO_TFROnR116(DataType_c target)
 Operation_c getOneO_TFROnR116(DataType_c[] targets)
 </pre>
-######  select many <Operation set> related by <Data Type target>->O_TFR[R116]
+######  select many {Operation set} related by {Data Type target}->O_TFR[R116]
 <pre>
 Operation_c[] getManyO_TFRsOnR116(DataType_c target)
 Operation_c[] getManyO_TFRsOnR116(DataType_c[] targets)
@@ -411,12 +426,12 @@ Operation_c[] getManyO_TFRsOnR116(DataType_c[] targets)
 
 ###### R115 - Operation *is associated with* Model Class
 
-######  select one <Operation instance> related by <Model Class target>->O_TFR[R115]
+######  select one {Operation instance} related by {Model Class target}->O_TFR[R115]
 <pre>
 Operation_c getOneO_TFROnR115(ModelClass_c target)
 Operation_c getOneO_TFROnR115(ModelClass_c[] targets)
 </pre>
-######  select many <Operation set> related by <Model Class target>->O_TFR[R115]
+######  select many {Operation set} related by {Model Class target}->O_TFR[R115]
 <pre>
 Operation_c[] getManyO_TFRsOnR115(ModelClass_c target)
 Operation_c[] getManyO_TFRsOnR115(ModelClass_c[] targets)
@@ -424,12 +439,12 @@ Operation_c[] getManyO_TFRsOnR115(ModelClass_c[] targets)
 
 ###### R122 - Operation *return value may have* Dimensions
 
-######  select one <Operation instance> related by <Dimensions target>->O_TFR[R122]
+######  select one {Operation instance} related by {Dimensions target}->O_TFR[R122]
 <pre>
 Operation_c getOneO_TFROnR122(Dimensions_c target)
 Operation_c getOneO_TFROnR122(Dimensions_c[] targets)
 </pre>
-######  select many <Operation set> related by <Dimensions target>->O_TFR[R122]
+######  select many {Operation set} related by {Dimensions target}->O_TFR[R122]
 <pre>
 Operation_c[] getManyO_TFRsOnR122(Dimensions_c target)
 Operation_c[] getManyO_TFRsOnR122(Dimensions_c[] targets)
@@ -439,12 +454,12 @@ Operation_c[] getManyO_TFRsOnR122(Dimensions_c[] targets)
 
 ###### R1011 - Operation *is invoked by* Operation Message
 
-######  select one <Operation instance> related by <Operation Message target>->O_TFR[R1011]
+######  select one {Operation instance} related by {Operation Message target}->O_TFR[R1011]
 <pre>
 Operation_c getOneO_TFROnR1011(OperationMessage_c target)
 Operation_c getOneO_TFROnR1011(OperationMessage_c[] targets)
 </pre>
-######  select many <Operation set> related by <Operation Message target>->O_TFR[R1011]
+######  select many {Operation set} related by {Operation Message target}->O_TFR[R1011]
 <pre>
 Operation_c[] getManyO_TFRsOnR1011(OperationMessage_c target)
 Operation_c[] getManyO_TFRsOnR1011(OperationMessage_c[] targets)
@@ -452,12 +467,12 @@ Operation_c[] getManyO_TFRsOnR1011(OperationMessage_c[] targets)
 
 ###### R673 - Operation Invocation *is an invocation of* Operation
 
-######  select one <Operation instance> related by <Operation Invocation target>->O_TFR[R673]
+######  select one {Operation instance} related by {Operation Invocation target}->O_TFR[R673]
 <pre>
 Operation_c getOneO_TFROnR673(OperationInvocation_c target)
 Operation_c getOneO_TFROnR673(OperationInvocation_c[] targets)
 </pre>
-######  select many <Operation set> related by <Operation Invocation target>->O_TFR[R673]
+######  select many {Operation set} related by {Operation Invocation target}->O_TFR[R673]
 <pre>
 Operation_c[] getManyO_TFRsOnR673(OperationInvocation_c target)
 Operation_c[] getManyO_TFRsOnR673(OperationInvocation_c[] targets)
@@ -465,12 +480,12 @@ Operation_c[] getManyO_TFRsOnR673(OperationInvocation_c[] targets)
 
 ###### R696 - Operation Body *specifies processing for* Operation
 
-######  select one <Operation instance> related by <Operation Body target>->O_TFR[R696]
+######  select one {Operation instance} related by {Operation Body target}->O_TFR[R696]
 <pre>
 Operation_c getOneO_TFROnR696(OperationBody_c target)
 Operation_c getOneO_TFROnR696(OperationBody_c[] targets)
 </pre>
-######  select many <Operation set> related by <Operation Body target>->O_TFR[R696]
+######  select many {Operation set} related by {Operation Body target}->O_TFR[R696]
 <pre>
 Operation_c[] getManyO_TFRsOnR696(OperationBody_c target)
 Operation_c[] getManyO_TFRsOnR696(OperationBody_c[] targets)
@@ -488,12 +503,13 @@ Operation_c[] getManyO_TFRsOnR696(OperationBody_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R107 (Subtype)
 
-######  select one <New Base Attribute instance> related by <Base Attribute target>->O_NBATTR[R107]
+######  select one {New Base Attribute instance} related by {Base Attribute target}->O_NBATTR[R107]
 <pre>
 NewBaseAttribute_c getOneO_NBATTROnR107(BaseAttribute_c target)
 </pre>
-######  select many <New Base Attribute set> related by <Base Attribute target>->O_NBATTR[R107]
+######  select many {New Base Attribute set} related by {Base Attribute target}->O_NBATTR[R107]
 <pre>
 NewBaseAttribute_c[] getManyO_NBATTRsOnR107(BaseAttribute_c[] targets)
 </pre>
@@ -510,16 +526,16 @@ NewBaseAttribute_c[] getManyO_NBATTRsOnR107(BaseAttribute_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  int         	getNumb()
-  - void			setNumb(int          newValue)
+  -  void			setNumb(int          newValue)
 
   -  String      	getKey_lett()
-  - void			setKey_lett(String       newValue)
+  -  void			setKey_lett(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -530,12 +546,12 @@ NewBaseAttribute_c[] getManyO_NBATTRsOnR107(BaseAttribute_c[] targets)
 
 ###### R115 - Model Class *may contain* Operation
 
-######  select one <Model Class instance> related by <Operation target>->O_OBJ[R115]
+######  select one {Model Class instance} related by {Operation target}->O_OBJ[R115]
 <pre>
 ModelClass_c getOneO_OBJOnR115(Operation_c target)
 ModelClass_c getOneO_OBJOnR115(Operation_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Operation target>->O_OBJ[R115]
+######  select many {Model Class set} related by {Operation target}->O_OBJ[R115]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR115(Operation_c target)
 ModelClass_c[] getManyO_OBJsOnR115(Operation_c[] targets)
@@ -543,12 +559,12 @@ ModelClass_c[] getManyO_OBJsOnR115(Operation_c[] targets)
 
 ###### R818 - Instance Handle *refers to* Model Class
 
-######  select one <Model Class instance> related by <Instance Handle target>->O_OBJ[R818]
+######  select one {Model Class instance} related by {Instance Handle target}->O_OBJ[R818]
 <pre>
 ModelClass_c getOneO_OBJOnR818(InstanceHandle_c target)
 ModelClass_c getOneO_OBJOnR818(InstanceHandle_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Instance Handle target>->O_OBJ[R818]
+######  select many {Model Class set} related by {Instance Handle target}->O_OBJ[R818]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR818(InstanceHandle_c target)
 ModelClass_c[] getManyO_OBJsOnR818(InstanceHandle_c[] targets)
@@ -556,12 +572,12 @@ ModelClass_c[] getManyO_OBJsOnR818(InstanceHandle_c[] targets)
 
 ###### R819 - Instance Set *refers to* Model Class
 
-######  select one <Model Class instance> related by <Instance Set target>->O_OBJ[R819]
+######  select one {Model Class instance} related by {Instance Set target}->O_OBJ[R819]
 <pre>
 ModelClass_c getOneO_OBJOnR819(InstanceSet_c target)
 ModelClass_c getOneO_OBJOnR819(InstanceSet_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Instance Set target>->O_OBJ[R819]
+######  select many {Model Class set} related by {Instance Set target}->O_OBJ[R819]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR819(InstanceSet_c target)
 ModelClass_c[] getManyO_OBJsOnR819(InstanceSet_c[] targets)
@@ -569,12 +585,12 @@ ModelClass_c[] getManyO_OBJsOnR819(InstanceSet_c[] targets)
 
 ###### R102 - Model Class *has characteristics abstracted by* Attribute
 
-######  select one <Model Class instance> related by <Attribute target>->O_OBJ[R102]
+######  select one {Model Class instance} related by {Attribute target}->O_OBJ[R102]
 <pre>
 ModelClass_c getOneO_OBJOnR102(Attribute_c target)
 ModelClass_c getOneO_OBJOnR102(Attribute_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Attribute target>->O_OBJ[R102]
+######  select many {Model Class set} related by {Attribute target}->O_OBJ[R102]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR102(Attribute_c target)
 ModelClass_c[] getManyO_OBJsOnR102(Attribute_c[] targets)
@@ -582,12 +598,12 @@ ModelClass_c[] getManyO_OBJsOnR102(Attribute_c[] targets)
 
 ###### R104 - Model Class *is identified by* Class Identifier
 
-######  select one <Model Class instance> related by <Class Identifier target>->O_OBJ[R104]
+######  select one {Model Class instance} related by {Class Identifier target}->O_OBJ[R104]
 <pre>
 ModelClass_c getOneO_OBJOnR104(ClassIdentifier_c target)
 ModelClass_c getOneO_OBJOnR104(ClassIdentifier_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Class Identifier target>->O_OBJ[R104]
+######  select many {Model Class set} related by {Class Identifier target}->O_OBJ[R104]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR104(ClassIdentifier_c target)
 ModelClass_c[] getManyO_OBJsOnR104(ClassIdentifier_c[] targets)
@@ -595,12 +611,12 @@ ModelClass_c[] getManyO_OBJsOnR104(ClassIdentifier_c[] targets)
 
 ###### R101 - Model Class *has presence in other subsystems* Imported Class
 
-######  select one <Model Class instance> related by <Imported Class target>->O_OBJ[R101]
+######  select one {Model Class instance} related by {Imported Class target}->O_OBJ[R101]
 <pre>
 ModelClass_c getOneO_OBJOnR101(ImportedClass_c target)
 ModelClass_c getOneO_OBJOnR101(ImportedClass_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Imported Class target>->O_OBJ[R101]
+######  select many {Model Class set} related by {Imported Class target}->O_OBJ[R101]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR101(ImportedClass_c target)
 ModelClass_c[] getManyO_OBJsOnR101(ImportedClass_c[] targets)
@@ -608,12 +624,12 @@ ModelClass_c[] getManyO_OBJsOnR101(ImportedClass_c[] targets)
 
 ###### R123 - Model Class *is available as a reference by* Instance Reference Data Type
 
-######  select one <Model Class instance> related by <Instance Reference Data Type target>->O_OBJ[R123]
+######  select one {Model Class instance} related by {Instance Reference Data Type target}->O_OBJ[R123]
 <pre>
 ModelClass_c getOneO_OBJOnR123(InstanceReferenceDataType_c target)
 ModelClass_c getOneO_OBJOnR123(InstanceReferenceDataType_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Instance Reference Data Type target>->O_OBJ[R123]
+######  select many {Model Class set} related by {Instance Reference Data Type target}->O_OBJ[R123]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR123(InstanceReferenceDataType_c target)
 ModelClass_c[] getManyO_OBJsOnR123(InstanceReferenceDataType_c[] targets)
@@ -621,12 +637,12 @@ ModelClass_c[] getManyO_OBJsOnR123(InstanceReferenceDataType_c[] targets)
 
 ###### R518
 
-######  select one <Model Class instance> related by <Instance State Machine target>->O_OBJ[R518]
+######  select one {Model Class instance} related by {Instance State Machine target}->O_OBJ[R518]
 <pre>
 ModelClass_c getOneO_OBJOnR518(InstanceStateMachine_c target)
 ModelClass_c getOneO_OBJOnR518(InstanceStateMachine_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Instance State Machine target>->O_OBJ[R518]
+######  select many {Model Class set} related by {Instance State Machine target}->O_OBJ[R518]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR518(InstanceStateMachine_c target)
 ModelClass_c[] getManyO_OBJsOnR518(InstanceStateMachine_c[] targets)
@@ -634,12 +650,12 @@ ModelClass_c[] getManyO_OBJsOnR518(InstanceStateMachine_c[] targets)
 
 ###### R519
 
-######  select one <Model Class instance> related by <Class State Machine target>->O_OBJ[R519]
+######  select one {Model Class instance} related by {Class State Machine target}->O_OBJ[R519]
 <pre>
 ModelClass_c getOneO_OBJOnR519(ClassStateMachine_c target)
 ModelClass_c getOneO_OBJOnR519(ClassStateMachine_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Class State Machine target>->O_OBJ[R519]
+######  select many {Model Class set} related by {Class State Machine target}->O_OBJ[R519]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR519(ClassStateMachine_c target)
 ModelClass_c[] getManyO_OBJsOnR519(ClassStateMachine_c[] targets)
@@ -647,12 +663,12 @@ ModelClass_c[] getManyO_OBJsOnR519(ClassStateMachine_c[] targets)
 
 ###### R676 - Select From Instances Where *from extent of* Model Class
 
-######  select one <Model Class instance> related by <Select From Instances Where target>->O_OBJ[R676]
+######  select one {Model Class instance} related by {Select From Instances Where target}->O_OBJ[R676]
 <pre>
 ModelClass_c getOneO_OBJOnR676(SelectFromInstancesWhere_c target)
 ModelClass_c getOneO_OBJOnR676(SelectFromInstancesWhere_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Select From Instances Where target>->O_OBJ[R676]
+######  select many {Model Class set} related by {Select From Instances Where target}->O_OBJ[R676]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR676(SelectFromInstancesWhere_c target)
 ModelClass_c[] getManyO_OBJsOnR676(SelectFromInstancesWhere_c[] targets)
@@ -660,12 +676,12 @@ ModelClass_c[] getManyO_OBJsOnR676(SelectFromInstancesWhere_c[] targets)
 
 ###### R677 - Select From Instances *from extent of* Model Class
 
-######  select one <Model Class instance> related by <Select From Instances target>->O_OBJ[R677]
+######  select one {Model Class instance} related by {Select From Instances target}->O_OBJ[R677]
 <pre>
 ModelClass_c getOneO_OBJOnR677(SelectFromInstances_c target)
 ModelClass_c getOneO_OBJOnR677(SelectFromInstances_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Select From Instances target>->O_OBJ[R677]
+######  select many {Model Class set} related by {Select From Instances target}->O_OBJ[R677]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR677(SelectFromInstances_c target)
 ModelClass_c[] getManyO_OBJsOnR677(SelectFromInstances_c[] targets)
@@ -673,12 +689,12 @@ ModelClass_c[] getManyO_OBJsOnR677(SelectFromInstances_c[] targets)
 
 ###### R678 - Chain Link *specifies instances of* Model Class
 
-######  select one <Model Class instance> related by <Chain Link target>->O_OBJ[R678]
+######  select one {Model Class instance} related by {Chain Link target}->O_OBJ[R678]
 <pre>
 ModelClass_c getOneO_OBJOnR678(ChainLink_c target)
 ModelClass_c getOneO_OBJOnR678(ChainLink_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Chain Link target>->O_OBJ[R678]
+######  select many {Model Class set} related by {Chain Link target}->O_OBJ[R678]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR678(ChainLink_c target)
 ModelClass_c[] getManyO_OBJsOnR678(ChainLink_c[] targets)
@@ -686,12 +702,12 @@ ModelClass_c[] getManyO_OBJsOnR678(ChainLink_c[] targets)
 
 ###### R934 - Model Class *represents participant of* Class Instance Participant
 
-######  select one <Model Class instance> related by <Class Instance Participant target>->O_OBJ[R934]
+######  select one {Model Class instance} related by {Class Instance Participant target}->O_OBJ[R934]
 <pre>
 ModelClass_c getOneO_OBJOnR934(ClassInstanceParticipant_c target)
 ModelClass_c getOneO_OBJOnR934(ClassInstanceParticipant_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Class Instance Participant target>->O_OBJ[R934]
+######  select many {Model Class set} related by {Class Instance Participant target}->O_OBJ[R934]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR934(ClassInstanceParticipant_c target)
 ModelClass_c[] getManyO_OBJsOnR934(ClassInstanceParticipant_c[] targets)
@@ -699,12 +715,12 @@ ModelClass_c[] getManyO_OBJsOnR934(ClassInstanceParticipant_c[] targets)
 
 ###### R939 - Model Class *represents participant of* Class Participant
 
-######  select one <Model Class instance> related by <Class Participant target>->O_OBJ[R939]
+######  select one {Model Class instance} related by {Class Participant target}->O_OBJ[R939]
 <pre>
 ModelClass_c getOneO_OBJOnR939(ClassParticipant_c target)
 ModelClass_c getOneO_OBJOnR939(ClassParticipant_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Class Participant target>->O_OBJ[R939]
+######  select many {Model Class set} related by {Class Participant target}->O_OBJ[R939]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR939(ClassParticipant_c target)
 ModelClass_c[] getManyO_OBJsOnR939(ClassParticipant_c[] targets)
@@ -712,12 +728,12 @@ ModelClass_c[] getManyO_OBJsOnR939(ClassParticipant_c[] targets)
 
 ###### R671 - Create *instance of* Model Class
 
-######  select one <Model Class instance> related by <Create target>->O_OBJ[R671]
+######  select one {Model Class instance} related by {Create target}->O_OBJ[R671]
 <pre>
 ModelClass_c getOneO_OBJOnR671(Create_c target)
 ModelClass_c getOneO_OBJOnR671(Create_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Create target>->O_OBJ[R671]
+######  select many {Model Class set} related by {Create target}->O_OBJ[R671]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR671(Create_c target)
 ModelClass_c[] getManyO_OBJsOnR671(Create_c[] targets)
@@ -725,12 +741,12 @@ ModelClass_c[] getManyO_OBJsOnR671(Create_c[] targets)
 
 ###### R672 - Create No Variable *instance of* Model Class
 
-######  select one <Model Class instance> related by <Create No Variable target>->O_OBJ[R672]
+######  select one {Model Class instance} related by {Create No Variable target}->O_OBJ[R672]
 <pre>
 ModelClass_c getOneO_OBJOnR672(CreateNoVariable_c target)
 ModelClass_c getOneO_OBJOnR672(CreateNoVariable_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Create No Variable target>->O_OBJ[R672]
+######  select many {Model Class set} related by {Create No Variable target}->O_OBJ[R672]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR672(CreateNoVariable_c target)
 ModelClass_c[] getManyO_OBJsOnR672(CreateNoVariable_c[] targets)
@@ -738,12 +754,12 @@ ModelClass_c[] getManyO_OBJsOnR672(CreateNoVariable_c[] targets)
 
 ###### R2961 - Model Class *is represented in engine by* Class In Engine
 
-######  select one <Model Class instance> related by <Class In Engine target>->O_OBJ[R2961]
+######  select one {Model Class instance} related by {Class In Engine target}->O_OBJ[R2961]
 <pre>
 ModelClass_c getOneO_OBJOnR2961(ClassInEngine_c target)
 ModelClass_c getOneO_OBJOnR2961(ClassInEngine_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Class In Engine target>->O_OBJ[R2961]
+######  select many {Model Class set} related by {Class In Engine target}->O_OBJ[R2961]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR2961(ClassInEngine_c target)
 ModelClass_c[] getManyO_OBJsOnR2961(ClassInEngine_c[] targets)
@@ -751,12 +767,12 @@ ModelClass_c[] getManyO_OBJsOnR2961(ClassInEngine_c[] targets)
 
 ###### R2 - Model Class *is contained in* Subsystem
 
-######  select one <Model Class instance> related by <Subsystem target>->O_OBJ[R2]
+######  select one {Model Class instance} related by {Subsystem target}->O_OBJ[R2]
 <pre>
 ModelClass_c getOneO_OBJOnR2(Subsystem_c target)
 ModelClass_c getOneO_OBJOnR2(Subsystem_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Subsystem target>->O_OBJ[R2]
+######  select many {Model Class set} related by {Subsystem target}->O_OBJ[R2]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR2(Subsystem_c target)
 ModelClass_c[] getManyO_OBJsOnR2(Subsystem_c[] targets)
@@ -764,12 +780,12 @@ ModelClass_c[] getManyO_OBJsOnR2(Subsystem_c[] targets)
 
 ###### R417 - Model Class *has data access represented by* SM to OBJ Access Path
 
-######  select one <Model Class instance> related by <SM to OBJ Access Path target>->O_OBJ[R417]
+######  select one {Model Class instance} related by {SM to OBJ Access Path target}->O_OBJ[R417]
 <pre>
 ModelClass_c getOneO_OBJOnR417(SmToObjAccessPath_c target)
 ModelClass_c getOneO_OBJOnR417(SmToObjAccessPath_c[] targets)
 </pre>
-######  select many <Model Class set> related by <SM to OBJ Access Path target>->O_OBJ[R417]
+######  select many {Model Class set} related by {SM to OBJ Access Path target}->O_OBJ[R417]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR417(SmToObjAccessPath_c target)
 ModelClass_c[] getManyO_OBJsOnR417(SmToObjAccessPath_c[] targets)
@@ -777,12 +793,12 @@ ModelClass_c[] getManyO_OBJsOnR417(SmToObjAccessPath_c[] targets)
 
 ###### R670 - For Stmt *iterates a set of* Model Class
 
-######  select one <Model Class instance> related by <For Stmt target>->O_OBJ[R670]
+######  select one {Model Class instance} related by {For Stmt target}->O_OBJ[R670]
 <pre>
 ModelClass_c getOneO_OBJOnR670(ForStmt_c target)
 ModelClass_c getOneO_OBJOnR670(ForStmt_c[] targets)
 </pre>
-######  select many <Model Class set> related by <For Stmt target>->O_OBJ[R670]
+######  select many {Model Class set} related by {For Stmt target}->O_OBJ[R670]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR670(ForStmt_c target)
 ModelClass_c[] getManyO_OBJsOnR670(ForStmt_c[] targets)
@@ -790,33 +806,34 @@ ModelClass_c[] getManyO_OBJsOnR670(ForStmt_c[] targets)
 
 ###### R201 - Model Class *has instance associations abstracted* Association (via Class In Association)
 
-######  select one <Model Class instance> related by <Association target>->O_OBJ[R201]
+######  select one {Model Class instance} related by {Association target}->O_OBJ[R201]
 <pre>
 ModelClass_c getOneO_OBJOnR201(Association_c target)
 ModelClass_c getOneO_OBJOnR201(Association_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Association target>->O_OBJ[R201]
+######  select many {Model Class set} related by {Association target}->O_OBJ[R201]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR201(Association_c target)
 ModelClass_c[] getManyO_OBJsOnR201(Association_c[] targets)
 </pre>
 
-######  select one <Model Class instance> related by <Class In Association target>->O_OBJ[R201]
+######  select one {Model Class instance} related by {Class In Association target}->O_OBJ[R201]
 <pre>
 ModelClass_c getOneO_OBJOnR201(ClassInAssociation_c target)
 ModelClass_c getOneO_OBJOnR201(ClassInAssociation_c[] targets)
 </pre>
-######  select many <Model Class set> related by <Class In Association target>->O_OBJ[R201]
+######  select many {Model Class set} related by {Class In Association target}->O_OBJ[R201]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR201(ClassInAssociation_c target)
 ModelClass_c[] getManyO_OBJsOnR201(ClassInAssociation_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Model Class instance> related by <Packageable Element target>->O_OBJ[R8001]
+######  select one {Model Class instance} related by {Packageable Element target}->O_OBJ[R8001]
 <pre>
 ModelClass_c getOneO_OBJOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Model Class set> related by <Packageable Element target>->O_OBJ[R8001]
+######  select many {Model Class set} related by {Packageable Element target}->O_OBJ[R8001]
 <pre>
 ModelClass_c[] getManyO_OBJsOnR8001(PackageableElement_c[] targets)
 </pre>
@@ -833,13 +850,13 @@ ModelClass_c[] getManyO_OBJsOnR8001(PackageableElement_c[] targets)
 
 <pre>
   -  int         	getModl_typ()
-  - void			setModl_typ(int          newValue)
+  -  void			setModl_typ(int          newValue)
 
   -  String      	getObj_name()
-  - void			setObj_name(String       newValue)
+  -  void			setObj_name(String       newValue)
 
   -  String      	getObj_kl()
-  - void			setObj_kl(String       newValue)
+  -  void			setObj_kl(String       newValue)
 
 </pre>
 
@@ -850,12 +867,12 @@ ModelClass_c[] getManyO_OBJsOnR8001(PackageableElement_c[] targets)
 
 ###### R101 - Imported Class *represents* Model Class
 
-######  select one <Imported Class instance> related by <Model Class target>->O_IOBJ[R101]
+######  select one {Imported Class instance} related by {Model Class target}->O_IOBJ[R101]
 <pre>
 ImportedClass_c getOneO_IOBJOnR101(ModelClass_c target)
 ImportedClass_c getOneO_IOBJOnR101(ModelClass_c[] targets)
 </pre>
-######  select many <Imported Class set> related by <Model Class target>->O_IOBJ[R101]
+######  select many {Imported Class set} related by {Model Class target}->O_IOBJ[R101]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR101(ModelClass_c target)
 ImportedClass_c[] getManyO_IOBJsOnR101(ModelClass_c[] targets)
@@ -863,12 +880,12 @@ ImportedClass_c[] getManyO_IOBJsOnR101(ModelClass_c[] targets)
 
 ###### R3 - Imported Class *represents a class from another subsystem in* Subsystem
 
-######  select one <Imported Class instance> related by <Subsystem target>->O_IOBJ[R3]
+######  select one {Imported Class instance} related by {Subsystem target}->O_IOBJ[R3]
 <pre>
 ImportedClass_c getOneO_IOBJOnR3(Subsystem_c target)
 ImportedClass_c getOneO_IOBJOnR3(Subsystem_c[] targets)
 </pre>
-######  select many <Imported Class set> related by <Subsystem target>->O_IOBJ[R3]
+######  select many {Imported Class set} related by {Subsystem target}->O_IOBJ[R3]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR3(Subsystem_c target)
 ImportedClass_c[] getManyO_IOBJsOnR3(Subsystem_c[] targets)
@@ -876,12 +893,12 @@ ImportedClass_c[] getManyO_IOBJsOnR3(Subsystem_c[] targets)
 
 ###### R414 - Imported Class *represents the destination SM for* SM to SM Comm Path
 
-######  select one <Imported Class instance> related by <SM to SM Comm Path target>->O_IOBJ[R414]
+######  select one {Imported Class instance} related by {SM to SM Comm Path target}->O_IOBJ[R414]
 <pre>
 ImportedClass_c getOneO_IOBJOnR414(SmToSmCommPath_c target)
 ImportedClass_c getOneO_IOBJOnR414(SmToSmCommPath_c[] targets)
 </pre>
-######  select many <Imported Class set> related by <SM to SM Comm Path target>->O_IOBJ[R414]
+######  select many {Imported Class set} related by {SM to SM Comm Path target}->O_IOBJ[R414]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR414(SmToSmCommPath_c target)
 ImportedClass_c[] getManyO_IOBJsOnR414(SmToSmCommPath_c[] targets)
@@ -889,12 +906,12 @@ ImportedClass_c[] getManyO_IOBJsOnR414(SmToSmCommPath_c[] targets)
 
 ###### R420 - Imported Class *represents the destination OBJ for* SM to OBJ Access Path
 
-######  select one <Imported Class instance> related by <SM to OBJ Access Path target>->O_IOBJ[R420]
+######  select one {Imported Class instance} related by {SM to OBJ Access Path target}->O_IOBJ[R420]
 <pre>
 ImportedClass_c getOneO_IOBJOnR420(SmToObjAccessPath_c target)
 ImportedClass_c getOneO_IOBJOnR420(SmToObjAccessPath_c[] targets)
 </pre>
-######  select many <Imported Class set> related by <SM to OBJ Access Path target>->O_IOBJ[R420]
+######  select many {Imported Class set} related by {SM to OBJ Access Path target}->O_IOBJ[R420]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR420(SmToObjAccessPath_c target)
 ImportedClass_c[] getManyO_IOBJsOnR420(SmToObjAccessPath_c[] targets)
@@ -902,12 +919,12 @@ ImportedClass_c[] getManyO_IOBJsOnR420(SmToObjAccessPath_c[] targets)
 
 ###### R424 - Imported Class *represents the origination SM for* SM to SM Comm Path
 
-######  select one <Imported Class instance> related by <SM to SM Comm Path target>->O_IOBJ[R424]
+######  select one {Imported Class instance} related by {SM to SM Comm Path target}->O_IOBJ[R424]
 <pre>
 ImportedClass_c getOneO_IOBJOnR424(SmToSmCommPath_c target)
 ImportedClass_c getOneO_IOBJOnR424(SmToSmCommPath_c[] targets)
 </pre>
-######  select many <Imported Class set> related by <SM to SM Comm Path target>->O_IOBJ[R424]
+######  select many {Imported Class set} related by {SM to SM Comm Path target}->O_IOBJ[R424]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR424(SmToSmCommPath_c target)
 ImportedClass_c[] getManyO_IOBJsOnR424(SmToSmCommPath_c[] targets)
@@ -915,12 +932,12 @@ ImportedClass_c[] getManyO_IOBJsOnR424(SmToSmCommPath_c[] targets)
 
 ###### R425 - Imported Class *represents origination OBJ for* Access Path
 
-######  select one <Imported Class instance> related by <Access Path target>->O_IOBJ[R425]
+######  select one {Imported Class instance} related by {Access Path target}->O_IOBJ[R425]
 <pre>
 ImportedClass_c getOneO_IOBJOnR425(AccessPath_c target)
 ImportedClass_c getOneO_IOBJOnR425(AccessPath_c[] targets)
 </pre>
-######  select many <Imported Class set> related by <Access Path target>->O_IOBJ[R425]
+######  select many {Imported Class set} related by {Access Path target}->O_IOBJ[R425]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR425(AccessPath_c target)
 ImportedClass_c[] getManyO_IOBJsOnR425(AccessPath_c[] targets)
@@ -928,22 +945,23 @@ ImportedClass_c[] getManyO_IOBJsOnR425(AccessPath_c[] targets)
 
 ###### R202 - Imported Class *is used for spanning associations as* Class In Association
 
-######  select one <Imported Class instance> related by <Class In Association target>->O_IOBJ[R202]
+######  select one {Imported Class instance} related by {Class In Association target}->O_IOBJ[R202]
 <pre>
 ImportedClass_c getOneO_IOBJOnR202(ClassInAssociation_c target)
 ImportedClass_c getOneO_IOBJOnR202(ClassInAssociation_c[] targets)
 </pre>
-######  select many <Imported Class set> related by <Class In Association target>->O_IOBJ[R202]
+######  select many {Imported Class set} related by {Class In Association target}->O_IOBJ[R202]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR202(ClassInAssociation_c target)
 ImportedClass_c[] getManyO_IOBJsOnR202(ClassInAssociation_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Imported Class instance> related by <Packageable Element target>->O_IOBJ[R8001]
+######  select one {Imported Class instance} related by {Packageable Element target}->O_IOBJ[R8001]
 <pre>
 ImportedClass_c getOneO_IOBJOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Imported Class set> related by <Packageable Element target>->O_IOBJ[R8001]
+######  select many {Imported Class set} related by {Packageable Element target}->O_IOBJ[R8001]
 <pre>
 ImportedClass_c[] getManyO_IOBJsOnR8001(PackageableElement_c[] targets)
 </pre>
@@ -960,13 +978,13 @@ ImportedClass_c[] getManyO_IOBJsOnR8001(PackageableElement_c[] targets)
 
 <pre>
   -  String      	getAction_semantics()
-  - void			setAction_semantics(String       newValue)
+  -  void			setAction_semantics(String       newValue)
 
   -  int 	getSuc_pars()
-  - void			setSuc_pars(int  newValue)
+  -  void			setSuc_pars(int  newValue)
 
   -  String      	getAction_semantics_internal()
-  - void			setAction_semantics_internal(String       newValue)
+  -  void			setAction_semantics_internal(String       newValue)
 
 </pre>
 
@@ -977,22 +995,23 @@ ImportedClass_c[] getManyO_IOBJsOnR8001(PackageableElement_c[] targets)
 
 ###### R693 - Derived Attribute Body *specifies processing for* Derived Base Attribute
 
-######  select one <Derived Base Attribute instance> related by <Derived Attribute Body target>->O_DBATTR[R693]
+######  select one {Derived Base Attribute instance} related by {Derived Attribute Body target}->O_DBATTR[R693]
 <pre>
 DerivedBaseAttribute_c getOneO_DBATTROnR693(DerivedAttributeBody_c target)
 DerivedBaseAttribute_c getOneO_DBATTROnR693(DerivedAttributeBody_c[] targets)
 </pre>
-######  select many <Derived Base Attribute set> related by <Derived Attribute Body target>->O_DBATTR[R693]
+######  select many {Derived Base Attribute set} related by {Derived Attribute Body target}->O_DBATTR[R693]
 <pre>
 DerivedBaseAttribute_c[] getManyO_DBATTRsOnR693(DerivedAttributeBody_c target)
 DerivedBaseAttribute_c[] getManyO_DBATTRsOnR693(DerivedAttributeBody_c[] targets)
 </pre>
+###### R107 (Subtype)
 
-######  select one <Derived Base Attribute instance> related by <Base Attribute target>->O_DBATTR[R107]
+######  select one {Derived Base Attribute instance} related by {Base Attribute target}->O_DBATTR[R107]
 <pre>
 DerivedBaseAttribute_c getOneO_DBATTROnR107(BaseAttribute_c target)
 </pre>
-######  select many <Derived Base Attribute set> related by <Base Attribute target>->O_DBATTR[R107]
+######  select many {Derived Base Attribute set} related by {Base Attribute target}->O_DBATTR[R107]
 <pre>
 DerivedBaseAttribute_c[] getManyO_DBATTRsOnR107(BaseAttribute_c[] targets)
 </pre>
@@ -1009,7 +1028,7 @@ DerivedBaseAttribute_c[] getManyO_DBATTRsOnR107(BaseAttribute_c[] targets)
 
 <pre>
   -  String      	getLocalattributename()
-  - void			setLocalattributename(String       newValue)
+  -  void			setLocalattributename(String       newValue)
 
 </pre>
 
@@ -1020,23 +1039,23 @@ DerivedBaseAttribute_c[] getManyO_DBATTRsOnR107(BaseAttribute_c[] targets)
 
 ###### R110 - Class Identifier Attribute *identifies for this association* Referred To Class in Assoc (via Referred To Identifier Attribute)
 
-######  select one <Class Identifier Attribute instance> related by <Referred To Identifier Attribute target>->O_OIDA[R110]
+######  select one {Class Identifier Attribute instance} related by {Referred To Identifier Attribute target}->O_OIDA[R110]
 <pre>
 ClassIdentifierAttribute_c getOneO_OIDAOnR110(ReferredToIdentifierAttribute_c target)
 ClassIdentifierAttribute_c getOneO_OIDAOnR110(ReferredToIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Class Identifier Attribute set> related by <Referred To Identifier Attribute target>->O_OIDA[R110]
+######  select many {Class Identifier Attribute set} related by {Referred To Identifier Attribute target}->O_OIDA[R110]
 <pre>
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR110(ReferredToIdentifierAttribute_c target)
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR110(ReferredToIdentifierAttribute_c[] targets)
 </pre>
 
-######  select one <Class Identifier Attribute instance> related by <Referred To Class in Assoc target>->O_OIDA[R110]
+######  select one {Class Identifier Attribute instance} related by {Referred To Class in Assoc target}->O_OIDA[R110]
 <pre>
 ClassIdentifierAttribute_c getOneO_OIDAOnR110(ReferredToClassInAssoc_c target)
 ClassIdentifierAttribute_c getOneO_OIDAOnR110(ReferredToClassInAssoc_c[] targets)
 </pre>
-######  select many <Class Identifier Attribute set> related by <Referred To Class in Assoc target>->O_OIDA[R110]
+######  select many {Class Identifier Attribute set} related by {Referred To Class in Assoc target}->O_OIDA[R110]
 <pre>
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR110(ReferredToClassInAssoc_c target)
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR110(ReferredToClassInAssoc_c[] targets)
@@ -1044,23 +1063,23 @@ ClassIdentifierAttribute_c[] getManyO_OIDAsOnR110(ReferredToClassInAssoc_c[] tar
 
 ###### R105 - Class Identifier *is made up of * Attribute (via Class Identifier Attribute)
 
-######  select one <Class Identifier Attribute instance> related by <Attribute target>->O_OIDA[R105]
+######  select one {Class Identifier Attribute instance} related by {Attribute target}->O_OIDA[R105]
 <pre>
 ClassIdentifierAttribute_c getOneO_OIDAOnR105(Attribute_c target)
 ClassIdentifierAttribute_c getOneO_OIDAOnR105(Attribute_c[] targets)
 </pre>
-######  select many <Class Identifier Attribute set> related by <Attribute target>->O_OIDA[R105]
+######  select many {Class Identifier Attribute set} related by {Attribute target}->O_OIDA[R105]
 <pre>
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR105(Attribute_c target)
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR105(Attribute_c[] targets)
 </pre>
 
-######  select one <Class Identifier Attribute instance> related by <Class Identifier target>->O_OIDA[R105]
+######  select one {Class Identifier Attribute instance} related by {Class Identifier target}->O_OIDA[R105]
 <pre>
 ClassIdentifierAttribute_c getOneO_OIDAOnR105(ClassIdentifier_c target)
 ClassIdentifierAttribute_c getOneO_OIDAOnR105(ClassIdentifier_c[] targets)
 </pre>
-######  select many <Class Identifier Attribute set> related by <Class Identifier target>->O_OIDA[R105]
+######  select many {Class Identifier Attribute set} related by {Class Identifier target}->O_OIDA[R105]
 <pre>
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR105(ClassIdentifier_c target)
 ClassIdentifierAttribute_c[] getManyO_OIDAsOnR105(ClassIdentifier_c[] targets)
@@ -1078,7 +1097,7 @@ ClassIdentifierAttribute_c[] getManyO_OIDAsOnR105(ClassIdentifier_c[] targets)
 
 <pre>
   -  int         	getOid_id()
-  - void			setOid_id(int          newValue)
+  -  void			setOid_id(int          newValue)
 
 </pre>
 
@@ -1089,12 +1108,12 @@ ClassIdentifierAttribute_c[] getManyO_OIDAsOnR105(ClassIdentifier_c[] targets)
 
 ###### R104 - Class Identifier *identifies* Model Class
 
-######  select one <Class Identifier instance> related by <Model Class target>->O_ID[R104]
+######  select one {Class Identifier instance} related by {Model Class target}->O_ID[R104]
 <pre>
 ClassIdentifier_c getOneO_IDOnR104(ModelClass_c target)
 ClassIdentifier_c getOneO_IDOnR104(ModelClass_c[] targets)
 </pre>
-######  select many <Class Identifier set> related by <Model Class target>->O_ID[R104]
+######  select many {Class Identifier set} related by {Model Class target}->O_ID[R104]
 <pre>
 ClassIdentifier_c[] getManyO_IDsOnR104(ModelClass_c target)
 ClassIdentifier_c[] getManyO_IDsOnR104(ModelClass_c[] targets)
@@ -1102,23 +1121,23 @@ ClassIdentifier_c[] getManyO_IDsOnR104(ModelClass_c[] targets)
 
 ###### R105 - Class Identifier *is made up of * Attribute (via Class Identifier Attribute)
 
-######  select one <Class Identifier instance> related by <Class Identifier Attribute target>->O_ID[R105]
+######  select one {Class Identifier instance} related by {Class Identifier Attribute target}->O_ID[R105]
 <pre>
 ClassIdentifier_c getOneO_IDOnR105(ClassIdentifierAttribute_c target)
 ClassIdentifier_c getOneO_IDOnR105(ClassIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Class Identifier set> related by <Class Identifier Attribute target>->O_ID[R105]
+######  select many {Class Identifier set} related by {Class Identifier Attribute target}->O_ID[R105]
 <pre>
 ClassIdentifier_c[] getManyO_IDsOnR105(ClassIdentifierAttribute_c target)
 ClassIdentifier_c[] getManyO_IDsOnR105(ClassIdentifierAttribute_c[] targets)
 </pre>
 
-######  select one <Class Identifier instance> related by <Attribute target>->O_ID[R105]
+######  select one {Class Identifier instance} related by {Attribute target}->O_ID[R105]
 <pre>
 ClassIdentifier_c getOneO_IDOnR105(Attribute_c target)
 ClassIdentifier_c getOneO_IDOnR105(Attribute_c[] targets)
 </pre>
-######  select many <Class Identifier set> related by <Attribute target>->O_ID[R105]
+######  select many {Class Identifier set} related by {Attribute target}->O_ID[R105]
 <pre>
 ClassIdentifier_c[] getManyO_IDsOnR105(Attribute_c target)
 ClassIdentifier_c[] getManyO_IDsOnR105(Attribute_c[] targets)
@@ -1126,12 +1145,12 @@ ClassIdentifier_c[] getManyO_IDsOnR105(Attribute_c[] targets)
 
 ###### R109 - Class Identifier *identifies for this association * Referred To Class in Assoc
 
-######  select one <Class Identifier instance> related by <Referred To Class in Assoc target>->O_ID[R109]
+######  select one {Class Identifier instance} related by {Referred To Class in Assoc target}->O_ID[R109]
 <pre>
 ClassIdentifier_c getOneO_IDOnR109(ReferredToClassInAssoc_c target)
 ClassIdentifier_c getOneO_IDOnR109(ReferredToClassInAssoc_c[] targets)
 </pre>
-######  select many <Class Identifier set> related by <Referred To Class in Assoc target>->O_ID[R109]
+######  select many {Class Identifier set} related by {Referred To Class in Assoc target}->O_ID[R109]
 <pre>
 ClassIdentifier_c[] getManyO_IDsOnR109(ReferredToClassInAssoc_c target)
 ClassIdentifier_c[] getManyO_IDsOnR109(ReferredToClassInAssoc_c[] targets)
@@ -1152,40 +1171,42 @@ ClassIdentifier_c[] getManyO_IDsOnR109(ReferredToClassInAssoc_c[] targets)
 
 ###### R113 - Base Attribute *can be the base of* Referential Attribute
 
-######  select one <Base Attribute instance> related by <Referential Attribute target>->O_BATTR[R113]
+######  select one {Base Attribute instance} related by {Referential Attribute target}->O_BATTR[R113]
 <pre>
 BaseAttribute_c getOneO_BATTROnR113(ReferentialAttribute_c target)
 BaseAttribute_c getOneO_BATTROnR113(ReferentialAttribute_c[] targets)
 </pre>
-######  select many <Base Attribute set> related by <Referential Attribute target>->O_BATTR[R113]
+######  select many {Base Attribute set} related by {Referential Attribute target}->O_BATTR[R113]
 <pre>
 BaseAttribute_c[] getManyO_BATTRsOnR113(ReferentialAttribute_c target)
 BaseAttribute_c[] getManyO_BATTRsOnR113(ReferentialAttribute_c[] targets)
 </pre>
+###### R107 (Subtype)
 
-######  select one <Base Attribute instance> related by <Derived Base Attribute target>->O_BATTR[R107]
+######  select one {Base Attribute instance} related by {Derived Base Attribute target}->O_BATTR[R107]
 <pre>
 BaseAttribute_c getOneO_BATTROnR107(DerivedBaseAttribute_c target)
 </pre>
-######  select many <Base Attribute set> related by <Derived Base Attribute target set>->O_BATTR[R107]
+######  select many {Base Attribute set} related by {Derived Base Attribute target set}->O_BATTR[R107]
 <pre>
 BaseAttribute_c[] getManyO_BATTRsOnR107(DerivedBaseAttribute_c[] targets)
 </pre>
 
-######  select one <Base Attribute instance> related by <New Base Attribute target>->O_BATTR[R107]
+######  select one {Base Attribute instance} related by {New Base Attribute target}->O_BATTR[R107]
 <pre>
 BaseAttribute_c getOneO_BATTROnR107(NewBaseAttribute_c target)
 </pre>
-######  select many <Base Attribute set> related by <New Base Attribute target set>->O_BATTR[R107]
+######  select many {Base Attribute set} related by {New Base Attribute target set}->O_BATTR[R107]
 <pre>
 BaseAttribute_c[] getManyO_BATTRsOnR107(NewBaseAttribute_c[] targets)
 </pre>
+###### R106 (Subtype)
 
-######  select one <Base Attribute instance> related by <Attribute target>->O_BATTR[R106]
+######  select one {Base Attribute instance} related by {Attribute target}->O_BATTR[R106]
 <pre>
 BaseAttribute_c getOneO_BATTROnR106(Attribute_c target)
 </pre>
-######  select many <Base Attribute set> related by <Attribute target>->O_BATTR[R106]
+######  select many {Base Attribute set} related by {Attribute target}->O_BATTR[R106]
 <pre>
 BaseAttribute_c[] getManyO_BATTRsOnR106(Attribute_c[] targets)
 </pre>
@@ -1202,22 +1223,22 @@ BaseAttribute_c[] getManyO_BATTRsOnR106(Attribute_c[] targets)
 
 <pre>
   -  java.util.UUID        	getAref_id()
-  - void			setAref_id(java.util.UUID         newValue)
+  -  void			setAref_id(java.util.UUID         newValue)
 
   -  boolean     	getIs_cstrd()
-  - void			setIs_cstrd(boolean      newValue)
+  -  void			setIs_cstrd(boolean      newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getRobj_name()
-  - void			setRobj_name(String       newValue)
+  -  void			setRobj_name(String       newValue)
 
   -  String      	getRattr_name()
-  - void			setRattr_name(String       newValue)
+  -  void			setRattr_name(String       newValue)
 
   -  String      	getRel_name()
-  - void			setRel_name(String       newValue)
+  -  void			setRel_name(String       newValue)
 
 </pre>
 
@@ -1228,23 +1249,23 @@ BaseAttribute_c[] getManyO_BATTRsOnR106(Attribute_c[] targets)
 
 ###### R111 - Referring Class In Assoc *refers across association via* Referred To Identifier Attribute (via Attribute Reference in Class)
 
-######  select one <Attribute Reference in Class instance> related by <Referred To Identifier Attribute target>->O_REF[R111]
+######  select one {Attribute Reference in Class instance} related by {Referred To Identifier Attribute target}->O_REF[R111]
 <pre>
 AttributeReferenceInClass_c getOneO_REFOnR111(ReferredToIdentifierAttribute_c target)
 AttributeReferenceInClass_c getOneO_REFOnR111(ReferredToIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Attribute Reference in Class set> related by <Referred To Identifier Attribute target>->O_REF[R111]
+######  select many {Attribute Reference in Class set} related by {Referred To Identifier Attribute target}->O_REF[R111]
 <pre>
 AttributeReferenceInClass_c[] getManyO_REFsOnR111(ReferredToIdentifierAttribute_c target)
 AttributeReferenceInClass_c[] getManyO_REFsOnR111(ReferredToIdentifierAttribute_c[] targets)
 </pre>
 
-######  select one <Attribute Reference in Class instance> related by <Referring Class In Assoc target>->O_REF[R111]
+######  select one {Attribute Reference in Class instance} related by {Referring Class In Assoc target}->O_REF[R111]
 <pre>
 AttributeReferenceInClass_c getOneO_REFOnR111(ReferringClassInAssoc_c target)
 AttributeReferenceInClass_c getOneO_REFOnR111(ReferringClassInAssoc_c[] targets)
 </pre>
-######  select many <Attribute Reference in Class set> related by <Referring Class In Assoc target>->O_REF[R111]
+######  select many {Attribute Reference in Class set} related by {Referring Class In Assoc target}->O_REF[R111]
 <pre>
 AttributeReferenceInClass_c[] getManyO_REFsOnR111(ReferringClassInAssoc_c target)
 AttributeReferenceInClass_c[] getManyO_REFsOnR111(ReferringClassInAssoc_c[] targets)
@@ -1252,12 +1273,12 @@ AttributeReferenceInClass_c[] getManyO_REFsOnR111(ReferringClassInAssoc_c[] targ
 
 ###### R108 - Attribute Reference in Class *is resolved by* Referential Attribute
 
-######  select one <Attribute Reference in Class instance> related by <Referential Attribute target>->O_REF[R108]
+######  select one {Attribute Reference in Class instance} related by {Referential Attribute target}->O_REF[R108]
 <pre>
 AttributeReferenceInClass_c getOneO_REFOnR108(ReferentialAttribute_c target)
 AttributeReferenceInClass_c getOneO_REFOnR108(ReferentialAttribute_c[] targets)
 </pre>
-######  select many <Attribute Reference in Class set> related by <Referential Attribute target>->O_REF[R108]
+######  select many {Attribute Reference in Class set} related by {Referential Attribute target}->O_REF[R108]
 <pre>
 AttributeReferenceInClass_c[] getManyO_REFsOnR108(ReferentialAttribute_c target)
 AttributeReferenceInClass_c[] getManyO_REFsOnR108(ReferentialAttribute_c[] targets)
@@ -1277,28 +1298,28 @@ AttributeReferenceInClass_c[] getManyO_REFsOnR108(ReferentialAttribute_c[] targe
 
 <pre>
   -  java.util.UUID        	getAttr_id()
-  - void			setAttr_id(java.util.UUID         newValue)
+  -  void			setAttr_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getPrefix()
-  - void			setPrefix(String       newValue)
+  -  void			setPrefix(String       newValue)
 
   -  String      	getRoot_nam()
-  - void			setRoot_nam(String       newValue)
+  -  void			setRoot_nam(String       newValue)
 
   -  int         	getPfx_mode()
-  - void			setPfx_mode(int          newValue)
+  -  void			setPfx_mode(int          newValue)
 
   -  String      	getDimensions()
-  - void			setDimensions(String       newValue)
+  -  void			setDimensions(String       newValue)
 
   -  String      	getDefaultvalue()
-  - void			setDefaultvalue(String       newValue)
+  -  void			setDefaultvalue(String       newValue)
 
 </pre>
 
@@ -1309,12 +1330,12 @@ AttributeReferenceInClass_c[] getManyO_REFsOnR108(ReferentialAttribute_c[] targe
 
 ###### R102 - Attribute *abstracts characteristics of* Model Class
 
-######  select one <Attribute instance> related by <Model Class target>->O_ATTR[R102]
+######  select one {Attribute instance} related by {Model Class target}->O_ATTR[R102]
 <pre>
 Attribute_c getOneO_ATTROnR102(ModelClass_c target)
 Attribute_c getOneO_ATTROnR102(ModelClass_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Model Class target>->O_ATTR[R102]
+######  select many {Attribute set} related by {Model Class target}->O_ATTR[R102]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR102(ModelClass_c target)
 Attribute_c[] getManyO_ATTRsOnR102(ModelClass_c[] targets)
@@ -1322,23 +1343,23 @@ Attribute_c[] getManyO_ATTRsOnR102(ModelClass_c[] targets)
 
 ###### R105 - Attribute *is part of * Class Identifier (via Class Identifier Attribute)
 
-######  select one <Attribute instance> related by <Class Identifier Attribute target>->O_ATTR[R105]
+######  select one {Attribute instance} related by {Class Identifier Attribute target}->O_ATTR[R105]
 <pre>
 Attribute_c getOneO_ATTROnR105(ClassIdentifierAttribute_c target)
 Attribute_c getOneO_ATTROnR105(ClassIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Class Identifier Attribute target>->O_ATTR[R105]
+######  select many {Attribute set} related by {Class Identifier Attribute target}->O_ATTR[R105]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR105(ClassIdentifierAttribute_c target)
 Attribute_c[] getManyO_ATTRsOnR105(ClassIdentifierAttribute_c[] targets)
 </pre>
 
-######  select one <Attribute instance> related by <Class Identifier target>->O_ATTR[R105]
+######  select one {Attribute instance} related by {Class Identifier target}->O_ATTR[R105]
 <pre>
 Attribute_c getOneO_ATTROnR105(ClassIdentifier_c target)
 Attribute_c getOneO_ATTROnR105(ClassIdentifier_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Class Identifier target>->O_ATTR[R105]
+######  select many {Attribute set} related by {Class Identifier target}->O_ATTR[R105]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR105(ClassIdentifier_c target)
 Attribute_c[] getManyO_ATTRsOnR105(ClassIdentifier_c[] targets)
@@ -1346,12 +1367,12 @@ Attribute_c[] getManyO_ATTRsOnR105(ClassIdentifier_c[] targets)
 
 ###### R806 - Attribute Value Reference *is value of* Attribute
 
-######  select one <Attribute instance> related by <Attribute Value Reference target>->O_ATTR[R806]
+######  select one {Attribute instance} related by {Attribute Value Reference target}->O_ATTR[R806]
 <pre>
 Attribute_c getOneO_ATTROnR806(AttributeValueReference_c target)
 Attribute_c getOneO_ATTROnR806(AttributeValueReference_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Attribute Value Reference target>->O_ATTR[R806]
+######  select many {Attribute set} related by {Attribute Value Reference target}->O_ATTR[R806]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR806(AttributeValueReference_c target)
 Attribute_c[] getManyO_ATTRsOnR806(AttributeValueReference_c[] targets)
@@ -1359,12 +1380,12 @@ Attribute_c[] getManyO_ATTRsOnR806(AttributeValueReference_c[] targets)
 
 ###### R812 - Selected Reference *member* Attribute
 
-######  select one <Attribute instance> related by <Selected Reference target>->O_ATTR[R812]
+######  select one {Attribute instance} related by {Selected Reference target}->O_ATTR[R812]
 <pre>
 Attribute_c getOneO_ATTROnR812(SelectedReference_c target)
 Attribute_c getOneO_ATTROnR812(SelectedReference_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Selected Reference target>->O_ATTR[R812]
+######  select many {Attribute set} related by {Selected Reference target}->O_ATTR[R812]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR812(SelectedReference_c target)
 Attribute_c[] getManyO_ATTRsOnR812(SelectedReference_c[] targets)
@@ -1374,12 +1395,12 @@ Attribute_c[] getManyO_ATTRsOnR812(SelectedReference_c[] targets)
 
 ###### R114 - Attribute *defines type of* Data Type
 
-######  select one <Attribute instance> related by <Data Type target>->O_ATTR[R114]
+######  select one {Attribute instance} related by {Data Type target}->O_ATTR[R114]
 <pre>
 Attribute_c getOneO_ATTROnR114(DataType_c target)
 Attribute_c getOneO_ATTROnR114(DataType_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Data Type target>->O_ATTR[R114]
+######  select many {Attribute set} related by {Data Type target}->O_ATTR[R114]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR114(DataType_c target)
 Attribute_c[] getManyO_ATTRsOnR114(DataType_c[] targets)
@@ -1387,12 +1408,12 @@ Attribute_c[] getManyO_ATTRsOnR114(DataType_c[] targets)
 
 ###### R120 - Attribute *may have* Dimensions
 
-######  select one <Attribute instance> related by <Dimensions target>->O_ATTR[R120]
+######  select one {Attribute instance} related by {Dimensions target}->O_ATTR[R120]
 <pre>
 Attribute_c getOneO_ATTROnR120(Dimensions_c target)
 Attribute_c getOneO_ATTROnR120(Dimensions_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Dimensions target>->O_ATTR[R120]
+######  select many {Attribute set} related by {Dimensions target}->O_ATTR[R120]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR120(Dimensions_c target)
 Attribute_c[] getManyO_ATTRsOnR120(Dimensions_c[] targets)
@@ -1400,12 +1421,12 @@ Attribute_c[] getManyO_ATTRsOnR120(Dimensions_c[] targets)
 
 ###### R938 - Attribute *defines* Instance Attribute Value
 
-######  select one <Attribute instance> related by <Instance Attribute Value target>->O_ATTR[R938]
+######  select one {Attribute instance} related by {Instance Attribute Value target}->O_ATTR[R938]
 <pre>
 Attribute_c getOneO_ATTROnR938(InstanceAttributeValue_c target)
 Attribute_c getOneO_ATTROnR938(InstanceAttributeValue_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Instance Attribute Value target>->O_ATTR[R938]
+######  select many {Attribute set} related by {Instance Attribute Value target}->O_ATTR[R938]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR938(InstanceAttributeValue_c target)
 Attribute_c[] getManyO_ATTRsOnR938(InstanceAttributeValue_c[] targets)
@@ -1413,12 +1434,12 @@ Attribute_c[] getManyO_ATTRsOnR938(InstanceAttributeValue_c[] targets)
 
 ###### R2910 - Attribute *has instances* Attribute Value
 
-######  select one <Attribute instance> related by <Attribute Value target>->O_ATTR[R2910]
+######  select one {Attribute instance} related by {Attribute Value target}->O_ATTR[R2910]
 <pre>
 Attribute_c getOneO_ATTROnR2910(AttributeValue_c target)
 Attribute_c getOneO_ATTROnR2910(AttributeValue_c[] targets)
 </pre>
-######  select many <Attribute set> related by <Attribute Value target>->O_ATTR[R2910]
+######  select many {Attribute set} related by {Attribute Value target}->O_ATTR[R2910]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR2910(AttributeValue_c target)
 Attribute_c[] getManyO_ATTRsOnR2910(AttributeValue_c[] targets)
@@ -1426,31 +1447,32 @@ Attribute_c[] getManyO_ATTRsOnR2910(AttributeValue_c[] targets)
 
 ###### R419 - Attribute *is accessed by* SM to OBJ Attribute Access
 
-######  select one <Attribute instance> related by <SM to OBJ Attribute Access target>->O_ATTR[R419]
+######  select one {Attribute instance} related by {SM to OBJ Attribute Access target}->O_ATTR[R419]
 <pre>
 Attribute_c getOneO_ATTROnR419(SmToObjAttributeAccess_c target)
 Attribute_c getOneO_ATTROnR419(SmToObjAttributeAccess_c[] targets)
 </pre>
-######  select many <Attribute set> related by <SM to OBJ Attribute Access target>->O_ATTR[R419]
+######  select many {Attribute set} related by {SM to OBJ Attribute Access target}->O_ATTR[R419]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR419(SmToObjAttributeAccess_c target)
 Attribute_c[] getManyO_ATTRsOnR419(SmToObjAttributeAccess_c[] targets)
 </pre>
+###### R106 (Subtype)
 
-######  select one <Attribute instance> related by <Base Attribute target>->O_ATTR[R106]
+######  select one {Attribute instance} related by {Base Attribute target}->O_ATTR[R106]
 <pre>
 Attribute_c getOneO_ATTROnR106(BaseAttribute_c target)
 </pre>
-######  select many <Attribute set> related by <Base Attribute target set>->O_ATTR[R106]
+######  select many {Attribute set} related by {Base Attribute target set}->O_ATTR[R106]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR106(BaseAttribute_c[] targets)
 </pre>
 
-######  select one <Attribute instance> related by <Referential Attribute target>->O_ATTR[R106]
+######  select one {Attribute instance} related by {Referential Attribute target}->O_ATTR[R106]
 <pre>
 Attribute_c getOneO_ATTROnR106(ReferentialAttribute_c target)
 </pre>
-######  select many <Attribute set> related by <Referential Attribute target set>->O_ATTR[R106]
+######  select many {Attribute set} related by {Referential Attribute target set}->O_ATTR[R106]
 <pre>
 Attribute_c[] getManyO_ATTRsOnR106(ReferentialAttribute_c[] targets)
 </pre>
@@ -1470,22 +1492,23 @@ Attribute_c[] getManyO_ATTRsOnR106(ReferentialAttribute_c[] targets)
 
 ###### R530
 
-######  select one <Transition Action Home instance> related by <Transition target>->SM_TAH[R530]
+######  select one {Transition Action Home instance} related by {Transition target}->SM_TAH[R530]
 <pre>
 TransitionActionHome_c getOneSM_TAHOnR530(Transition_c target)
 TransitionActionHome_c getOneSM_TAHOnR530(Transition_c[] targets)
 </pre>
-######  select many <Transition Action Home set> related by <Transition target>->SM_TAH[R530]
+######  select many {Transition Action Home set} related by {Transition target}->SM_TAH[R530]
 <pre>
 TransitionActionHome_c[] getManySM_TAHsOnR530(Transition_c target)
 TransitionActionHome_c[] getManySM_TAHsOnR530(Transition_c[] targets)
 </pre>
+###### R513 (Subtype)
 
-######  select one <Transition Action Home instance> related by <Action Home target>->SM_TAH[R513]
+######  select one {Transition Action Home instance} related by {Action Home target}->SM_TAH[R513]
 <pre>
 TransitionActionHome_c getOneSM_TAHOnR513(ActionHome_c target)
 </pre>
-######  select many <Transition Action Home set> related by <Action Home target>->SM_TAH[R513]
+######  select many {Transition Action Home set} related by {Action Home target}->SM_TAH[R513]
 <pre>
 TransitionActionHome_c[] getManySM_TAHsOnR513(ActionHome_c[] targets)
 </pre>
@@ -1502,7 +1525,7 @@ TransitionActionHome_c[] getManySM_TAHsOnR513(ActionHome_c[] targets)
 
 <pre>
   -  java.util.UUID        	getTrans_id()
-  - void			setTrans_id(java.util.UUID         newValue)
+  -  void			setTrans_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -1513,12 +1536,12 @@ TransitionActionHome_c[] getManySM_TAHsOnR513(ActionHome_c[] targets)
 
 ###### R530 - Transition *houses action for* Transition Action Home
 
-######  select one <Transition instance> related by <Transition Action Home target>->SM_TXN[R530]
+######  select one {Transition instance} related by {Transition Action Home target}->SM_TXN[R530]
 <pre>
 Transition_c getOneSM_TXNOnR530(TransitionActionHome_c target)
 Transition_c getOneSM_TXNOnR530(TransitionActionHome_c[] targets)
 </pre>
-######  select many <Transition set> related by <Transition Action Home target>->SM_TXN[R530]
+######  select many {Transition set} related by {Transition Action Home target}->SM_TXN[R530]
 <pre>
 Transition_c[] getManySM_TXNsOnR530(TransitionActionHome_c target)
 Transition_c[] getManySM_TXNsOnR530(TransitionActionHome_c[] targets)
@@ -1526,12 +1549,12 @@ Transition_c[] getManySM_TXNsOnR530(TransitionActionHome_c[] targets)
 
 ###### R506 - Transition *is destined to* State Machine State
 
-######  select one <Transition instance> related by <State Machine State target>->SM_TXN[R506]
+######  select one {Transition instance} related by {State Machine State target}->SM_TXN[R506]
 <pre>
 Transition_c getOneSM_TXNOnR506(StateMachineState_c target)
 Transition_c getOneSM_TXNOnR506(StateMachineState_c[] targets)
 </pre>
-######  select many <Transition set> related by <State Machine State target>->SM_TXN[R506]
+######  select many {Transition set} related by {State Machine State target}->SM_TXN[R506]
 <pre>
 Transition_c[] getManySM_TXNsOnR506(StateMachineState_c target)
 Transition_c[] getManySM_TXNsOnR506(StateMachineState_c[] targets)
@@ -1539,12 +1562,12 @@ Transition_c[] getManySM_TXNsOnR506(StateMachineState_c[] targets)
 
 ###### R505
 
-######  select one <Transition instance> related by <State Machine target>->SM_TXN[R505]
+######  select one {Transition instance} related by {State Machine target}->SM_TXN[R505]
 <pre>
 Transition_c getOneSM_TXNOnR505(StateMachine_c target)
 Transition_c getOneSM_TXNOnR505(StateMachine_c[] targets)
 </pre>
-######  select many <Transition set> related by <State Machine target>->SM_TXN[R505]
+######  select many {Transition set} related by {State Machine target}->SM_TXN[R505]
 <pre>
 Transition_c[] getManySM_TXNsOnR505(StateMachine_c target)
 Transition_c[] getManySM_TXNsOnR505(StateMachine_c[] targets)
@@ -1552,23 +1575,23 @@ Transition_c[] getManySM_TXNsOnR505(StateMachine_c[] targets)
 
 ###### R512
 
-######  select one <Transition instance> related by <Mealy State Machine target>->SM_TXN[R512]
+######  select one {Transition instance} related by {Mealy State Machine target}->SM_TXN[R512]
 <pre>
 Transition_c getOneSM_TXNOnR512(MealyStateMachine_c target)
 Transition_c getOneSM_TXNOnR512(MealyStateMachine_c[] targets)
 </pre>
-######  select many <Transition set> related by <Mealy State Machine target>->SM_TXN[R512]
+######  select many {Transition set} related by {Mealy State Machine target}->SM_TXN[R512]
 <pre>
 Transition_c[] getManySM_TXNsOnR512(MealyStateMachine_c target)
 Transition_c[] getManySM_TXNsOnR512(MealyStateMachine_c[] targets)
 </pre>
 
-######  select one <Transition instance> related by <Mealy Action Home target>->SM_TXN[R512]
+######  select one {Transition instance} related by {Mealy Action Home target}->SM_TXN[R512]
 <pre>
 Transition_c getOneSM_TXNOnR512(MealyActionHome_c target)
 Transition_c getOneSM_TXNOnR512(MealyActionHome_c[] targets)
 </pre>
-######  select many <Transition set> related by <Mealy Action Home target>->SM_TXN[R512]
+######  select many {Transition set} related by {Mealy Action Home target}->SM_TXN[R512]
 <pre>
 Transition_c[] getManySM_TXNsOnR512(MealyActionHome_c target)
 Transition_c[] getManySM_TXNsOnR512(MealyActionHome_c[] targets)
@@ -1576,12 +1599,12 @@ Transition_c[] getManySM_TXNsOnR512(MealyActionHome_c[] targets)
 
 ###### R2953 - Transition *caused last state change to* Instance
 
-######  select one <Transition instance> related by <Instance target>->SM_TXN[R2953]
+######  select one {Transition instance} related by {Instance target}->SM_TXN[R2953]
 <pre>
 Transition_c getOneSM_TXNOnR2953(Instance_c target)
 Transition_c getOneSM_TXNOnR2953(Instance_c[] targets)
 </pre>
-######  select many <Transition set> related by <Instance target>->SM_TXN[R2953]
+######  select many {Transition set} related by {Instance target}->SM_TXN[R2953]
 <pre>
 Transition_c[] getManySM_TXNsOnR2953(Instance_c target)
 Transition_c[] getManySM_TXNsOnR2953(Instance_c[] targets)
@@ -1589,40 +1612,41 @@ Transition_c[] getManySM_TXNsOnR2953(Instance_c[] targets)
 
 ###### R2952 - Class In State *entered state via* Transition
 
-######  select one <Transition instance> related by <Class In State target>->SM_TXN[R2952]
+######  select one {Transition instance} related by {Class In State target}->SM_TXN[R2952]
 <pre>
 Transition_c getOneSM_TXNOnR2952(ClassInState_c target)
 Transition_c getOneSM_TXNOnR2952(ClassInState_c[] targets)
 </pre>
-######  select many <Transition set> related by <Class In State target>->SM_TXN[R2952]
+######  select many {Transition set} related by {Class In State target}->SM_TXN[R2952]
 <pre>
 Transition_c[] getManySM_TXNsOnR2952(ClassInState_c target)
 Transition_c[] getManySM_TXNsOnR2952(ClassInState_c[] targets)
 </pre>
+###### R507 (Subtype)
 
-######  select one <Transition instance> related by <No Event Transition target>->SM_TXN[R507]
+######  select one {Transition instance} related by {No Event Transition target}->SM_TXN[R507]
 <pre>
 Transition_c getOneSM_TXNOnR507(NoEventTransition_c target)
 </pre>
-######  select many <Transition set> related by <No Event Transition target set>->SM_TXN[R507]
+######  select many {Transition set} related by {No Event Transition target set}->SM_TXN[R507]
 <pre>
 Transition_c[] getManySM_TXNsOnR507(NoEventTransition_c[] targets)
 </pre>
 
-######  select one <Transition instance> related by <Creation Transition target>->SM_TXN[R507]
+######  select one {Transition instance} related by {Creation Transition target}->SM_TXN[R507]
 <pre>
 Transition_c getOneSM_TXNOnR507(CreationTransition_c target)
 </pre>
-######  select many <Transition set> related by <Creation Transition target set>->SM_TXN[R507]
+######  select many {Transition set} related by {Creation Transition target set}->SM_TXN[R507]
 <pre>
 Transition_c[] getManySM_TXNsOnR507(CreationTransition_c[] targets)
 </pre>
 
-######  select one <Transition instance> related by <New State Transition target>->SM_TXN[R507]
+######  select one {Transition instance} related by {New State Transition target}->SM_TXN[R507]
 <pre>
 Transition_c getOneSM_TXNOnR507(NewStateTransition_c target)
 </pre>
-######  select many <Transition set> related by <New State Transition target set>->SM_TXN[R507]
+######  select many {Transition set} related by {New State Transition target set}->SM_TXN[R507]
 <pre>
 Transition_c[] getManySM_TXNsOnR507(NewStateTransition_c[] targets)
 </pre>
@@ -1642,23 +1666,23 @@ Transition_c[] getManySM_TXNsOnR507(NewStateTransition_c[] targets)
 
 ###### R522 - Event Supplemental Data *is made up of* State Machine Event Data Item (via Supplemental Data Items)
 
-######  select one <Supplemental Data Items instance> related by <Event Supplemental Data target>->SM_SDI[R522]
+######  select one {Supplemental Data Items instance} related by {Event Supplemental Data target}->SM_SDI[R522]
 <pre>
 SupplementalDataItems_c getOneSM_SDIOnR522(EventSupplementalData_c target)
 SupplementalDataItems_c getOneSM_SDIOnR522(EventSupplementalData_c[] targets)
 </pre>
-######  select many <Supplemental Data Items set> related by <Event Supplemental Data target>->SM_SDI[R522]
+######  select many {Supplemental Data Items set} related by {Event Supplemental Data target}->SM_SDI[R522]
 <pre>
 SupplementalDataItems_c[] getManySM_SDIsOnR522(EventSupplementalData_c target)
 SupplementalDataItems_c[] getManySM_SDIsOnR522(EventSupplementalData_c[] targets)
 </pre>
 
-######  select one <Supplemental Data Items instance> related by <State Machine Event Data Item target>->SM_SDI[R522]
+######  select one {Supplemental Data Items instance} related by {State Machine Event Data Item target}->SM_SDI[R522]
 <pre>
 SupplementalDataItems_c getOneSM_SDIOnR522(StateMachineEventDataItem_c target)
 SupplementalDataItems_c getOneSM_SDIOnR522(StateMachineEventDataItem_c[] targets)
 </pre>
-######  select many <Supplemental Data Items set> related by <State Machine Event Data Item target>->SM_SDI[R522]
+######  select many {Supplemental Data Items set} related by {State Machine Event Data Item target}->SM_SDI[R522]
 <pre>
 SupplementalDataItems_c[] getManySM_SDIsOnR522(StateMachineEventDataItem_c target)
 SupplementalDataItems_c[] getManySM_SDIsOnR522(StateMachineEventDataItem_c[] targets)
@@ -1676,16 +1700,16 @@ SupplementalDataItems_c[] getManySM_SDIsOnR522(StateMachineEventDataItem_c[] tar
 
 <pre>
   -  java.util.UUID        	getSmstt_id()
-  - void			setSmstt_id(java.util.UUID         newValue)
+  -  void			setSmstt_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  int         	getNumb()
-  - void			setNumb(int          newValue)
+  -  void			setNumb(int          newValue)
 
   -  int         	getFinal()
-  - void			setFinal(int          newValue)
+  -  void			setFinal(int          newValue)
 
 </pre>
 
@@ -1696,12 +1720,12 @@ SupplementalDataItems_c[] getManySM_SDIsOnR522(StateMachineEventDataItem_c[] tar
 
 ###### R506 - State Machine State *is destination of* Transition
 
-######  select one <State Machine State instance> related by <Transition target>->SM_STATE[R506]
+######  select one {State Machine State instance} related by {Transition target}->SM_STATE[R506]
 <pre>
 StateMachineState_c getOneSM_STATEOnR506(Transition_c target)
 StateMachineState_c getOneSM_STATEOnR506(Transition_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <Transition target>->SM_STATE[R506]
+######  select many {State Machine State set} related by {Transition target}->SM_STATE[R506]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR506(Transition_c target)
 StateMachineState_c[] getManySM_STATEsOnR506(Transition_c[] targets)
@@ -1709,12 +1733,12 @@ StateMachineState_c[] getManySM_STATEsOnR506(Transition_c[] targets)
 
 ###### R501
 
-######  select one <State Machine State instance> related by <State Machine target>->SM_STATE[R501]
+######  select one {State Machine State instance} related by {State Machine target}->SM_STATE[R501]
 <pre>
 StateMachineState_c getOneSM_STATEOnR501(StateMachine_c target)
 StateMachineState_c getOneSM_STATEOnR501(StateMachine_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <State Machine target>->SM_STATE[R501]
+######  select many {State Machine State set} related by {State Machine target}->SM_STATE[R501]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR501(StateMachine_c target)
 StateMachineState_c[] getManySM_STATEsOnR501(StateMachine_c[] targets)
@@ -1722,12 +1746,12 @@ StateMachineState_c[] getManySM_STATEsOnR501(StateMachine_c[] targets)
 
 ###### R508 - State Machine State *is origination of* No Event Transition
 
-######  select one <State Machine State instance> related by <No Event Transition target>->SM_STATE[R508]
+######  select one {State Machine State instance} related by {No Event Transition target}->SM_STATE[R508]
 <pre>
 StateMachineState_c getOneSM_STATEOnR508(NoEventTransition_c target)
 StateMachineState_c getOneSM_STATEOnR508(NoEventTransition_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <No Event Transition target>->SM_STATE[R508]
+######  select many {State Machine State set} related by {No Event Transition target}->SM_STATE[R508]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR508(NoEventTransition_c target)
 StateMachineState_c[] getManySM_STATEsOnR508(NoEventTransition_c[] targets)
@@ -1735,23 +1759,23 @@ StateMachineState_c[] getManySM_STATEsOnR508(NoEventTransition_c[] targets)
 
 ###### R511
 
-######  select one <State Machine State instance> related by <Moore State Machine target>->SM_STATE[R511]
+######  select one {State Machine State instance} related by {Moore State Machine target}->SM_STATE[R511]
 <pre>
 StateMachineState_c getOneSM_STATEOnR511(MooreStateMachine_c target)
 StateMachineState_c getOneSM_STATEOnR511(MooreStateMachine_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <Moore State Machine target>->SM_STATE[R511]
+######  select many {State Machine State set} related by {Moore State Machine target}->SM_STATE[R511]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR511(MooreStateMachine_c target)
 StateMachineState_c[] getManySM_STATEsOnR511(MooreStateMachine_c[] targets)
 </pre>
 
-######  select one <State Machine State instance> related by <Moore Action Home target>->SM_STATE[R511]
+######  select one {State Machine State instance} related by {Moore Action Home target}->SM_STATE[R511]
 <pre>
 StateMachineState_c getOneSM_STATEOnR511(MooreActionHome_c target)
 StateMachineState_c getOneSM_STATEOnR511(MooreActionHome_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <Moore Action Home target>->SM_STATE[R511]
+######  select many {State Machine State set} related by {Moore Action Home target}->SM_STATE[R511]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR511(MooreActionHome_c target)
 StateMachineState_c[] getManySM_STATEsOnR511(MooreActionHome_c[] targets)
@@ -1759,12 +1783,12 @@ StateMachineState_c[] getManySM_STATEsOnR511(MooreActionHome_c[] targets)
 
 ###### R521 - State Machine State *receives asynchronous data via* Event Supplemental Data
 
-######  select one <State Machine State instance> related by <Event Supplemental Data target>->SM_STATE[R521]
+######  select one {State Machine State instance} related by {Event Supplemental Data target}->SM_STATE[R521]
 <pre>
 StateMachineState_c getOneSM_STATEOnR521(EventSupplementalData_c target)
 StateMachineState_c getOneSM_STATEOnR521(EventSupplementalData_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <Event Supplemental Data target>->SM_STATE[R521]
+######  select many {State Machine State set} related by {Event Supplemental Data target}->SM_STATE[R521]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR521(EventSupplementalData_c target)
 StateMachineState_c[] getManySM_STATEsOnR521(EventSupplementalData_c[] targets)
@@ -1772,23 +1796,23 @@ StateMachineState_c[] getManySM_STATEsOnR521(EventSupplementalData_c[] targets)
 
 ###### R503 - State Machine State *receives* SEM Event (via State Event Matrix Entry)
 
-######  select one <State Machine State instance> related by <SEM Event target>->SM_STATE[R503]
+######  select one {State Machine State instance} related by {SEM Event target}->SM_STATE[R503]
 <pre>
 StateMachineState_c getOneSM_STATEOnR503(SemEvent_c target)
 StateMachineState_c getOneSM_STATEOnR503(SemEvent_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <SEM Event target>->SM_STATE[R503]
+######  select many {State Machine State set} related by {SEM Event target}->SM_STATE[R503]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR503(SemEvent_c target)
 StateMachineState_c[] getManySM_STATEsOnR503(SemEvent_c[] targets)
 </pre>
 
-######  select one <State Machine State instance> related by <State Event Matrix Entry target>->SM_STATE[R503]
+######  select one {State Machine State instance} related by {State Event Matrix Entry target}->SM_STATE[R503]
 <pre>
 StateMachineState_c getOneSM_STATEOnR503(StateEventMatrixEntry_c target)
 StateMachineState_c getOneSM_STATEOnR503(StateEventMatrixEntry_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <State Event Matrix Entry target>->SM_STATE[R503]
+######  select many {State Machine State set} related by {State Event Matrix Entry target}->SM_STATE[R503]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR503(StateEventMatrixEntry_c target)
 StateMachineState_c[] getManySM_STATEsOnR503(StateEventMatrixEntry_c[] targets)
@@ -1796,12 +1820,12 @@ StateMachineState_c[] getManySM_STATEsOnR503(StateEventMatrixEntry_c[] targets)
 
 ###### R2915 - State Machine State *defines state of* Instance
 
-######  select one <State Machine State instance> related by <Instance target>->SM_STATE[R2915]
+######  select one {State Machine State instance} related by {Instance target}->SM_STATE[R2915]
 <pre>
 StateMachineState_c getOneSM_STATEOnR2915(Instance_c target)
 StateMachineState_c getOneSM_STATEOnR2915(Instance_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <Instance target>->SM_STATE[R2915]
+######  select many {State Machine State set} related by {Instance target}->SM_STATE[R2915]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR2915(Instance_c target)
 StateMachineState_c[] getManySM_STATEsOnR2915(Instance_c[] targets)
@@ -1809,23 +1833,23 @@ StateMachineState_c[] getManySM_STATEsOnR2915(Instance_c[] targets)
 
 ###### R2932
 
-######  select one <State Machine State instance> related by <Class In Engine target>->SM_STATE[R2932]
+######  select one {State Machine State instance} related by {Class In Engine target}->SM_STATE[R2932]
 <pre>
 StateMachineState_c getOneSM_STATEOnR2932(ClassInEngine_c target)
 StateMachineState_c getOneSM_STATEOnR2932(ClassInEngine_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <Class In Engine target>->SM_STATE[R2932]
+######  select many {State Machine State set} related by {Class In Engine target}->SM_STATE[R2932]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR2932(ClassInEngine_c target)
 StateMachineState_c[] getManySM_STATEsOnR2932(ClassInEngine_c[] targets)
 </pre>
 
-######  select one <State Machine State instance> related by <Class In State target>->SM_STATE[R2932]
+######  select one {State Machine State instance} related by {Class In State target}->SM_STATE[R2932]
 <pre>
 StateMachineState_c getOneSM_STATEOnR2932(ClassInState_c target)
 StateMachineState_c getOneSM_STATEOnR2932(ClassInState_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <Class In State target>->SM_STATE[R2932]
+######  select many {State Machine State set} related by {Class In State target}->SM_STATE[R2932]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR2932(ClassInState_c target)
 StateMachineState_c[] getManySM_STATEsOnR2932(ClassInState_c[] targets)
@@ -1833,12 +1857,12 @@ StateMachineState_c[] getManySM_STATEsOnR2932(ClassInState_c[] targets)
 
 ###### R3104 - State Machine State *has set* State Breakpoint
 
-######  select one <State Machine State instance> related by <State Breakpoint target>->SM_STATE[R3104]
+######  select one {State Machine State instance} related by {State Breakpoint target}->SM_STATE[R3104]
 <pre>
 StateMachineState_c getOneSM_STATEOnR3104(StateBreakpoint_c target)
 StateMachineState_c getOneSM_STATEOnR3104(StateBreakpoint_c[] targets)
 </pre>
-######  select many <State Machine State set> related by <State Breakpoint target>->SM_STATE[R3104]
+######  select many {State Machine State set} related by {State Breakpoint target}->SM_STATE[R3104]
 <pre>
 StateMachineState_c[] getManySM_STATEsOnR3104(StateBreakpoint_c target)
 StateMachineState_c[] getManySM_STATEsOnR3104(StateBreakpoint_c[] targets)
@@ -1856,16 +1880,16 @@ StateMachineState_c[] getManySM_STATEsOnR3104(StateBreakpoint_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSmedi_id()
-  - void			setSmedi_id(java.util.UUID         newValue)
+  -  void			setSmedi_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getDimensions()
-  - void			setDimensions(String       newValue)
+  -  void			setDimensions(String       newValue)
 
 </pre>
 
@@ -1876,23 +1900,23 @@ StateMachineState_c[] getManySM_STATEsOnR3104(StateBreakpoint_c[] targets)
 
 ###### R522 - State Machine Event Data Item *makes up* Event Supplemental Data (via Supplemental Data Items)
 
-######  select one <State Machine Event Data Item instance> related by <Supplemental Data Items target>->SM_EVTDI[R522]
+######  select one {State Machine Event Data Item instance} related by {Supplemental Data Items target}->SM_EVTDI[R522]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR522(SupplementalDataItems_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR522(SupplementalDataItems_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <Supplemental Data Items target>->SM_EVTDI[R522]
+######  select many {State Machine Event Data Item set} related by {Supplemental Data Items target}->SM_EVTDI[R522]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR522(SupplementalDataItems_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR522(SupplementalDataItems_c[] targets)
 </pre>
 
-######  select one <State Machine Event Data Item instance> related by <Event Supplemental Data target>->SM_EVTDI[R522]
+######  select one {State Machine Event Data Item instance} related by {Event Supplemental Data target}->SM_EVTDI[R522]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR522(EventSupplementalData_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR522(EventSupplementalData_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <Event Supplemental Data target>->SM_EVTDI[R522]
+######  select many {State Machine Event Data Item set} related by {Event Supplemental Data target}->SM_EVTDI[R522]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR522(EventSupplementalData_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR522(EventSupplementalData_c[] targets)
@@ -1900,12 +1924,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR522(EventSupplementalData_c[] t
 
 ###### R846
 
-######  select one <State Machine Event Data Item instance> related by <Event Parameter Reference target>->SM_EVTDI[R846]
+######  select one {State Machine Event Data Item instance} related by {Event Parameter Reference target}->SM_EVTDI[R846]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR846(EventParameterReference_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR846(EventParameterReference_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <Event Parameter Reference target>->SM_EVTDI[R846]
+######  select many {State Machine Event Data Item set} related by {Event Parameter Reference target}->SM_EVTDI[R846]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR846(EventParameterReference_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR846(EventParameterReference_c[] targets)
@@ -1913,12 +1937,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR846(EventParameterReference_c[]
 
 ###### R516 - State Machine Event Data Item *is carried on events into* State Machine
 
-######  select one <State Machine Event Data Item instance> related by <State Machine target>->SM_EVTDI[R516]
+######  select one {State Machine Event Data Item instance} related by {State Machine target}->SM_EVTDI[R516]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR516(StateMachine_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR516(StateMachine_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <State Machine target>->SM_EVTDI[R516]
+######  select many {State Machine Event Data Item set} related by {State Machine target}->SM_EVTDI[R516]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR516(StateMachine_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR516(StateMachine_c[] targets)
@@ -1926,12 +1950,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR516(StateMachine_c[] targets)
 
 ###### R524 - State Machine Event Data Item *is defined by* Data Type
 
-######  select one <State Machine Event Data Item instance> related by <Data Type target>->SM_EVTDI[R524]
+######  select one {State Machine Event Data Item instance} related by {Data Type target}->SM_EVTDI[R524]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR524(DataType_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR524(DataType_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <Data Type target>->SM_EVTDI[R524]
+######  select many {State Machine Event Data Item set} related by {Data Type target}->SM_EVTDI[R524]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR524(DataType_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR524(DataType_c[] targets)
@@ -1939,12 +1963,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR524(DataType_c[] targets)
 
 ###### R531 - State Machine Event Data Item *may have* Dimensions
 
-######  select one <State Machine Event Data Item instance> related by <Dimensions target>->SM_EVTDI[R531]
+######  select one {State Machine Event Data Item instance} related by {Dimensions target}->SM_EVTDI[R531]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR531(Dimensions_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR531(Dimensions_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <Dimensions target>->SM_EVTDI[R531]
+######  select many {State Machine Event Data Item set} related by {Dimensions target}->SM_EVTDI[R531]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR531(Dimensions_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR531(Dimensions_c[] targets)
@@ -1952,12 +1976,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR531(Dimensions_c[] targets)
 
 ###### R532 - State Machine Event Data Item *carried by* State Machine Event
 
-######  select one <State Machine Event Data Item instance> related by <State Machine Event target>->SM_EVTDI[R532]
+######  select one {State Machine Event Data Item instance} related by {State Machine Event target}->SM_EVTDI[R532]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR532(StateMachineEvent_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR532(StateMachineEvent_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <State Machine Event target>->SM_EVTDI[R532]
+######  select many {State Machine Event Data Item set} related by {State Machine Event target}->SM_EVTDI[R532]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR532(StateMachineEvent_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR532(StateMachineEvent_c[] targets)
@@ -1967,12 +1991,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR532(StateMachineEvent_c[] targe
 
 ###### R1017 - State Machine Event Data Item *represents* Event Argument
 
-######  select one <State Machine Event Data Item instance> related by <Event Argument target>->SM_EVTDI[R1017]
+######  select one {State Machine Event Data Item instance} related by {Event Argument target}->SM_EVTDI[R1017]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR1017(EventArgument_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR1017(EventArgument_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <Event Argument target>->SM_EVTDI[R1017]
+######  select many {State Machine Event Data Item set} related by {Event Argument target}->SM_EVTDI[R1017]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR1017(EventArgument_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR1017(EventArgument_c[] targets)
@@ -1980,12 +2004,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR1017(EventArgument_c[] targets)
 
 ###### R2934
 
-######  select one <State Machine Event Data Item instance> related by <Data Item Value target>->SM_EVTDI[R2934]
+######  select one {State Machine Event Data Item instance} related by {Data Item Value target}->SM_EVTDI[R2934]
 <pre>
 StateMachineEventDataItem_c getOneSM_EVTDIOnR2934(DataItemValue_c target)
 StateMachineEventDataItem_c getOneSM_EVTDIOnR2934(DataItemValue_c[] targets)
 </pre>
-######  select many <State Machine Event Data Item set> related by <Data Item Value target>->SM_EVTDI[R2934]
+######  select many {State Machine Event Data Item set} related by {Data Item Value target}->SM_EVTDI[R2934]
 <pre>
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR2934(DataItemValue_c target)
 StateMachineEventDataItem_c[] getManySM_EVTDIsOnR2934(DataItemValue_c[] targets)
@@ -2003,25 +2027,25 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR2934(DataItemValue_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSmevt_id()
-  - void			setSmevt_id(java.util.UUID         newValue)
+  -  void			setSmevt_id(java.util.UUID         newValue)
 
   -  int         	getNumb()
-  - void			setNumb(int          newValue)
+  -  void			setNumb(int          newValue)
 
   -  String      	getMning()
-  - void			setMning(String       newValue)
+  -  void			setMning(String       newValue)
 
   -  int         	getIs_lbl_u()
-  - void			setIs_lbl_u(int          newValue)
+  -  void			setIs_lbl_u(int          newValue)
 
   -  String      	getUnq_lbl()
-  - void			setUnq_lbl(String       newValue)
+  -  void			setUnq_lbl(String       newValue)
 
   -  String      	getDrv_lbl()
-  - void			setDrv_lbl(String       newValue)
+  -  void			setDrv_lbl(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -2032,12 +2056,12 @@ StateMachineEventDataItem_c[] getManySM_EVTDIsOnR2934(DataItemValue_c[] targets)
 
 ###### R532 - State Machine Event *carries* State Machine Event Data Item
 
-######  select one <State Machine Event instance> related by <State Machine Event Data Item target>->SM_EVT[R532]
+######  select one {State Machine Event instance} related by {State Machine Event Data Item target}->SM_EVT[R532]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR532(StateMachineEventDataItem_c target)
 StateMachineEvent_c getOneSM_EVTOnR532(StateMachineEventDataItem_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <State Machine Event Data Item target>->SM_EVT[R532]
+######  select many {State Machine Event set} related by {State Machine Event Data Item target}->SM_EVT[R532]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR532(StateMachineEventDataItem_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR532(StateMachineEventDataItem_c[] targets)
@@ -2045,12 +2069,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR532(StateMachineEventDataItem_c[] targets
 
 ###### R502
 
-######  select one <State Machine Event instance> related by <State Machine target>->SM_EVT[R502]
+######  select one {State Machine Event instance} related by {State Machine target}->SM_EVT[R502]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR502(StateMachine_c target)
 StateMachineEvent_c getOneSM_EVTOnR502(StateMachine_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <State Machine target>->SM_EVT[R502]
+######  select many {State Machine Event set} related by {State Machine target}->SM_EVT[R502]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR502(StateMachine_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR502(StateMachine_c[] targets)
@@ -2058,12 +2082,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR502(StateMachine_c[] targets)
 
 ###### R520 - State Machine Event *carries* Event Supplemental Data
 
-######  select one <State Machine Event instance> related by <Event Supplemental Data target>->SM_EVT[R520]
+######  select one {State Machine Event instance} related by {Event Supplemental Data target}->SM_EVT[R520]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR520(EventSupplementalData_c target)
 StateMachineEvent_c getOneSM_EVTOnR520(EventSupplementalData_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <Event Supplemental Data target>->SM_EVT[R520]
+######  select many {State Machine Event set} related by {Event Supplemental Data target}->SM_EVT[R520]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR520(EventSupplementalData_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR520(EventSupplementalData_c[] targets)
@@ -2071,12 +2095,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR520(EventSupplementalData_c[] targets)
 
 ###### R1009 - State Machine Event *is generated by* Event Message
 
-######  select one <State Machine Event instance> related by <Event Message target>->SM_EVT[R1009]
+######  select one {State Machine Event instance} related by {Event Message target}->SM_EVT[R1009]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR1009(EventMessage_c target)
 StateMachineEvent_c getOneSM_EVTOnR1009(EventMessage_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <Event Message target>->SM_EVT[R1009]
+######  select many {State Machine Event set} related by {Event Message target}->SM_EVT[R1009]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR1009(EventMessage_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR1009(EventMessage_c[] targets)
@@ -2084,12 +2108,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR1009(EventMessage_c[] targets)
 
 ###### R2906 - State Machine Event *has instances* Pending Event
 
-######  select one <State Machine Event instance> related by <Pending Event target>->SM_EVT[R2906]
+######  select one {State Machine Event instance} related by {Pending Event target}->SM_EVT[R2906]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR2906(PendingEvent_c target)
 StateMachineEvent_c getOneSM_EVTOnR2906(PendingEvent_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <Pending Event target>->SM_EVT[R2906]
+######  select many {State Machine Event set} related by {Pending Event target}->SM_EVT[R2906]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR2906(PendingEvent_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR2906(PendingEvent_c[] targets)
@@ -2097,12 +2121,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR2906(PendingEvent_c[] targets)
 
 ###### R706 - Create SM Event Statement *creates* State Machine Event
 
-######  select one <State Machine Event instance> related by <Create SM Event Statement target>->SM_EVT[R706]
+######  select one {State Machine Event instance} related by {Create SM Event Statement target}->SM_EVT[R706]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR706(CreateSmEventStatement_c target)
 StateMachineEvent_c getOneSM_EVTOnR706(CreateSmEventStatement_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <Create SM Event Statement target>->SM_EVT[R706]
+######  select many {State Machine Event set} related by {Create SM Event Statement target}->SM_EVT[R706]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR706(CreateSmEventStatement_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR706(CreateSmEventStatement_c[] targets)
@@ -2110,12 +2134,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR706(CreateSmEventStatement_c[] targets)
 
 ###### R707 - Generate SM Event Statement *generates* State Machine Event
 
-######  select one <State Machine Event instance> related by <Generate SM Event Statement target>->SM_EVT[R707]
+######  select one {State Machine Event instance} related by {Generate SM Event Statement target}->SM_EVT[R707]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR707(GenerateSmEventStatement_c target)
 StateMachineEvent_c getOneSM_EVTOnR707(GenerateSmEventStatement_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <Generate SM Event Statement target>->SM_EVT[R707]
+######  select many {State Machine Event set} related by {Generate SM Event Statement target}->SM_EVT[R707]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR707(GenerateSmEventStatement_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR707(GenerateSmEventStatement_c[] targets)
@@ -2123,12 +2147,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR707(GenerateSmEventStatement_c[] targets)
 
 ###### R405 - State Machine Event *is carried to other SMs via* EE to SM Event Comm
 
-######  select one <State Machine Event instance> related by <EE to SM Event Comm target>->SM_EVT[R405]
+######  select one {State Machine Event instance} related by {EE to SM Event Comm target}->SM_EVT[R405]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR405(EeToSmEventComm_c target)
 StateMachineEvent_c getOneSM_EVTOnR405(EeToSmEventComm_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <EE to SM Event Comm target>->SM_EVT[R405]
+######  select many {State Machine Event set} related by {EE to SM Event Comm target}->SM_EVT[R405]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR405(EeToSmEventComm_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR405(EeToSmEventComm_c[] targets)
@@ -2136,12 +2160,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR405(EeToSmEventComm_c[] targets)
 
 ###### R409 - State Machine Event *is carried to other SMs via* SM to SM Event Comm
 
-######  select one <State Machine Event instance> related by <SM to SM Event Comm target>->SM_EVT[R409]
+######  select one {State Machine Event instance} related by {SM to SM Event Comm target}->SM_EVT[R409]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR409(SmToSmEventComm_c target)
 StateMachineEvent_c getOneSM_EVTOnR409(SmToSmEventComm_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <SM to SM Event Comm target>->SM_EVT[R409]
+######  select many {State Machine Event set} related by {SM to SM Event Comm target}->SM_EVT[R409]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR409(SmToSmEventComm_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR409(SmToSmEventComm_c[] targets)
@@ -2149,31 +2173,32 @@ StateMachineEvent_c[] getManySM_EVTsOnR409(SmToSmEventComm_c[] targets)
 
 ###### R3103 - State Machine Event *has set* Event Breakpoint
 
-######  select one <State Machine Event instance> related by <Event Breakpoint target>->SM_EVT[R3103]
+######  select one {State Machine Event instance} related by {Event Breakpoint target}->SM_EVT[R3103]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR3103(EventBreakpoint_c target)
 StateMachineEvent_c getOneSM_EVTOnR3103(EventBreakpoint_c[] targets)
 </pre>
-######  select many <State Machine Event set> related by <Event Breakpoint target>->SM_EVT[R3103]
+######  select many {State Machine Event set} related by {Event Breakpoint target}->SM_EVT[R3103]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR3103(EventBreakpoint_c target)
 StateMachineEvent_c[] getManySM_EVTsOnR3103(EventBreakpoint_c[] targets)
 </pre>
+###### R525 (Subtype)
 
-######  select one <State Machine Event instance> related by <SEM Event target>->SM_EVT[R525]
+######  select one {State Machine Event instance} related by {SEM Event target}->SM_EVT[R525]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR525(SemEvent_c target)
 </pre>
-######  select many <State Machine Event set> related by <SEM Event target set>->SM_EVT[R525]
+######  select many {State Machine Event set} related by {SEM Event target set}->SM_EVT[R525]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR525(SemEvent_c[] targets)
 </pre>
 
-######  select one <State Machine Event instance> related by <Polymorphic Event target>->SM_EVT[R525]
+######  select one {State Machine Event instance} related by {Polymorphic Event target}->SM_EVT[R525]
 <pre>
 StateMachineEvent_c getOneSM_EVTOnR525(PolymorphicEvent_c target)
 </pre>
-######  select many <State Machine Event set> related by <Polymorphic Event target set>->SM_EVT[R525]
+######  select many {State Machine Event set} related by {Polymorphic Event target set}->SM_EVT[R525]
 <pre>
 StateMachineEvent_c[] getManySM_EVTsOnR525(PolymorphicEvent_c[] targets)
 </pre>
@@ -2190,13 +2215,13 @@ StateMachineEvent_c[] getManySM_EVTsOnR525(PolymorphicEvent_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSm_id()
-  - void			setSm_id(java.util.UUID         newValue)
+  -  void			setSm_id(java.util.UUID         newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  int         	getConfig_id()
-  - void			setConfig_id(int          newValue)
+  -  void			setConfig_id(int          newValue)
 
 </pre>
 
@@ -2207,12 +2232,12 @@ StateMachineEvent_c[] getManySM_EVTsOnR525(PolymorphicEvent_c[] targets)
 
 ###### R505 - State Machine *contains* Transition
 
-######  select one <State Machine instance> related by <Transition target>->SM_SM[R505]
+######  select one {State Machine instance} related by {Transition target}->SM_SM[R505]
 <pre>
 StateMachine_c getOneSM_SMOnR505(Transition_c target)
 StateMachine_c getOneSM_SMOnR505(Transition_c[] targets)
 </pre>
-######  select many <State Machine set> related by <Transition target>->SM_SM[R505]
+######  select many {State Machine set} related by {Transition target}->SM_SM[R505]
 <pre>
 StateMachine_c[] getManySM_SMsOnR505(Transition_c target)
 StateMachine_c[] getManySM_SMsOnR505(Transition_c[] targets)
@@ -2220,12 +2245,12 @@ StateMachine_c[] getManySM_SMsOnR505(Transition_c[] targets)
 
 ###### R501 - State Machine *is decomposed into* State Machine State
 
-######  select one <State Machine instance> related by <State Machine State target>->SM_SM[R501]
+######  select one {State Machine instance} related by {State Machine State target}->SM_SM[R501]
 <pre>
 StateMachine_c getOneSM_SMOnR501(StateMachineState_c target)
 StateMachine_c getOneSM_SMOnR501(StateMachineState_c[] targets)
 </pre>
-######  select many <State Machine set> related by <State Machine State target>->SM_SM[R501]
+######  select many {State Machine set} related by {State Machine State target}->SM_SM[R501]
 <pre>
 StateMachine_c[] getManySM_SMsOnR501(StateMachineState_c target)
 StateMachine_c[] getManySM_SMsOnR501(StateMachineState_c[] targets)
@@ -2233,12 +2258,12 @@ StateMachine_c[] getManySM_SMsOnR501(StateMachineState_c[] targets)
 
 ###### R516 - State Machine *can asynchronously communicate via* State Machine Event Data Item
 
-######  select one <State Machine instance> related by <State Machine Event Data Item target>->SM_SM[R516]
+######  select one {State Machine instance} related by {State Machine Event Data Item target}->SM_SM[R516]
 <pre>
 StateMachine_c getOneSM_SMOnR516(StateMachineEventDataItem_c target)
 StateMachine_c getOneSM_SMOnR516(StateMachineEventDataItem_c[] targets)
 </pre>
-######  select many <State Machine set> related by <State Machine Event Data Item target>->SM_SM[R516]
+######  select many {State Machine set} related by {State Machine Event Data Item target}->SM_SM[R516]
 <pre>
 StateMachine_c[] getManySM_SMsOnR516(StateMachineEventDataItem_c target)
 StateMachine_c[] getManySM_SMsOnR516(StateMachineEventDataItem_c[] targets)
@@ -2246,12 +2271,12 @@ StateMachine_c[] getManySM_SMsOnR516(StateMachineEventDataItem_c[] targets)
 
 ###### R502 - State Machine *can be communicated to via* State Machine Event
 
-######  select one <State Machine instance> related by <State Machine Event target>->SM_SM[R502]
+######  select one {State Machine instance} related by {State Machine Event target}->SM_SM[R502]
 <pre>
 StateMachine_c getOneSM_SMOnR502(StateMachineEvent_c target)
 StateMachine_c getOneSM_SMOnR502(StateMachineEvent_c[] targets)
 </pre>
-######  select many <State Machine set> related by <State Machine Event target>->SM_SM[R502]
+######  select many {State Machine set} related by {State Machine Event target}->SM_SM[R502]
 <pre>
 StateMachine_c[] getManySM_SMsOnR502(StateMachineEvent_c target)
 StateMachine_c[] getManySM_SMsOnR502(StateMachineEvent_c[] targets)
@@ -2259,12 +2284,12 @@ StateMachine_c[] getManySM_SMsOnR502(StateMachineEvent_c[] targets)
 
 ###### R515 - State Machine *contains* Action
 
-######  select one <State Machine instance> related by <Action target>->SM_SM[R515]
+######  select one {State Machine instance} related by {Action target}->SM_SM[R515]
 <pre>
 StateMachine_c getOneSM_SMOnR515(Action_c target)
 StateMachine_c getOneSM_SMOnR515(Action_c[] targets)
 </pre>
-######  select many <State Machine set> related by <Action target>->SM_SM[R515]
+######  select many {State Machine set} related by {Action target}->SM_SM[R515]
 <pre>
 StateMachine_c[] getManySM_SMsOnR515(Action_c target)
 StateMachine_c[] getManySM_SMsOnR515(Action_c[] targets)
@@ -2272,12 +2297,12 @@ StateMachine_c[] getManySM_SMsOnR515(Action_c[] targets)
 
 ###### R523 - State Machine *contains* Event Supplemental Data
 
-######  select one <State Machine instance> related by <Event Supplemental Data target>->SM_SM[R523]
+######  select one {State Machine instance} related by {Event Supplemental Data target}->SM_SM[R523]
 <pre>
 StateMachine_c getOneSM_SMOnR523(EventSupplementalData_c target)
 StateMachine_c getOneSM_SMOnR523(EventSupplementalData_c[] targets)
 </pre>
-######  select many <State Machine set> related by <Event Supplemental Data target>->SM_SM[R523]
+######  select many {State Machine set} related by {Event Supplemental Data target}->SM_SM[R523]
 <pre>
 StateMachine_c[] getManySM_SMsOnR523(EventSupplementalData_c target)
 StateMachine_c[] getManySM_SMsOnR523(EventSupplementalData_c[] targets)
@@ -2285,12 +2310,12 @@ StateMachine_c[] getManySM_SMsOnR523(EventSupplementalData_c[] targets)
 
 ###### R403 - State Machine *has received event communication represented by* EE to SM Comm Path
 
-######  select one <State Machine instance> related by <EE to SM Comm Path target>->SM_SM[R403]
+######  select one {State Machine instance} related by {EE to SM Comm Path target}->SM_SM[R403]
 <pre>
 StateMachine_c getOneSM_SMOnR403(EeToSmCommPath_c target)
 StateMachine_c getOneSM_SMOnR403(EeToSmCommPath_c[] targets)
 </pre>
-######  select many <State Machine set> related by <EE to SM Comm Path target>->SM_SM[R403]
+######  select many {State Machine set} related by {EE to SM Comm Path target}->SM_SM[R403]
 <pre>
 StateMachine_c[] getManySM_SMsOnR403(EeToSmCommPath_c target)
 StateMachine_c[] getManySM_SMsOnR403(EeToSmCommPath_c[] targets)
@@ -2298,12 +2323,12 @@ StateMachine_c[] getManySM_SMsOnR403(EeToSmCommPath_c[] targets)
 
 ###### R410 - State Machine *originates* SM to EE Comm Path
 
-######  select one <State Machine instance> related by <SM to EE Comm Path target>->SM_SM[R410]
+######  select one {State Machine instance} related by {SM to EE Comm Path target}->SM_SM[R410]
 <pre>
 StateMachine_c getOneSM_SMOnR410(SmToEeCommPath_c target)
 StateMachine_c getOneSM_SMOnR410(SmToEeCommPath_c[] targets)
 </pre>
-######  select many <State Machine set> related by <SM to EE Comm Path target>->SM_SM[R410]
+######  select many {State Machine set} related by {SM to EE Comm Path target}->SM_SM[R410]
 <pre>
 StateMachine_c[] getManySM_SMsOnR410(SmToEeCommPath_c target)
 StateMachine_c[] getManySM_SMsOnR410(SmToEeCommPath_c[] targets)
@@ -2311,12 +2336,12 @@ StateMachine_c[] getManySM_SMsOnR410(SmToEeCommPath_c[] targets)
 
 ###### R406 - State Machine *originates* SM to SM Comm Path
 
-######  select one <State Machine instance> related by <SM to SM Comm Path target>->SM_SM[R406]
+######  select one {State Machine instance} related by {SM to SM Comm Path target}->SM_SM[R406]
 <pre>
 StateMachine_c getOneSM_SMOnR406(SmToSmCommPath_c target)
 StateMachine_c getOneSM_SMOnR406(SmToSmCommPath_c[] targets)
 </pre>
-######  select many <State Machine set> related by <SM to SM Comm Path target>->SM_SM[R406]
+######  select many {State Machine set} related by {SM to SM Comm Path target}->SM_SM[R406]
 <pre>
 StateMachine_c[] getManySM_SMsOnR406(SmToSmCommPath_c target)
 StateMachine_c[] getManySM_SMsOnR406(SmToSmCommPath_c[] targets)
@@ -2324,12 +2349,12 @@ StateMachine_c[] getManySM_SMsOnR406(SmToSmCommPath_c[] targets)
 
 ###### R407 - State Machine *represents the destination SM for* SM to SM Comm Path
 
-######  select one <State Machine instance> related by <SM to SM Comm Path target>->SM_SM[R407]
+######  select one {State Machine instance} related by {SM to SM Comm Path target}->SM_SM[R407]
 <pre>
 StateMachine_c getOneSM_SMOnR407(SmToSmCommPath_c target)
 StateMachine_c getOneSM_SMOnR407(SmToSmCommPath_c[] targets)
 </pre>
-######  select many <State Machine set> related by <SM to SM Comm Path target>->SM_SM[R407]
+######  select many {State Machine set} related by {SM to SM Comm Path target}->SM_SM[R407]
 <pre>
 StateMachine_c[] getManySM_SMsOnR407(SmToSmCommPath_c target)
 StateMachine_c[] getManySM_SMsOnR407(SmToSmCommPath_c[] targets)
@@ -2337,49 +2362,51 @@ StateMachine_c[] getManySM_SMsOnR407(SmToSmCommPath_c[] targets)
 
 ###### R416 - State Machine *originates* Access Path
 
-######  select one <State Machine instance> related by <Access Path target>->SM_SM[R416]
+######  select one {State Machine instance} related by {Access Path target}->SM_SM[R416]
 <pre>
 StateMachine_c getOneSM_SMOnR416(AccessPath_c target)
 StateMachine_c getOneSM_SMOnR416(AccessPath_c[] targets)
 </pre>
-######  select many <State Machine set> related by <Access Path target>->SM_SM[R416]
+######  select many {State Machine set} related by {Access Path target}->SM_SM[R416]
 <pre>
 StateMachine_c[] getManySM_SMsOnR416(AccessPath_c target)
 StateMachine_c[] getManySM_SMsOnR416(AccessPath_c[] targets)
 </pre>
+###### R510 (Subtype)
 
-######  select one <State Machine instance> related by <Mealy State Machine target>->SM_SM[R510]
+######  select one {State Machine instance} related by {Mealy State Machine target}->SM_SM[R510]
 <pre>
 StateMachine_c getOneSM_SMOnR510(MealyStateMachine_c target)
 </pre>
-######  select many <State Machine set> related by <Mealy State Machine target set>->SM_SM[R510]
+######  select many {State Machine set} related by {Mealy State Machine target set}->SM_SM[R510]
 <pre>
 StateMachine_c[] getManySM_SMsOnR510(MealyStateMachine_c[] targets)
 </pre>
 
-######  select one <State Machine instance> related by <Moore State Machine target>->SM_SM[R510]
+######  select one {State Machine instance} related by {Moore State Machine target}->SM_SM[R510]
 <pre>
 StateMachine_c getOneSM_SMOnR510(MooreStateMachine_c target)
 </pre>
-######  select many <State Machine set> related by <Moore State Machine target set>->SM_SM[R510]
+######  select many {State Machine set} related by {Moore State Machine target set}->SM_SM[R510]
 <pre>
 StateMachine_c[] getManySM_SMsOnR510(MooreStateMachine_c[] targets)
 </pre>
+###### R517 (Subtype)
 
-######  select one <State Machine instance> related by <Instance State Machine target>->SM_SM[R517]
+######  select one {State Machine instance} related by {Instance State Machine target}->SM_SM[R517]
 <pre>
 StateMachine_c getOneSM_SMOnR517(InstanceStateMachine_c target)
 </pre>
-######  select many <State Machine set> related by <Instance State Machine target set>->SM_SM[R517]
+######  select many {State Machine set} related by {Instance State Machine target set}->SM_SM[R517]
 <pre>
 StateMachine_c[] getManySM_SMsOnR517(InstanceStateMachine_c[] targets)
 </pre>
 
-######  select one <State Machine instance> related by <Class State Machine target>->SM_SM[R517]
+######  select one {State Machine instance} related by {Class State Machine target}->SM_SM[R517]
 <pre>
 StateMachine_c getOneSM_SMOnR517(ClassStateMachine_c target)
 </pre>
-######  select many <State Machine set> related by <Class State Machine target set>->SM_SM[R517]
+######  select many {State Machine set} related by {Class State Machine target set}->SM_SM[R517]
 <pre>
 StateMachine_c[] getManySM_SMsOnR517(ClassStateMachine_c[] targets)
 </pre>
@@ -2399,51 +2426,52 @@ StateMachine_c[] getManySM_SMsOnR517(ClassStateMachine_c[] targets)
 
 ###### R503 - State Machine State *receives* SEM Event (via State Event Matrix Entry)
 
-######  select one <State Event Matrix Entry instance> related by <State Machine State target>->SM_SEME[R503]
+######  select one {State Event Matrix Entry instance} related by {State Machine State target}->SM_SEME[R503]
 <pre>
 StateEventMatrixEntry_c getOneSM_SEMEOnR503(StateMachineState_c target)
 StateEventMatrixEntry_c getOneSM_SEMEOnR503(StateMachineState_c[] targets)
 </pre>
-######  select many <State Event Matrix Entry set> related by <State Machine State target>->SM_SEME[R503]
+######  select many {State Event Matrix Entry set} related by {State Machine State target}->SM_SEME[R503]
 <pre>
 StateEventMatrixEntry_c[] getManySM_SEMEsOnR503(StateMachineState_c target)
 StateEventMatrixEntry_c[] getManySM_SEMEsOnR503(StateMachineState_c[] targets)
 </pre>
 
-######  select one <State Event Matrix Entry instance> related by <SEM Event target>->SM_SEME[R503]
+######  select one {State Event Matrix Entry instance} related by {SEM Event target}->SM_SEME[R503]
 <pre>
 StateEventMatrixEntry_c getOneSM_SEMEOnR503(SemEvent_c target)
 StateEventMatrixEntry_c getOneSM_SEMEOnR503(SemEvent_c[] targets)
 </pre>
-######  select many <State Event Matrix Entry set> related by <SEM Event target>->SM_SEME[R503]
+######  select many {State Event Matrix Entry set} related by {SEM Event target}->SM_SEME[R503]
 <pre>
 StateEventMatrixEntry_c[] getManySM_SEMEsOnR503(SemEvent_c target)
 StateEventMatrixEntry_c[] getManySM_SEMEsOnR503(SemEvent_c[] targets)
 </pre>
+###### R504 (Subtype)
 
-######  select one <State Event Matrix Entry instance> related by <Event Ignored target>->SM_SEME[R504]
+######  select one {State Event Matrix Entry instance} related by {Event Ignored target}->SM_SEME[R504]
 <pre>
 StateEventMatrixEntry_c getOneSM_SEMEOnR504(EventIgnored_c target)
 </pre>
-######  select many <State Event Matrix Entry set> related by <Event Ignored target set>->SM_SEME[R504]
+######  select many {State Event Matrix Entry set} related by {Event Ignored target set}->SM_SEME[R504]
 <pre>
 StateEventMatrixEntry_c[] getManySM_SEMEsOnR504(EventIgnored_c[] targets)
 </pre>
 
-######  select one <State Event Matrix Entry instance> related by <Cant Happen target>->SM_SEME[R504]
+######  select one {State Event Matrix Entry instance} related by {Cant Happen target}->SM_SEME[R504]
 <pre>
 StateEventMatrixEntry_c getOneSM_SEMEOnR504(CantHappen_c target)
 </pre>
-######  select many <State Event Matrix Entry set> related by <Cant Happen target set>->SM_SEME[R504]
+######  select many {State Event Matrix Entry set} related by {Cant Happen target set}->SM_SEME[R504]
 <pre>
 StateEventMatrixEntry_c[] getManySM_SEMEsOnR504(CantHappen_c[] targets)
 </pre>
 
-######  select one <State Event Matrix Entry instance> related by <New State Transition target>->SM_SEME[R504]
+######  select one {State Event Matrix Entry instance} related by {New State Transition target}->SM_SEME[R504]
 <pre>
 StateEventMatrixEntry_c getOneSM_SEMEOnR504(NewStateTransition_c target)
 </pre>
-######  select many <State Event Matrix Entry set> related by <New State Transition target set>->SM_SEME[R504]
+######  select many {State Event Matrix Entry set} related by {New State Transition target set}->SM_SEME[R504]
 <pre>
 StateEventMatrixEntry_c[] getManySM_SEMEsOnR504(NewStateTransition_c[] targets)
 </pre>
@@ -2460,7 +2488,7 @@ StateEventMatrixEntry_c[] getManySM_SEMEsOnR504(NewStateTransition_c[] targets)
 
 <pre>
   -  String      	getSignal_name()
-  - void			setSignal_name(String       newValue)
+  -  void			setSignal_name(String       newValue)
 
 </pre>
 
@@ -2471,12 +2499,12 @@ StateEventMatrixEntry_c[] getManySM_SEMEsOnR504(NewStateTransition_c[] targets)
 
 ###### R528
 
-######  select one <Signal Event instance> related by <Provided Signal target>->SM_SGEVT[R528]
+######  select one {Signal Event instance} related by {Provided Signal target}->SM_SGEVT[R528]
 <pre>
 SignalEvent_c getOneSM_SGEVTOnR528(ProvidedSignal_c target)
 SignalEvent_c getOneSM_SGEVTOnR528(ProvidedSignal_c[] targets)
 </pre>
-######  select many <Signal Event set> related by <Provided Signal target>->SM_SGEVT[R528]
+######  select many {Signal Event set} related by {Provided Signal target}->SM_SGEVT[R528]
 <pre>
 SignalEvent_c[] getManySM_SGEVTsOnR528(ProvidedSignal_c target)
 SignalEvent_c[] getManySM_SGEVTsOnR528(ProvidedSignal_c[] targets)
@@ -2484,22 +2512,23 @@ SignalEvent_c[] getManySM_SGEVTsOnR528(ProvidedSignal_c[] targets)
 
 ###### R529
 
-######  select one <Signal Event instance> related by <Required Signal target>->SM_SGEVT[R529]
+######  select one {Signal Event instance} related by {Required Signal target}->SM_SGEVT[R529]
 <pre>
 SignalEvent_c getOneSM_SGEVTOnR529(RequiredSignal_c target)
 SignalEvent_c getOneSM_SGEVTOnR529(RequiredSignal_c[] targets)
 </pre>
-######  select many <Signal Event set> related by <Required Signal target>->SM_SGEVT[R529]
+######  select many {Signal Event set} related by {Required Signal target}->SM_SGEVT[R529]
 <pre>
 SignalEvent_c[] getManySM_SGEVTsOnR529(RequiredSignal_c target)
 SignalEvent_c[] getManySM_SGEVTsOnR529(RequiredSignal_c[] targets)
 </pre>
+###### R526 (Subtype)
 
-######  select one <Signal Event instance> related by <SEM Event target>->SM_SGEVT[R526]
+######  select one {Signal Event instance} related by {SEM Event target}->SM_SGEVT[R526]
 <pre>
 SignalEvent_c getOneSM_SGEVTOnR526(SemEvent_c target)
 </pre>
-######  select many <Signal Event set> related by <SEM Event target>->SM_SGEVT[R526]
+######  select many {Signal Event set} related by {SEM Event target}->SM_SGEVT[R526]
 <pre>
 SignalEvent_c[] getManySM_SGEVTsOnR526(SemEvent_c[] targets)
 </pre>
@@ -2519,60 +2548,62 @@ SignalEvent_c[] getManySM_SGEVTsOnR526(SemEvent_c[] targets)
 
 ###### R503 - SEM Event *is received by* State Machine State (via State Event Matrix Entry)
 
-######  select one <SEM Event instance> related by <State Machine State target>->SM_SEVT[R503]
+######  select one {SEM Event instance} related by {State Machine State target}->SM_SEVT[R503]
 <pre>
 SemEvent_c getOneSM_SEVTOnR503(StateMachineState_c target)
 SemEvent_c getOneSM_SEVTOnR503(StateMachineState_c[] targets)
 </pre>
-######  select many <SEM Event set> related by <State Machine State target>->SM_SEVT[R503]
+######  select many {SEM Event set} related by {State Machine State target}->SM_SEVT[R503]
 <pre>
 SemEvent_c[] getManySM_SEVTsOnR503(StateMachineState_c target)
 SemEvent_c[] getManySM_SEVTsOnR503(StateMachineState_c[] targets)
 </pre>
 
-######  select one <SEM Event instance> related by <State Event Matrix Entry target>->SM_SEVT[R503]
+######  select one {SEM Event instance} related by {State Event Matrix Entry target}->SM_SEVT[R503]
 <pre>
 SemEvent_c getOneSM_SEVTOnR503(StateEventMatrixEntry_c target)
 SemEvent_c getOneSM_SEVTOnR503(StateEventMatrixEntry_c[] targets)
 </pre>
-######  select many <SEM Event set> related by <State Event Matrix Entry target>->SM_SEVT[R503]
+######  select many {SEM Event set} related by {State Event Matrix Entry target}->SM_SEVT[R503]
 <pre>
 SemEvent_c[] getManySM_SEVTsOnR503(StateEventMatrixEntry_c target)
 SemEvent_c[] getManySM_SEVTsOnR503(StateEventMatrixEntry_c[] targets)
 </pre>
+###### R525 (Subtype)
 
-######  select one <SEM Event instance> related by <State Machine Event target>->SM_SEVT[R525]
+######  select one {SEM Event instance} related by {State Machine Event target}->SM_SEVT[R525]
 <pre>
 SemEvent_c getOneSM_SEVTOnR525(StateMachineEvent_c target)
 </pre>
-######  select many <SEM Event set> related by <State Machine Event target>->SM_SEVT[R525]
+######  select many {SEM Event set} related by {State Machine Event target}->SM_SEVT[R525]
 <pre>
 SemEvent_c[] getManySM_SEVTsOnR525(StateMachineEvent_c[] targets)
 </pre>
+###### R526 (Subtype)
 
-######  select one <SEM Event instance> related by <Non Local Event target>->SM_SEVT[R526]
+######  select one {SEM Event instance} related by {Non Local Event target}->SM_SEVT[R526]
 <pre>
 SemEvent_c getOneSM_SEVTOnR526(NonLocalEvent_c target)
 </pre>
-######  select many <SEM Event set> related by <Non Local Event target set>->SM_SEVT[R526]
+######  select many {SEM Event set} related by {Non Local Event target set}->SM_SEVT[R526]
 <pre>
 SemEvent_c[] getManySM_SEVTsOnR526(NonLocalEvent_c[] targets)
 </pre>
 
-######  select one <SEM Event instance> related by <Local Event target>->SM_SEVT[R526]
+######  select one {SEM Event instance} related by {Local Event target}->SM_SEVT[R526]
 <pre>
 SemEvent_c getOneSM_SEVTOnR526(LocalEvent_c target)
 </pre>
-######  select many <SEM Event set> related by <Local Event target set>->SM_SEVT[R526]
+######  select many {SEM Event set} related by {Local Event target set}->SM_SEVT[R526]
 <pre>
 SemEvent_c[] getManySM_SEVTsOnR526(LocalEvent_c[] targets)
 </pre>
 
-######  select one <SEM Event instance> related by <Signal Event target>->SM_SEVT[R526]
+######  select one {SEM Event instance} related by {Signal Event target}->SM_SEVT[R526]
 <pre>
 SemEvent_c getOneSM_SEVTOnR526(SignalEvent_c target)
 </pre>
-######  select many <SEM Event set> related by <Signal Event target set>->SM_SEVT[R526]
+######  select many {SEM Event set} related by {Signal Event target set}->SM_SEVT[R526]
 <pre>
 SemEvent_c[] getManySM_SEVTsOnR526(SignalEvent_c[] targets)
 </pre>
@@ -2589,13 +2620,13 @@ SemEvent_c[] getManySM_SEVTsOnR526(SignalEvent_c[] targets)
 
 <pre>
   -  String      	getLocalclassname()
-  - void			setLocalclassname(String       newValue)
+  -  void			setLocalclassname(String       newValue)
 
   -  String      	getLocalclasskl()
-  - void			setLocalclasskl(String       newValue)
+  -  void			setLocalclasskl(String       newValue)
 
   -  String      	getLocaleventmning()
-  - void			setLocaleventmning(String       newValue)
+  -  void			setLocaleventmning(String       newValue)
 
 </pre>
 
@@ -2606,22 +2637,23 @@ SemEvent_c[] getManySM_SEVTsOnR526(SignalEvent_c[] targets)
 
 ###### R527 - Polymorphic Event *is aliased by* Non Local Event
 
-######  select one <Polymorphic Event instance> related by <Non Local Event target>->SM_PEVT[R527]
+######  select one {Polymorphic Event instance} related by {Non Local Event target}->SM_PEVT[R527]
 <pre>
 PolymorphicEvent_c getOneSM_PEVTOnR527(NonLocalEvent_c target)
 PolymorphicEvent_c getOneSM_PEVTOnR527(NonLocalEvent_c[] targets)
 </pre>
-######  select many <Polymorphic Event set> related by <Non Local Event target>->SM_PEVT[R527]
+######  select many {Polymorphic Event set} related by {Non Local Event target}->SM_PEVT[R527]
 <pre>
 PolymorphicEvent_c[] getManySM_PEVTsOnR527(NonLocalEvent_c target)
 PolymorphicEvent_c[] getManySM_PEVTsOnR527(NonLocalEvent_c[] targets)
 </pre>
+###### R525 (Subtype)
 
-######  select one <Polymorphic Event instance> related by <State Machine Event target>->SM_PEVT[R525]
+######  select one {Polymorphic Event instance} related by {State Machine Event target}->SM_PEVT[R525]
 <pre>
 PolymorphicEvent_c getOneSM_PEVTOnR525(StateMachineEvent_c target)
 </pre>
-######  select many <Polymorphic Event set> related by <State Machine Event target>->SM_PEVT[R525]
+######  select many {Polymorphic Event set} related by {State Machine Event target}->SM_PEVT[R525]
 <pre>
 PolymorphicEvent_c[] getManySM_PEVTsOnR525(StateMachineEvent_c[] targets)
 </pre>
@@ -2638,13 +2670,13 @@ PolymorphicEvent_c[] getManySM_PEVTsOnR525(StateMachineEvent_c[] targets)
 
 <pre>
   -  java.util.UUID        	getPolysmspd_id()
-  - void			setPolysmspd_id(java.util.UUID         newValue)
+  -  void			setPolysmspd_id(java.util.UUID         newValue)
 
   -  String      	getLocal_meaning()
-  - void			setLocal_meaning(String       newValue)
+  -  void			setLocal_meaning(String       newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
 </pre>
 
@@ -2655,22 +2687,23 @@ PolymorphicEvent_c[] getManySM_PEVTsOnR525(StateMachineEvent_c[] targets)
 
 ###### R527 - Non Local Event *is defined by* Polymorphic Event
 
-######  select one <Non Local Event instance> related by <Polymorphic Event target>->SM_NLEVT[R527]
+######  select one {Non Local Event instance} related by {Polymorphic Event target}->SM_NLEVT[R527]
 <pre>
 NonLocalEvent_c getOneSM_NLEVTOnR527(PolymorphicEvent_c target)
 NonLocalEvent_c getOneSM_NLEVTOnR527(PolymorphicEvent_c[] targets)
 </pre>
-######  select many <Non Local Event set> related by <Polymorphic Event target>->SM_NLEVT[R527]
+######  select many {Non Local Event set} related by {Polymorphic Event target}->SM_NLEVT[R527]
 <pre>
 NonLocalEvent_c[] getManySM_NLEVTsOnR527(PolymorphicEvent_c target)
 NonLocalEvent_c[] getManySM_NLEVTsOnR527(PolymorphicEvent_c[] targets)
 </pre>
+###### R526 (Subtype)
 
-######  select one <Non Local Event instance> related by <SEM Event target>->SM_NLEVT[R526]
+######  select one {Non Local Event instance} related by {SEM Event target}->SM_NLEVT[R526]
 <pre>
 NonLocalEvent_c getOneSM_NLEVTOnR526(SemEvent_c target)
 </pre>
-######  select many <Non Local Event set> related by <SEM Event target>->SM_NLEVT[R526]
+######  select many {Non Local Event set} related by {SEM Event target}->SM_NLEVT[R526]
 <pre>
 NonLocalEvent_c[] getManySM_NLEVTsOnR526(SemEvent_c[] targets)
 </pre>
@@ -2687,7 +2720,7 @@ NonLocalEvent_c[] getManySM_NLEVTsOnR526(SemEvent_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSmspd_id()
-  - void			setSmspd_id(java.util.UUID         newValue)
+  -  void			setSmspd_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -2698,22 +2731,23 @@ NonLocalEvent_c[] getManySM_NLEVTsOnR526(SemEvent_c[] targets)
 
 ###### R508 - No Event Transition *originates from* State Machine State
 
-######  select one <No Event Transition instance> related by <State Machine State target>->SM_NETXN[R508]
+######  select one {No Event Transition instance} related by {State Machine State target}->SM_NETXN[R508]
 <pre>
 NoEventTransition_c getOneSM_NETXNOnR508(StateMachineState_c target)
 NoEventTransition_c getOneSM_NETXNOnR508(StateMachineState_c[] targets)
 </pre>
-######  select many <No Event Transition set> related by <State Machine State target>->SM_NETXN[R508]
+######  select many {No Event Transition set} related by {State Machine State target}->SM_NETXN[R508]
 <pre>
 NoEventTransition_c[] getManySM_NETXNsOnR508(StateMachineState_c target)
 NoEventTransition_c[] getManySM_NETXNsOnR508(StateMachineState_c[] targets)
 </pre>
+###### R507 (Subtype)
 
-######  select one <No Event Transition instance> related by <Transition target>->SM_NETXN[R507]
+######  select one {No Event Transition instance} related by {Transition target}->SM_NETXN[R507]
 <pre>
 NoEventTransition_c getOneSM_NETXNOnR507(Transition_c target)
 </pre>
-######  select many <No Event Transition set> related by <Transition target>->SM_NETXN[R507]
+######  select many {No Event Transition set} related by {Transition target}->SM_NETXN[R507]
 <pre>
 NoEventTransition_c[] getManySM_NETXNsOnR507(Transition_c[] targets)
 </pre>
@@ -2730,21 +2764,23 @@ NoEventTransition_c[] getManySM_NETXNsOnR507(Transition_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R507 (Subtype)
 
-######  select one <New State Transition instance> related by <Transition target>->SM_NSTXN[R507]
+######  select one {New State Transition instance} related by {Transition target}->SM_NSTXN[R507]
 <pre>
 NewStateTransition_c getOneSM_NSTXNOnR507(Transition_c target)
 </pre>
-######  select many <New State Transition set> related by <Transition target>->SM_NSTXN[R507]
+######  select many {New State Transition set} related by {Transition target}->SM_NSTXN[R507]
 <pre>
 NewStateTransition_c[] getManySM_NSTXNsOnR507(Transition_c[] targets)
 </pre>
+###### R504 (Subtype)
 
-######  select one <New State Transition instance> related by <State Event Matrix Entry target>->SM_NSTXN[R504]
+######  select one {New State Transition instance} related by {State Event Matrix Entry target}->SM_NSTXN[R504]
 <pre>
 NewStateTransition_c getOneSM_NSTXNOnR504(StateEventMatrixEntry_c target)
 </pre>
-######  select many <New State Transition set> related by <State Event Matrix Entry target>->SM_NSTXN[R504]
+######  select many {New State Transition set} related by {State Event Matrix Entry target}->SM_NSTXN[R504]
 <pre>
 NewStateTransition_c[] getManySM_NSTXNsOnR504(StateEventMatrixEntry_c[] targets)
 </pre>
@@ -2764,33 +2800,34 @@ NewStateTransition_c[] getManySM_NSTXNsOnR504(StateEventMatrixEntry_c[] targets)
 
 ###### R511
 
-######  select one <Moore State Machine instance> related by <State Machine State target>->SM_MOORE[R511]
+######  select one {Moore State Machine instance} related by {State Machine State target}->SM_MOORE[R511]
 <pre>
 MooreStateMachine_c getOneSM_MOOREOnR511(StateMachineState_c target)
 MooreStateMachine_c getOneSM_MOOREOnR511(StateMachineState_c[] targets)
 </pre>
-######  select many <Moore State Machine set> related by <State Machine State target>->SM_MOORE[R511]
+######  select many {Moore State Machine set} related by {State Machine State target}->SM_MOORE[R511]
 <pre>
 MooreStateMachine_c[] getManySM_MOOREsOnR511(StateMachineState_c target)
 MooreStateMachine_c[] getManySM_MOOREsOnR511(StateMachineState_c[] targets)
 </pre>
 
-######  select one <Moore State Machine instance> related by <Moore Action Home target>->SM_MOORE[R511]
+######  select one {Moore State Machine instance} related by {Moore Action Home target}->SM_MOORE[R511]
 <pre>
 MooreStateMachine_c getOneSM_MOOREOnR511(MooreActionHome_c target)
 MooreStateMachine_c getOneSM_MOOREOnR511(MooreActionHome_c[] targets)
 </pre>
-######  select many <Moore State Machine set> related by <Moore Action Home target>->SM_MOORE[R511]
+######  select many {Moore State Machine set} related by {Moore Action Home target}->SM_MOORE[R511]
 <pre>
 MooreStateMachine_c[] getManySM_MOOREsOnR511(MooreActionHome_c target)
 MooreStateMachine_c[] getManySM_MOOREsOnR511(MooreActionHome_c[] targets)
 </pre>
+###### R510 (Subtype)
 
-######  select one <Moore State Machine instance> related by <State Machine target>->SM_MOORE[R510]
+######  select one {Moore State Machine instance} related by {State Machine target}->SM_MOORE[R510]
 <pre>
 MooreStateMachine_c getOneSM_MOOREOnR510(StateMachine_c target)
 </pre>
-######  select many <Moore State Machine set> related by <State Machine target>->SM_MOORE[R510]
+######  select many {Moore State Machine set} related by {State Machine target}->SM_MOORE[R510]
 <pre>
 MooreStateMachine_c[] getManySM_MOOREsOnR510(StateMachine_c[] targets)
 </pre>
@@ -2810,33 +2847,34 @@ MooreStateMachine_c[] getManySM_MOOREsOnR510(StateMachine_c[] targets)
 
 ###### R511
 
-######  select one <Moore Action Home instance> related by <State Machine State target>->SM_MOAH[R511]
+######  select one {Moore Action Home instance} related by {State Machine State target}->SM_MOAH[R511]
 <pre>
 MooreActionHome_c getOneSM_MOAHOnR511(StateMachineState_c target)
 MooreActionHome_c getOneSM_MOAHOnR511(StateMachineState_c[] targets)
 </pre>
-######  select many <Moore Action Home set> related by <State Machine State target>->SM_MOAH[R511]
+######  select many {Moore Action Home set} related by {State Machine State target}->SM_MOAH[R511]
 <pre>
 MooreActionHome_c[] getManySM_MOAHsOnR511(StateMachineState_c target)
 MooreActionHome_c[] getManySM_MOAHsOnR511(StateMachineState_c[] targets)
 </pre>
 
-######  select one <Moore Action Home instance> related by <Moore State Machine target>->SM_MOAH[R511]
+######  select one {Moore Action Home instance} related by {Moore State Machine target}->SM_MOAH[R511]
 <pre>
 MooreActionHome_c getOneSM_MOAHOnR511(MooreStateMachine_c target)
 MooreActionHome_c getOneSM_MOAHOnR511(MooreStateMachine_c[] targets)
 </pre>
-######  select many <Moore Action Home set> related by <Moore State Machine target>->SM_MOAH[R511]
+######  select many {Moore Action Home set} related by {Moore State Machine target}->SM_MOAH[R511]
 <pre>
 MooreActionHome_c[] getManySM_MOAHsOnR511(MooreStateMachine_c target)
 MooreActionHome_c[] getManySM_MOAHsOnR511(MooreStateMachine_c[] targets)
 </pre>
+###### R513 (Subtype)
 
-######  select one <Moore Action Home instance> related by <Action Home target>->SM_MOAH[R513]
+######  select one {Moore Action Home instance} related by {Action Home target}->SM_MOAH[R513]
 <pre>
 MooreActionHome_c getOneSM_MOAHOnR513(ActionHome_c target)
 </pre>
-######  select many <Moore Action Home set> related by <Action Home target>->SM_MOAH[R513]
+######  select many {Moore Action Home set} related by {Action Home target}->SM_MOAH[R513]
 <pre>
 MooreActionHome_c[] getManySM_MOAHsOnR513(ActionHome_c[] targets)
 </pre>
@@ -2856,33 +2894,34 @@ MooreActionHome_c[] getManySM_MOAHsOnR513(ActionHome_c[] targets)
 
 ###### R512
 
-######  select one <Mealy State Machine instance> related by <Transition target>->SM_MEALY[R512]
+######  select one {Mealy State Machine instance} related by {Transition target}->SM_MEALY[R512]
 <pre>
 MealyStateMachine_c getOneSM_MEALYOnR512(Transition_c target)
 MealyStateMachine_c getOneSM_MEALYOnR512(Transition_c[] targets)
 </pre>
-######  select many <Mealy State Machine set> related by <Transition target>->SM_MEALY[R512]
+######  select many {Mealy State Machine set} related by {Transition target}->SM_MEALY[R512]
 <pre>
 MealyStateMachine_c[] getManySM_MEALYsOnR512(Transition_c target)
 MealyStateMachine_c[] getManySM_MEALYsOnR512(Transition_c[] targets)
 </pre>
 
-######  select one <Mealy State Machine instance> related by <Mealy Action Home target>->SM_MEALY[R512]
+######  select one {Mealy State Machine instance} related by {Mealy Action Home target}->SM_MEALY[R512]
 <pre>
 MealyStateMachine_c getOneSM_MEALYOnR512(MealyActionHome_c target)
 MealyStateMachine_c getOneSM_MEALYOnR512(MealyActionHome_c[] targets)
 </pre>
-######  select many <Mealy State Machine set> related by <Mealy Action Home target>->SM_MEALY[R512]
+######  select many {Mealy State Machine set} related by {Mealy Action Home target}->SM_MEALY[R512]
 <pre>
 MealyStateMachine_c[] getManySM_MEALYsOnR512(MealyActionHome_c target)
 MealyStateMachine_c[] getManySM_MEALYsOnR512(MealyActionHome_c[] targets)
 </pre>
+###### R510 (Subtype)
 
-######  select one <Mealy State Machine instance> related by <State Machine target>->SM_MEALY[R510]
+######  select one {Mealy State Machine instance} related by {State Machine target}->SM_MEALY[R510]
 <pre>
 MealyStateMachine_c getOneSM_MEALYOnR510(StateMachine_c target)
 </pre>
-######  select many <Mealy State Machine set> related by <State Machine target>->SM_MEALY[R510]
+######  select many {Mealy State Machine set} related by {State Machine target}->SM_MEALY[R510]
 <pre>
 MealyStateMachine_c[] getManySM_MEALYsOnR510(StateMachine_c[] targets)
 </pre>
@@ -2902,33 +2941,34 @@ MealyStateMachine_c[] getManySM_MEALYsOnR510(StateMachine_c[] targets)
 
 ###### R512
 
-######  select one <Mealy Action Home instance> related by <Transition target>->SM_MEAH[R512]
+######  select one {Mealy Action Home instance} related by {Transition target}->SM_MEAH[R512]
 <pre>
 MealyActionHome_c getOneSM_MEAHOnR512(Transition_c target)
 MealyActionHome_c getOneSM_MEAHOnR512(Transition_c[] targets)
 </pre>
-######  select many <Mealy Action Home set> related by <Transition target>->SM_MEAH[R512]
+######  select many {Mealy Action Home set} related by {Transition target}->SM_MEAH[R512]
 <pre>
 MealyActionHome_c[] getManySM_MEAHsOnR512(Transition_c target)
 MealyActionHome_c[] getManySM_MEAHsOnR512(Transition_c[] targets)
 </pre>
 
-######  select one <Mealy Action Home instance> related by <Mealy State Machine target>->SM_MEAH[R512]
+######  select one {Mealy Action Home instance} related by {Mealy State Machine target}->SM_MEAH[R512]
 <pre>
 MealyActionHome_c getOneSM_MEAHOnR512(MealyStateMachine_c target)
 MealyActionHome_c getOneSM_MEAHOnR512(MealyStateMachine_c[] targets)
 </pre>
-######  select many <Mealy Action Home set> related by <Mealy State Machine target>->SM_MEAH[R512]
+######  select many {Mealy Action Home set} related by {Mealy State Machine target}->SM_MEAH[R512]
 <pre>
 MealyActionHome_c[] getManySM_MEAHsOnR512(MealyStateMachine_c target)
 MealyActionHome_c[] getManySM_MEAHsOnR512(MealyStateMachine_c[] targets)
 </pre>
+###### R513 (Subtype)
 
-######  select one <Mealy Action Home instance> related by <Action Home target>->SM_MEAH[R513]
+######  select one {Mealy Action Home instance} related by {Action Home target}->SM_MEAH[R513]
 <pre>
 MealyActionHome_c getOneSM_MEAHOnR513(ActionHome_c target)
 </pre>
-######  select many <Mealy Action Home set> related by <Action Home target>->SM_MEAH[R513]
+######  select many {Mealy Action Home set} related by {Action Home target}->SM_MEAH[R513]
 <pre>
 MealyActionHome_c[] getManySM_MEAHsOnR513(ActionHome_c[] targets)
 </pre>
@@ -2948,22 +2988,23 @@ MealyActionHome_c[] getManySM_MEAHsOnR513(ActionHome_c[] targets)
 
 ###### R509 - Local Event *has assigned to it* Creation Transition
 
-######  select one <Local Event instance> related by <Creation Transition target>->SM_LEVT[R509]
+######  select one {Local Event instance} related by {Creation Transition target}->SM_LEVT[R509]
 <pre>
 LocalEvent_c getOneSM_LEVTOnR509(CreationTransition_c target)
 LocalEvent_c getOneSM_LEVTOnR509(CreationTransition_c[] targets)
 </pre>
-######  select many <Local Event set> related by <Creation Transition target>->SM_LEVT[R509]
+######  select many {Local Event set} related by {Creation Transition target}->SM_LEVT[R509]
 <pre>
 LocalEvent_c[] getManySM_LEVTsOnR509(CreationTransition_c target)
 LocalEvent_c[] getManySM_LEVTsOnR509(CreationTransition_c[] targets)
 </pre>
+###### R526 (Subtype)
 
-######  select one <Local Event instance> related by <SEM Event target>->SM_LEVT[R526]
+######  select one {Local Event instance} related by {SEM Event target}->SM_LEVT[R526]
 <pre>
 LocalEvent_c getOneSM_LEVTOnR526(SemEvent_c target)
 </pre>
-######  select many <Local Event set> related by <SEM Event target>->SM_LEVT[R526]
+######  select many {Local Event set} related by {SEM Event target}->SM_LEVT[R526]
 <pre>
 LocalEvent_c[] getManySM_LEVTsOnR526(SemEvent_c[] targets)
 </pre>
@@ -2983,22 +3024,23 @@ LocalEvent_c[] getManySM_LEVTsOnR526(SemEvent_c[] targets)
 
 ###### R518
 
-######  select one <Instance State Machine instance> related by <Model Class target>->SM_ISM[R518]
+######  select one {Instance State Machine instance} related by {Model Class target}->SM_ISM[R518]
 <pre>
 InstanceStateMachine_c getOneSM_ISMOnR518(ModelClass_c target)
 InstanceStateMachine_c getOneSM_ISMOnR518(ModelClass_c[] targets)
 </pre>
-######  select many <Instance State Machine set> related by <Model Class target>->SM_ISM[R518]
+######  select many {Instance State Machine set} related by {Model Class target}->SM_ISM[R518]
 <pre>
 InstanceStateMachine_c[] getManySM_ISMsOnR518(ModelClass_c target)
 InstanceStateMachine_c[] getManySM_ISMsOnR518(ModelClass_c[] targets)
 </pre>
+###### R517 (Subtype)
 
-######  select one <Instance State Machine instance> related by <State Machine target>->SM_ISM[R517]
+######  select one {Instance State Machine instance} related by {State Machine target}->SM_ISM[R517]
 <pre>
 InstanceStateMachine_c getOneSM_ISMOnR517(StateMachine_c target)
 </pre>
-######  select many <Instance State Machine set> related by <State Machine target>->SM_ISM[R517]
+######  select many {Instance State Machine set} related by {State Machine target}->SM_ISM[R517]
 <pre>
 InstanceStateMachine_c[] getManySM_ISMsOnR517(StateMachine_c[] targets)
 </pre>
@@ -3015,10 +3057,10 @@ InstanceStateMachine_c[] getManySM_ISMsOnR517(StateMachine_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSmspd_id()
-  - void			setSmspd_id(java.util.UUID         newValue)
+  -  void			setSmspd_id(java.util.UUID         newValue)
 
   -  boolean     	getNon_local()
-  - void			setNon_local(boolean      newValue)
+  -  void			setNon_local(boolean      newValue)
 
 </pre>
 
@@ -3029,23 +3071,23 @@ InstanceStateMachine_c[] getManySM_ISMsOnR517(StateMachine_c[] targets)
 
 ###### R522 - Event Supplemental Data *is made up of* State Machine Event Data Item (via Supplemental Data Items)
 
-######  select one <Event Supplemental Data instance> related by <Supplemental Data Items target>->SM_SUPDT[R522]
+######  select one {Event Supplemental Data instance} related by {Supplemental Data Items target}->SM_SUPDT[R522]
 <pre>
 EventSupplementalData_c getOneSM_SUPDTOnR522(SupplementalDataItems_c target)
 EventSupplementalData_c getOneSM_SUPDTOnR522(SupplementalDataItems_c[] targets)
 </pre>
-######  select many <Event Supplemental Data set> related by <Supplemental Data Items target>->SM_SUPDT[R522]
+######  select many {Event Supplemental Data set} related by {Supplemental Data Items target}->SM_SUPDT[R522]
 <pre>
 EventSupplementalData_c[] getManySM_SUPDTsOnR522(SupplementalDataItems_c target)
 EventSupplementalData_c[] getManySM_SUPDTsOnR522(SupplementalDataItems_c[] targets)
 </pre>
 
-######  select one <Event Supplemental Data instance> related by <State Machine Event Data Item target>->SM_SUPDT[R522]
+######  select one {Event Supplemental Data instance} related by {State Machine Event Data Item target}->SM_SUPDT[R522]
 <pre>
 EventSupplementalData_c getOneSM_SUPDTOnR522(StateMachineEventDataItem_c target)
 EventSupplementalData_c getOneSM_SUPDTOnR522(StateMachineEventDataItem_c[] targets)
 </pre>
-######  select many <Event Supplemental Data set> related by <State Machine Event Data Item target>->SM_SUPDT[R522]
+######  select many {Event Supplemental Data set} related by {State Machine Event Data Item target}->SM_SUPDT[R522]
 <pre>
 EventSupplementalData_c[] getManySM_SUPDTsOnR522(StateMachineEventDataItem_c target)
 EventSupplementalData_c[] getManySM_SUPDTsOnR522(StateMachineEventDataItem_c[] targets)
@@ -3053,12 +3095,12 @@ EventSupplementalData_c[] getManySM_SUPDTsOnR522(StateMachineEventDataItem_c[] t
 
 ###### R521 - Event Supplemental Data *is delivered by received event to* State Machine State
 
-######  select one <Event Supplemental Data instance> related by <State Machine State target>->SM_SUPDT[R521]
+######  select one {Event Supplemental Data instance} related by {State Machine State target}->SM_SUPDT[R521]
 <pre>
 EventSupplementalData_c getOneSM_SUPDTOnR521(StateMachineState_c target)
 EventSupplementalData_c getOneSM_SUPDTOnR521(StateMachineState_c[] targets)
 </pre>
-######  select many <Event Supplemental Data set> related by <State Machine State target>->SM_SUPDT[R521]
+######  select many {Event Supplemental Data set} related by {State Machine State target}->SM_SUPDT[R521]
 <pre>
 EventSupplementalData_c[] getManySM_SUPDTsOnR521(StateMachineState_c target)
 EventSupplementalData_c[] getManySM_SUPDTsOnR521(StateMachineState_c[] targets)
@@ -3066,12 +3108,12 @@ EventSupplementalData_c[] getManySM_SUPDTsOnR521(StateMachineState_c[] targets)
 
 ###### R520 - Event Supplemental Data *defines signature of* State Machine Event
 
-######  select one <Event Supplemental Data instance> related by <State Machine Event target>->SM_SUPDT[R520]
+######  select one {Event Supplemental Data instance} related by {State Machine Event target}->SM_SUPDT[R520]
 <pre>
 EventSupplementalData_c getOneSM_SUPDTOnR520(StateMachineEvent_c target)
 EventSupplementalData_c getOneSM_SUPDTOnR520(StateMachineEvent_c[] targets)
 </pre>
-######  select many <Event Supplemental Data set> related by <State Machine Event target>->SM_SUPDT[R520]
+######  select many {Event Supplemental Data set} related by {State Machine Event target}->SM_SUPDT[R520]
 <pre>
 EventSupplementalData_c[] getManySM_SUPDTsOnR520(StateMachineEvent_c target)
 EventSupplementalData_c[] getManySM_SUPDTsOnR520(StateMachineEvent_c[] targets)
@@ -3079,12 +3121,12 @@ EventSupplementalData_c[] getManySM_SUPDTsOnR520(StateMachineEvent_c[] targets)
 
 ###### R523 - Event Supplemental Data *is assigned to* State Machine
 
-######  select one <Event Supplemental Data instance> related by <State Machine target>->SM_SUPDT[R523]
+######  select one {Event Supplemental Data instance} related by {State Machine target}->SM_SUPDT[R523]
 <pre>
 EventSupplementalData_c getOneSM_SUPDTOnR523(StateMachine_c target)
 EventSupplementalData_c getOneSM_SUPDTOnR523(StateMachine_c[] targets)
 </pre>
-######  select many <Event Supplemental Data set> related by <State Machine target>->SM_SUPDT[R523]
+######  select many {Event Supplemental Data set} related by {State Machine target}->SM_SUPDT[R523]
 <pre>
 EventSupplementalData_c[] getManySM_SUPDTsOnR523(StateMachine_c target)
 EventSupplementalData_c[] getManySM_SUPDTsOnR523(StateMachine_c[] targets)
@@ -3102,7 +3144,7 @@ EventSupplementalData_c[] getManySM_SUPDTsOnR523(StateMachine_c[] targets)
 
 <pre>
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -3110,12 +3152,13 @@ EventSupplementalData_c[] getManySM_SUPDTsOnR523(StateMachine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R504 (Subtype)
 
-######  select one <Event Ignored instance> related by <State Event Matrix Entry target>->SM_EIGN[R504]
+######  select one {Event Ignored instance} related by {State Event Matrix Entry target}->SM_EIGN[R504]
 <pre>
 EventIgnored_c getOneSM_EIGNOnR504(StateEventMatrixEntry_c target)
 </pre>
-######  select many <Event Ignored set> related by <State Event Matrix Entry target>->SM_EIGN[R504]
+######  select many {Event Ignored set} related by {State Event Matrix Entry target}->SM_EIGN[R504]
 <pre>
 EventIgnored_c[] getManySM_EIGNsOnR504(StateEventMatrixEntry_c[] targets)
 </pre>
@@ -3132,7 +3175,7 @@ EventIgnored_c[] getManySM_EIGNsOnR504(StateEventMatrixEntry_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSmspd_id()
-  - void			setSmspd_id(java.util.UUID         newValue)
+  -  void			setSmspd_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -3143,22 +3186,23 @@ EventIgnored_c[] getManySM_EIGNsOnR504(StateEventMatrixEntry_c[] targets)
 
 ###### R509 - Creation Transition *is assigned to* Local Event
 
-######  select one <Creation Transition instance> related by <Local Event target>->SM_CRTXN[R509]
+######  select one {Creation Transition instance} related by {Local Event target}->SM_CRTXN[R509]
 <pre>
 CreationTransition_c getOneSM_CRTXNOnR509(LocalEvent_c target)
 CreationTransition_c getOneSM_CRTXNOnR509(LocalEvent_c[] targets)
 </pre>
-######  select many <Creation Transition set> related by <Local Event target>->SM_CRTXN[R509]
+######  select many {Creation Transition set} related by {Local Event target}->SM_CRTXN[R509]
 <pre>
 CreationTransition_c[] getManySM_CRTXNsOnR509(LocalEvent_c target)
 CreationTransition_c[] getManySM_CRTXNsOnR509(LocalEvent_c[] targets)
 </pre>
+###### R507 (Subtype)
 
-######  select one <Creation Transition instance> related by <Transition target>->SM_CRTXN[R507]
+######  select one {Creation Transition instance} related by {Transition target}->SM_CRTXN[R507]
 <pre>
 CreationTransition_c getOneSM_CRTXNOnR507(Transition_c target)
 </pre>
-######  select many <Creation Transition set> related by <Transition target>->SM_CRTXN[R507]
+######  select many {Creation Transition set} related by {Transition target}->SM_CRTXN[R507]
 <pre>
 CreationTransition_c[] getManySM_CRTXNsOnR507(Transition_c[] targets)
 </pre>
@@ -3178,22 +3222,23 @@ CreationTransition_c[] getManySM_CRTXNsOnR507(Transition_c[] targets)
 
 ###### R519
 
-######  select one <Class State Machine instance> related by <Model Class target>->SM_ASM[R519]
+######  select one {Class State Machine instance} related by {Model Class target}->SM_ASM[R519]
 <pre>
 ClassStateMachine_c getOneSM_ASMOnR519(ModelClass_c target)
 ClassStateMachine_c getOneSM_ASMOnR519(ModelClass_c[] targets)
 </pre>
-######  select many <Class State Machine set> related by <Model Class target>->SM_ASM[R519]
+######  select many {Class State Machine set} related by {Model Class target}->SM_ASM[R519]
 <pre>
 ClassStateMachine_c[] getManySM_ASMsOnR519(ModelClass_c target)
 ClassStateMachine_c[] getManySM_ASMsOnR519(ModelClass_c[] targets)
 </pre>
+###### R517 (Subtype)
 
-######  select one <Class State Machine instance> related by <State Machine target>->SM_ASM[R517]
+######  select one {Class State Machine instance} related by {State Machine target}->SM_ASM[R517]
 <pre>
 ClassStateMachine_c getOneSM_ASMOnR517(StateMachine_c target)
 </pre>
-######  select many <Class State Machine set> related by <State Machine target>->SM_ASM[R517]
+######  select many {Class State Machine set} related by {State Machine target}->SM_ASM[R517]
 <pre>
 ClassStateMachine_c[] getManySM_ASMsOnR517(StateMachine_c[] targets)
 </pre>
@@ -3210,7 +3255,7 @@ ClassStateMachine_c[] getManySM_ASMsOnR517(StateMachine_c[] targets)
 
 <pre>
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -3218,12 +3263,13 @@ ClassStateMachine_c[] getManySM_ASMsOnR517(StateMachine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R504 (Subtype)
 
-######  select one <Cant Happen instance> related by <State Event Matrix Entry target>->SM_CH[R504]
+######  select one {Cant Happen instance} related by {State Event Matrix Entry target}->SM_CH[R504]
 <pre>
 CantHappen_c getOneSM_CHOnR504(StateEventMatrixEntry_c target)
 </pre>
-######  select many <Cant Happen set> related by <State Event Matrix Entry target>->SM_CH[R504]
+######  select many {Cant Happen set} related by {State Event Matrix Entry target}->SM_CH[R504]
 <pre>
 CantHappen_c[] getManySM_CHsOnR504(StateEventMatrixEntry_c[] targets)
 </pre>
@@ -3243,40 +3289,41 @@ CantHappen_c[] getManySM_CHsOnR504(StateEventMatrixEntry_c[] targets)
 
 ###### R514 - Action Home *houses* Action
 
-######  select one <Action Home instance> related by <Action target>->SM_AH[R514]
+######  select one {Action Home instance} related by {Action target}->SM_AH[R514]
 <pre>
 ActionHome_c getOneSM_AHOnR514(Action_c target)
 ActionHome_c getOneSM_AHOnR514(Action_c[] targets)
 </pre>
-######  select many <Action Home set> related by <Action target>->SM_AH[R514]
+######  select many {Action Home set} related by {Action target}->SM_AH[R514]
 <pre>
 ActionHome_c[] getManySM_AHsOnR514(Action_c target)
 ActionHome_c[] getManySM_AHsOnR514(Action_c[] targets)
 </pre>
+###### R513 (Subtype)
 
-######  select one <Action Home instance> related by <Moore Action Home target>->SM_AH[R513]
+######  select one {Action Home instance} related by {Moore Action Home target}->SM_AH[R513]
 <pre>
 ActionHome_c getOneSM_AHOnR513(MooreActionHome_c target)
 </pre>
-######  select many <Action Home set> related by <Moore Action Home target set>->SM_AH[R513]
+######  select many {Action Home set} related by {Moore Action Home target set}->SM_AH[R513]
 <pre>
 ActionHome_c[] getManySM_AHsOnR513(MooreActionHome_c[] targets)
 </pre>
 
-######  select one <Action Home instance> related by <Mealy Action Home target>->SM_AH[R513]
+######  select one {Action Home instance} related by {Mealy Action Home target}->SM_AH[R513]
 <pre>
 ActionHome_c getOneSM_AHOnR513(MealyActionHome_c target)
 </pre>
-######  select many <Action Home set> related by <Mealy Action Home target set>->SM_AH[R513]
+######  select many {Action Home set} related by {Mealy Action Home target set}->SM_AH[R513]
 <pre>
 ActionHome_c[] getManySM_AHsOnR513(MealyActionHome_c[] targets)
 </pre>
 
-######  select one <Action Home instance> related by <Transition Action Home target>->SM_AH[R513]
+######  select one {Action Home instance} related by {Transition Action Home target}->SM_AH[R513]
 <pre>
 ActionHome_c getOneSM_AHOnR513(TransitionActionHome_c target)
 </pre>
-######  select many <Action Home set> related by <Transition Action Home target set>->SM_AH[R513]
+######  select many {Action Home set} related by {Transition Action Home target set}->SM_AH[R513]
 <pre>
 ActionHome_c[] getManySM_AHsOnR513(TransitionActionHome_c[] targets)
 </pre>
@@ -3293,19 +3340,19 @@ ActionHome_c[] getManySM_AHsOnR513(TransitionActionHome_c[] targets)
 
 <pre>
   -  java.util.UUID        	getAct_id()
-  - void			setAct_id(java.util.UUID         newValue)
+  -  void			setAct_id(java.util.UUID         newValue)
 
   -  int 	getSuc_pars()
-  - void			setSuc_pars(int  newValue)
+  -  void			setSuc_pars(int  newValue)
 
   -  String      	getAction_semantics()
-  - void			setAction_semantics(String       newValue)
+  -  void			setAction_semantics(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getAction_semantics_internal()
-  - void			setAction_semantics_internal(String       newValue)
+  -  void			setAction_semantics_internal(String       newValue)
 
 </pre>
 
@@ -3316,12 +3363,12 @@ ActionHome_c[] getManySM_AHsOnR513(TransitionActionHome_c[] targets)
 
 ###### R515
 
-######  select one <Action instance> related by <State Machine target>->SM_ACT[R515]
+######  select one {Action instance} related by {State Machine target}->SM_ACT[R515]
 <pre>
 Action_c getOneSM_ACTOnR515(StateMachine_c target)
 Action_c getOneSM_ACTOnR515(StateMachine_c[] targets)
 </pre>
-######  select many <Action set> related by <State Machine target>->SM_ACT[R515]
+######  select many {Action set} related by {State Machine target}->SM_ACT[R515]
 <pre>
 Action_c[] getManySM_ACTsOnR515(StateMachine_c target)
 Action_c[] getManySM_ACTsOnR515(StateMachine_c[] targets)
@@ -3329,12 +3376,12 @@ Action_c[] getManySM_ACTsOnR515(StateMachine_c[] targets)
 
 ###### R514 - Action *resides in* Action Home
 
-######  select one <Action instance> related by <Action Home target>->SM_ACT[R514]
+######  select one {Action instance} related by {Action Home target}->SM_ACT[R514]
 <pre>
 Action_c getOneSM_ACTOnR514(ActionHome_c target)
 Action_c getOneSM_ACTOnR514(ActionHome_c[] targets)
 </pre>
-######  select many <Action set> related by <Action Home target>->SM_ACT[R514]
+######  select many {Action set} related by {Action Home target}->SM_ACT[R514]
 <pre>
 Action_c[] getManySM_ACTsOnR514(ActionHome_c target)
 Action_c[] getManySM_ACTsOnR514(ActionHome_c[] targets)
@@ -3342,12 +3389,12 @@ Action_c[] getManySM_ACTsOnR514(ActionHome_c[] targets)
 
 ###### R691 - State Action Body *specifies processing for* Action
 
-######  select one <Action instance> related by <State Action Body target>->SM_ACT[R691]
+######  select one {Action instance} related by {State Action Body target}->SM_ACT[R691]
 <pre>
 Action_c getOneSM_ACTOnR691(StateActionBody_c target)
 Action_c getOneSM_ACTOnR691(StateActionBody_c[] targets)
 </pre>
-######  select many <Action set> related by <State Action Body target>->SM_ACT[R691]
+######  select many {Action set} related by {State Action Body target}->SM_ACT[R691]
 <pre>
 Action_c[] getManySM_ACTsOnR691(StateActionBody_c target)
 Action_c[] getManySM_ACTsOnR691(StateActionBody_c[] targets)
@@ -3355,12 +3402,12 @@ Action_c[] getManySM_ACTsOnR691(StateActionBody_c[] targets)
 
 ###### R688 - Transition Action Body *specifies processing for* Action
 
-######  select one <Action instance> related by <Transition Action Body target>->SM_ACT[R688]
+######  select one {Action instance} related by {Transition Action Body target}->SM_ACT[R688]
 <pre>
 Action_c getOneSM_ACTOnR688(TransitionActionBody_c target)
 Action_c getOneSM_ACTOnR688(TransitionActionBody_c[] targets)
 </pre>
-######  select many <Action set> related by <Transition Action Body target>->SM_ACT[R688]
+######  select many {Action set} related by {Transition Action Body target}->SM_ACT[R688]
 <pre>
 Action_c[] getManySM_ACTsOnR688(TransitionActionBody_c target)
 Action_c[] getManySM_ACTsOnR688(TransitionActionBody_c[] targets)
@@ -3378,7 +3425,7 @@ Action_c[] getManySM_ACTsOnR688(TransitionActionBody_c[] targets)
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
 </pre>
 
@@ -3389,12 +3436,12 @@ Action_c[] getManySM_ACTsOnR688(TransitionActionBody_c[] targets)
 
 ###### R9800 - Search Result *consists of* Match
 
-######  select one <Search Result instance> related by <Match target>->SR_SR[R9800]
+######  select one {Search Result instance} related by {Match target}->SR_SR[R9800]
 <pre>
 SearchResult_c getOneSR_SROnR9800(Match_c target)
 SearchResult_c getOneSR_SROnR9800(Match_c[] targets)
 </pre>
-######  select many <Search Result set> related by <Match target>->SR_SR[R9800]
+######  select many {Search Result set} related by {Match target}->SR_SR[R9800]
 <pre>
 SearchResult_c[] getManySR_SRsOnR9800(Match_c target)
 SearchResult_c[] getManySR_SRsOnR9800(Match_c[] targets)
@@ -3402,12 +3449,12 @@ SearchResult_c[] getManySR_SRsOnR9800(Match_c[] targets)
 
 ###### R9802
 
-######  select one <Search Result instance> related by <Search Participant target>->SR_SR[R9802]
+######  select one {Search Result instance} related by {Search Participant target}->SR_SR[R9802]
 <pre>
 SearchResult_c getOneSR_SROnR9802(SearchParticipant_c target)
 SearchResult_c getOneSR_SROnR9802(SearchParticipant_c[] targets)
 </pre>
-######  select many <Search Result set> related by <Search Participant target>->SR_SR[R9802]
+######  select many {Search Result set} related by {Search Participant target}->SR_SR[R9802]
 <pre>
 SearchResult_c[] getManySR_SRsOnR9802(SearchParticipant_c target)
 SearchResult_c[] getManySR_SRsOnR9802(SearchParticipant_c[] targets)
@@ -3415,12 +3462,12 @@ SearchResult_c[] getManySR_SRsOnR9802(SearchParticipant_c[] targets)
 
 ###### R9503 - Search Result *is determined by* Search Engine
 
-######  select one <Search Result instance> related by <Search Engine target>->SR_SR[R9503]
+######  select one {Search Result instance} related by {Search Engine target}->SR_SR[R9503]
 <pre>
 SearchResult_c getOneSR_SROnR9503(SearchEngine_c target)
 SearchResult_c getOneSR_SROnR9503(SearchEngine_c[] targets)
 </pre>
-######  select many <Search Result set> related by <Search Engine target>->SR_SR[R9503]
+######  select many {Search Result set} related by {Search Engine target}->SR_SR[R9503]
 <pre>
 SearchResult_c[] getManySR_SRsOnR9503(SearchEngine_c target)
 SearchResult_c[] getManySR_SRsOnR9503(SearchEngine_c[] targets)
@@ -3438,7 +3485,7 @@ SearchResult_c[] getManySR_SRsOnR9503(SearchEngine_c[] targets)
 
 <pre>
   -  int         	getUnnamedAttribute()
-  - void			setUnnamedAttribute(int          newValue)
+  -  void			setUnnamedAttribute(int          newValue)
 
 </pre>
 
@@ -3446,12 +3493,13 @@ SearchResult_c[] getManySR_SRsOnR9503(SearchEngine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9801 (Subtype)
 
-######  select one <Name Match instance> related by <Match target>->SR_NM[R9801]
+######  select one {Name Match instance} related by {Match target}->SR_NM[R9801]
 <pre>
 NameMatch_c getOneSR_NMOnR9801(Match_c target)
 </pre>
-######  select many <Name Match set> related by <Match target>->SR_NM[R9801]
+######  select many {Name Match set} related by {Match target}->SR_NM[R9801]
 <pre>
 NameMatch_c[] getManySR_NMsOnR9801(Match_c[] targets)
 </pre>
@@ -3468,7 +3516,7 @@ NameMatch_c[] getManySR_NMsOnR9801(Match_c[] targets)
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
 </pre>
 
@@ -3479,31 +3527,32 @@ NameMatch_c[] getManySR_NMsOnR9801(Match_c[] targets)
 
 ###### R9800 - Match *provides for* Search Result
 
-######  select one <Match instance> related by <Search Result target>->SR_M[R9800]
+######  select one {Match instance} related by {Search Result target}->SR_M[R9800]
 <pre>
 Match_c getOneSR_MOnR9800(SearchResult_c target)
 Match_c getOneSR_MOnR9800(SearchResult_c[] targets)
 </pre>
-######  select many <Match set> related by <Search Result target>->SR_M[R9800]
+######  select many {Match set} related by {Search Result target}->SR_M[R9800]
 <pre>
 Match_c[] getManySR_MsOnR9800(SearchResult_c target)
 Match_c[] getManySR_MsOnR9800(SearchResult_c[] targets)
 </pre>
+###### R9801 (Subtype)
 
-######  select one <Match instance> related by <Name Match target>->SR_M[R9801]
+######  select one {Match instance} related by {Name Match target}->SR_M[R9801]
 <pre>
 Match_c getOneSR_MOnR9801(NameMatch_c target)
 </pre>
-######  select many <Match set> related by <Name Match target set>->SR_M[R9801]
+######  select many {Match set} related by {Name Match target set}->SR_M[R9801]
 <pre>
 Match_c[] getManySR_MsOnR9801(NameMatch_c[] targets)
 </pre>
 
-######  select one <Match instance> related by <Content Match target>->SR_M[R9801]
+######  select one {Match instance} related by {Content Match target}->SR_M[R9801]
 <pre>
 Match_c getOneSR_MOnR9801(ContentMatch_c target)
 </pre>
-######  select many <Match set> related by <Content Match target set>->SR_M[R9801]
+######  select many {Match set} related by {Content Match target set}->SR_M[R9801]
 <pre>
 Match_c[] getManySR_MsOnR9801(ContentMatch_c[] targets)
 </pre>
@@ -3520,13 +3569,13 @@ Match_c[] getManySR_MsOnR9801(ContentMatch_c[] targets)
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
   -  int         	getStartposition()
-  - void			setStartposition(int          newValue)
+  -  void			setStartposition(int          newValue)
 
   -  int         	getLength()
-  - void			setLength(int          newValue)
+  -  void			setLength(int          newValue)
 
 </pre>
 
@@ -3547,10 +3596,10 @@ Match_c[] getManySR_MsOnR9801(ContentMatch_c[] targets)
 
 <pre>
   -  int         	getStartposition()
-  - void			setStartposition(int          newValue)
+  -  void			setStartposition(int          newValue)
 
   -  int         	getMatchlength()
-  - void			setMatchlength(int          newValue)
+  -  void			setMatchlength(int          newValue)
 
 </pre>
 
@@ -3558,12 +3607,13 @@ Match_c[] getManySR_MsOnR9801(ContentMatch_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9801 (Subtype)
 
-######  select one <Content Match instance> related by <Match target>->SR_CM[R9801]
+######  select one {Content Match instance} related by {Match target}->SR_CM[R9801]
 <pre>
 ContentMatch_c getOneSR_CMOnR9801(Match_c target)
 </pre>
-######  select many <Content Match set> related by <Match target>->SR_CM[R9801]
+######  select many {Content Match set} related by {Match target}->SR_CM[R9801]
 <pre>
 ContentMatch_c[] getManySR_CMsOnR9801(Match_c[] targets)
 </pre>
@@ -3580,12 +3630,13 @@ ContentMatch_c[] getManySR_CMsOnR9801(Match_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9600 (Subtype)
 
-######  select one <References Query instance> related by <Query target>->SQU_R[R9600]
+######  select one {References Query instance} related by {Query target}->SQU_R[R9600]
 <pre>
 ReferencesQuery_c getOneSQU_ROnR9600(Query_c target)
 </pre>
-######  select many <References Query set> related by <Query target>->SQU_R[R9600]
+######  select many {References Query set} related by {Query target}->SQU_R[R9600]
 <pre>
 ReferencesQuery_c[] getManySQU_RsOnR9600(Query_c[] targets)
 </pre>
@@ -3602,19 +3653,19 @@ ReferencesQuery_c[] getManySQU_RsOnR9600(Query_c[] targets)
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
   -  String      	getPattern()
-  - void			setPattern(String       newValue)
+  -  void			setPattern(String       newValue)
 
   -  boolean     	getRegex()
-  - void			setRegex(boolean      newValue)
+  -  void			setRegex(boolean      newValue)
 
   -  boolean     	getCasesensitive()
-  - void			setCasesensitive(boolean      newValue)
+  -  void			setCasesensitive(boolean      newValue)
 
   -  int 	getScope()
-  - void			setScope(int  newValue)
+  -  void			setScope(int  newValue)
 
 </pre>
 
@@ -3625,49 +3676,50 @@ ReferencesQuery_c[] getManySQU_RsOnR9600(Query_c[] targets)
 
 ###### R9500 - Query *processed by* Search Engine
 
-######  select one <Query instance> related by <Search Engine target>->SQU_Q[R9500]
+######  select one {Query instance} related by {Search Engine target}->SQU_Q[R9500]
 <pre>
 Query_c getOneSQU_QOnR9500(SearchEngine_c target)
 Query_c getOneSQU_QOnR9500(SearchEngine_c[] targets)
 </pre>
-######  select many <Query set> related by <Search Engine target>->SQU_Q[R9500]
+######  select many {Query set} related by {Search Engine target}->SQU_Q[R9500]
 <pre>
 Query_c[] getManySQU_QsOnR9500(SearchEngine_c target)
 Query_c[] getManySQU_QsOnR9500(SearchEngine_c[] targets)
 </pre>
+###### R9600 (Subtype)
 
-######  select one <Query instance> related by <Declaration Query target>->SQU_Q[R9600]
+######  select one {Query instance} related by {Declaration Query target}->SQU_Q[R9600]
 <pre>
 Query_c getOneSQU_QOnR9600(DeclarationQuery_c target)
 </pre>
-######  select many <Query set> related by <Declaration Query target set>->SQU_Q[R9600]
+######  select many {Query set} related by {Declaration Query target set}->SQU_Q[R9600]
 <pre>
 Query_c[] getManySQU_QsOnR9600(DeclarationQuery_c[] targets)
 </pre>
 
-######  select one <Query instance> related by <References Query target>->SQU_Q[R9600]
+######  select one {Query instance} related by {References Query target}->SQU_Q[R9600]
 <pre>
 Query_c getOneSQU_QOnR9600(ReferencesQuery_c target)
 </pre>
-######  select many <Query set> related by <References Query target set>->SQU_Q[R9600]
+######  select many {Query set} related by {References Query target set}->SQU_Q[R9600]
 <pre>
 Query_c[] getManySQU_QsOnR9600(ReferencesQuery_c[] targets)
 </pre>
 
-######  select one <Query instance> related by <Description Query target>->SQU_Q[R9600]
+######  select one {Query instance} related by {Description Query target}->SQU_Q[R9600]
 <pre>
 Query_c getOneSQU_QOnR9600(DescriptionQuery_c target)
 </pre>
-######  select many <Query set> related by <Description Query target set>->SQU_Q[R9600]
+######  select many {Query set} related by {Description Query target set}->SQU_Q[R9600]
 <pre>
 Query_c[] getManySQU_QsOnR9600(DescriptionQuery_c[] targets)
 </pre>
 
-######  select one <Query instance> related by <Action Language Query target>->SQU_Q[R9600]
+######  select one {Query instance} related by {Action Language Query target}->SQU_Q[R9600]
 <pre>
 Query_c getOneSQU_QOnR9600(ActionLanguageQuery_c target)
 </pre>
-######  select many <Query set> related by <Action Language Query target set>->SQU_Q[R9600]
+######  select many {Query set} related by {Action Language Query target set}->SQU_Q[R9600]
 <pre>
 Query_c[] getManySQU_QsOnR9600(ActionLanguageQuery_c[] targets)
 </pre>
@@ -3684,12 +3736,13 @@ Query_c[] getManySQU_QsOnR9600(ActionLanguageQuery_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9600 (Subtype)
 
-######  select one <Description Query instance> related by <Query target>->SQU_DE[R9600]
+######  select one {Description Query instance} related by {Query target}->SQU_DE[R9600]
 <pre>
 DescriptionQuery_c getOneSQU_DEOnR9600(Query_c target)
 </pre>
-######  select many <Description Query set> related by <Query target>->SQU_DE[R9600]
+######  select many {Description Query set} related by {Query target}->SQU_DE[R9600]
 <pre>
 DescriptionQuery_c[] getManySQU_DEsOnR9600(Query_c[] targets)
 </pre>
@@ -3706,12 +3759,13 @@ DescriptionQuery_c[] getManySQU_DEsOnR9600(Query_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9600 (Subtype)
 
-######  select one <Declaration Query instance> related by <Query target>->SQU_D[R9600]
+######  select one {Declaration Query instance} related by {Query target}->SQU_D[R9600]
 <pre>
 DeclarationQuery_c getOneSQU_DOnR9600(Query_c target)
 </pre>
-######  select many <Declaration Query set> related by <Query target>->SQU_D[R9600]
+######  select many {Declaration Query set} related by {Query target}->SQU_D[R9600]
 <pre>
 DeclarationQuery_c[] getManySQU_DsOnR9600(Query_c[] targets)
 </pre>
@@ -3728,12 +3782,13 @@ DeclarationQuery_c[] getManySQU_DsOnR9600(Query_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9600 (Subtype)
 
-######  select one <Action Language Query instance> related by <Query target>->SQU_A[R9600]
+######  select one {Action Language Query instance} related by {Query target}->SQU_A[R9600]
 <pre>
 ActionLanguageQuery_c getOneSQU_AOnR9600(Query_c target)
 </pre>
-######  select many <Action Language Query set> related by <Query target>->SQU_A[R9600]
+######  select many {Action Language Query set} related by {Query target}->SQU_A[R9600]
 <pre>
 ActionLanguageQuery_c[] getManySQU_AsOnR9600(Query_c[] targets)
 </pre>
@@ -3750,16 +3805,16 @@ ActionLanguageQuery_c[] getManySQU_AsOnR9600(Query_c[] targets)
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
   -  String      	getModelrootid()
-  - void			setModelrootid(String       newValue)
+  -  void			setModelrootid(String       newValue)
 
   -  String      	getClassname()
-  - void			setClassname(String       newValue)
+  -  void			setClassname(String       newValue)
 
   -  Object	getElementid()
-  - void			setElementid(Object newValue)
+  -  void			setElementid(Object newValue)
 
 </pre>
 
@@ -3770,40 +3825,41 @@ ActionLanguageQuery_c[] getManySQU_AsOnR9600(Query_c[] targets)
 
 ###### R9700 - Searchable Element *participates as* Search Participant
 
-######  select one <Searchable Element instance> related by <Search Participant target>->SP_SE[R9700]
+######  select one {Searchable Element instance} related by {Search Participant target}->SP_SE[R9700]
 <pre>
 SearchableElement_c getOneSP_SEOnR9700(SearchParticipant_c target)
 SearchableElement_c getOneSP_SEOnR9700(SearchParticipant_c[] targets)
 </pre>
-######  select many <Searchable Element set> related by <Search Participant target>->SP_SE[R9700]
+######  select many {Searchable Element set} related by {Search Participant target}->SP_SE[R9700]
 <pre>
 SearchableElement_c[] getManySP_SEsOnR9700(SearchParticipant_c target)
 SearchableElement_c[] getManySP_SEsOnR9700(SearchParticipant_c[] targets)
 </pre>
+###### R9702 (Subtype)
 
-######  select one <Searchable Element instance> related by <Named Searchable target>->SP_SE[R9702]
+######  select one {Searchable Element instance} related by {Named Searchable target}->SP_SE[R9702]
 <pre>
 SearchableElement_c getOneSP_SEOnR9702(NamedSearchable_c target)
 </pre>
-######  select many <Searchable Element set> related by <Named Searchable target set>->SP_SE[R9702]
+######  select many {Searchable Element set} related by {Named Searchable target set}->SP_SE[R9702]
 <pre>
 SearchableElement_c[] getManySP_SEsOnR9702(NamedSearchable_c[] targets)
 </pre>
 
-######  select one <Searchable Element instance> related by <Action Language Searchable target>->SP_SE[R9702]
+######  select one {Searchable Element instance} related by {Action Language Searchable target}->SP_SE[R9702]
 <pre>
 SearchableElement_c getOneSP_SEOnR9702(ActionLanguageSearchable_c target)
 </pre>
-######  select many <Searchable Element set> related by <Action Language Searchable target set>->SP_SE[R9702]
+######  select many {Searchable Element set} related by {Action Language Searchable target set}->SP_SE[R9702]
 <pre>
 SearchableElement_c[] getManySP_SEsOnR9702(ActionLanguageSearchable_c[] targets)
 </pre>
 
-######  select one <Searchable Element instance> related by <Description Searchable target>->SP_SE[R9702]
+######  select one {Searchable Element instance} related by {Description Searchable target}->SP_SE[R9702]
 <pre>
 SearchableElement_c getOneSP_SEOnR9702(DescriptionSearchable_c target)
 </pre>
-######  select many <Searchable Element set> related by <Description Searchable target set>->SP_SE[R9702]
+######  select many {Searchable Element set} related by {Description Searchable target set}->SP_SE[R9702]
 <pre>
 SearchableElement_c[] getManySP_SEsOnR9702(DescriptionSearchable_c[] targets)
 </pre>
@@ -3820,7 +3876,7 @@ SearchableElement_c[] getManySP_SEsOnR9702(DescriptionSearchable_c[] targets)
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
 </pre>
 
@@ -3831,12 +3887,12 @@ SearchableElement_c[] getManySP_SEsOnR9702(DescriptionSearchable_c[] targets)
 
 ###### R9802
 
-######  select one <Search Participant instance> related by <Search Result target>->SP_SP[R9802]
+######  select one {Search Participant instance} related by {Search Result target}->SP_SP[R9802]
 <pre>
 SearchParticipant_c getOneSP_SPOnR9802(SearchResult_c target)
 SearchParticipant_c getOneSP_SPOnR9802(SearchResult_c[] targets)
 </pre>
-######  select many <Search Participant set> related by <Search Result target>->SP_SP[R9802]
+######  select many {Search Participant set} related by {Search Result target}->SP_SP[R9802]
 <pre>
 SearchParticipant_c[] getManySP_SPsOnR9802(SearchResult_c target)
 SearchParticipant_c[] getManySP_SPsOnR9802(SearchResult_c[] targets)
@@ -3844,12 +3900,12 @@ SearchParticipant_c[] getManySP_SPsOnR9802(SearchResult_c[] targets)
 
 ###### R9700 - Search Participant *provides participation for* Searchable Element
 
-######  select one <Search Participant instance> related by <Searchable Element target>->SP_SP[R9700]
+######  select one {Search Participant instance} related by {Searchable Element target}->SP_SP[R9700]
 <pre>
 SearchParticipant_c getOneSP_SPOnR9700(SearchableElement_c target)
 SearchParticipant_c getOneSP_SPOnR9700(SearchableElement_c[] targets)
 </pre>
-######  select many <Search Participant set> related by <Searchable Element target>->SP_SP[R9700]
+######  select many {Search Participant set} related by {Searchable Element target}->SP_SP[R9700]
 <pre>
 SearchParticipant_c[] getManySP_SPsOnR9700(SearchableElement_c target)
 SearchParticipant_c[] getManySP_SPsOnR9700(SearchableElement_c[] targets)
@@ -3857,12 +3913,12 @@ SearchParticipant_c[] getManySP_SPsOnR9700(SearchableElement_c[] targets)
 
 ###### R9502 - Search Participant *searched for by* Search Engine
 
-######  select one <Search Participant instance> related by <Search Engine target>->SP_SP[R9502]
+######  select one {Search Participant instance} related by {Search Engine target}->SP_SP[R9502]
 <pre>
 SearchParticipant_c getOneSP_SPOnR9502(SearchEngine_c target)
 SearchParticipant_c getOneSP_SPOnR9502(SearchEngine_c[] targets)
 </pre>
-######  select many <Search Participant set> related by <Search Engine target>->SP_SP[R9502]
+######  select many {Search Participant set} related by {Search Engine target}->SP_SP[R9502]
 <pre>
 SearchParticipant_c[] getManySP_SPsOnR9502(SearchEngine_c target)
 SearchParticipant_c[] getManySP_SPsOnR9502(SearchEngine_c[] targets)
@@ -3880,7 +3936,7 @@ SearchParticipant_c[] getManySP_SPsOnR9502(SearchEngine_c[] targets)
 
 <pre>
   -  String      	getSearchablevalue()
-  - void			setSearchablevalue(String       newValue)
+  -  void			setSearchablevalue(String       newValue)
 
 </pre>
 
@@ -3888,12 +3944,13 @@ SearchParticipant_c[] getManySP_SPsOnR9502(SearchEngine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9702 (Subtype)
 
-######  select one <Named Searchable instance> related by <Searchable Element target>->SP_NS[R9702]
+######  select one {Named Searchable instance} related by {Searchable Element target}->SP_NS[R9702]
 <pre>
 NamedSearchable_c getOneSP_NSOnR9702(SearchableElement_c target)
 </pre>
-######  select many <Named Searchable set> related by <Searchable Element target>->SP_NS[R9702]
+######  select many {Named Searchable set} related by {Searchable Element target}->SP_NS[R9702]
 <pre>
 NamedSearchable_c[] getManySP_NSsOnR9702(SearchableElement_c[] targets)
 </pre>
@@ -3910,7 +3967,7 @@ NamedSearchable_c[] getManySP_NSsOnR9702(SearchableElement_c[] targets)
 
 <pre>
   -  String      	getSearchablevalue()
-  - void			setSearchablevalue(String       newValue)
+  -  void			setSearchablevalue(String       newValue)
 
 </pre>
 
@@ -3918,12 +3975,13 @@ NamedSearchable_c[] getManySP_NSsOnR9702(SearchableElement_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9702 (Subtype)
 
-######  select one <Description Searchable instance> related by <Searchable Element target>->SP_DS[R9702]
+######  select one {Description Searchable instance} related by {Searchable Element target}->SP_DS[R9702]
 <pre>
 DescriptionSearchable_c getOneSP_DSOnR9702(SearchableElement_c target)
 </pre>
-######  select many <Description Searchable set> related by <Searchable Element target>->SP_DS[R9702]
+######  select many {Description Searchable set} related by {Searchable Element target}->SP_DS[R9702]
 <pre>
 DescriptionSearchable_c[] getManySP_DSsOnR9702(SearchableElement_c[] targets)
 </pre>
@@ -3940,7 +3998,7 @@ DescriptionSearchable_c[] getManySP_DSsOnR9702(SearchableElement_c[] targets)
 
 <pre>
   -  String      	getSearchablevalue()
-  - void			setSearchablevalue(String       newValue)
+  -  void			setSearchablevalue(String       newValue)
 
 </pre>
 
@@ -3948,12 +4006,13 @@ DescriptionSearchable_c[] getManySP_DSsOnR9702(SearchableElement_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9702 (Subtype)
 
-######  select one <Action Language Searchable instance> related by <Searchable Element target>->SP_ALS[R9702]
+######  select one {Action Language Searchable instance} related by {Searchable Element target}->SP_ALS[R9702]
 <pre>
 ActionLanguageSearchable_c getOneSP_ALSOnR9702(SearchableElement_c target)
 </pre>
-######  select many <Action Language Searchable set> related by <Searchable Element target>->SP_ALS[R9702]
+######  select many {Action Language Searchable set} related by {Searchable Element target}->SP_ALS[R9702]
 <pre>
 ActionLanguageSearchable_c[] getManySP_ALSsOnR9702(SearchableElement_c[] targets)
 </pre>
@@ -3970,7 +4029,7 @@ ActionLanguageSearchable_c[] getManySP_ALSsOnR9702(SearchableElement_c[] targets
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
 </pre>
 
@@ -3981,12 +4040,12 @@ ActionLanguageSearchable_c[] getManySP_ALSsOnR9702(SearchableElement_c[] targets
 
 ###### R9503 - Search Engine *determines* Search Result
 
-######  select one <Search Engine instance> related by <Search Result target>->SEN_E[R9503]
+######  select one {Search Engine instance} related by {Search Result target}->SEN_E[R9503]
 <pre>
 SearchEngine_c getOneSEN_EOnR9503(SearchResult_c target)
 SearchEngine_c getOneSEN_EOnR9503(SearchResult_c[] targets)
 </pre>
-######  select many <Search Engine set> related by <Search Result target>->SEN_E[R9503]
+######  select many {Search Engine set} related by {Search Result target}->SEN_E[R9503]
 <pre>
 SearchEngine_c[] getManySEN_EsOnR9503(SearchResult_c target)
 SearchEngine_c[] getManySEN_EsOnR9503(SearchResult_c[] targets)
@@ -3994,12 +4053,12 @@ SearchEngine_c[] getManySEN_EsOnR9503(SearchResult_c[] targets)
 
 ###### R9500 - Search Engine *processes* Query
 
-######  select one <Search Engine instance> related by <Query target>->SEN_E[R9500]
+######  select one {Search Engine instance} related by {Query target}->SEN_E[R9500]
 <pre>
 SearchEngine_c getOneSEN_EOnR9500(Query_c target)
 SearchEngine_c getOneSEN_EOnR9500(Query_c[] targets)
 </pre>
-######  select many <Search Engine set> related by <Query target>->SEN_E[R9500]
+######  select many {Search Engine set} related by {Query target}->SEN_E[R9500]
 <pre>
 SearchEngine_c[] getManySEN_EsOnR9500(Query_c target)
 SearchEngine_c[] getManySEN_EsOnR9500(Query_c[] targets)
@@ -4007,49 +4066,50 @@ SearchEngine_c[] getManySEN_EsOnR9500(Query_c[] targets)
 
 ###### R9502 - Search Engine *searches against* Search Participant
 
-######  select one <Search Engine instance> related by <Search Participant target>->SEN_E[R9502]
+######  select one {Search Engine instance} related by {Search Participant target}->SEN_E[R9502]
 <pre>
 SearchEngine_c getOneSEN_EOnR9502(SearchParticipant_c target)
 SearchEngine_c getOneSEN_EOnR9502(SearchParticipant_c[] targets)
 </pre>
-######  select many <Search Engine set> related by <Search Participant target>->SEN_E[R9502]
+######  select many {Search Engine set} related by {Search Participant target}->SEN_E[R9502]
 <pre>
 SearchEngine_c[] getManySEN_EsOnR9502(SearchParticipant_c target)
 SearchEngine_c[] getManySEN_EsOnR9502(SearchParticipant_c[] targets)
 </pre>
+###### R9501 (Subtype)
 
-######  select one <Search Engine instance> related by <Action Language Engine target>->SEN_E[R9501]
+######  select one {Search Engine instance} related by {Action Language Engine target}->SEN_E[R9501]
 <pre>
 SearchEngine_c getOneSEN_EOnR9501(ActionLanguageEngine_c target)
 </pre>
-######  select many <Search Engine set> related by <Action Language Engine target set>->SEN_E[R9501]
+######  select many {Search Engine set} related by {Action Language Engine target set}->SEN_E[R9501]
 <pre>
 SearchEngine_c[] getManySEN_EsOnR9501(ActionLanguageEngine_c[] targets)
 </pre>
 
-######  select one <Search Engine instance> related by <Description Engine target>->SEN_E[R9501]
+######  select one {Search Engine instance} related by {Description Engine target}->SEN_E[R9501]
 <pre>
 SearchEngine_c getOneSEN_EOnR9501(DescriptionEngine_c target)
 </pre>
-######  select many <Search Engine set> related by <Description Engine target set>->SEN_E[R9501]
+######  select many {Search Engine set} related by {Description Engine target set}->SEN_E[R9501]
 <pre>
 SearchEngine_c[] getManySEN_EsOnR9501(DescriptionEngine_c[] targets)
 </pre>
 
-######  select one <Search Engine instance> related by <Declarations Engine target>->SEN_E[R9501]
+######  select one {Search Engine instance} related by {Declarations Engine target}->SEN_E[R9501]
 <pre>
 SearchEngine_c getOneSEN_EOnR9501(DeclarationsEngine_c target)
 </pre>
-######  select many <Search Engine set> related by <Declarations Engine target set>->SEN_E[R9501]
+######  select many {Search Engine set} related by {Declarations Engine target set}->SEN_E[R9501]
 <pre>
 SearchEngine_c[] getManySEN_EsOnR9501(DeclarationsEngine_c[] targets)
 </pre>
 
-######  select one <Search Engine instance> related by <References Engine target>->SEN_E[R9501]
+######  select one {Search Engine instance} related by {References Engine target}->SEN_E[R9501]
 <pre>
 SearchEngine_c getOneSEN_EOnR9501(ReferencesEngine_c target)
 </pre>
-######  select many <Search Engine set> related by <References Engine target set>->SEN_E[R9501]
+######  select many {Search Engine set} related by {References Engine target set}->SEN_E[R9501]
 <pre>
 SearchEngine_c[] getManySEN_EsOnR9501(ReferencesEngine_c[] targets)
 </pre>
@@ -4066,12 +4126,13 @@ SearchEngine_c[] getManySEN_EsOnR9501(ReferencesEngine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9501 (Subtype)
 
-######  select one <References Engine instance> related by <Search Engine target>->SEN_RE[R9501]
+######  select one {References Engine instance} related by {Search Engine target}->SEN_RE[R9501]
 <pre>
 ReferencesEngine_c getOneSEN_REOnR9501(SearchEngine_c target)
 </pre>
-######  select many <References Engine set> related by <Search Engine target>->SEN_RE[R9501]
+######  select many {References Engine set} related by {Search Engine target}->SEN_RE[R9501]
 <pre>
 ReferencesEngine_c[] getManySEN_REsOnR9501(SearchEngine_c[] targets)
 </pre>
@@ -4088,12 +4149,13 @@ ReferencesEngine_c[] getManySEN_REsOnR9501(SearchEngine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9501 (Subtype)
 
-######  select one <Description Engine instance> related by <Search Engine target>->SEN_DE[R9501]
+######  select one {Description Engine instance} related by {Search Engine target}->SEN_DE[R9501]
 <pre>
 DescriptionEngine_c getOneSEN_DEOnR9501(SearchEngine_c target)
 </pre>
-######  select many <Description Engine set> related by <Search Engine target>->SEN_DE[R9501]
+######  select many {Description Engine set} related by {Search Engine target}->SEN_DE[R9501]
 <pre>
 DescriptionEngine_c[] getManySEN_DEsOnR9501(SearchEngine_c[] targets)
 </pre>
@@ -4110,12 +4172,13 @@ DescriptionEngine_c[] getManySEN_DEsOnR9501(SearchEngine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9501 (Subtype)
 
-######  select one <Declarations Engine instance> related by <Search Engine target>->SEN_DCE[R9501]
+######  select one {Declarations Engine instance} related by {Search Engine target}->SEN_DCE[R9501]
 <pre>
 DeclarationsEngine_c getOneSEN_DCEOnR9501(SearchEngine_c target)
 </pre>
-######  select many <Declarations Engine set> related by <Search Engine target>->SEN_DCE[R9501]
+######  select many {Declarations Engine set} related by {Search Engine target}->SEN_DCE[R9501]
 <pre>
 DeclarationsEngine_c[] getManySEN_DCEsOnR9501(SearchEngine_c[] targets)
 </pre>
@@ -4132,12 +4195,13 @@ DeclarationsEngine_c[] getManySEN_DCEsOnR9501(SearchEngine_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R9501 (Subtype)
 
-######  select one <Action Language Engine instance> related by <Search Engine target>->SEN_ALE[R9501]
+######  select one {Action Language Engine instance} related by {Search Engine target}->SEN_ALE[R9501]
 <pre>
 ActionLanguageEngine_c getOneSEN_ALEOnR9501(SearchEngine_c target)
 </pre>
-######  select many <Action Language Engine set> related by <Search Engine target>->SEN_ALE[R9501]
+######  select many {Action Language Engine set} related by {Search Engine target}->SEN_ALE[R9501]
 <pre>
 ActionLanguageEngine_c[] getManySEN_ALEsOnR9501(SearchEngine_c[] targets)
 </pre>
@@ -4154,13 +4218,13 @@ ActionLanguageEngine_c[] getManySEN_ALEsOnR9501(SearchEngine_c[] targets)
 
 <pre>
   -  java.util.UUID        	getElement_id()
-  - void			setElement_id(java.util.UUID         newValue)
+  -  void			setElement_id(java.util.UUID         newValue)
 
   -  int 	getVisibility()
-  - void			setVisibility(int  newValue)
+  -  void			setVisibility(int  newValue)
 
   -  int 	getType()
-  - void			setType(int  newValue)
+  -  void			setType(int  newValue)
 
 </pre>
 
@@ -4171,12 +4235,12 @@ ActionLanguageEngine_c[] getManySEN_ALEsOnR9501(SearchEngine_c[] targets)
 
 ###### R8000 - Packageable Element *contained by* Package
 
-######  select one <Packageable Element instance> related by <Package target>->PE_PE[R8000]
+######  select one {Packageable Element instance} related by {Package target}->PE_PE[R8000]
 <pre>
 PackageableElement_c getOnePE_PEOnR8000(Package_c target)
 PackageableElement_c getOnePE_PEOnR8000(Package_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Package target>->PE_PE[R8000]
+######  select many {Packageable Element set} related by {Package target}->PE_PE[R8000]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8000(Package_c target)
 PackageableElement_c[] getManyPE_PEsOnR8000(Package_c[] targets)
@@ -4184,23 +4248,23 @@ PackageableElement_c[] getManyPE_PEsOnR8000(Package_c[] targets)
 
 ###### R8002 - Packageable Element *is visible to elements in* Package (via Element Visibility)
 
-######  select one <Packageable Element instance> related by <Package target>->PE_PE[R8002]
+######  select one {Packageable Element instance} related by {Package target}->PE_PE[R8002]
 <pre>
 PackageableElement_c getOnePE_PEOnR8002(Package_c target)
 PackageableElement_c getOnePE_PEOnR8002(Package_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Package target>->PE_PE[R8002]
+######  select many {Packageable Element set} related by {Package target}->PE_PE[R8002]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8002(Package_c target)
 PackageableElement_c[] getManyPE_PEsOnR8002(Package_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Element Visibility target>->PE_PE[R8002]
+######  select one {Packageable Element instance} related by {Element Visibility target}->PE_PE[R8002]
 <pre>
 PackageableElement_c getOnePE_PEOnR8002(ElementVisibility_c target)
 PackageableElement_c getOnePE_PEOnR8002(ElementVisibility_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Element Visibility target>->PE_PE[R8002]
+######  select many {Packageable Element set} related by {Element Visibility target}->PE_PE[R8002]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8002(ElementVisibility_c target)
 PackageableElement_c[] getManyPE_PEsOnR8002(ElementVisibility_c[] targets)
@@ -4208,12 +4272,12 @@ PackageableElement_c[] getManyPE_PEsOnR8002(ElementVisibility_c[] targets)
 
 ###### R8003 - Packageable Element *contained in* Component
 
-######  select one <Packageable Element instance> related by <Component target>->PE_PE[R8003]
+######  select one {Packageable Element instance} related by {Component target}->PE_PE[R8003]
 <pre>
 PackageableElement_c getOnePE_PEOnR8003(Component_c target)
 PackageableElement_c getOnePE_PEOnR8003(Component_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Component target>->PE_PE[R8003]
+######  select many {Packageable Element set} related by {Component target}->PE_PE[R8003]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8003(Component_c target)
 PackageableElement_c[] getManyPE_PEsOnR8003(Component_c[] targets)
@@ -4221,23 +4285,23 @@ PackageableElement_c[] getManyPE_PEsOnR8003(Component_c[] targets)
 
 ###### R8004 - Packageable Element *is visible to* Component (via Component Visibility)
 
-######  select one <Packageable Element instance> related by <Component target>->PE_PE[R8004]
+######  select one {Packageable Element instance} related by {Component target}->PE_PE[R8004]
 <pre>
 PackageableElement_c getOnePE_PEOnR8004(Component_c target)
 PackageableElement_c getOnePE_PEOnR8004(Component_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Component target>->PE_PE[R8004]
+######  select many {Packageable Element set} related by {Component target}->PE_PE[R8004]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8004(Component_c target)
 PackageableElement_c[] getManyPE_PEsOnR8004(Component_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Component Visibility target>->PE_PE[R8004]
+######  select one {Packageable Element instance} related by {Component Visibility target}->PE_PE[R8004]
 <pre>
 PackageableElement_c getOnePE_PEOnR8004(ComponentVisibility_c target)
 PackageableElement_c getOnePE_PEOnR8004(ComponentVisibility_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Component Visibility target>->PE_PE[R8004]
+######  select many {Packageable Element set} related by {Component Visibility target}->PE_PE[R8004]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8004(ComponentVisibility_c target)
 PackageableElement_c[] getManyPE_PEsOnR8004(ComponentVisibility_c[] targets)
@@ -4245,23 +4309,23 @@ PackageableElement_c[] getManyPE_PEsOnR8004(ComponentVisibility_c[] targets)
 
 ###### R9100
 
-######  select one <Packageable Element instance> related by <System Model target>->PE_PE[R9100]
+######  select one {Packageable Element instance} related by {System Model target}->PE_PE[R9100]
 <pre>
 PackageableElement_c getOnePE_PEOnR9100(SystemModel_c target)
 PackageableElement_c getOnePE_PEOnR9100(SystemModel_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <System Model target>->PE_PE[R9100]
+######  select many {Packageable Element set} related by {System Model target}->PE_PE[R9100]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR9100(SystemModel_c target)
 PackageableElement_c[] getManyPE_PEsOnR9100(SystemModel_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Global Element in System target>->PE_PE[R9100]
+######  select one {Packageable Element instance} related by {Global Element in System target}->PE_PE[R9100]
 <pre>
 PackageableElement_c getOnePE_PEOnR9100(GlobalElementInSystem_c target)
 PackageableElement_c getOnePE_PEOnR9100(GlobalElementInSystem_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Global Element in System target>->PE_PE[R9100]
+######  select many {Packageable Element set} related by {Global Element in System target}->PE_PE[R9100]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR9100(GlobalElementInSystem_c target)
 PackageableElement_c[] getManyPE_PEsOnR9100(GlobalElementInSystem_c[] targets)
@@ -4269,195 +4333,196 @@ PackageableElement_c[] getManyPE_PEsOnR9100(GlobalElementInSystem_c[] targets)
 
 ###### R640 - Packageable Element *has declared* Body (via Body in Element)
 
-######  select one <Packageable Element instance> related by <Body target>->PE_PE[R640]
+######  select one {Packageable Element instance} related by {Body target}->PE_PE[R640]
 <pre>
 PackageableElement_c getOnePE_PEOnR640(Body_c target)
 PackageableElement_c getOnePE_PEOnR640(Body_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Body target>->PE_PE[R640]
+######  select many {Packageable Element set} related by {Body target}->PE_PE[R640]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR640(Body_c target)
 PackageableElement_c[] getManyPE_PEsOnR640(Body_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Body in Element target>->PE_PE[R640]
+######  select one {Packageable Element instance} related by {Body in Element target}->PE_PE[R640]
 <pre>
 PackageableElement_c getOnePE_PEOnR640(BodyInElement_c target)
 PackageableElement_c getOnePE_PEOnR640(BodyInElement_c[] targets)
 </pre>
-######  select many <Packageable Element set> related by <Body in Element target>->PE_PE[R640]
+######  select many {Packageable Element set} related by {Body in Element target}->PE_PE[R640]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR640(BodyInElement_c target)
 PackageableElement_c[] getManyPE_PEsOnR640(BodyInElement_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Packageable Element instance> related by <Data Type target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Data Type target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(DataType_c target)
 </pre>
-######  select many <Packageable Element set> related by <Data Type target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Data Type target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(DataType_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Interaction Participant target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Interaction Participant target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(InteractionParticipant_c target)
 </pre>
-######  select many <Packageable Element set> related by <Interaction Participant target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Interaction Participant target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(InteractionParticipant_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Use Case Association target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Use Case Association target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(UseCaseAssociation_c target)
 </pre>
-######  select many <Packageable Element set> related by <Use Case Association target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Use Case Association target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(UseCaseAssociation_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Activity Node target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Activity Node target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ActivityNode_c target)
 </pre>
-######  select many <Packageable Element set> related by <Activity Node target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Activity Node target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ActivityNode_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Model Class target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Model Class target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ModelClass_c target)
 </pre>
-######  select many <Packageable Element set> related by <Model Class target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Model Class target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ModelClass_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Component target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Component target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Component_c target)
 </pre>
-######  select many <Packageable Element set> related by <Component target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Component target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Component_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Component Reference target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Component Reference target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ComponentReference_c target)
 </pre>
-######  select many <Packageable Element set> related by <Component Reference target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Component Reference target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ComponentReference_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Interface target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Interface target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Interface_c target)
 </pre>
-######  select many <Packageable Element set> related by <Interface target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Interface target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Interface_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Package target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Package target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Package_c target)
 </pre>
-######  select many <Packageable Element set> related by <Package target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Package target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Package_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Constant Specification target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Constant Specification target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ConstantSpecification_c target)
 </pre>
-######  select many <Packageable Element set> related by <Constant Specification target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Constant Specification target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ConstantSpecification_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Activity Partition target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Activity Partition target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ActivityPartition_c target)
 </pre>
-######  select many <Packageable Element set> related by <Activity Partition target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Activity Partition target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ActivityPartition_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Activity Edge target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Activity Edge target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ActivityEdge_c target)
 </pre>
-######  select many <Packageable Element set> related by <Activity Edge target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Activity Edge target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ActivityEdge_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Message target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Message target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Message_c target)
 </pre>
-######  select many <Packageable Element set> related by <Message target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Message target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Message_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Imported Class target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Imported Class target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ImportedClass_c target)
 </pre>
-######  select many <Packageable Element set> related by <Imported Class target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Imported Class target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ImportedClass_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Association target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Association target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Association_c target)
 </pre>
-######  select many <Packageable Element set> related by <Association target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Association target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Association_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <External Entity target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {External Entity target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(ExternalEntity_c target)
 </pre>
-######  select many <Packageable Element set> related by <External Entity target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {External Entity target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(ExternalEntity_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Function target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Function target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Function_c target)
 </pre>
-######  select many <Packageable Element set> related by <Function target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Function target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Function_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Satisfaction target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Satisfaction target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Satisfaction_c target)
 </pre>
-######  select many <Packageable Element set> related by <Satisfaction target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Satisfaction target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Satisfaction_c[] targets)
 </pre>
 
-######  select one <Packageable Element instance> related by <Delegation target>->PE_PE[R8001]
+######  select one {Packageable Element instance} related by {Delegation target}->PE_PE[R8001]
 <pre>
 PackageableElement_c getOnePE_PEOnR8001(Delegation_c target)
 </pre>
-######  select many <Packageable Element set> related by <Delegation target set>->PE_PE[R8001]
+######  select many {Packageable Element set} related by {Delegation target set}->PE_PE[R8001]
 <pre>
 PackageableElement_c[] getManyPE_PEsOnR8001(Delegation_c[] targets)
 </pre>
@@ -4477,12 +4542,12 @@ PackageableElement_c[] getManyPE_PEsOnR8001(Delegation_c[] targets)
 
 ###### R3005 - Local Value *is value of* Transient Var
 
-######  select one <Local Value instance> related by <Transient Var target>->L_LVL[R3005]
+######  select one {Local Value instance} related by {Transient Var target}->L_LVL[R3005]
 <pre>
 LocalValue_c getOneL_LVLOnR3005(TransientVar_c target)
 LocalValue_c getOneL_LVLOnR3005(TransientVar_c[] targets)
 </pre>
-######  select many <Local Value set> related by <Transient Var target>->L_LVL[R3005]
+######  select many {Local Value set} related by {Transient Var target}->L_LVL[R3005]
 <pre>
 LocalValue_c[] getManyL_LVLsOnR3005(TransientVar_c target)
 LocalValue_c[] getManyL_LVLsOnR3005(TransientVar_c[] targets)
@@ -4490,12 +4555,12 @@ LocalValue_c[] getManyL_LVLsOnR3005(TransientVar_c[] targets)
 
 ###### R3010 - Local Value *has reference to* Value
 
-######  select one <Local Value instance> related by <Value target>->L_LVL[R3010]
+######  select one {Local Value instance} related by {Value target}->L_LVL[R3010]
 <pre>
 LocalValue_c getOneL_LVLOnR3010(Value_c target)
 LocalValue_c getOneL_LVLOnR3010(Value_c[] targets)
 </pre>
-######  select many <Local Value set> related by <Value target>->L_LVL[R3010]
+######  select many {Local Value set} related by {Value target}->L_LVL[R3010]
 <pre>
 LocalValue_c[] getManyL_LVLsOnR3010(Value_c target)
 LocalValue_c[] getManyL_LVLsOnR3010(Value_c[] targets)
@@ -4503,22 +4568,23 @@ LocalValue_c[] getManyL_LVLsOnR3010(Value_c[] targets)
 
 ###### R3017 - Local Value *is value of* Property Parameter
 
-######  select one <Local Value instance> related by <Property Parameter target>->L_LVL[R3017]
+######  select one {Local Value instance} related by {Property Parameter target}->L_LVL[R3017]
 <pre>
 LocalValue_c getOneL_LVLOnR3017(PropertyParameter_c target)
 LocalValue_c getOneL_LVLOnR3017(PropertyParameter_c[] targets)
 </pre>
-######  select many <Local Value set> related by <Property Parameter target>->L_LVL[R3017]
+######  select many {Local Value set} related by {Property Parameter target}->L_LVL[R3017]
 <pre>
 LocalValue_c[] getManyL_LVLsOnR3017(PropertyParameter_c target)
 LocalValue_c[] getManyL_LVLsOnR3017(PropertyParameter_c[] targets)
 </pre>
+###### R3001 (Subtype)
 
-######  select one <Local Value instance> related by <Local target>->L_LVL[R3001]
+######  select one {Local Value instance} related by {Local target}->L_LVL[R3001]
 <pre>
 LocalValue_c getOneL_LVLOnR3001(Local_c target)
 </pre>
-######  select many <Local Value set> related by <Local target>->L_LVL[R3001]
+######  select many {Local Value set} related by {Local target}->L_LVL[R3001]
 <pre>
 LocalValue_c[] getManyL_LVLsOnR3001(Local_c[] targets)
 </pre>
@@ -4538,22 +4604,23 @@ LocalValue_c[] getManyL_LVLsOnR3001(Local_c[] targets)
 
 ###### R3006 - Local Selected Reference *iterates over* Instance in Where Clause
 
-######  select one <Local Selected Reference instance> related by <Instance in Where Clause target>->L_LSR[R3006]
+######  select one {Local Selected Reference instance} related by {Instance in Where Clause target}->L_LSR[R3006]
 <pre>
 LocalSelectedReference_c getOneL_LSROnR3006(InstanceInWhereClause_c target)
 LocalSelectedReference_c getOneL_LSROnR3006(InstanceInWhereClause_c[] targets)
 </pre>
-######  select many <Local Selected Reference set> related by <Instance in Where Clause target>->L_LSR[R3006]
+######  select many {Local Selected Reference set} related by {Instance in Where Clause target}->L_LSR[R3006]
 <pre>
 LocalSelectedReference_c[] getManyL_LSRsOnR3006(InstanceInWhereClause_c target)
 LocalSelectedReference_c[] getManyL_LSRsOnR3006(InstanceInWhereClause_c[] targets)
 </pre>
+###### R3001 (Subtype)
 
-######  select one <Local Selected Reference instance> related by <Local target>->L_LSR[R3001]
+######  select one {Local Selected Reference instance} related by {Local target}->L_LSR[R3001]
 <pre>
 LocalSelectedReference_c getOneL_LSROnR3001(Local_c target)
 </pre>
-######  select many <Local Selected Reference set> related by <Local target>->L_LSR[R3001]
+######  select many {Local Selected Reference set} related by {Local target}->L_LSR[R3001]
 <pre>
 LocalSelectedReference_c[] getManyL_LSRsOnR3001(Local_c[] targets)
 </pre>
@@ -4573,12 +4640,12 @@ LocalSelectedReference_c[] getManyL_LSRsOnR3001(Local_c[] targets)
 
 ###### R3003 - Local Reference *is value of* Instance Set
 
-######  select one <Local Reference instance> related by <Instance Set target>->L_LCR[R3003]
+######  select one {Local Reference instance} related by {Instance Set target}->L_LCR[R3003]
 <pre>
 LocalReference_c getOneL_LCROnR3003(InstanceSet_c target)
 LocalReference_c getOneL_LCROnR3003(InstanceSet_c[] targets)
 </pre>
-######  select many <Local Reference set> related by <Instance Set target>->L_LCR[R3003]
+######  select many {Local Reference set} related by {Instance Set target}->L_LCR[R3003]
 <pre>
 LocalReference_c[] getManyL_LCRsOnR3003(InstanceSet_c target)
 LocalReference_c[] getManyL_LCRsOnR3003(InstanceSet_c[] targets)
@@ -4586,12 +4653,12 @@ LocalReference_c[] getManyL_LCRsOnR3003(InstanceSet_c[] targets)
 
 ###### R3004 - Local Reference *is value of* Instance Handle
 
-######  select one <Local Reference instance> related by <Instance Handle target>->L_LCR[R3004]
+######  select one {Local Reference instance} related by {Instance Handle target}->L_LCR[R3004]
 <pre>
 LocalReference_c getOneL_LCROnR3004(InstanceHandle_c target)
 LocalReference_c getOneL_LCROnR3004(InstanceHandle_c[] targets)
 </pre>
-######  select many <Local Reference set> related by <Instance Handle target>->L_LCR[R3004]
+######  select many {Local Reference set} related by {Instance Handle target}->L_LCR[R3004]
 <pre>
 LocalReference_c[] getManyL_LCRsOnR3004(InstanceHandle_c target)
 LocalReference_c[] getManyL_LCRsOnR3004(InstanceHandle_c[] targets)
@@ -4599,22 +4666,23 @@ LocalReference_c[] getManyL_LCRsOnR3004(InstanceHandle_c[] targets)
 
 ###### R3012 - Local Reference *loops over set of* Instance in Reference
 
-######  select one <Local Reference instance> related by <Instance in Reference target>->L_LCR[R3012]
+######  select one {Local Reference instance} related by {Instance in Reference target}->L_LCR[R3012]
 <pre>
 LocalReference_c getOneL_LCROnR3012(InstanceInReference_c target)
 LocalReference_c getOneL_LCROnR3012(InstanceInReference_c[] targets)
 </pre>
-######  select many <Local Reference set> related by <Instance in Reference target>->L_LCR[R3012]
+######  select many {Local Reference set} related by {Instance in Reference target}->L_LCR[R3012]
 <pre>
 LocalReference_c[] getManyL_LCRsOnR3012(InstanceInReference_c target)
 LocalReference_c[] getManyL_LCRsOnR3012(InstanceInReference_c[] targets)
 </pre>
+###### R3001 (Subtype)
 
-######  select one <Local Reference instance> related by <Local target>->L_LCR[R3001]
+######  select one {Local Reference instance} related by {Local target}->L_LCR[R3001]
 <pre>
 LocalReference_c getOneL_LCROnR3001(Local_c target)
 </pre>
-######  select many <Local Reference set> related by <Local target>->L_LCR[R3001]
+######  select many {Local Reference set} related by {Local target}->L_LCR[R3001]
 <pre>
 LocalReference_c[] getManyL_LCRsOnR3001(Local_c[] targets)
 </pre>
@@ -4631,7 +4699,7 @@ LocalReference_c[] getManyL_LCRsOnR3001(Local_c[] targets)
 
 <pre>
   -  java.util.UUID        	getLocal_id()
-  - void			setLocal_id(java.util.UUID         newValue)
+  -  void			setLocal_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -4642,12 +4710,12 @@ LocalReference_c[] getManyL_LCRsOnR3001(Local_c[] targets)
 
 ###### R3008
 
-######  select one <Local instance> related by <Operation Parameter target>->L_LCL[R3008]
+######  select one {Local instance} related by {Operation Parameter target}->L_LCL[R3008]
 <pre>
 Local_c getOneL_LCLOnR3008(OperationParameter_c target)
 Local_c getOneL_LCLOnR3008(OperationParameter_c[] targets)
 </pre>
-######  select many <Local set> related by <Operation Parameter target>->L_LCL[R3008]
+######  select many {Local set} related by {Operation Parameter target}->L_LCL[R3008]
 <pre>
 Local_c[] getManyL_LCLsOnR3008(OperationParameter_c target)
 Local_c[] getManyL_LCLsOnR3008(OperationParameter_c[] targets)
@@ -4655,12 +4723,12 @@ Local_c[] getManyL_LCLsOnR3008(OperationParameter_c[] targets)
 
 ###### R3306
 
-######  select one <Local instance> related by <Runtime Value target>->L_LCL[R3306]
+######  select one {Local instance} related by {Runtime Value target}->L_LCL[R3306]
 <pre>
 Local_c getOneL_LCLOnR3306(RuntimeValue_c target)
 Local_c getOneL_LCLOnR3306(RuntimeValue_c[] targets)
 </pre>
-######  select many <Local set> related by <Runtime Value target>->L_LCL[R3306]
+######  select many {Local set} related by {Runtime Value target}->L_LCL[R3306]
 <pre>
 Local_c[] getManyL_LCLsOnR3306(RuntimeValue_c target)
 Local_c[] getManyL_LCLsOnR3306(RuntimeValue_c[] targets)
@@ -4668,12 +4736,12 @@ Local_c[] getManyL_LCLsOnR3306(RuntimeValue_c[] targets)
 
 ###### R3000 - Local *exists during execution of* Block in Stack Frame
 
-######  select one <Local instance> related by <Block in Stack Frame target>->L_LCL[R3000]
+######  select one {Local instance} related by {Block in Stack Frame target}->L_LCL[R3000]
 <pre>
 Local_c getOneL_LCLOnR3000(BlockInStackFrame_c target)
 Local_c getOneL_LCLOnR3000(BlockInStackFrame_c[] targets)
 </pre>
-######  select many <Local set> related by <Block in Stack Frame target>->L_LCL[R3000]
+######  select many {Local set} related by {Block in Stack Frame target}->L_LCL[R3000]
 <pre>
 Local_c[] getManyL_LCLsOnR3000(BlockInStackFrame_c target)
 Local_c[] getManyL_LCLsOnR3000(BlockInStackFrame_c[] targets)
@@ -4681,12 +4749,12 @@ Local_c[] getManyL_LCLsOnR3000(BlockInStackFrame_c[] targets)
 
 ###### R3009 - Local *is value of* Bridge Parameter
 
-######  select one <Local instance> related by <Bridge Parameter target>->L_LCL[R3009]
+######  select one {Local instance} related by {Bridge Parameter target}->L_LCL[R3009]
 <pre>
 Local_c getOneL_LCLOnR3009(BridgeParameter_c target)
 Local_c getOneL_LCLOnR3009(BridgeParameter_c[] targets)
 </pre>
-######  select many <Local set> related by <Bridge Parameter target>->L_LCL[R3009]
+######  select many {Local set} related by {Bridge Parameter target}->L_LCL[R3009]
 <pre>
 Local_c[] getManyL_LCLsOnR3009(BridgeParameter_c target)
 Local_c[] getManyL_LCLsOnR3009(BridgeParameter_c[] targets)
@@ -4694,40 +4762,41 @@ Local_c[] getManyL_LCLsOnR3009(BridgeParameter_c[] targets)
 
 ###### R3007 - Local *is value of* Function Parameter
 
-######  select one <Local instance> related by <Function Parameter target>->L_LCL[R3007]
+######  select one {Local instance} related by {Function Parameter target}->L_LCL[R3007]
 <pre>
 Local_c getOneL_LCLOnR3007(FunctionParameter_c target)
 Local_c getOneL_LCLOnR3007(FunctionParameter_c[] targets)
 </pre>
-######  select many <Local set> related by <Function Parameter target>->L_LCL[R3007]
+######  select many {Local set} related by {Function Parameter target}->L_LCL[R3007]
 <pre>
 Local_c[] getManyL_LCLsOnR3007(FunctionParameter_c target)
 Local_c[] getManyL_LCLsOnR3007(FunctionParameter_c[] targets)
 </pre>
+###### R3001 (Subtype)
 
-######  select one <Local instance> related by <Local Reference target>->L_LCL[R3001]
+######  select one {Local instance} related by {Local Reference target}->L_LCL[R3001]
 <pre>
 Local_c getOneL_LCLOnR3001(LocalReference_c target)
 </pre>
-######  select many <Local set> related by <Local Reference target set>->L_LCL[R3001]
+######  select many {Local set} related by {Local Reference target set}->L_LCL[R3001]
 <pre>
 Local_c[] getManyL_LCLsOnR3001(LocalReference_c[] targets)
 </pre>
 
-######  select one <Local instance> related by <Local Selected Reference target>->L_LCL[R3001]
+######  select one {Local instance} related by {Local Selected Reference target}->L_LCL[R3001]
 <pre>
 Local_c getOneL_LCLOnR3001(LocalSelectedReference_c target)
 </pre>
-######  select many <Local set> related by <Local Selected Reference target set>->L_LCL[R3001]
+######  select many {Local set} related by {Local Selected Reference target set}->L_LCL[R3001]
 <pre>
 Local_c[] getManyL_LCLsOnR3001(LocalSelectedReference_c[] targets)
 </pre>
 
-######  select one <Local instance> related by <Local Value target>->L_LCL[R3001]
+######  select one {Local instance} related by {Local Value target}->L_LCL[R3001]
 <pre>
 Local_c getOneL_LCLOnR3001(LocalValue_c target)
 </pre>
-######  select many <Local set> related by <Local Value target set>->L_LCL[R3001]
+######  select many {Local set} related by {Local Value target set}->L_LCL[R3001]
 <pre>
 Local_c[] getManyL_LCLsOnR3001(LocalValue_c[] targets)
 </pre>
@@ -4747,12 +4816,12 @@ Local_c[] getManyL_LCLsOnR3001(LocalValue_c[] targets)
 
 ###### R3006 - Instance in Where Clause *is visited during where clause execution by* Local Selected Reference
 
-######  select one <Instance in Where Clause instance> related by <Local Selected Reference target>->L_IWC[R3006]
+######  select one {Instance in Where Clause instance} related by {Local Selected Reference target}->L_IWC[R3006]
 <pre>
 InstanceInWhereClause_c getOneL_IWCOnR3006(LocalSelectedReference_c target)
 InstanceInWhereClause_c getOneL_IWCOnR3006(LocalSelectedReference_c[] targets)
 </pre>
-######  select many <Instance in Where Clause set> related by <Local Selected Reference target>->L_IWC[R3006]
+######  select many {Instance in Where Clause set} related by {Local Selected Reference target}->L_IWC[R3006]
 <pre>
 InstanceInWhereClause_c[] getManyL_IWCsOnR3006(LocalSelectedReference_c target)
 InstanceInWhereClause_c[] getManyL_IWCsOnR3006(LocalSelectedReference_c[] targets)
@@ -4760,12 +4829,12 @@ InstanceInWhereClause_c[] getManyL_IWCsOnR3006(LocalSelectedReference_c[] target
 
 ###### R3014 - Instance in Where Clause *references* Instance
 
-######  select one <Instance in Where Clause instance> related by <Instance target>->L_IWC[R3014]
+######  select one {Instance in Where Clause instance} related by {Instance target}->L_IWC[R3014]
 <pre>
 InstanceInWhereClause_c getOneL_IWCOnR3014(Instance_c target)
 InstanceInWhereClause_c getOneL_IWCOnR3014(Instance_c[] targets)
 </pre>
-######  select many <Instance in Where Clause set> related by <Instance target>->L_IWC[R3014]
+######  select many {Instance in Where Clause set} related by {Instance target}->L_IWC[R3014]
 <pre>
 InstanceInWhereClause_c[] getManyL_IWCsOnR3014(Instance_c target)
 InstanceInWhereClause_c[] getManyL_IWCsOnR3014(Instance_c[] targets)
@@ -4788,12 +4857,12 @@ InstanceInWhereClause_c[] getManyL_IWCsOnR3014(Instance_c[] targets)
 
 ###### R3012 - Instance in Reference *is visited in loop by* Local Reference
 
-######  select one <Instance in Reference instance> related by <Local Reference target>->L_IIR[R3012]
+######  select one {Instance in Reference instance} related by {Local Reference target}->L_IIR[R3012]
 <pre>
 InstanceInReference_c getOneL_IIROnR3012(LocalReference_c target)
 InstanceInReference_c getOneL_IIROnR3012(LocalReference_c[] targets)
 </pre>
-######  select many <Instance in Reference set> related by <Local Reference target>->L_IIR[R3012]
+######  select many {Instance in Reference set} related by {Local Reference target}->L_IIR[R3012]
 <pre>
 InstanceInReference_c[] getManyL_IIRsOnR3012(LocalReference_c target)
 InstanceInReference_c[] getManyL_IIRsOnR3012(LocalReference_c[] targets)
@@ -4801,12 +4870,12 @@ InstanceInReference_c[] getManyL_IIRsOnR3012(LocalReference_c[] targets)
 
 ###### R3311 - Instance in Reference *is part of* Instance Reference Value
 
-######  select one <Instance in Reference instance> related by <Instance Reference Value target>->L_IIR[R3311]
+######  select one {Instance in Reference instance} related by {Instance Reference Value target}->L_IIR[R3311]
 <pre>
 InstanceInReference_c getOneL_IIROnR3311(InstanceReferenceValue_c target)
 InstanceInReference_c getOneL_IIROnR3311(InstanceReferenceValue_c[] targets)
 </pre>
-######  select many <Instance in Reference set> related by <Instance Reference Value target>->L_IIR[R3311]
+######  select many {Instance in Reference set} related by {Instance Reference Value target}->L_IIR[R3311]
 <pre>
 InstanceInReference_c[] getManyL_IIRsOnR3311(InstanceReferenceValue_c target)
 InstanceInReference_c[] getManyL_IIRsOnR3311(InstanceReferenceValue_c[] targets)
@@ -4816,12 +4885,12 @@ InstanceInReference_c[] getManyL_IIRsOnR3311(InstanceReferenceValue_c[] targets)
 
 ###### R3013 - Instance in Reference *references* Instance
 
-######  select one <Instance in Reference instance> related by <Instance target>->L_IIR[R3013]
+######  select one {Instance in Reference instance} related by {Instance target}->L_IIR[R3013]
 <pre>
 InstanceInReference_c getOneL_IIROnR3013(Instance_c target)
 InstanceInReference_c getOneL_IIROnR3013(Instance_c[] targets)
 </pre>
-######  select many <Instance in Reference set> related by <Instance target>->L_IIR[R3013]
+######  select many {Instance in Reference set} related by {Instance target}->L_IIR[R3013]
 <pre>
 InstanceInReference_c[] getManyL_IIRsOnR3013(Instance_c target)
 InstanceInReference_c[] getManyL_IIRsOnR3013(Instance_c[] targets)
@@ -4842,23 +4911,23 @@ InstanceInReference_c[] getManyL_IIRsOnR3013(Instance_c[] targets)
 
 ###### R9100
 
-######  select one <Global Element in System instance> related by <Packageable Element target>->G_EIS[R9100]
+######  select one {Global Element in System instance} related by {Packageable Element target}->G_EIS[R9100]
 <pre>
 GlobalElementInSystem_c getOneG_EISOnR9100(PackageableElement_c target)
 GlobalElementInSystem_c getOneG_EISOnR9100(PackageableElement_c[] targets)
 </pre>
-######  select many <Global Element in System set> related by <Packageable Element target>->G_EIS[R9100]
+######  select many {Global Element in System set} related by {Packageable Element target}->G_EIS[R9100]
 <pre>
 GlobalElementInSystem_c[] getManyG_EISsOnR9100(PackageableElement_c target)
 GlobalElementInSystem_c[] getManyG_EISsOnR9100(PackageableElement_c[] targets)
 </pre>
 
-######  select one <Global Element in System instance> related by <System Model target>->G_EIS[R9100]
+######  select one {Global Element in System instance} related by {System Model target}->G_EIS[R9100]
 <pre>
 GlobalElementInSystem_c getOneG_EISOnR9100(SystemModel_c target)
 GlobalElementInSystem_c getOneG_EISOnR9100(SystemModel_c[] targets)
 </pre>
-######  select many <Global Element in System set> related by <System Model target>->G_EIS[R9100]
+######  select many {Global Element in System set} related by {System Model target}->G_EIS[R9100]
 <pre>
 GlobalElementInSystem_c[] getManyG_EISsOnR9100(SystemModel_c target)
 GlobalElementInSystem_c[] getManyG_EISsOnR9100(SystemModel_c[] targets)
@@ -4876,7 +4945,7 @@ GlobalElementInSystem_c[] getManyG_EISsOnR9100(SystemModel_c[] targets)
 
 <pre>
   -  java.util.UUID        	getPackage_id()
-  - void			setPackage_id(java.util.UUID         newValue)
+  -  void			setPackage_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -4887,76 +4956,77 @@ GlobalElementInSystem_c[] getManyG_EISsOnR9100(SystemModel_c[] targets)
 
 ###### R1400
 
-######  select one <Specification Package instance> related by <Package target>->EP_SPKG[R1400]
+######  select one {Specification Package instance} related by {Package target}->EP_SPKG[R1400]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1400(Package_c target)
 SpecificationPackage_c getOneEP_SPKGOnR1400(Package_c[] targets)
 </pre>
-######  select many <Specification Package set> related by <Package target>->EP_SPKG[R1400]
+######  select many {Specification Package set} related by {Package target}->EP_SPKG[R1400]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1400(Package_c target)
 SpecificationPackage_c[] getManyEP_SPKGsOnR1400(Package_c[] targets)
 </pre>
+###### R1402 (Subtype)
 
-######  select one <Specification Package instance> related by <Activity target>->EP_SPKG[R1402]
+######  select one {Specification Package instance} related by {Activity target}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1402(Activity_c target)
 </pre>
-######  select many <Specification Package set> related by <Activity target set>->EP_SPKG[R1402]
+######  select many {Specification Package set} related by {Activity target set}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1402(Activity_c[] targets)
 </pre>
 
-######  select one <Specification Package instance> related by <Communication target>->EP_SPKG[R1402]
+######  select one {Specification Package instance} related by {Communication target}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1402(Communication_c target)
 </pre>
-######  select many <Specification Package set> related by <Communication target set>->EP_SPKG[R1402]
+######  select many {Specification Package set} related by {Communication target set}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1402(Communication_c[] targets)
 </pre>
 
-######  select one <Specification Package instance> related by <Component Package target>->EP_SPKG[R1402]
+######  select one {Specification Package instance} related by {Component Package target}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1402(ComponentPackage_c target)
 </pre>
-######  select many <Specification Package set> related by <Component Package target set>->EP_SPKG[R1402]
+######  select many {Specification Package set} related by {Component Package target set}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1402(ComponentPackage_c[] targets)
 </pre>
 
-######  select one <Specification Package instance> related by <Data Type Package target>->EP_SPKG[R1402]
+######  select one {Specification Package instance} related by {Data Type Package target}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1402(DataTypePackage_c target)
 </pre>
-######  select many <Specification Package set> related by <Data Type Package target set>->EP_SPKG[R1402]
+######  select many {Specification Package set} related by {Data Type Package target set}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1402(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <Specification Package instance> related by <Interface Package target>->EP_SPKG[R1402]
+######  select one {Specification Package instance} related by {Interface Package target}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1402(InterfacePackage_c target)
 </pre>
-######  select many <Specification Package set> related by <Interface Package target set>->EP_SPKG[R1402]
+######  select many {Specification Package set} related by {Interface Package target set}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1402(InterfacePackage_c[] targets)
 </pre>
 
-######  select one <Specification Package instance> related by <Use Case Diagram target>->EP_SPKG[R1402]
+######  select one {Specification Package instance} related by {Use Case Diagram target}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1402(UseCaseDiagram_c target)
 </pre>
-######  select many <Specification Package set> related by <Use Case Diagram target set>->EP_SPKG[R1402]
+######  select many {Specification Package set} related by {Use Case Diagram target set}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1402(UseCaseDiagram_c[] targets)
 </pre>
 
-######  select one <Specification Package instance> related by <Sequence target>->EP_SPKG[R1402]
+######  select one {Specification Package instance} related by {Sequence target}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c getOneEP_SPKGOnR1402(Sequence_c target)
 </pre>
-######  select many <Specification Package set> related by <Sequence target set>->EP_SPKG[R1402]
+######  select many {Specification Package set} related by {Sequence target set}->EP_SPKG[R1402]
 <pre>
 SpecificationPackage_c[] getManyEP_SPKGsOnR1402(Sequence_c[] targets)
 </pre>
@@ -4976,12 +5046,12 @@ SpecificationPackage_c[] getManyEP_SPKGsOnR1402(Sequence_c[] targets)
 
 ###### R1403 - Package In Package *contained within* Package
 
-######  select one <Package In Package instance> related by <Package target>->EP_PIP[R1403]
+######  select one {Package In Package instance} related by {Package target}->EP_PIP[R1403]
 <pre>
 PackageInPackage_c getOneEP_PIPOnR1403(Package_c target)
 PackageInPackage_c getOneEP_PIPOnR1403(Package_c[] targets)
 </pre>
-######  select many <Package In Package set> related by <Package target>->EP_PIP[R1403]
+######  select many {Package In Package set} related by {Package target}->EP_PIP[R1403]
 <pre>
 PackageInPackage_c[] getManyEP_PIPsOnR1403(Package_c target)
 PackageInPackage_c[] getManyEP_PIPsOnR1403(Package_c[] targets)
@@ -4989,12 +5059,12 @@ PackageInPackage_c[] getManyEP_PIPsOnR1403(Package_c[] targets)
 
 ###### R1404 - Package In Package *links to parent of* Package
 
-######  select one <Package In Package instance> related by <Package target>->EP_PIP[R1404]
+######  select one {Package In Package instance} related by {Package target}->EP_PIP[R1404]
 <pre>
 PackageInPackage_c getOneEP_PIPOnR1404(Package_c target)
 PackageInPackage_c getOneEP_PIPOnR1404(Package_c[] targets)
 </pre>
-######  select many <Package In Package set> related by <Package target>->EP_PIP[R1404]
+######  select many {Package In Package set} related by {Package target}->EP_PIP[R1404]
 <pre>
 PackageInPackage_c[] getManyEP_PIPsOnR1404(Package_c target)
 PackageInPackage_c[] getManyEP_PIPsOnR1404(Package_c[] targets)
@@ -5012,13 +5082,13 @@ PackageInPackage_c[] getManyEP_PIPsOnR1404(Package_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  int         	getNum_rng()
-  - void			setNum_rng(int          newValue)
+  -  void			setNum_rng(int          newValue)
 
 </pre>
 
@@ -5029,12 +5099,12 @@ PackageInPackage_c[] getManyEP_PIPsOnR1404(Package_c[] targets)
 
 ###### R8000 - Package *contains* Packageable Element
 
-######  select one <Package instance> related by <Packageable Element target>->EP_PKG[R8000]
+######  select one {Package instance} related by {Packageable Element target}->EP_PKG[R8000]
 <pre>
 Package_c getOneEP_PKGOnR8000(PackageableElement_c target)
 Package_c getOneEP_PKGOnR8000(PackageableElement_c[] targets)
 </pre>
-######  select many <Package set> related by <Packageable Element target>->EP_PKG[R8000]
+######  select many {Package set} related by {Packageable Element target}->EP_PKG[R8000]
 <pre>
 Package_c[] getManyEP_PKGsOnR8000(PackageableElement_c target)
 Package_c[] getManyEP_PKGsOnR8000(PackageableElement_c[] targets)
@@ -5042,23 +5112,23 @@ Package_c[] getManyEP_PKGsOnR8000(PackageableElement_c[] targets)
 
 ###### R8002 - Package *has visibility of* Packageable Element (via Element Visibility)
 
-######  select one <Package instance> related by <Packageable Element target>->EP_PKG[R8002]
+######  select one {Package instance} related by {Packageable Element target}->EP_PKG[R8002]
 <pre>
 Package_c getOneEP_PKGOnR8002(PackageableElement_c target)
 Package_c getOneEP_PKGOnR8002(PackageableElement_c[] targets)
 </pre>
-######  select many <Package set> related by <Packageable Element target>->EP_PKG[R8002]
+######  select many {Package set} related by {Packageable Element target}->EP_PKG[R8002]
 <pre>
 Package_c[] getManyEP_PKGsOnR8002(PackageableElement_c target)
 Package_c[] getManyEP_PKGsOnR8002(PackageableElement_c[] targets)
 </pre>
 
-######  select one <Package instance> related by <Element Visibility target>->EP_PKG[R8002]
+######  select one {Package instance} related by {Element Visibility target}->EP_PKG[R8002]
 <pre>
 Package_c getOneEP_PKGOnR8002(ElementVisibility_c target)
 Package_c getOneEP_PKGOnR8002(ElementVisibility_c[] targets)
 </pre>
-######  select many <Package set> related by <Element Visibility target>->EP_PKG[R8002]
+######  select many {Package set} related by {Element Visibility target}->EP_PKG[R8002]
 <pre>
 Package_c[] getManyEP_PKGsOnR8002(ElementVisibility_c target)
 Package_c[] getManyEP_PKGsOnR8002(ElementVisibility_c[] targets)
@@ -5066,12 +5136,12 @@ Package_c[] getManyEP_PKGsOnR8002(ElementVisibility_c[] targets)
 
 ###### R1400 - Package *contains* Specification Package
 
-######  select one <Package instance> related by <Specification Package target>->EP_PKG[R1400]
+######  select one {Package instance} related by {Specification Package target}->EP_PKG[R1400]
 <pre>
 Package_c getOneEP_PKGOnR1400(SpecificationPackage_c target)
 Package_c getOneEP_PKGOnR1400(SpecificationPackage_c[] targets)
 </pre>
-######  select many <Package set> related by <Specification Package target>->EP_PKG[R1400]
+######  select many {Package set} related by {Specification Package target}->EP_PKG[R1400]
 <pre>
 Package_c[] getManyEP_PKGsOnR1400(SpecificationPackage_c target)
 Package_c[] getManyEP_PKGsOnR1400(SpecificationPackage_c[] targets)
@@ -5079,12 +5149,12 @@ Package_c[] getManyEP_PKGsOnR1400(SpecificationPackage_c[] targets)
 
 ###### R1403 - Package *contains* Package In Package
 
-######  select one <Package instance> related by <Package In Package target>->EP_PKG[R1403]
+######  select one {Package instance} related by {Package In Package target}->EP_PKG[R1403]
 <pre>
 Package_c getOneEP_PKGOnR1403(PackageInPackage_c target)
 Package_c getOneEP_PKGOnR1403(PackageInPackage_c[] targets)
 </pre>
-######  select many <Package set> related by <Package In Package target>->EP_PKG[R1403]
+######  select many {Package set} related by {Package In Package target}->EP_PKG[R1403]
 <pre>
 Package_c[] getManyEP_PKGsOnR1403(PackageInPackage_c target)
 Package_c[] getManyEP_PKGsOnR1403(PackageInPackage_c[] targets)
@@ -5092,12 +5162,12 @@ Package_c[] getManyEP_PKGsOnR1403(PackageInPackage_c[] targets)
 
 ###### R1404 - Package *linked to parent through* Package In Package
 
-######  select one <Package instance> related by <Package In Package target>->EP_PKG[R1404]
+######  select one {Package instance} related by {Package In Package target}->EP_PKG[R1404]
 <pre>
 Package_c getOneEP_PKGOnR1404(PackageInPackage_c target)
 Package_c getOneEP_PKGOnR1404(PackageInPackage_c[] targets)
 </pre>
-######  select many <Package set> related by <Package In Package target>->EP_PKG[R1404]
+######  select many {Package set} related by {Package In Package target}->EP_PKG[R1404]
 <pre>
 Package_c[] getManyEP_PKGsOnR1404(PackageInPackage_c target)
 Package_c[] getManyEP_PKGsOnR1404(PackageInPackage_c[] targets)
@@ -5105,12 +5175,12 @@ Package_c[] getManyEP_PKGsOnR1404(PackageInPackage_c[] targets)
 
 ###### R8005 - Package *holds* Search Result Set
 
-######  select one <Package instance> related by <Search Result Set target>->EP_PKG[R8005]
+######  select one {Package instance} related by {Search Result Set target}->EP_PKG[R8005]
 <pre>
 Package_c getOneEP_PKGOnR8005(SearchResultSet_c target)
 Package_c getOneEP_PKGOnR8005(SearchResultSet_c[] targets)
 </pre>
-######  select many <Package set> related by <Search Result Set target>->EP_PKG[R8005]
+######  select many {Package set} related by {Search Result Set target}->EP_PKG[R8005]
 <pre>
 Package_c[] getManyEP_PKGsOnR8005(SearchResultSet_c target)
 Package_c[] getManyEP_PKGsOnR8005(SearchResultSet_c[] targets)
@@ -5118,12 +5188,12 @@ Package_c[] getManyEP_PKGsOnR8005(SearchResultSet_c[] targets)
 
 ###### R956 - Package *represents participant of* Package Participant
 
-######  select one <Package instance> related by <Package Participant target>->EP_PKG[R956]
+######  select one {Package instance} related by {Package Participant target}->EP_PKG[R956]
 <pre>
 Package_c getOneEP_PKGOnR956(PackageParticipant_c target)
 Package_c getOneEP_PKGOnR956(PackageParticipant_c[] targets)
 </pre>
-######  select many <Package set> related by <Package Participant target>->EP_PKG[R956]
+######  select many {Package set} related by {Package Participant target}->EP_PKG[R956]
 <pre>
 Package_c[] getManyEP_PKGsOnR956(PackageParticipant_c target)
 Package_c[] getManyEP_PKGsOnR956(PackageParticipant_c[] targets)
@@ -5131,12 +5201,12 @@ Package_c[] getManyEP_PKGsOnR956(PackageParticipant_c[] targets)
 
 ###### R2970 - Package *is being verified by* Component Instance
 
-######  select one <Package instance> related by <Component Instance target>->EP_PKG[R2970]
+######  select one {Package instance} related by {Component Instance target}->EP_PKG[R2970]
 <pre>
 Package_c getOneEP_PKGOnR2970(ComponentInstance_c target)
 Package_c getOneEP_PKGOnR2970(ComponentInstance_c[] targets)
 </pre>
-######  select many <Package set> related by <Component Instance target>->EP_PKG[R2970]
+######  select many {Package set} related by {Component Instance target}->EP_PKG[R2970]
 <pre>
 Package_c[] getManyEP_PKGsOnR2970(ComponentInstance_c target)
 Package_c[] getManyEP_PKGsOnR2970(ComponentInstance_c[] targets)
@@ -5144,12 +5214,12 @@ Package_c[] getManyEP_PKGsOnR2970(ComponentInstance_c[] targets)
 
 ###### R2971 - Package *provides execution context for* Class In Engine
 
-######  select one <Package instance> related by <Class In Engine target>->EP_PKG[R2971]
+######  select one {Package instance} related by {Class In Engine target}->EP_PKG[R2971]
 <pre>
 Package_c getOneEP_PKGOnR2971(ClassInEngine_c target)
 Package_c getOneEP_PKGOnR2971(ClassInEngine_c[] targets)
 </pre>
-######  select many <Package set> related by <Class In Engine target>->EP_PKG[R2971]
+######  select many {Package set} related by {Class In Engine target}->EP_PKG[R2971]
 <pre>
 Package_c[] getManyEP_PKGsOnR2971(ClassInEngine_c target)
 Package_c[] getManyEP_PKGsOnR2971(ClassInEngine_c[] targets)
@@ -5157,12 +5227,12 @@ Package_c[] getManyEP_PKGsOnR2971(ClassInEngine_c[] targets)
 
 ###### R1401 - Package *directly contained under* System Model
 
-######  select one <Package instance> related by <System Model target>->EP_PKG[R1401]
+######  select one {Package instance} related by {System Model target}->EP_PKG[R1401]
 <pre>
 Package_c getOneEP_PKGOnR1401(SystemModel_c target)
 Package_c getOneEP_PKGOnR1401(SystemModel_c[] targets)
 </pre>
-######  select many <Package set> related by <System Model target>->EP_PKG[R1401]
+######  select many {Package set} related by {System Model target}->EP_PKG[R1401]
 <pre>
 Package_c[] getManyEP_PKGsOnR1401(SystemModel_c target)
 Package_c[] getManyEP_PKGsOnR1401(SystemModel_c[] targets)
@@ -5170,22 +5240,23 @@ Package_c[] getManyEP_PKGsOnR1401(SystemModel_c[] targets)
 
 ###### R1405
 
-######  select one <Package instance> related by <System Model target>->EP_PKG[R1405]
+######  select one {Package instance} related by {System Model target}->EP_PKG[R1405]
 <pre>
 Package_c getOneEP_PKGOnR1405(SystemModel_c target)
 Package_c getOneEP_PKGOnR1405(SystemModel_c[] targets)
 </pre>
-######  select many <Package set> related by <System Model target>->EP_PKG[R1405]
+######  select many {Package set} related by {System Model target}->EP_PKG[R1405]
 <pre>
 Package_c[] getManyEP_PKGsOnR1405(SystemModel_c target)
 Package_c[] getManyEP_PKGsOnR1405(SystemModel_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Package instance> related by <Packageable Element target>->EP_PKG[R8001]
+######  select one {Package instance} related by {Packageable Element target}->EP_PKG[R8001]
 <pre>
 Package_c getOneEP_PKGOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Package set> related by <Packageable Element target>->EP_PKG[R8001]
+######  select many {Package set} related by {Packageable Element target}->EP_PKG[R8001]
 <pre>
 Package_c[] getManyEP_PKGsOnR8001(PackageableElement_c[] targets)
 </pre>
@@ -5202,7 +5273,7 @@ Package_c[] getManyEP_PKGsOnR8001(PackageableElement_c[] targets)
 
 <pre>
   -  int         	getGen_type()
-  - void			setGen_type(int          newValue)
+  -  void			setGen_type(int          newValue)
 
 </pre>
 
@@ -5213,22 +5284,23 @@ Package_c[] getManyEP_PKGsOnR8001(PackageableElement_c[] targets)
 
 ###### R18 - User Data Type *are defined within* Data Type
 
-######  select one <User Data Type instance> related by <Data Type target>->S_UDT[R18]
+######  select one {User Data Type instance} related by {Data Type target}->S_UDT[R18]
 <pre>
 UserDataType_c getOneS_UDTOnR18(DataType_c target)
 UserDataType_c getOneS_UDTOnR18(DataType_c[] targets)
 </pre>
-######  select many <User Data Type set> related by <Data Type target>->S_UDT[R18]
+######  select many {User Data Type set} related by {Data Type target}->S_UDT[R18]
 <pre>
 UserDataType_c[] getManyS_UDTsOnR18(DataType_c target)
 UserDataType_c[] getManyS_UDTsOnR18(DataType_c[] targets)
 </pre>
+###### R17 (Subtype)
 
-######  select one <User Data Type instance> related by <Data Type target>->S_UDT[R17]
+######  select one {User Data Type instance} related by {Data Type target}->S_UDT[R17]
 <pre>
 UserDataType_c getOneS_UDTOnR17(DataType_c target)
 </pre>
-######  select many <User Data Type set> related by <Data Type target>->S_UDT[R17]
+######  select many {User Data Type set} related by {Data Type target}->S_UDT[R17]
 <pre>
 UserDataType_c[] getManyS_UDTsOnR17(DataType_c[] targets)
 </pre>
@@ -5245,13 +5317,13 @@ UserDataType_c[] getManyS_UDTsOnR17(DataType_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSys_id()
-  - void			setSys_id(java.util.UUID         newValue)
+  -  void			setSys_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  boolean     	getUseglobals()
-  - void			setUseglobals(boolean      newValue)
+  -  void			setUseglobals(boolean      newValue)
 
 </pre>
 
@@ -5262,23 +5334,23 @@ UserDataType_c[] getManyS_UDTsOnR17(DataType_c[] targets)
 
 ###### R9100
 
-######  select one <System Model instance> related by <Packageable Element target>->S_SYS[R9100]
+######  select one {System Model instance} related by {Packageable Element target}->S_SYS[R9100]
 <pre>
 SystemModel_c getOneS_SYSOnR9100(PackageableElement_c target)
 SystemModel_c getOneS_SYSOnR9100(PackageableElement_c[] targets)
 </pre>
-######  select many <System Model set> related by <Packageable Element target>->S_SYS[R9100]
+######  select many {System Model set} related by {Packageable Element target}->S_SYS[R9100]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR9100(PackageableElement_c target)
 SystemModel_c[] getManyS_SYSsOnR9100(PackageableElement_c[] targets)
 </pre>
 
-######  select one <System Model instance> related by <Global Element in System target>->S_SYS[R9100]
+######  select one {System Model instance} related by {Global Element in System target}->S_SYS[R9100]
 <pre>
 SystemModel_c getOneS_SYSOnR9100(GlobalElementInSystem_c target)
 SystemModel_c getOneS_SYSOnR9100(GlobalElementInSystem_c[] targets)
 </pre>
-######  select many <System Model set> related by <Global Element in System target>->S_SYS[R9100]
+######  select many {System Model set} related by {Global Element in System target}->S_SYS[R9100]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR9100(GlobalElementInSystem_c target)
 SystemModel_c[] getManyS_SYSsOnR9100(GlobalElementInSystem_c[] targets)
@@ -5286,12 +5358,12 @@ SystemModel_c[] getManyS_SYSsOnR9100(GlobalElementInSystem_c[] targets)
 
 ###### R1401 - System Model *contains* Package
 
-######  select one <System Model instance> related by <Package target>->S_SYS[R1401]
+######  select one {System Model instance} related by {Package target}->S_SYS[R1401]
 <pre>
 SystemModel_c getOneS_SYSOnR1401(Package_c target)
 SystemModel_c getOneS_SYSOnR1401(Package_c[] targets)
 </pre>
-######  select many <System Model set> related by <Package target>->S_SYS[R1401]
+######  select many {System Model set} related by {Package target}->S_SYS[R1401]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR1401(Package_c target)
 SystemModel_c[] getManyS_SYSsOnR1401(Package_c[] targets)
@@ -5299,12 +5371,12 @@ SystemModel_c[] getManyS_SYSsOnR1401(Package_c[] targets)
 
 ###### R1405 - System Model *contains* Package
 
-######  select one <System Model instance> related by <Package target>->S_SYS[R1405]
+######  select one {System Model instance} related by {Package target}->S_SYS[R1405]
 <pre>
 SystemModel_c getOneS_SYSOnR1405(Package_c target)
 SystemModel_c getOneS_SYSOnR1405(Package_c[] targets)
 </pre>
-######  select many <System Model set> related by <Package target>->S_SYS[R1405]
+######  select many {System Model set} related by {Package target}->S_SYS[R1405]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR1405(Package_c target)
 SystemModel_c[] getManyS_SYSsOnR1405(Package_c[] targets)
@@ -5312,12 +5384,12 @@ SystemModel_c[] getManyS_SYSsOnR1405(Package_c[] targets)
 
 ###### R1211 - System Model *can display* Use Case Diagram
 
-######  select one <System Model instance> related by <Use Case Diagram target>->S_SYS[R1211]
+######  select one {System Model instance} related by {Use Case Diagram target}->S_SYS[R1211]
 <pre>
 SystemModel_c getOneS_SYSOnR1211(UseCaseDiagram_c target)
 SystemModel_c getOneS_SYSOnR1211(UseCaseDiagram_c[] targets)
 </pre>
-######  select many <System Model set> related by <Use Case Diagram target>->S_SYS[R1211]
+######  select many {System Model set} related by {Use Case Diagram target}->S_SYS[R1211]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR1211(UseCaseDiagram_c target)
 SystemModel_c[] getManyS_SYSsOnR1211(UseCaseDiagram_c[] targets)
@@ -5325,23 +5397,23 @@ SystemModel_c[] getManyS_SYSsOnR1211(UseCaseDiagram_c[] targets)
 
 ###### R4400 - System Model *contains* Data Type Package (via System Datatype Package)
 
-######  select one <System Model instance> related by <Data Type Package target>->S_SYS[R4400]
+######  select one {System Model instance} related by {Data Type Package target}->S_SYS[R4400]
 <pre>
 SystemModel_c getOneS_SYSOnR4400(DataTypePackage_c target)
 SystemModel_c getOneS_SYSOnR4400(DataTypePackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <Data Type Package target>->S_SYS[R4400]
+######  select many {System Model set} related by {Data Type Package target}->S_SYS[R4400]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4400(DataTypePackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4400(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <System Model instance> related by <System Datatype Package target>->S_SYS[R4400]
+######  select one {System Model instance} related by {System Datatype Package target}->S_SYS[R4400]
 <pre>
 SystemModel_c getOneS_SYSOnR4400(SystemDatatypePackage_c target)
 SystemModel_c getOneS_SYSOnR4400(SystemDatatypePackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <System Datatype Package target>->S_SYS[R4400]
+######  select many {System Model set} related by {System Datatype Package target}->S_SYS[R4400]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4400(SystemDatatypePackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4400(SystemDatatypePackage_c[] targets)
@@ -5349,12 +5421,12 @@ SystemModel_c[] getManyS_SYSsOnR4400(SystemDatatypePackage_c[] targets)
 
 ###### R4402 - System Model *is system of* System Datatype in Package
 
-######  select one <System Model instance> related by <System Datatype in Package target>->S_SYS[R4402]
+######  select one {System Model instance} related by {System Datatype in Package target}->S_SYS[R4402]
 <pre>
 SystemModel_c getOneS_SYSOnR4402(SystemDatatypeInPackage_c target)
 SystemModel_c getOneS_SYSOnR4402(SystemDatatypeInPackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <System Datatype in Package target>->S_SYS[R4402]
+######  select many {System Model set} related by {System Datatype in Package target}->S_SYS[R4402]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4402(SystemDatatypeInPackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4402(SystemDatatypeInPackage_c[] targets)
@@ -5362,12 +5434,12 @@ SystemModel_c[] getManyS_SYSsOnR4402(SystemDatatypeInPackage_c[] targets)
 
 ###### R4404 - System Model *is system of* System Constant in Package
 
-######  select one <System Model instance> related by <System Constant in Package target>->S_SYS[R4404]
+######  select one {System Model instance} related by {System Constant in Package target}->S_SYS[R4404]
 <pre>
 SystemModel_c getOneS_SYSOnR4404(SystemConstantInPackage_c target)
 SystemModel_c getOneS_SYSOnR4404(SystemConstantInPackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <System Constant in Package target>->S_SYS[R4404]
+######  select many {System Model set} related by {System Constant in Package target}->S_SYS[R4404]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4404(SystemConstantInPackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4404(SystemConstantInPackage_c[] targets)
@@ -5375,12 +5447,12 @@ SystemModel_c[] getManyS_SYSsOnR4404(SystemConstantInPackage_c[] targets)
 
 ###### R950 - System Model *can show* Sequence
 
-######  select one <System Model instance> related by <Sequence target>->S_SYS[R950]
+######  select one {System Model instance} related by {Sequence target}->S_SYS[R950]
 <pre>
 SystemModel_c getOneS_SYSOnR950(Sequence_c target)
 SystemModel_c getOneS_SYSOnR950(Sequence_c[] targets)
 </pre>
-######  select many <System Model set> related by <Sequence target>->S_SYS[R950]
+######  select many {System Model set} related by {Sequence target}->S_SYS[R950]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR950(Sequence_c target)
 SystemModel_c[] getManyS_SYSsOnR950(Sequence_c[] targets)
@@ -5388,12 +5460,12 @@ SystemModel_c[] getManyS_SYSsOnR950(Sequence_c[] targets)
 
 ###### R1301 - System Model *contains* Integrity Manager
 
-######  select one <System Model instance> related by <Integrity Manager target>->S_SYS[R1301]
+######  select one {System Model instance} related by {Integrity Manager target}->S_SYS[R1301]
 <pre>
 SystemModel_c getOneS_SYSOnR1301(IntegrityManager_c target)
 SystemModel_c getOneS_SYSOnR1301(IntegrityManager_c[] targets)
 </pre>
-######  select many <System Model set> related by <Integrity Manager target>->S_SYS[R1301]
+######  select many {System Model set} related by {Integrity Manager target}->S_SYS[R1301]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR1301(IntegrityManager_c target)
 SystemModel_c[] getManyS_SYSsOnR1301(IntegrityManager_c[] targets)
@@ -5401,12 +5473,12 @@ SystemModel_c[] getManyS_SYSsOnR1301(IntegrityManager_c[] targets)
 
 ###### R4302 - System Model *can show* Interface Package
 
-######  select one <System Model instance> related by <Interface Package target>->S_SYS[R4302]
+######  select one {System Model instance} related by {Interface Package target}->S_SYS[R4302]
 <pre>
 SystemModel_c getOneS_SYSOnR4302(InterfacePackage_c target)
 SystemModel_c getOneS_SYSOnR4302(InterfacePackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <Interface Package target>->S_SYS[R4302]
+######  select many {System Model set} related by {Interface Package target}->S_SYS[R4302]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4302(InterfacePackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4302(InterfacePackage_c[] targets)
@@ -5414,12 +5486,12 @@ SystemModel_c[] getManyS_SYSsOnR4302(InterfacePackage_c[] targets)
 
 ###### R4304
 
-######  select one <System Model instance> related by <Interface Package target>->S_SYS[R4304]
+######  select one {System Model instance} related by {Interface Package target}->S_SYS[R4304]
 <pre>
 SystemModel_c getOneS_SYSOnR4304(InterfacePackage_c target)
 SystemModel_c getOneS_SYSOnR4304(InterfacePackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <Interface Package target>->S_SYS[R4304]
+######  select many {System Model set} related by {Interface Package target}->S_SYS[R4304]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4304(InterfacePackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4304(InterfacePackage_c[] targets)
@@ -5427,12 +5499,12 @@ SystemModel_c[] getManyS_SYSsOnR4304(InterfacePackage_c[] targets)
 
 ###### R28
 
-######  select one <System Model instance> related by <Domain target>->S_SYS[R28]
+######  select one {System Model instance} related by {Domain target}->S_SYS[R28]
 <pre>
 SystemModel_c getOneS_SYSOnR28(Domain_c target)
 SystemModel_c getOneS_SYSOnR28(Domain_c[] targets)
 </pre>
-######  select many <System Model set> related by <Domain target>->S_SYS[R28]
+######  select many {System Model set} related by {Domain target}->S_SYS[R28]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR28(Domain_c target)
 SystemModel_c[] getManyS_SYSsOnR28(Domain_c[] targets)
@@ -5440,12 +5512,12 @@ SystemModel_c[] getManyS_SYSsOnR28(Domain_c[] targets)
 
 ###### R4602 - System Model *may contain* Component Package
 
-######  select one <System Model instance> related by <Component Package target>->S_SYS[R4602]
+######  select one {System Model instance} related by {Component Package target}->S_SYS[R4602]
 <pre>
 SystemModel_c getOneS_SYSOnR4602(ComponentPackage_c target)
 SystemModel_c getOneS_SYSOnR4602(ComponentPackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <Component Package target>->S_SYS[R4602]
+######  select many {System Model set} related by {Component Package target}->S_SYS[R4602]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4602(ComponentPackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4602(ComponentPackage_c[] targets)
@@ -5453,12 +5525,12 @@ SystemModel_c[] getManyS_SYSsOnR4602(ComponentPackage_c[] targets)
 
 ###### R4606 - System Model *has many defined* Component Package
 
-######  select one <System Model instance> related by <Component Package target>->S_SYS[R4606]
+######  select one {System Model instance} related by {Component Package target}->S_SYS[R4606]
 <pre>
 SystemModel_c getOneS_SYSOnR4606(ComponentPackage_c target)
 SystemModel_c getOneS_SYSOnR4606(ComponentPackage_c[] targets)
 </pre>
-######  select many <System Model set> related by <Component Package target>->S_SYS[R4606]
+######  select many {System Model set} related by {Component Package target}->S_SYS[R4606]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR4606(ComponentPackage_c target)
 SystemModel_c[] getManyS_SYSsOnR4606(ComponentPackage_c[] targets)
@@ -5466,12 +5538,12 @@ SystemModel_c[] getManyS_SYSsOnR4606(ComponentPackage_c[] targets)
 
 ###### R1136 - System Model *is displayed in* Communication
 
-######  select one <System Model instance> related by <Communication target>->S_SYS[R1136]
+######  select one {System Model instance} related by {Communication target}->S_SYS[R1136]
 <pre>
 SystemModel_c getOneS_SYSOnR1136(Communication_c target)
 SystemModel_c getOneS_SYSOnR1136(Communication_c[] targets)
 </pre>
-######  select many <System Model set> related by <Communication target>->S_SYS[R1136]
+######  select many {System Model set} related by {Communication target}->S_SYS[R1136]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR1136(Communication_c target)
 SystemModel_c[] getManyS_SYSsOnR1136(Communication_c[] targets)
@@ -5479,12 +5551,12 @@ SystemModel_c[] getManyS_SYSsOnR1136(Communication_c[] targets)
 
 ###### R1113 - System Model *contains* Activity
 
-######  select one <System Model instance> related by <Activity target>->S_SYS[R1113]
+######  select one {System Model instance} related by {Activity target}->S_SYS[R1113]
 <pre>
 SystemModel_c getOneS_SYSOnR1113(Activity_c target)
 SystemModel_c getOneS_SYSOnR1113(Activity_c[] targets)
 </pre>
-######  select many <System Model set> related by <Activity target>->S_SYS[R1113]
+######  select many {System Model set} related by {Activity target}->S_SYS[R1113]
 <pre>
 SystemModel_c[] getManyS_SYSsOnR1113(Activity_c target)
 SystemModel_c[] getManyS_SYSsOnR1113(Activity_c[] targets)
@@ -5505,12 +5577,12 @@ SystemModel_c[] getManyS_SYSsOnR1113(Activity_c[] targets)
 
 ###### R42 - Subsystem in Subsystem *contains* Subsystem
 
-######  select one <Subsystem in Subsystem instance> related by <Subsystem target>->S_SIS[R42]
+######  select one {Subsystem in Subsystem instance} related by {Subsystem target}->S_SIS[R42]
 <pre>
 SubsystemInSubsystem_c getOneS_SISOnR42(Subsystem_c target)
 SubsystemInSubsystem_c getOneS_SISOnR42(Subsystem_c[] targets)
 </pre>
-######  select many <Subsystem in Subsystem set> related by <Subsystem target>->S_SIS[R42]
+######  select many {Subsystem in Subsystem set} related by {Subsystem target}->S_SIS[R42]
 <pre>
 SubsystemInSubsystem_c[] getManyS_SISsOnR42(Subsystem_c target)
 SubsystemInSubsystem_c[] getManyS_SISsOnR42(Subsystem_c[] targets)
@@ -5518,12 +5590,12 @@ SubsystemInSubsystem_c[] getManyS_SISsOnR42(Subsystem_c[] targets)
 
 ###### R41 - Subsystem in Subsystem *contains children of* Subsystem
 
-######  select one <Subsystem in Subsystem instance> related by <Subsystem target>->S_SIS[R41]
+######  select one {Subsystem in Subsystem instance} related by {Subsystem target}->S_SIS[R41]
 <pre>
 SubsystemInSubsystem_c getOneS_SISOnR41(Subsystem_c target)
 SubsystemInSubsystem_c getOneS_SISOnR41(Subsystem_c[] targets)
 </pre>
-######  select many <Subsystem in Subsystem set> related by <Subsystem target>->S_SIS[R41]
+######  select many {Subsystem in Subsystem set} related by {Subsystem target}->S_SIS[R41]
 <pre>
 SubsystemInSubsystem_c[] getManyS_SISsOnR41(Subsystem_c target)
 SubsystemInSubsystem_c[] getManyS_SISsOnR41(Subsystem_c[] targets)
@@ -5544,23 +5616,23 @@ SubsystemInSubsystem_c[] getManyS_SISsOnR41(Subsystem_c[] targets)
 
 ###### R43 - Subsystem *is top level of subsystems* Domain (via Subsystem in Domain)
 
-######  select one <Subsystem in Domain instance> related by <Domain target>->S_SID[R43]
+######  select one {Subsystem in Domain instance} related by {Domain target}->S_SID[R43]
 <pre>
 SubsystemInDomain_c getOneS_SIDOnR43(Domain_c target)
 SubsystemInDomain_c getOneS_SIDOnR43(Domain_c[] targets)
 </pre>
-######  select many <Subsystem in Domain set> related by <Domain target>->S_SID[R43]
+######  select many {Subsystem in Domain set} related by {Domain target}->S_SID[R43]
 <pre>
 SubsystemInDomain_c[] getManyS_SIDsOnR43(Domain_c target)
 SubsystemInDomain_c[] getManyS_SIDsOnR43(Domain_c[] targets)
 </pre>
 
-######  select one <Subsystem in Domain instance> related by <Subsystem target>->S_SID[R43]
+######  select one {Subsystem in Domain instance} related by {Subsystem target}->S_SID[R43]
 <pre>
 SubsystemInDomain_c getOneS_SIDOnR43(Subsystem_c target)
 SubsystemInDomain_c getOneS_SIDOnR43(Subsystem_c[] targets)
 </pre>
-######  select many <Subsystem in Domain set> related by <Subsystem target>->S_SID[R43]
+######  select many {Subsystem in Domain set} related by {Subsystem target}->S_SID[R43]
 <pre>
 SubsystemInDomain_c[] getManyS_SIDsOnR43(Subsystem_c target)
 SubsystemInDomain_c[] getManyS_SIDsOnR43(Subsystem_c[] targets)
@@ -5578,22 +5650,22 @@ SubsystemInDomain_c[] getManyS_SIDsOnR43(Subsystem_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSs_id()
-  - void			setSs_id(java.util.UUID         newValue)
+  -  void			setSs_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getPrefix()
-  - void			setPrefix(String       newValue)
+  -  void			setPrefix(String       newValue)
 
   -  int         	getNum_rng()
-  - void			setNum_rng(int          newValue)
+  -  void			setNum_rng(int          newValue)
 
   -  java.util.UUID        	getConfig_id()
-  - void			setConfig_id(java.util.UUID         newValue)
+  -  void			setConfig_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -5604,12 +5676,12 @@ SubsystemInDomain_c[] getManyS_SIDsOnR43(Subsystem_c[] targets)
 
 ###### R2 - Subsystem *is decomposed into* Model Class
 
-######  select one <Subsystem instance> related by <Model Class target>->S_SS[R2]
+######  select one {Subsystem instance} related by {Model Class target}->S_SS[R2]
 <pre>
 Subsystem_c getOneS_SSOnR2(ModelClass_c target)
 Subsystem_c getOneS_SSOnR2(ModelClass_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Model Class target>->S_SS[R2]
+######  select many {Subsystem set} related by {Model Class target}->S_SS[R2]
 <pre>
 Subsystem_c[] getManyS_SSsOnR2(ModelClass_c target)
 Subsystem_c[] getManyS_SSsOnR2(ModelClass_c[] targets)
@@ -5617,12 +5689,12 @@ Subsystem_c[] getManyS_SSsOnR2(ModelClass_c[] targets)
 
 ###### R3 - Subsystem *can contain classs from other subsystems via* Imported Class
 
-######  select one <Subsystem instance> related by <Imported Class target>->S_SS[R3]
+######  select one {Subsystem instance} related by {Imported Class target}->S_SS[R3]
 <pre>
 Subsystem_c getOneS_SSOnR3(ImportedClass_c target)
 Subsystem_c getOneS_SSOnR3(ImportedClass_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Imported Class target>->S_SS[R3]
+######  select many {Subsystem set} related by {Imported Class target}->S_SS[R3]
 <pre>
 Subsystem_c[] getManyS_SSsOnR3(ImportedClass_c target)
 Subsystem_c[] getManyS_SSsOnR3(ImportedClass_c[] targets)
@@ -5630,12 +5702,12 @@ Subsystem_c[] getManyS_SSsOnR3(ImportedClass_c[] targets)
 
 ###### R42 - Subsystem *is child via* Subsystem in Subsystem
 
-######  select one <Subsystem instance> related by <Subsystem in Subsystem target>->S_SS[R42]
+######  select one {Subsystem instance} related by {Subsystem in Subsystem target}->S_SS[R42]
 <pre>
 Subsystem_c getOneS_SSOnR42(SubsystemInSubsystem_c target)
 Subsystem_c getOneS_SSOnR42(SubsystemInSubsystem_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Subsystem in Subsystem target>->S_SS[R42]
+######  select many {Subsystem set} related by {Subsystem in Subsystem target}->S_SS[R42]
 <pre>
 Subsystem_c[] getManyS_SSsOnR42(SubsystemInSubsystem_c target)
 Subsystem_c[] getManyS_SSsOnR42(SubsystemInSubsystem_c[] targets)
@@ -5643,12 +5715,12 @@ Subsystem_c[] getManyS_SSsOnR42(SubsystemInSubsystem_c[] targets)
 
 ###### R41 - Subsystem *is parent to other packages via* Subsystem in Subsystem
 
-######  select one <Subsystem instance> related by <Subsystem in Subsystem target>->S_SS[R41]
+######  select one {Subsystem instance} related by {Subsystem in Subsystem target}->S_SS[R41]
 <pre>
 Subsystem_c getOneS_SSOnR41(SubsystemInSubsystem_c target)
 Subsystem_c getOneS_SSOnR41(SubsystemInSubsystem_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Subsystem in Subsystem target>->S_SS[R41]
+######  select many {Subsystem set} related by {Subsystem in Subsystem target}->S_SS[R41]
 <pre>
 Subsystem_c[] getManyS_SSsOnR41(SubsystemInSubsystem_c target)
 Subsystem_c[] getManyS_SSsOnR41(SubsystemInSubsystem_c[] targets)
@@ -5656,23 +5728,23 @@ Subsystem_c[] getManyS_SSsOnR41(SubsystemInSubsystem_c[] targets)
 
 ###### R43 - Subsystem *is top level of subsystems* Domain (via Subsystem in Domain)
 
-######  select one <Subsystem instance> related by <Subsystem in Domain target>->S_SS[R43]
+######  select one {Subsystem instance} related by {Subsystem in Domain target}->S_SS[R43]
 <pre>
 Subsystem_c getOneS_SSOnR43(SubsystemInDomain_c target)
 Subsystem_c getOneS_SSOnR43(SubsystemInDomain_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Subsystem in Domain target>->S_SS[R43]
+######  select many {Subsystem set} related by {Subsystem in Domain target}->S_SS[R43]
 <pre>
 Subsystem_c[] getManyS_SSsOnR43(SubsystemInDomain_c target)
 Subsystem_c[] getManyS_SSsOnR43(SubsystemInDomain_c[] targets)
 </pre>
 
-######  select one <Subsystem instance> related by <Domain target>->S_SS[R43]
+######  select one {Subsystem instance} related by {Domain target}->S_SS[R43]
 <pre>
 Subsystem_c getOneS_SSOnR43(Domain_c target)
 Subsystem_c getOneS_SSOnR43(Domain_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Domain target>->S_SS[R43]
+######  select many {Subsystem set} related by {Domain target}->S_SS[R43]
 <pre>
 Subsystem_c[] getManyS_SSsOnR43(Domain_c target)
 Subsystem_c[] getManyS_SSsOnR43(Domain_c[] targets)
@@ -5680,12 +5752,12 @@ Subsystem_c[] getManyS_SSsOnR43(Domain_c[] targets)
 
 ###### R1202 - Subsystem *can display* Use Case Diagram
 
-######  select one <Subsystem instance> related by <Use Case Diagram target>->S_SS[R1202]
+######  select one {Subsystem instance} related by {Use Case Diagram target}->S_SS[R1202]
 <pre>
 Subsystem_c getOneS_SSOnR1202(UseCaseDiagram_c target)
 Subsystem_c getOneS_SSOnR1202(UseCaseDiagram_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Use Case Diagram target>->S_SS[R1202]
+######  select many {Subsystem set} related by {Use Case Diagram target}->S_SS[R1202]
 <pre>
 Subsystem_c[] getManyS_SSsOnR1202(UseCaseDiagram_c target)
 Subsystem_c[] getManyS_SSsOnR1202(UseCaseDiagram_c[] targets)
@@ -5693,12 +5765,12 @@ Subsystem_c[] getManyS_SSsOnR1202(UseCaseDiagram_c[] targets)
 
 ###### R914 - Subsystem *can show* Sequence
 
-######  select one <Subsystem instance> related by <Sequence target>->S_SS[R914]
+######  select one {Subsystem instance} related by {Sequence target}->S_SS[R914]
 <pre>
 Subsystem_c getOneS_SSOnR914(Sequence_c target)
 Subsystem_c getOneS_SSOnR914(Sequence_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Sequence target>->S_SS[R914]
+######  select many {Subsystem set} related by {Sequence target}->S_SS[R914]
 <pre>
 Subsystem_c[] getManyS_SSsOnR914(Sequence_c target)
 Subsystem_c[] getManyS_SSsOnR914(Sequence_c[] targets)
@@ -5706,12 +5778,12 @@ Subsystem_c[] getManyS_SSsOnR914(Sequence_c[] targets)
 
 ###### R1 - Subsystem *is first level of partitioning for* Domain
 
-######  select one <Subsystem instance> related by <Domain target>->S_SS[R1]
+######  select one {Subsystem instance} related by {Domain target}->S_SS[R1]
 <pre>
 Subsystem_c getOneS_SSOnR1(Domain_c target)
 Subsystem_c getOneS_SSOnR1(Domain_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Domain target>->S_SS[R1]
+######  select many {Subsystem set} related by {Domain target}->S_SS[R1]
 <pre>
 Subsystem_c[] getManyS_SSsOnR1(Domain_c target)
 Subsystem_c[] getManyS_SSsOnR1(Domain_c[] targets)
@@ -5719,12 +5791,12 @@ Subsystem_c[] getManyS_SSsOnR1(Domain_c[] targets)
 
 ###### R7 - Subsystem *contains* External Entity in Model
 
-######  select one <Subsystem instance> related by <External Entity in Model target>->S_SS[R7]
+######  select one {Subsystem instance} related by {External Entity in Model target}->S_SS[R7]
 <pre>
 Subsystem_c getOneS_SSOnR7(ExternalEntityInModel_c target)
 Subsystem_c getOneS_SSOnR7(ExternalEntityInModel_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <External Entity in Model target>->S_SS[R7]
+######  select many {Subsystem set} related by {External Entity in Model target}->S_SS[R7]
 <pre>
 Subsystem_c[] getManyS_SSsOnR7(ExternalEntityInModel_c target)
 Subsystem_c[] getManyS_SSsOnR7(ExternalEntityInModel_c[] targets)
@@ -5732,12 +5804,12 @@ Subsystem_c[] getManyS_SSsOnR7(ExternalEntityInModel_c[] targets)
 
 ###### R4 - Subsystem *contains* Association
 
-######  select one <Subsystem instance> related by <Association target>->S_SS[R4]
+######  select one {Subsystem instance} related by {Association target}->S_SS[R4]
 <pre>
 Subsystem_c getOneS_SSOnR4(Association_c target)
 Subsystem_c getOneS_SSOnR4(Association_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Association target>->S_SS[R4]
+######  select many {Subsystem set} related by {Association target}->S_SS[R4]
 <pre>
 Subsystem_c[] getManyS_SSsOnR4(Association_c target)
 Subsystem_c[] getManyS_SSsOnR4(Association_c[] targets)
@@ -5745,12 +5817,12 @@ Subsystem_c[] getManyS_SSsOnR4(Association_c[] targets)
 
 ###### R5 - Subsystem *contains* Communication Path
 
-######  select one <Subsystem instance> related by <Communication Path target>->S_SS[R5]
+######  select one {Subsystem instance} related by {Communication Path target}->S_SS[R5]
 <pre>
 Subsystem_c getOneS_SSOnR5(CommunicationPath_c target)
 Subsystem_c getOneS_SSOnR5(CommunicationPath_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Communication Path target>->S_SS[R5]
+######  select many {Subsystem set} related by {Communication Path target}->S_SS[R5]
 <pre>
 Subsystem_c[] getManyS_SSsOnR5(CommunicationPath_c target)
 Subsystem_c[] getManyS_SSsOnR5(CommunicationPath_c[] targets)
@@ -5758,12 +5830,12 @@ Subsystem_c[] getManyS_SSsOnR5(CommunicationPath_c[] targets)
 
 ###### R6 - Subsystem *contains* Access Path
 
-######  select one <Subsystem instance> related by <Access Path target>->S_SS[R6]
+######  select one {Subsystem instance} related by {Access Path target}->S_SS[R6]
 <pre>
 Subsystem_c getOneS_SSOnR6(AccessPath_c target)
 Subsystem_c getOneS_SSOnR6(AccessPath_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Access Path target>->S_SS[R6]
+######  select many {Subsystem set} related by {Access Path target}->S_SS[R6]
 <pre>
 Subsystem_c[] getManyS_SSsOnR6(AccessPath_c target)
 Subsystem_c[] getManyS_SSsOnR6(AccessPath_c[] targets)
@@ -5771,12 +5843,12 @@ Subsystem_c[] getManyS_SSsOnR6(AccessPath_c[] targets)
 
 ###### R1131 - Subsystem *can display* Communication
 
-######  select one <Subsystem instance> related by <Communication target>->S_SS[R1131]
+######  select one {Subsystem instance} related by {Communication target}->S_SS[R1131]
 <pre>
 Subsystem_c getOneS_SSOnR1131(Communication_c target)
 Subsystem_c getOneS_SSOnR1131(Communication_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Communication target>->S_SS[R1131]
+######  select many {Subsystem set} related by {Communication target}->S_SS[R1131]
 <pre>
 Subsystem_c[] getManyS_SSsOnR1131(Communication_c target)
 Subsystem_c[] getManyS_SSsOnR1131(Communication_c[] targets)
@@ -5784,12 +5856,12 @@ Subsystem_c[] getManyS_SSsOnR1131(Communication_c[] targets)
 
 ###### R1108 - Subsystem *contains* Activity
 
-######  select one <Subsystem instance> related by <Activity target>->S_SS[R1108]
+######  select one {Subsystem instance} related by {Activity target}->S_SS[R1108]
 <pre>
 Subsystem_c getOneS_SSOnR1108(Activity_c target)
 Subsystem_c getOneS_SSOnR1108(Activity_c[] targets)
 </pre>
-######  select many <Subsystem set> related by <Activity target>->S_SS[R1108]
+######  select many {Subsystem set} related by {Activity target}->S_SS[R1108]
 <pre>
 Subsystem_c[] getManyS_SSsOnR1108(Activity_c target)
 Subsystem_c[] getManyS_SSsOnR1108(Activity_c[] targets)
@@ -5810,22 +5882,23 @@ Subsystem_c[] getManyS_SSsOnR1108(Activity_c[] targets)
 
 ###### R44 - Structured Data Type *has member* Structure Member
 
-######  select one <Structured Data Type instance> related by <Structure Member target>->S_SDT[R44]
+######  select one {Structured Data Type instance} related by {Structure Member target}->S_SDT[R44]
 <pre>
 StructuredDataType_c getOneS_SDTOnR44(StructureMember_c target)
 StructuredDataType_c getOneS_SDTOnR44(StructureMember_c[] targets)
 </pre>
-######  select many <Structured Data Type set> related by <Structure Member target>->S_SDT[R44]
+######  select many {Structured Data Type set} related by {Structure Member target}->S_SDT[R44]
 <pre>
 StructuredDataType_c[] getManyS_SDTsOnR44(StructureMember_c target)
 StructuredDataType_c[] getManyS_SDTsOnR44(StructureMember_c[] targets)
 </pre>
+###### R17 (Subtype)
 
-######  select one <Structured Data Type instance> related by <Data Type target>->S_SDT[R17]
+######  select one {Structured Data Type instance} related by {Data Type target}->S_SDT[R17]
 <pre>
 StructuredDataType_c getOneS_SDTOnR17(DataType_c target)
 </pre>
-######  select many <Structured Data Type set> related by <Data Type target>->S_SDT[R17]
+######  select many {Structured Data Type set} related by {Data Type target}->S_SDT[R17]
 <pre>
 StructuredDataType_c[] getManyS_SDTsOnR17(DataType_c[] targets)
 </pre>
@@ -5842,16 +5915,16 @@ StructuredDataType_c[] getManyS_SDTsOnR17(DataType_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  java.util.UUID        	getMember_id()
-  - void			setMember_id(java.util.UUID         newValue)
+  -  void			setMember_id(java.util.UUID         newValue)
 
   -  String      	getDimensions()
-  - void			setDimensions(String       newValue)
+  -  void			setDimensions(String       newValue)
 
 </pre>
 
@@ -5862,12 +5935,12 @@ StructuredDataType_c[] getManyS_SDTsOnR17(DataType_c[] targets)
 
 ###### R44 - Structure Member *has parent* Structured Data Type
 
-######  select one <Structure Member instance> related by <Structured Data Type target>->S_MBR[R44]
+######  select one {Structure Member instance} related by {Structured Data Type target}->S_MBR[R44]
 <pre>
 StructureMember_c getOneS_MBROnR44(StructuredDataType_c target)
 StructureMember_c getOneS_MBROnR44(StructuredDataType_c[] targets)
 </pre>
-######  select many <Structure Member set> related by <Structured Data Type target>->S_MBR[R44]
+######  select many {Structure Member set} related by {Structured Data Type target}->S_MBR[R44]
 <pre>
 StructureMember_c[] getManyS_MBRsOnR44(StructuredDataType_c target)
 StructureMember_c[] getManyS_MBRsOnR44(StructuredDataType_c[] targets)
@@ -5875,12 +5948,12 @@ StructureMember_c[] getManyS_MBRsOnR44(StructuredDataType_c[] targets)
 
 ###### R836 - Member Value Reference *is value of* Structure Member
 
-######  select one <Structure Member instance> related by <Member Value Reference target>->S_MBR[R836]
+######  select one {Structure Member instance} related by {Member Value Reference target}->S_MBR[R836]
 <pre>
 StructureMember_c getOneS_MBROnR836(MemberValueReference_c target)
 StructureMember_c getOneS_MBROnR836(MemberValueReference_c[] targets)
 </pre>
-######  select many <Structure Member set> related by <Member Value Reference target>->S_MBR[R836]
+######  select many {Structure Member set} related by {Member Value Reference target}->S_MBR[R836]
 <pre>
 StructureMember_c[] getManyS_MBRsOnR836(MemberValueReference_c target)
 StructureMember_c[] getManyS_MBRsOnR836(MemberValueReference_c[] targets)
@@ -5888,12 +5961,12 @@ StructureMember_c[] getManyS_MBRsOnR836(MemberValueReference_c[] targets)
 
 ###### R45 - Structure Member *is defined by* Data Type
 
-######  select one <Structure Member instance> related by <Data Type target>->S_MBR[R45]
+######  select one {Structure Member instance} related by {Data Type target}->S_MBR[R45]
 <pre>
 StructureMember_c getOneS_MBROnR45(DataType_c target)
 StructureMember_c getOneS_MBROnR45(DataType_c[] targets)
 </pre>
-######  select many <Structure Member set> related by <Data Type target>->S_MBR[R45]
+######  select many {Structure Member set} related by {Data Type target}->S_MBR[R45]
 <pre>
 StructureMember_c[] getManyS_MBRsOnR45(DataType_c target)
 StructureMember_c[] getManyS_MBRsOnR45(DataType_c[] targets)
@@ -5903,12 +5976,12 @@ StructureMember_c[] getManyS_MBRsOnR45(DataType_c[] targets)
 
 ###### R53 - Structure Member *may have* Dimensions
 
-######  select one <Structure Member instance> related by <Dimensions target>->S_MBR[R53]
+######  select one {Structure Member instance} related by {Dimensions target}->S_MBR[R53]
 <pre>
 StructureMember_c getOneS_MBROnR53(Dimensions_c target)
 StructureMember_c getOneS_MBROnR53(Dimensions_c[] targets)
 </pre>
-######  select many <Structure Member set> related by <Dimensions target>->S_MBR[R53]
+######  select many {Structure Member set} related by {Dimensions target}->S_MBR[R53]
 <pre>
 StructureMember_c[] getManyS_MBRsOnR53(Dimensions_c target)
 StructureMember_c[] getManyS_MBRsOnR53(Dimensions_c[] targets)
@@ -5926,7 +5999,7 @@ StructureMember_c[] getManyS_MBRsOnR53(Dimensions_c[] targets)
 
 <pre>
   -  boolean     	getIsset()
-  - void			setIsset(boolean      newValue)
+  -  void			setIsset(boolean      newValue)
 
 </pre>
 
@@ -5937,22 +6010,23 @@ StructureMember_c[] getManyS_MBRsOnR53(Dimensions_c[] targets)
 
 ###### R123 - Instance Reference Data Type *provides reference datatype for* Model Class
 
-######  select one <Instance Reference Data Type instance> related by <Model Class target>->S_IRDT[R123]
+######  select one {Instance Reference Data Type instance} related by {Model Class target}->S_IRDT[R123]
 <pre>
 InstanceReferenceDataType_c getOneS_IRDTOnR123(ModelClass_c target)
 InstanceReferenceDataType_c getOneS_IRDTOnR123(ModelClass_c[] targets)
 </pre>
-######  select many <Instance Reference Data Type set> related by <Model Class target>->S_IRDT[R123]
+######  select many {Instance Reference Data Type set} related by {Model Class target}->S_IRDT[R123]
 <pre>
 InstanceReferenceDataType_c[] getManyS_IRDTsOnR123(ModelClass_c target)
 InstanceReferenceDataType_c[] getManyS_IRDTsOnR123(ModelClass_c[] targets)
 </pre>
+###### R17 (Subtype)
 
-######  select one <Instance Reference Data Type instance> related by <Data Type target>->S_IRDT[R17]
+######  select one {Instance Reference Data Type instance} related by {Data Type target}->S_IRDT[R17]
 <pre>
 InstanceReferenceDataType_c getOneS_IRDTOnR17(DataType_c target)
 </pre>
-######  select many <Instance Reference Data Type set> related by <Data Type target>->S_IRDT[R17]
+######  select many {Instance Reference Data Type set} related by {Data Type target}->S_IRDT[R17]
 <pre>
 InstanceReferenceDataType_c[] getManyS_IRDTsOnR17(DataType_c[] targets)
 </pre>
@@ -5969,19 +6043,19 @@ InstanceReferenceDataType_c[] getManyS_IRDTsOnR17(DataType_c[] targets)
 
 <pre>
   -  java.util.UUID        	getSparm_id()
-  - void			setSparm_id(java.util.UUID         newValue)
+  -  void			setSparm_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  int         	getBy_ref()
-  - void			setBy_ref(int          newValue)
+  -  void			setBy_ref(int          newValue)
 
   -  String      	getDimensions()
-  - void			setDimensions(String       newValue)
+  -  void			setDimensions(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -5992,12 +6066,12 @@ InstanceReferenceDataType_c[] getManyS_IRDTsOnR17(DataType_c[] targets)
 
 ###### R3007 - Function Parameter *has value* Local
 
-######  select one <Function Parameter instance> related by <Local target>->S_SPARM[R3007]
+######  select one {Function Parameter instance} related by {Local target}->S_SPARM[R3007]
 <pre>
 FunctionParameter_c getOneS_SPARMOnR3007(Local_c target)
 FunctionParameter_c getOneS_SPARMOnR3007(Local_c[] targets)
 </pre>
-######  select many <Function Parameter set> related by <Local target>->S_SPARM[R3007]
+######  select many {Function Parameter set} related by {Local target}->S_SPARM[R3007]
 <pre>
 FunctionParameter_c[] getManyS_SPARMsOnR3007(Local_c target)
 FunctionParameter_c[] getManyS_SPARMsOnR3007(Local_c[] targets)
@@ -6005,12 +6079,12 @@ FunctionParameter_c[] getManyS_SPARMsOnR3007(Local_c[] targets)
 
 ###### R832 - Parameter Value *is a value of* Function Parameter
 
-######  select one <Function Parameter instance> related by <Parameter Value target>->S_SPARM[R832]
+######  select one {Function Parameter instance} related by {Parameter Value target}->S_SPARM[R832]
 <pre>
 FunctionParameter_c getOneS_SPARMOnR832(ParameterValue_c target)
 FunctionParameter_c getOneS_SPARMOnR832(ParameterValue_c[] targets)
 </pre>
-######  select many <Function Parameter set> related by <Parameter Value target>->S_SPARM[R832]
+######  select many {Function Parameter set} related by {Parameter Value target}->S_SPARM[R832]
 <pre>
 FunctionParameter_c[] getManyS_SPARMsOnR832(ParameterValue_c target)
 FunctionParameter_c[] getManyS_SPARMsOnR832(ParameterValue_c[] targets)
@@ -6018,12 +6092,12 @@ FunctionParameter_c[] getManyS_SPARMsOnR832(ParameterValue_c[] targets)
 
 ###### R1016 - Function Parameter *represents* Function Argument
 
-######  select one <Function Parameter instance> related by <Function Argument target>->S_SPARM[R1016]
+######  select one {Function Parameter instance} related by {Function Argument target}->S_SPARM[R1016]
 <pre>
 FunctionParameter_c getOneS_SPARMOnR1016(FunctionArgument_c target)
 FunctionParameter_c getOneS_SPARMOnR1016(FunctionArgument_c[] targets)
 </pre>
-######  select many <Function Parameter set> related by <Function Argument target>->S_SPARM[R1016]
+######  select many {Function Parameter set} related by {Function Argument target}->S_SPARM[R1016]
 <pre>
 FunctionParameter_c[] getManyS_SPARMsOnR1016(FunctionArgument_c target)
 FunctionParameter_c[] getManyS_SPARMsOnR1016(FunctionArgument_c[] targets)
@@ -6031,12 +6105,12 @@ FunctionParameter_c[] getManyS_SPARMsOnR1016(FunctionArgument_c[] targets)
 
 ###### R24 - Function Parameter *is defined for* Function
 
-######  select one <Function Parameter instance> related by <Function target>->S_SPARM[R24]
+######  select one {Function Parameter instance} related by {Function target}->S_SPARM[R24]
 <pre>
 FunctionParameter_c getOneS_SPARMOnR24(Function_c target)
 FunctionParameter_c getOneS_SPARMOnR24(Function_c[] targets)
 </pre>
-######  select many <Function Parameter set> related by <Function target>->S_SPARM[R24]
+######  select many {Function Parameter set} related by {Function target}->S_SPARM[R24]
 <pre>
 FunctionParameter_c[] getManyS_SPARMsOnR24(Function_c target)
 FunctionParameter_c[] getManyS_SPARMsOnR24(Function_c[] targets)
@@ -6044,12 +6118,12 @@ FunctionParameter_c[] getManyS_SPARMsOnR24(Function_c[] targets)
 
 ###### R26 - Function Parameter *is typed by * Data Type
 
-######  select one <Function Parameter instance> related by <Data Type target>->S_SPARM[R26]
+######  select one {Function Parameter instance} related by {Data Type target}->S_SPARM[R26]
 <pre>
 FunctionParameter_c getOneS_SPARMOnR26(DataType_c target)
 FunctionParameter_c getOneS_SPARMOnR26(DataType_c[] targets)
 </pre>
-######  select many <Function Parameter set> related by <Data Type target>->S_SPARM[R26]
+######  select many {Function Parameter set} related by {Data Type target}->S_SPARM[R26]
 <pre>
 FunctionParameter_c[] getManyS_SPARMsOnR26(DataType_c target)
 FunctionParameter_c[] getManyS_SPARMsOnR26(DataType_c[] targets)
@@ -6057,12 +6131,12 @@ FunctionParameter_c[] getManyS_SPARMsOnR26(DataType_c[] targets)
 
 ###### R52 - Function Parameter *may have* Dimensions
 
-######  select one <Function Parameter instance> related by <Dimensions target>->S_SPARM[R52]
+######  select one {Function Parameter instance} related by {Dimensions target}->S_SPARM[R52]
 <pre>
 FunctionParameter_c getOneS_SPARMOnR52(Dimensions_c target)
 FunctionParameter_c getOneS_SPARMOnR52(Dimensions_c[] targets)
 </pre>
-######  select many <Function Parameter set> related by <Dimensions target>->S_SPARM[R52]
+######  select many {Function Parameter set} related by {Dimensions target}->S_SPARM[R52]
 <pre>
 FunctionParameter_c[] getManyS_SPARMsOnR52(Dimensions_c target)
 FunctionParameter_c[] getManyS_SPARMsOnR52(Dimensions_c[] targets)
@@ -6085,12 +6159,12 @@ FunctionParameter_c[] getManyS_SPARMsOnR52(Dimensions_c[] targets)
 
 ###### R30 - Function Package in Package *contains children of* Function Package
 
-######  select one <Function Package in Package instance> related by <Function Package target>->S_FPIP[R30]
+######  select one {Function Package in Package instance} related by {Function Package target}->S_FPIP[R30]
 <pre>
 FunctionPackageInPackage_c getOneS_FPIPOnR30(FunctionPackage_c target)
 FunctionPackageInPackage_c getOneS_FPIPOnR30(FunctionPackage_c[] targets)
 </pre>
-######  select many <Function Package in Package set> related by <Function Package target>->S_FPIP[R30]
+######  select many {Function Package in Package set} related by {Function Package target}->S_FPIP[R30]
 <pre>
 FunctionPackageInPackage_c[] getManyS_FPIPsOnR30(FunctionPackage_c target)
 FunctionPackageInPackage_c[] getManyS_FPIPsOnR30(FunctionPackage_c[] targets)
@@ -6098,12 +6172,12 @@ FunctionPackageInPackage_c[] getManyS_FPIPsOnR30(FunctionPackage_c[] targets)
 
 ###### R32 - Function Package in Package *contains* Function Package
 
-######  select one <Function Package in Package instance> related by <Function Package target>->S_FPIP[R32]
+######  select one {Function Package in Package instance} related by {Function Package target}->S_FPIP[R32]
 <pre>
 FunctionPackageInPackage_c getOneS_FPIPOnR32(FunctionPackage_c target)
 FunctionPackageInPackage_c getOneS_FPIPOnR32(FunctionPackage_c[] targets)
 </pre>
-######  select many <Function Package in Package set> related by <Function Package target>->S_FPIP[R32]
+######  select many {Function Package in Package set} related by {Function Package target}->S_FPIP[R32]
 <pre>
 FunctionPackageInPackage_c[] getManyS_FPIPsOnR32(FunctionPackage_c target)
 FunctionPackageInPackage_c[] getManyS_FPIPsOnR32(FunctionPackage_c[] targets)
@@ -6121,10 +6195,10 @@ FunctionPackageInPackage_c[] getManyS_FPIPsOnR32(FunctionPackage_c[] targets)
 
 <pre>
   -  java.util.UUID        	getFunpack_id()
-  - void			setFunpack_id(java.util.UUID         newValue)
+  -  void			setFunpack_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
 </pre>
 
@@ -6135,12 +6209,12 @@ FunctionPackageInPackage_c[] getManyS_FPIPsOnR32(FunctionPackage_c[] targets)
 
 ###### R30 - Function Package *is parent to other packages via* Function Package in Package
 
-######  select one <Function Package instance> related by <Function Package in Package target>->S_FPK[R30]
+######  select one {Function Package instance} related by {Function Package in Package target}->S_FPK[R30]
 <pre>
 FunctionPackage_c getOneS_FPKOnR30(FunctionPackageInPackage_c target)
 FunctionPackage_c getOneS_FPKOnR30(FunctionPackageInPackage_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Function Package in Package target>->S_FPK[R30]
+######  select many {Function Package set} related by {Function Package in Package target}->S_FPK[R30]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR30(FunctionPackageInPackage_c target)
 FunctionPackage_c[] getManyS_FPKsOnR30(FunctionPackageInPackage_c[] targets)
@@ -6148,12 +6222,12 @@ FunctionPackage_c[] getManyS_FPKsOnR30(FunctionPackageInPackage_c[] targets)
 
 ###### R32 - Function Package *is child via* Function Package in Package
 
-######  select one <Function Package instance> related by <Function Package in Package target>->S_FPK[R32]
+######  select one {Function Package instance} related by {Function Package in Package target}->S_FPK[R32]
 <pre>
 FunctionPackage_c getOneS_FPKOnR32(FunctionPackageInPackage_c target)
 FunctionPackage_c getOneS_FPKOnR32(FunctionPackageInPackage_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Function Package in Package target>->S_FPK[R32]
+######  select many {Function Package set} related by {Function Package in Package target}->S_FPK[R32]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR32(FunctionPackageInPackage_c target)
 FunctionPackage_c[] getManyS_FPKsOnR32(FunctionPackageInPackage_c[] targets)
@@ -6161,12 +6235,12 @@ FunctionPackage_c[] getManyS_FPKsOnR32(FunctionPackageInPackage_c[] targets)
 
 ###### R932 - Function Package *represents participant of* Function Package Participant
 
-######  select one <Function Package instance> related by <Function Package Participant target>->S_FPK[R932]
+######  select one {Function Package instance} related by {Function Package Participant target}->S_FPK[R932]
 <pre>
 FunctionPackage_c getOneS_FPKOnR932(FunctionPackageParticipant_c target)
 FunctionPackage_c getOneS_FPKOnR932(FunctionPackageParticipant_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Function Package Participant target>->S_FPK[R932]
+######  select many {Function Package set} related by {Function Package Participant target}->S_FPK[R932]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR932(FunctionPackageParticipant_c target)
 FunctionPackage_c[] getManyS_FPKsOnR932(FunctionPackageParticipant_c[] targets)
@@ -6174,12 +6248,12 @@ FunctionPackage_c[] getManyS_FPKsOnR932(FunctionPackageParticipant_c[] targets)
 
 ###### R29 - Function Package *is contained in* Domain
 
-######  select one <Function Package instance> related by <Domain target>->S_FPK[R29]
+######  select one {Function Package instance} related by {Domain target}->S_FPK[R29]
 <pre>
 FunctionPackage_c getOneS_FPKOnR29(Domain_c target)
 FunctionPackage_c getOneS_FPKOnR29(Domain_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Domain target>->S_FPK[R29]
+######  select many {Function Package set} related by {Domain target}->S_FPK[R29]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR29(Domain_c target)
 FunctionPackage_c[] getManyS_FPKsOnR29(Domain_c[] targets)
@@ -6187,23 +6261,23 @@ FunctionPackage_c[] getManyS_FPKsOnR29(Domain_c[] targets)
 
 ###### R31 - Function Package *contains* Function (via Function in Package)
 
-######  select one <Function Package instance> related by <Function target>->S_FPK[R31]
+######  select one {Function Package instance} related by {Function target}->S_FPK[R31]
 <pre>
 FunctionPackage_c getOneS_FPKOnR31(Function_c target)
 FunctionPackage_c getOneS_FPKOnR31(Function_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Function target>->S_FPK[R31]
+######  select many {Function Package set} related by {Function target}->S_FPK[R31]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR31(Function_c target)
 FunctionPackage_c[] getManyS_FPKsOnR31(Function_c[] targets)
 </pre>
 
-######  select one <Function Package instance> related by <Function in Package target>->S_FPK[R31]
+######  select one {Function Package instance} related by {Function in Package target}->S_FPK[R31]
 <pre>
 FunctionPackage_c getOneS_FPKOnR31(FunctionInPackage_c target)
 FunctionPackage_c getOneS_FPKOnR31(FunctionInPackage_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Function in Package target>->S_FPK[R31]
+######  select many {Function Package set} related by {Function in Package target}->S_FPK[R31]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR31(FunctionInPackage_c target)
 FunctionPackage_c[] getManyS_FPKsOnR31(FunctionInPackage_c[] targets)
@@ -6211,23 +6285,23 @@ FunctionPackage_c[] getManyS_FPKsOnR31(FunctionInPackage_c[] targets)
 
 ###### R301 - Function Package *is container* Domain (via Function Package in Domain)
 
-######  select one <Function Package instance> related by <Domain target>->S_FPK[R301]
+######  select one {Function Package instance} related by {Domain target}->S_FPK[R301]
 <pre>
 FunctionPackage_c getOneS_FPKOnR301(Domain_c target)
 FunctionPackage_c getOneS_FPKOnR301(Domain_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Domain target>->S_FPK[R301]
+######  select many {Function Package set} related by {Domain target}->S_FPK[R301]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR301(Domain_c target)
 FunctionPackage_c[] getManyS_FPKsOnR301(Domain_c[] targets)
 </pre>
 
-######  select one <Function Package instance> related by <Function Package in Domain target>->S_FPK[R301]
+######  select one {Function Package instance} related by {Function Package in Domain target}->S_FPK[R301]
 <pre>
 FunctionPackage_c getOneS_FPKOnR301(FunctionPackageInDomain_c target)
 FunctionPackage_c getOneS_FPKOnR301(FunctionPackageInDomain_c[] targets)
 </pre>
-######  select many <Function Package set> related by <Function Package in Domain target>->S_FPK[R301]
+######  select many {Function Package set} related by {Function Package in Domain target}->S_FPK[R301]
 <pre>
 FunctionPackage_c[] getManyS_FPKsOnR301(FunctionPackageInDomain_c target)
 FunctionPackage_c[] getManyS_FPKsOnR301(FunctionPackageInDomain_c[] targets)
@@ -6248,23 +6322,23 @@ FunctionPackage_c[] getManyS_FPKsOnR301(FunctionPackageInDomain_c[] targets)
 
 ###### R31 - Function Package *contains* Function (via Function in Package)
 
-######  select one <Function in Package instance> related by <Function Package target>->S_FIP[R31]
+######  select one {Function in Package instance} related by {Function Package target}->S_FIP[R31]
 <pre>
 FunctionInPackage_c getOneS_FIPOnR31(FunctionPackage_c target)
 FunctionInPackage_c getOneS_FIPOnR31(FunctionPackage_c[] targets)
 </pre>
-######  select many <Function in Package set> related by <Function Package target>->S_FIP[R31]
+######  select many {Function in Package set} related by {Function Package target}->S_FIP[R31]
 <pre>
 FunctionInPackage_c[] getManyS_FIPsOnR31(FunctionPackage_c target)
 FunctionInPackage_c[] getManyS_FIPsOnR31(FunctionPackage_c[] targets)
 </pre>
 
-######  select one <Function in Package instance> related by <Function target>->S_FIP[R31]
+######  select one {Function in Package instance} related by {Function target}->S_FIP[R31]
 <pre>
 FunctionInPackage_c getOneS_FIPOnR31(Function_c target)
 FunctionInPackage_c getOneS_FIPOnR31(Function_c[] targets)
 </pre>
-######  select many <Function in Package set> related by <Function target>->S_FIP[R31]
+######  select many {Function in Package set} related by {Function target}->S_FIP[R31]
 <pre>
 FunctionInPackage_c[] getManyS_FIPsOnR31(Function_c target)
 FunctionInPackage_c[] getManyS_FIPsOnR31(Function_c[] targets)
@@ -6282,22 +6356,22 @@ FunctionInPackage_c[] getManyS_FIPsOnR31(Function_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getAction_semantics()
-  - void			setAction_semantics(String       newValue)
+  -  void			setAction_semantics(String       newValue)
 
   -  int 	getSuc_pars()
-  - void			setSuc_pars(int  newValue)
+  -  void			setSuc_pars(int  newValue)
 
   -  String      	getAction_semantics_internal()
-  - void			setAction_semantics_internal(String       newValue)
+  -  void			setAction_semantics_internal(String       newValue)
 
   -  String      	getReturn_dimensions()
-  - void			setReturn_dimensions(String       newValue)
+  -  void			setReturn_dimensions(String       newValue)
 
 </pre>
 
@@ -6308,12 +6382,12 @@ FunctionInPackage_c[] getManyS_FIPsOnR31(Function_c[] targets)
 
 ###### R3201 - Function *provides execution for* Automatic Wiring
 
-######  select one <Function instance> related by <Automatic Wiring target>->S_SYNC[R3201]
+######  select one {Function instance} related by {Automatic Wiring target}->S_SYNC[R3201]
 <pre>
 Function_c getOneS_SYNCOnR3201(AutomaticWiring_c target)
 Function_c getOneS_SYNCOnR3201(AutomaticWiring_c[] targets)
 </pre>
-######  select many <Function set> related by <Automatic Wiring target>->S_SYNC[R3201]
+######  select many {Function set} related by {Automatic Wiring target}->S_SYNC[R3201]
 <pre>
 Function_c[] getManyS_SYNCsOnR3201(AutomaticWiring_c target)
 Function_c[] getManyS_SYNCsOnR3201(AutomaticWiring_c[] targets)
@@ -6321,12 +6395,12 @@ Function_c[] getManyS_SYNCsOnR3201(AutomaticWiring_c[] targets)
 
 ###### R24 - Function *defines* Function Parameter
 
-######  select one <Function instance> related by <Function Parameter target>->S_SYNC[R24]
+######  select one {Function instance} related by {Function Parameter target}->S_SYNC[R24]
 <pre>
 Function_c getOneS_SYNCOnR24(FunctionParameter_c target)
 Function_c getOneS_SYNCOnR24(FunctionParameter_c[] targets)
 </pre>
-######  select many <Function set> related by <Function Parameter target>->S_SYNC[R24]
+######  select many {Function set} related by {Function Parameter target}->S_SYNC[R24]
 <pre>
 Function_c[] getManyS_SYNCsOnR24(FunctionParameter_c target)
 Function_c[] getManyS_SYNCsOnR24(FunctionParameter_c[] targets)
@@ -6334,23 +6408,23 @@ Function_c[] getManyS_SYNCsOnR24(FunctionParameter_c[] targets)
 
 ###### R31 - Function *is contained in* Function Package (via Function in Package)
 
-######  select one <Function instance> related by <Function Package target>->S_SYNC[R31]
+######  select one {Function instance} related by {Function Package target}->S_SYNC[R31]
 <pre>
 Function_c getOneS_SYNCOnR31(FunctionPackage_c target)
 Function_c getOneS_SYNCOnR31(FunctionPackage_c[] targets)
 </pre>
-######  select many <Function set> related by <Function Package target>->S_SYNC[R31]
+######  select many {Function set} related by {Function Package target}->S_SYNC[R31]
 <pre>
 Function_c[] getManyS_SYNCsOnR31(FunctionPackage_c target)
 Function_c[] getManyS_SYNCsOnR31(FunctionPackage_c[] targets)
 </pre>
 
-######  select one <Function instance> related by <Function in Package target>->S_SYNC[R31]
+######  select one {Function instance} related by {Function in Package target}->S_SYNC[R31]
 <pre>
 Function_c getOneS_SYNCOnR31(FunctionInPackage_c target)
 Function_c getOneS_SYNCOnR31(FunctionInPackage_c[] targets)
 </pre>
-######  select many <Function set> related by <Function in Package target>->S_SYNC[R31]
+######  select many {Function set} related by {Function in Package target}->S_SYNC[R31]
 <pre>
 Function_c[] getManyS_SYNCsOnR31(FunctionInPackage_c target)
 Function_c[] getManyS_SYNCsOnR31(FunctionInPackage_c[] targets)
@@ -6358,12 +6432,12 @@ Function_c[] getManyS_SYNCsOnR31(FunctionInPackage_c[] targets)
 
 ###### R827
 
-######  select one <Function instance> related by <Function Value target>->S_SYNC[R827]
+######  select one {Function instance} related by {Function Value target}->S_SYNC[R827]
 <pre>
 Function_c getOneS_SYNCOnR827(FunctionValue_c target)
 Function_c getOneS_SYNCOnR827(FunctionValue_c[] targets)
 </pre>
-######  select many <Function set> related by <Function Value target>->S_SYNC[R827]
+######  select many {Function set} related by {Function Value target}->S_SYNC[R827]
 <pre>
 Function_c[] getManyS_SYNCsOnR827(FunctionValue_c target)
 Function_c[] getManyS_SYNCsOnR827(FunctionValue_c[] targets)
@@ -6371,12 +6445,12 @@ Function_c[] getManyS_SYNCsOnR827(FunctionValue_c[] targets)
 
 ###### R1010 - Function *is invoked by* Function Message
 
-######  select one <Function instance> related by <Function Message target>->S_SYNC[R1010]
+######  select one {Function instance} related by {Function Message target}->S_SYNC[R1010]
 <pre>
 Function_c getOneS_SYNCOnR1010(FunctionMessage_c target)
 Function_c getOneS_SYNCOnR1010(FunctionMessage_c[] targets)
 </pre>
-######  select many <Function set> related by <Function Message target>->S_SYNC[R1010]
+######  select many {Function set} related by {Function Message target}->S_SYNC[R1010]
 <pre>
 Function_c[] getManyS_SYNCsOnR1010(FunctionMessage_c target)
 Function_c[] getManyS_SYNCsOnR1010(FunctionMessage_c[] targets)
@@ -6384,12 +6458,12 @@ Function_c[] getManyS_SYNCsOnR1010(FunctionMessage_c[] targets)
 
 ###### R675 - Function Invocation *is an invocation of* Function
 
-######  select one <Function instance> related by <Function Invocation target>->S_SYNC[R675]
+######  select one {Function instance} related by {Function Invocation target}->S_SYNC[R675]
 <pre>
 Function_c getOneS_SYNCOnR675(FunctionInvocation_c target)
 Function_c getOneS_SYNCOnR675(FunctionInvocation_c[] targets)
 </pre>
-######  select many <Function set> related by <Function Invocation target>->S_SYNC[R675]
+######  select many {Function set} related by {Function Invocation target}->S_SYNC[R675]
 <pre>
 Function_c[] getManyS_SYNCsOnR675(FunctionInvocation_c target)
 Function_c[] getManyS_SYNCsOnR675(FunctionInvocation_c[] targets)
@@ -6397,12 +6471,12 @@ Function_c[] getManyS_SYNCsOnR675(FunctionInvocation_c[] targets)
 
 ###### R23 - Function *is defined in * Domain
 
-######  select one <Function instance> related by <Domain target>->S_SYNC[R23]
+######  select one {Function instance} related by {Domain target}->S_SYNC[R23]
 <pre>
 Function_c getOneS_SYNCOnR23(Domain_c target)
 Function_c getOneS_SYNCOnR23(Domain_c[] targets)
 </pre>
-######  select many <Function set> related by <Domain target>->S_SYNC[R23]
+######  select many {Function set} related by {Domain target}->S_SYNC[R23]
 <pre>
 Function_c[] getManyS_SYNCsOnR23(Domain_c target)
 Function_c[] getManyS_SYNCsOnR23(Domain_c[] targets)
@@ -6410,12 +6484,12 @@ Function_c[] getManyS_SYNCsOnR23(Domain_c[] targets)
 
 ###### R25 - Function *has return type of* Data Type
 
-######  select one <Function instance> related by <Data Type target>->S_SYNC[R25]
+######  select one {Function instance} related by {Data Type target}->S_SYNC[R25]
 <pre>
 Function_c getOneS_SYNCOnR25(DataType_c target)
 Function_c getOneS_SYNCOnR25(DataType_c[] targets)
 </pre>
-######  select many <Function set> related by <Data Type target>->S_SYNC[R25]
+######  select many {Function set} related by {Data Type target}->S_SYNC[R25]
 <pre>
 Function_c[] getManyS_SYNCsOnR25(DataType_c target)
 Function_c[] getManyS_SYNCsOnR25(DataType_c[] targets)
@@ -6423,12 +6497,12 @@ Function_c[] getManyS_SYNCsOnR25(DataType_c[] targets)
 
 ###### R51 - Function *return value may have* Dimensions
 
-######  select one <Function instance> related by <Dimensions target>->S_SYNC[R51]
+######  select one {Function instance} related by {Dimensions target}->S_SYNC[R51]
 <pre>
 Function_c getOneS_SYNCOnR51(Dimensions_c target)
 Function_c getOneS_SYNCOnR51(Dimensions_c[] targets)
 </pre>
-######  select many <Function set> related by <Dimensions target>->S_SYNC[R51]
+######  select many {Function set} related by {Dimensions target}->S_SYNC[R51]
 <pre>
 Function_c[] getManyS_SYNCsOnR51(Dimensions_c target)
 Function_c[] getManyS_SYNCsOnR51(Dimensions_c[] targets)
@@ -6436,22 +6510,23 @@ Function_c[] getManyS_SYNCsOnR51(Dimensions_c[] targets)
 
 ###### R695 - Function Body *specifies processing for* Function
 
-######  select one <Function instance> related by <Function Body target>->S_SYNC[R695]
+######  select one {Function instance} related by {Function Body target}->S_SYNC[R695]
 <pre>
 Function_c getOneS_SYNCOnR695(FunctionBody_c target)
 Function_c getOneS_SYNCOnR695(FunctionBody_c[] targets)
 </pre>
-######  select many <Function set> related by <Function Body target>->S_SYNC[R695]
+######  select many {Function set} related by {Function Body target}->S_SYNC[R695]
 <pre>
 Function_c[] getManyS_SYNCsOnR695(FunctionBody_c target)
 Function_c[] getManyS_SYNCsOnR695(FunctionBody_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Function instance> related by <Packageable Element target>->S_SYNC[R8001]
+######  select one {Function instance} related by {Packageable Element target}->S_SYNC[R8001]
 <pre>
 Function_c getOneS_SYNCOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Function set> related by <Packageable Element target>->S_SYNC[R8001]
+######  select many {Function set} related by {Packageable Element target}->S_SYNC[R8001]
 <pre>
 Function_c[] getManyS_SYNCsOnR8001(PackageableElement_c[] targets)
 </pre>
@@ -6468,10 +6543,10 @@ Function_c[] getManyS_SYNCsOnR8001(PackageableElement_c[] targets)
 
 <pre>
   -  java.util.UUID        	getEepack_id()
-  - void			setEepack_id(java.util.UUID         newValue)
+  -  void			setEepack_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
 </pre>
 
@@ -6482,23 +6557,23 @@ Function_c[] getManyS_SYNCsOnR8001(PackageableElement_c[] targets)
 
 ###### R33 - External Entity Package *contains* External Entity (via External Entity in Package)
 
-######  select one <External Entity Package instance> related by <External Entity target>->S_EEPK[R33]
+######  select one {External Entity Package instance} related by {External Entity target}->S_EEPK[R33]
 <pre>
 ExternalEntityPackage_c getOneS_EEPKOnR33(ExternalEntity_c target)
 ExternalEntityPackage_c getOneS_EEPKOnR33(ExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity Package set> related by <External Entity target>->S_EEPK[R33]
+######  select many {External Entity Package set} related by {External Entity target}->S_EEPK[R33]
 <pre>
 ExternalEntityPackage_c[] getManyS_EEPKsOnR33(ExternalEntity_c target)
 ExternalEntityPackage_c[] getManyS_EEPKsOnR33(ExternalEntity_c[] targets)
 </pre>
 
-######  select one <External Entity Package instance> related by <External Entity in Package target>->S_EEPK[R33]
+######  select one {External Entity Package instance} related by {External Entity in Package target}->S_EEPK[R33]
 <pre>
 ExternalEntityPackage_c getOneS_EEPKOnR33(ExternalEntityInPackage_c target)
 ExternalEntityPackage_c getOneS_EEPKOnR33(ExternalEntityInPackage_c[] targets)
 </pre>
-######  select many <External Entity Package set> related by <External Entity in Package target>->S_EEPK[R33]
+######  select many {External Entity Package set} related by {External Entity in Package target}->S_EEPK[R33]
 <pre>
 ExternalEntityPackage_c[] getManyS_EEPKsOnR33(ExternalEntityInPackage_c target)
 ExternalEntityPackage_c[] getManyS_EEPKsOnR33(ExternalEntityInPackage_c[] targets)
@@ -6506,12 +6581,12 @@ ExternalEntityPackage_c[] getManyS_EEPKsOnR33(ExternalEntityInPackage_c[] target
 
 ###### R34 - External Entity Package *is parent to other packages via* EE Package in Package
 
-######  select one <External Entity Package instance> related by <EE Package in Package target>->S_EEPK[R34]
+######  select one {External Entity Package instance} related by {EE Package in Package target}->S_EEPK[R34]
 <pre>
 ExternalEntityPackage_c getOneS_EEPKOnR34(EePackageInPackage_c target)
 ExternalEntityPackage_c getOneS_EEPKOnR34(EePackageInPackage_c[] targets)
 </pre>
-######  select many <External Entity Package set> related by <EE Package in Package target>->S_EEPK[R34]
+######  select many {External Entity Package set} related by {EE Package in Package target}->S_EEPK[R34]
 <pre>
 ExternalEntityPackage_c[] getManyS_EEPKsOnR34(EePackageInPackage_c target)
 ExternalEntityPackage_c[] getManyS_EEPKsOnR34(EePackageInPackage_c[] targets)
@@ -6519,12 +6594,12 @@ ExternalEntityPackage_c[] getManyS_EEPKsOnR34(EePackageInPackage_c[] targets)
 
 ###### R35 - External Entity Package *is child via* EE Package in Package
 
-######  select one <External Entity Package instance> related by <EE Package in Package target>->S_EEPK[R35]
+######  select one {External Entity Package instance} related by {EE Package in Package target}->S_EEPK[R35]
 <pre>
 ExternalEntityPackage_c getOneS_EEPKOnR35(EePackageInPackage_c target)
 ExternalEntityPackage_c getOneS_EEPKOnR35(EePackageInPackage_c[] targets)
 </pre>
-######  select many <External Entity Package set> related by <EE Package in Package target>->S_EEPK[R35]
+######  select many {External Entity Package set} related by {EE Package in Package target}->S_EEPK[R35]
 <pre>
 ExternalEntityPackage_c[] getManyS_EEPKsOnR35(EePackageInPackage_c target)
 ExternalEntityPackage_c[] getManyS_EEPKsOnR35(EePackageInPackage_c[] targets)
@@ -6532,12 +6607,12 @@ ExternalEntityPackage_c[] getManyS_EEPKsOnR35(EePackageInPackage_c[] targets)
 
 ###### R36 - External Entity Package *is contained in* Domain
 
-######  select one <External Entity Package instance> related by <Domain target>->S_EEPK[R36]
+######  select one {External Entity Package instance} related by {Domain target}->S_EEPK[R36]
 <pre>
 ExternalEntityPackage_c getOneS_EEPKOnR36(Domain_c target)
 ExternalEntityPackage_c getOneS_EEPKOnR36(Domain_c[] targets)
 </pre>
-######  select many <External Entity Package set> related by <Domain target>->S_EEPK[R36]
+######  select many {External Entity Package set} related by {Domain target}->S_EEPK[R36]
 <pre>
 ExternalEntityPackage_c[] getManyS_EEPKsOnR36(Domain_c target)
 ExternalEntityPackage_c[] getManyS_EEPKsOnR36(Domain_c[] targets)
@@ -6545,23 +6620,23 @@ ExternalEntityPackage_c[] getManyS_EEPKsOnR36(Domain_c[] targets)
 
 ###### R300 - External Entity Package *is container* Domain (via External Entity Package in Domain)
 
-######  select one <External Entity Package instance> related by <Domain target>->S_EEPK[R300]
+######  select one {External Entity Package instance} related by {Domain target}->S_EEPK[R300]
 <pre>
 ExternalEntityPackage_c getOneS_EEPKOnR300(Domain_c target)
 ExternalEntityPackage_c getOneS_EEPKOnR300(Domain_c[] targets)
 </pre>
-######  select many <External Entity Package set> related by <Domain target>->S_EEPK[R300]
+######  select many {External Entity Package set} related by {Domain target}->S_EEPK[R300]
 <pre>
 ExternalEntityPackage_c[] getManyS_EEPKsOnR300(Domain_c target)
 ExternalEntityPackage_c[] getManyS_EEPKsOnR300(Domain_c[] targets)
 </pre>
 
-######  select one <External Entity Package instance> related by <External Entity Package in Domain target>->S_EEPK[R300]
+######  select one {External Entity Package instance} related by {External Entity Package in Domain target}->S_EEPK[R300]
 <pre>
 ExternalEntityPackage_c getOneS_EEPKOnR300(ExternalEntityPackageInDomain_c target)
 ExternalEntityPackage_c getOneS_EEPKOnR300(ExternalEntityPackageInDomain_c[] targets)
 </pre>
-######  select many <External Entity Package set> related by <External Entity Package in Domain target>->S_EEPK[R300]
+######  select many {External Entity Package set} related by {External Entity Package in Domain target}->S_EEPK[R300]
 <pre>
 ExternalEntityPackage_c[] getManyS_EEPKsOnR300(ExternalEntityPackageInDomain_c target)
 ExternalEntityPackage_c[] getManyS_EEPKsOnR300(ExternalEntityPackageInDomain_c[] targets)
@@ -6582,23 +6657,23 @@ ExternalEntityPackage_c[] getManyS_EEPKsOnR300(ExternalEntityPackageInDomain_c[]
 
 ###### R33 - External Entity Package *contains* External Entity (via External Entity in Package)
 
-######  select one <External Entity in Package instance> related by <External Entity Package target>->S_EEIP[R33]
+######  select one {External Entity in Package instance} related by {External Entity Package target}->S_EEIP[R33]
 <pre>
 ExternalEntityInPackage_c getOneS_EEIPOnR33(ExternalEntityPackage_c target)
 ExternalEntityInPackage_c getOneS_EEIPOnR33(ExternalEntityPackage_c[] targets)
 </pre>
-######  select many <External Entity in Package set> related by <External Entity Package target>->S_EEIP[R33]
+######  select many {External Entity in Package set} related by {External Entity Package target}->S_EEIP[R33]
 <pre>
 ExternalEntityInPackage_c[] getManyS_EEIPsOnR33(ExternalEntityPackage_c target)
 ExternalEntityInPackage_c[] getManyS_EEIPsOnR33(ExternalEntityPackage_c[] targets)
 </pre>
 
-######  select one <External Entity in Package instance> related by <External Entity target>->S_EEIP[R33]
+######  select one {External Entity in Package instance} related by {External Entity target}->S_EEIP[R33]
 <pre>
 ExternalEntityInPackage_c getOneS_EEIPOnR33(ExternalEntity_c target)
 ExternalEntityInPackage_c getOneS_EEIPOnR33(ExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity in Package set> related by <External Entity target>->S_EEIP[R33]
+######  select many {External Entity in Package set} related by {External Entity target}->S_EEIP[R33]
 <pre>
 ExternalEntityInPackage_c[] getManyS_EEIPsOnR33(ExternalEntity_c target)
 ExternalEntityInPackage_c[] getManyS_EEIPsOnR33(ExternalEntity_c[] targets)
@@ -6616,10 +6691,10 @@ ExternalEntityInPackage_c[] getManyS_EEIPsOnR33(ExternalEntity_c[] targets)
 
 <pre>
   -  java.util.UUID        	getEemod_id()
-  - void			setEemod_id(java.util.UUID         newValue)
+  -  void			setEemod_id(java.util.UUID         newValue)
 
   -  int         	getModl_typ()
-  - void			setModl_typ(int          newValue)
+  -  void			setModl_typ(int          newValue)
 
 </pre>
 
@@ -6630,12 +6705,12 @@ ExternalEntityInPackage_c[] getManyS_EEIPsOnR33(ExternalEntity_c[] targets)
 
 ###### R7 - External Entity in Model *is a presence of an an external entity in* Subsystem
 
-######  select one <External Entity in Model instance> related by <Subsystem target>->S_EEM[R7]
+######  select one {External Entity in Model instance} related by {Subsystem target}->S_EEM[R7]
 <pre>
 ExternalEntityInModel_c getOneS_EEMOnR7(Subsystem_c target)
 ExternalEntityInModel_c getOneS_EEMOnR7(Subsystem_c[] targets)
 </pre>
-######  select many <External Entity in Model set> related by <Subsystem target>->S_EEM[R7]
+######  select many {External Entity in Model set} related by {Subsystem target}->S_EEM[R7]
 <pre>
 ExternalEntityInModel_c[] getManyS_EEMsOnR7(Subsystem_c target)
 ExternalEntityInModel_c[] getManyS_EEMsOnR7(Subsystem_c[] targets)
@@ -6643,12 +6718,12 @@ ExternalEntityInModel_c[] getManyS_EEMsOnR7(Subsystem_c[] targets)
 
 ###### R9 - External Entity in Model *is a presence in subsystem model of* External Entity
 
-######  select one <External Entity in Model instance> related by <External Entity target>->S_EEM[R9]
+######  select one {External Entity in Model instance} related by {External Entity target}->S_EEM[R9]
 <pre>
 ExternalEntityInModel_c getOneS_EEMOnR9(ExternalEntity_c target)
 ExternalEntityInModel_c getOneS_EEMOnR9(ExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity in Model set> related by <External Entity target>->S_EEM[R9]
+######  select many {External Entity in Model set} related by {External Entity target}->S_EEM[R9]
 <pre>
 ExternalEntityInModel_c[] getManyS_EEMsOnR9(ExternalEntity_c target)
 ExternalEntityInModel_c[] getManyS_EEMsOnR9(ExternalEntity_c[] targets)
@@ -6656,12 +6731,12 @@ ExternalEntityInModel_c[] getManyS_EEMsOnR9(ExternalEntity_c[] targets)
 
 ###### R421 - External Entity in Model *has data access represented by* SM to EE Access Path
 
-######  select one <External Entity in Model instance> related by <SM to EE Access Path target>->S_EEM[R421]
+######  select one {External Entity in Model instance} related by {SM to EE Access Path target}->S_EEM[R421]
 <pre>
 ExternalEntityInModel_c getOneS_EEMOnR421(SmToEeAccessPath_c target)
 ExternalEntityInModel_c getOneS_EEMOnR421(SmToEeAccessPath_c[] targets)
 </pre>
-######  select many <External Entity in Model set> related by <SM to EE Access Path target>->S_EEM[R421]
+######  select many {External Entity in Model set} related by {SM to EE Access Path target}->S_EEM[R421]
 <pre>
 ExternalEntityInModel_c[] getManyS_EEMsOnR421(SmToEeAccessPath_c target)
 ExternalEntityInModel_c[] getManyS_EEMsOnR421(SmToEeAccessPath_c[] targets)
@@ -6669,12 +6744,12 @@ ExternalEntityInModel_c[] getManyS_EEMsOnR421(SmToEeAccessPath_c[] targets)
 
 ###### R402 - External Entity in Model *originates* EE to SM Comm Path
 
-######  select one <External Entity in Model instance> related by <EE to SM Comm Path target>->S_EEM[R402]
+######  select one {External Entity in Model instance} related by {EE to SM Comm Path target}->S_EEM[R402]
 <pre>
 ExternalEntityInModel_c getOneS_EEMOnR402(EeToSmCommPath_c target)
 ExternalEntityInModel_c getOneS_EEMOnR402(EeToSmCommPath_c[] targets)
 </pre>
-######  select many <External Entity in Model set> related by <EE to SM Comm Path target>->S_EEM[R402]
+######  select many {External Entity in Model set} related by {EE to SM Comm Path target}->S_EEM[R402]
 <pre>
 ExternalEntityInModel_c[] getManyS_EEMsOnR402(EeToSmCommPath_c target)
 ExternalEntityInModel_c[] getManyS_EEMsOnR402(EeToSmCommPath_c[] targets)
@@ -6682,12 +6757,12 @@ ExternalEntityInModel_c[] getManyS_EEMsOnR402(EeToSmCommPath_c[] targets)
 
 ###### R411 - External Entity in Model *has received event communication represented by* SM to EE Comm Path
 
-######  select one <External Entity in Model instance> related by <SM to EE Comm Path target>->S_EEM[R411]
+######  select one {External Entity in Model instance} related by {SM to EE Comm Path target}->S_EEM[R411]
 <pre>
 ExternalEntityInModel_c getOneS_EEMOnR411(SmToEeCommPath_c target)
 ExternalEntityInModel_c getOneS_EEMOnR411(SmToEeCommPath_c[] targets)
 </pre>
-######  select many <External Entity in Model set> related by <SM to EE Comm Path target>->S_EEM[R411]
+######  select many {External Entity in Model set} related by {SM to EE Comm Path target}->S_EEM[R411]
 <pre>
 ExternalEntityInModel_c[] getManyS_EEMsOnR411(SmToEeCommPath_c target)
 ExternalEntityInModel_c[] getManyS_EEMsOnR411(SmToEeCommPath_c[] targets)
@@ -6705,13 +6780,13 @@ ExternalEntityInModel_c[] getManyS_EEMsOnR411(SmToEeCommPath_c[] targets)
 
 <pre>
   -  java.util.UUID        	getEeedi_id()
-  - void			setEeedi_id(java.util.UUID         newValue)
+  -  void			setEeedi_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -6722,12 +6797,12 @@ ExternalEntityInModel_c[] getManyS_EEMsOnR411(SmToEeCommPath_c[] targets)
 
 ###### R12 - External Entity Event Data Item *is data for events of* External Entity
 
-######  select one <External Entity Event Data Item instance> related by <External Entity target>->S_EEEDI[R12]
+######  select one {External Entity Event Data Item instance} related by {External Entity target}->S_EEEDI[R12]
 <pre>
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR12(ExternalEntity_c target)
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR12(ExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity Event Data Item set> related by <External Entity target>->S_EEEDI[R12]
+######  select many {External Entity Event Data Item set} related by {External Entity target}->S_EEEDI[R12]
 <pre>
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR12(ExternalEntity_c target)
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR12(ExternalEntity_c[] targets)
@@ -6735,12 +6810,12 @@ ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR12(ExternalEntity_c[] targets)
 
 ###### R16 - External Entity Event Data Item *is defined by* Data Type
 
-######  select one <External Entity Event Data Item instance> related by <Data Type target>->S_EEEDI[R16]
+######  select one {External Entity Event Data Item instance} related by {Data Type target}->S_EEEDI[R16]
 <pre>
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR16(DataType_c target)
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR16(DataType_c[] targets)
 </pre>
-######  select many <External Entity Event Data Item set> related by <Data Type target>->S_EEEDI[R16]
+######  select many {External Entity Event Data Item set} related by {Data Type target}->S_EEEDI[R16]
 <pre>
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR16(DataType_c target)
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR16(DataType_c[] targets)
@@ -6748,23 +6823,23 @@ ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR16(DataType_c[] targets)
 
 ###### R13 - External Entity Event Data Item *is carried via* External Entity Event (via External Entity Event Data)
 
-######  select one <External Entity Event Data Item instance> related by <External Entity Event target>->S_EEEDI[R13]
+######  select one {External Entity Event Data Item instance} related by {External Entity Event target}->S_EEEDI[R13]
 <pre>
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR13(ExternalEntityEvent_c target)
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR13(ExternalEntityEvent_c[] targets)
 </pre>
-######  select many <External Entity Event Data Item set> related by <External Entity Event target>->S_EEEDI[R13]
+######  select many {External Entity Event Data Item set} related by {External Entity Event target}->S_EEEDI[R13]
 <pre>
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR13(ExternalEntityEvent_c target)
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR13(ExternalEntityEvent_c[] targets)
 </pre>
 
-######  select one <External Entity Event Data Item instance> related by <External Entity Event Data target>->S_EEEDI[R13]
+######  select one {External Entity Event Data Item instance} related by {External Entity Event Data target}->S_EEEDI[R13]
 <pre>
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR13(ExternalEntityEventData_c target)
 ExternalEntityEventDataItem_c getOneS_EEEDIOnR13(ExternalEntityEventData_c[] targets)
 </pre>
-######  select many <External Entity Event Data Item set> related by <External Entity Event Data target>->S_EEEDI[R13]
+######  select many {External Entity Event Data Item set} related by {External Entity Event Data target}->S_EEEDI[R13]
 <pre>
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR13(ExternalEntityEventData_c target)
 ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR13(ExternalEntityEventData_c[] targets)
@@ -6785,23 +6860,23 @@ ExternalEntityEventDataItem_c[] getManyS_EEEDIsOnR13(ExternalEntityEventData_c[]
 
 ###### R13 - External Entity Event Data Item *is carried via* External Entity Event (via External Entity Event Data)
 
-######  select one <External Entity Event Data instance> related by <External Entity Event Data Item target>->S_EEEDT[R13]
+######  select one {External Entity Event Data instance} related by {External Entity Event Data Item target}->S_EEEDT[R13]
 <pre>
 ExternalEntityEventData_c getOneS_EEEDTOnR13(ExternalEntityEventDataItem_c target)
 ExternalEntityEventData_c getOneS_EEEDTOnR13(ExternalEntityEventDataItem_c[] targets)
 </pre>
-######  select many <External Entity Event Data set> related by <External Entity Event Data Item target>->S_EEEDT[R13]
+######  select many {External Entity Event Data set} related by {External Entity Event Data Item target}->S_EEEDT[R13]
 <pre>
 ExternalEntityEventData_c[] getManyS_EEEDTsOnR13(ExternalEntityEventDataItem_c target)
 ExternalEntityEventData_c[] getManyS_EEEDTsOnR13(ExternalEntityEventDataItem_c[] targets)
 </pre>
 
-######  select one <External Entity Event Data instance> related by <External Entity Event target>->S_EEEDT[R13]
+######  select one {External Entity Event Data instance} related by {External Entity Event target}->S_EEEDT[R13]
 <pre>
 ExternalEntityEventData_c getOneS_EEEDTOnR13(ExternalEntityEvent_c target)
 ExternalEntityEventData_c getOneS_EEEDTOnR13(ExternalEntityEvent_c[] targets)
 </pre>
-######  select many <External Entity Event Data set> related by <External Entity Event target>->S_EEEDT[R13]
+######  select many {External Entity Event Data set} related by {External Entity Event target}->S_EEEDT[R13]
 <pre>
 ExternalEntityEventData_c[] getManyS_EEEDTsOnR13(ExternalEntityEvent_c target)
 ExternalEntityEventData_c[] getManyS_EEEDTsOnR13(ExternalEntityEvent_c[] targets)
@@ -6819,25 +6894,25 @@ ExternalEntityEventData_c[] getManyS_EEEDTsOnR13(ExternalEntityEvent_c[] targets
 
 <pre>
   -  java.util.UUID        	getEeevt_id()
-  - void			setEeevt_id(java.util.UUID         newValue)
+  -  void			setEeevt_id(java.util.UUID         newValue)
 
   -  int         	getNumb()
-  - void			setNumb(int          newValue)
+  -  void			setNumb(int          newValue)
 
   -  String      	getMning()
-  - void			setMning(String       newValue)
+  -  void			setMning(String       newValue)
 
   -  int         	getIs_lbl_u()
-  - void			setIs_lbl_u(int          newValue)
+  -  void			setIs_lbl_u(int          newValue)
 
   -  String      	getUnq_lbl()
-  - void			setUnq_lbl(String       newValue)
+  -  void			setUnq_lbl(String       newValue)
 
   -  String      	getDrv_lbl()
-  - void			setDrv_lbl(String       newValue)
+  -  void			setDrv_lbl(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -6848,23 +6923,23 @@ ExternalEntityEventData_c[] getManyS_EEEDTsOnR13(ExternalEntityEvent_c[] targets
 
 ###### R13 - External Entity Event *may carry* External Entity Event Data Item (via External Entity Event Data)
 
-######  select one <External Entity Event instance> related by <External Entity Event Data Item target>->S_EEEVT[R13]
+######  select one {External Entity Event instance} related by {External Entity Event Data Item target}->S_EEEVT[R13]
 <pre>
 ExternalEntityEvent_c getOneS_EEEVTOnR13(ExternalEntityEventDataItem_c target)
 ExternalEntityEvent_c getOneS_EEEVTOnR13(ExternalEntityEventDataItem_c[] targets)
 </pre>
-######  select many <External Entity Event set> related by <External Entity Event Data Item target>->S_EEEVT[R13]
+######  select many {External Entity Event set} related by {External Entity Event Data Item target}->S_EEEVT[R13]
 <pre>
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR13(ExternalEntityEventDataItem_c target)
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR13(ExternalEntityEventDataItem_c[] targets)
 </pre>
 
-######  select one <External Entity Event instance> related by <External Entity Event Data target>->S_EEEVT[R13]
+######  select one {External Entity Event instance} related by {External Entity Event Data target}->S_EEEVT[R13]
 <pre>
 ExternalEntityEvent_c getOneS_EEEVTOnR13(ExternalEntityEventData_c target)
 ExternalEntityEvent_c getOneS_EEEVTOnR13(ExternalEntityEventData_c[] targets)
 </pre>
-######  select many <External Entity Event set> related by <External Entity Event Data target>->S_EEEVT[R13]
+######  select many {External Entity Event set} related by {External Entity Event Data target}->S_EEEVT[R13]
 <pre>
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR13(ExternalEntityEventData_c target)
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR13(ExternalEntityEventData_c[] targets)
@@ -6872,12 +6947,12 @@ ExternalEntityEvent_c[] getManyS_EEEVTsOnR13(ExternalEntityEventData_c[] targets
 
 ###### R708 - Create Event to External Entity *creates* External Entity Event
 
-######  select one <External Entity Event instance> related by <Create Event to External Entity target>->S_EEEVT[R708]
+######  select one {External Entity Event instance} related by {Create Event to External Entity target}->S_EEEVT[R708]
 <pre>
 ExternalEntityEvent_c getOneS_EEEVTOnR708(CreateEventToExternalEntity_c target)
 ExternalEntityEvent_c getOneS_EEEVTOnR708(CreateEventToExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity Event set> related by <Create Event to External Entity target>->S_EEEVT[R708]
+######  select many {External Entity Event set} related by {Create Event to External Entity target}->S_EEEVT[R708]
 <pre>
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR708(CreateEventToExternalEntity_c target)
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR708(CreateEventToExternalEntity_c[] targets)
@@ -6885,12 +6960,12 @@ ExternalEntityEvent_c[] getManyS_EEEVTsOnR708(CreateEventToExternalEntity_c[] ta
 
 ###### R709 - Generate to External Entity *generates* External Entity Event
 
-######  select one <External Entity Event instance> related by <Generate to External Entity target>->S_EEEVT[R709]
+######  select one {External Entity Event instance} related by {Generate to External Entity target}->S_EEEVT[R709]
 <pre>
 ExternalEntityEvent_c getOneS_EEEVTOnR709(GenerateToExternalEntity_c target)
 ExternalEntityEvent_c getOneS_EEEVTOnR709(GenerateToExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity Event set> related by <Generate to External Entity target>->S_EEEVT[R709]
+######  select many {External Entity Event set} related by {Generate to External Entity target}->S_EEEVT[R709]
 <pre>
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR709(GenerateToExternalEntity_c target)
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR709(GenerateToExternalEntity_c[] targets)
@@ -6898,12 +6973,12 @@ ExternalEntityEvent_c[] getManyS_EEEVTsOnR709(GenerateToExternalEntity_c[] targe
 
 ###### R10 - External Entity Event *is vehicle of communication for* External Entity
 
-######  select one <External Entity Event instance> related by <External Entity target>->S_EEEVT[R10]
+######  select one {External Entity Event instance} related by {External Entity target}->S_EEEVT[R10]
 <pre>
 ExternalEntityEvent_c getOneS_EEEVTOnR10(ExternalEntity_c target)
 ExternalEntityEvent_c getOneS_EEEVTOnR10(ExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity Event set> related by <External Entity target>->S_EEEVT[R10]
+######  select many {External Entity Event set} related by {External Entity target}->S_EEEVT[R10]
 <pre>
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR10(ExternalEntity_c target)
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR10(ExternalEntity_c[] targets)
@@ -6911,12 +6986,12 @@ ExternalEntityEvent_c[] getManyS_EEEVTsOnR10(ExternalEntity_c[] targets)
 
 ###### R413 - External Entity Event *is carried to EE via* SM to EE Event Comm
 
-######  select one <External Entity Event instance> related by <SM to EE Event Comm target>->S_EEEVT[R413]
+######  select one {External Entity Event instance} related by {SM to EE Event Comm target}->S_EEEVT[R413]
 <pre>
 ExternalEntityEvent_c getOneS_EEEVTOnR413(SmToEeEventComm_c target)
 ExternalEntityEvent_c getOneS_EEEVTOnR413(SmToEeEventComm_c[] targets)
 </pre>
-######  select many <External Entity Event set> related by <SM to EE Event Comm target>->S_EEEVT[R413]
+######  select many {External Entity Event set} related by {SM to EE Event Comm target}->S_EEEVT[R413]
 <pre>
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR413(SmToEeEventComm_c target)
 ExternalEntityEvent_c[] getManyS_EEEVTsOnR413(SmToEeEventComm_c[] targets)
@@ -6934,13 +7009,13 @@ ExternalEntityEvent_c[] getManyS_EEEVTsOnR413(SmToEeEventComm_c[] targets)
 
 <pre>
   -  java.util.UUID        	getEedi_id()
-  - void			setEedi_id(java.util.UUID         newValue)
+  -  void			setEedi_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -6951,12 +7026,12 @@ ExternalEntityEvent_c[] getManyS_EEEVTsOnR413(SmToEeEventComm_c[] targets)
 
 ###### R15 - External Entity Data Item *is defined by* Data Type
 
-######  select one <External Entity Data Item instance> related by <Data Type target>->S_EEDI[R15]
+######  select one {External Entity Data Item instance} related by {Data Type target}->S_EEDI[R15]
 <pre>
 ExternalEntityDataItem_c getOneS_EEDIOnR15(DataType_c target)
 ExternalEntityDataItem_c getOneS_EEDIOnR15(DataType_c[] targets)
 </pre>
-######  select many <External Entity Data Item set> related by <Data Type target>->S_EEDI[R15]
+######  select many {External Entity Data Item set} related by {Data Type target}->S_EEDI[R15]
 <pre>
 ExternalEntityDataItem_c[] getManyS_EEDIsOnR15(DataType_c target)
 ExternalEntityDataItem_c[] getManyS_EEDIsOnR15(DataType_c[] targets)
@@ -6964,12 +7039,12 @@ ExternalEntityDataItem_c[] getManyS_EEDIsOnR15(DataType_c[] targets)
 
 ###### R11 - External Entity Data Item *is data for* External Entity
 
-######  select one <External Entity Data Item instance> related by <External Entity target>->S_EEDI[R11]
+######  select one {External Entity Data Item instance} related by {External Entity target}->S_EEDI[R11]
 <pre>
 ExternalEntityDataItem_c getOneS_EEDIOnR11(ExternalEntity_c target)
 ExternalEntityDataItem_c getOneS_EEDIOnR11(ExternalEntity_c[] targets)
 </pre>
-######  select many <External Entity Data Item set> related by <External Entity target>->S_EEDI[R11]
+######  select many {External Entity Data Item set} related by {External Entity target}->S_EEDI[R11]
 <pre>
 ExternalEntityDataItem_c[] getManyS_EEDIsOnR11(ExternalEntity_c target)
 ExternalEntityDataItem_c[] getManyS_EEDIsOnR11(ExternalEntity_c[] targets)
@@ -6977,12 +7052,12 @@ ExternalEntityDataItem_c[] getManyS_EEDIsOnR11(ExternalEntity_c[] targets)
 
 ###### R423 - External Entity Data Item *is accessed by* SM to EE Data Item Access
 
-######  select one <External Entity Data Item instance> related by <SM to EE Data Item Access target>->S_EEDI[R423]
+######  select one {External Entity Data Item instance} related by {SM to EE Data Item Access target}->S_EEDI[R423]
 <pre>
 ExternalEntityDataItem_c getOneS_EEDIOnR423(SmToEeDataItemAccess_c target)
 ExternalEntityDataItem_c getOneS_EEDIOnR423(SmToEeDataItemAccess_c[] targets)
 </pre>
-######  select many <External Entity Data Item set> related by <SM to EE Data Item Access target>->S_EEDI[R423]
+######  select many {External Entity Data Item set} related by {SM to EE Data Item Access target}->S_EEDI[R423]
 <pre>
 ExternalEntityDataItem_c[] getManyS_EEDIsOnR423(SmToEeDataItemAccess_c target)
 ExternalEntityDataItem_c[] getManyS_EEDIsOnR423(SmToEeDataItemAccess_c[] targets)
@@ -7000,19 +7075,19 @@ ExternalEntityDataItem_c[] getManyS_EEDIsOnR423(SmToEeDataItemAccess_c[] targets
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getKey_lett()
-  - void			setKey_lett(String       newValue)
+  -  void			setKey_lett(String       newValue)
 
   -  String      	getRealized_class_path()
-  - void			setRealized_class_path(String       newValue)
+  -  void			setRealized_class_path(String       newValue)
 
   -  String      	getLabel()
-  - void			setLabel(String       newValue)
+  -  void			setLabel(String       newValue)
 
 </pre>
 
@@ -7023,23 +7098,23 @@ ExternalEntityDataItem_c[] getManyS_EEDIsOnR423(SmToEeDataItemAccess_c[] targets
 
 ###### R33 - External Entity *is contained in* External Entity Package (via External Entity in Package)
 
-######  select one <External Entity instance> related by <External Entity Package target>->S_EE[R33]
+######  select one {External Entity instance} related by {External Entity Package target}->S_EE[R33]
 <pre>
 ExternalEntity_c getOneS_EEOnR33(ExternalEntityPackage_c target)
 ExternalEntity_c getOneS_EEOnR33(ExternalEntityPackage_c[] targets)
 </pre>
-######  select many <External Entity set> related by <External Entity Package target>->S_EE[R33]
+######  select many {External Entity set} related by {External Entity Package target}->S_EE[R33]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR33(ExternalEntityPackage_c target)
 ExternalEntity_c[] getManyS_EEsOnR33(ExternalEntityPackage_c[] targets)
 </pre>
 
-######  select one <External Entity instance> related by <External Entity in Package target>->S_EE[R33]
+######  select one {External Entity instance} related by {External Entity in Package target}->S_EE[R33]
 <pre>
 ExternalEntity_c getOneS_EEOnR33(ExternalEntityInPackage_c target)
 ExternalEntity_c getOneS_EEOnR33(ExternalEntityInPackage_c[] targets)
 </pre>
-######  select many <External Entity set> related by <External Entity in Package target>->S_EE[R33]
+######  select many {External Entity set} related by {External Entity in Package target}->S_EE[R33]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR33(ExternalEntityInPackage_c target)
 ExternalEntity_c[] getManyS_EEsOnR33(ExternalEntityInPackage_c[] targets)
@@ -7047,12 +7122,12 @@ ExternalEntity_c[] getManyS_EEsOnR33(ExternalEntityInPackage_c[] targets)
 
 ###### R9 - External Entity *is represented by* External Entity in Model
 
-######  select one <External Entity instance> related by <External Entity in Model target>->S_EE[R9]
+######  select one {External Entity instance} related by {External Entity in Model target}->S_EE[R9]
 <pre>
 ExternalEntity_c getOneS_EEOnR9(ExternalEntityInModel_c target)
 ExternalEntity_c getOneS_EEOnR9(ExternalEntityInModel_c[] targets)
 </pre>
-######  select many <External Entity set> related by <External Entity in Model target>->S_EE[R9]
+######  select many {External Entity set} related by {External Entity in Model target}->S_EE[R9]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR9(ExternalEntityInModel_c target)
 ExternalEntity_c[] getManyS_EEsOnR9(ExternalEntityInModel_c[] targets)
@@ -7060,12 +7135,12 @@ ExternalEntity_c[] getManyS_EEsOnR9(ExternalEntityInModel_c[] targets)
 
 ###### R12 - External Entity *can asynchronously communicate via* External Entity Event Data Item
 
-######  select one <External Entity instance> related by <External Entity Event Data Item target>->S_EE[R12]
+######  select one {External Entity instance} related by {External Entity Event Data Item target}->S_EE[R12]
 <pre>
 ExternalEntity_c getOneS_EEOnR12(ExternalEntityEventDataItem_c target)
 ExternalEntity_c getOneS_EEOnR12(ExternalEntityEventDataItem_c[] targets)
 </pre>
-######  select many <External Entity set> related by <External Entity Event Data Item target>->S_EE[R12]
+######  select many {External Entity set} related by {External Entity Event Data Item target}->S_EE[R12]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR12(ExternalEntityEventDataItem_c target)
 ExternalEntity_c[] getManyS_EEsOnR12(ExternalEntityEventDataItem_c[] targets)
@@ -7073,12 +7148,12 @@ ExternalEntity_c[] getManyS_EEsOnR12(ExternalEntityEventDataItem_c[] targets)
 
 ###### R10 - External Entity *can receive asynchronous communication via* External Entity Event
 
-######  select one <External Entity instance> related by <External Entity Event target>->S_EE[R10]
+######  select one {External Entity instance} related by {External Entity Event target}->S_EE[R10]
 <pre>
 ExternalEntity_c getOneS_EEOnR10(ExternalEntityEvent_c target)
 ExternalEntity_c getOneS_EEOnR10(ExternalEntityEvent_c[] targets)
 </pre>
-######  select many <External Entity set> related by <External Entity Event target>->S_EE[R10]
+######  select many {External Entity set} related by {External Entity Event target}->S_EE[R10]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR10(ExternalEntityEvent_c target)
 ExternalEntity_c[] getManyS_EEsOnR10(ExternalEntityEvent_c[] targets)
@@ -7086,12 +7161,12 @@ ExternalEntity_c[] getManyS_EEsOnR10(ExternalEntityEvent_c[] targets)
 
 ###### R11 - External Entity *can be accessed synchronously via* External Entity Data Item
 
-######  select one <External Entity instance> related by <External Entity Data Item target>->S_EE[R11]
+######  select one {External Entity instance} related by {External Entity Data Item target}->S_EE[R11]
 <pre>
 ExternalEntity_c getOneS_EEOnR11(ExternalEntityDataItem_c target)
 ExternalEntity_c getOneS_EEOnR11(ExternalEntityDataItem_c[] targets)
 </pre>
-######  select many <External Entity set> related by <External Entity Data Item target>->S_EE[R11]
+######  select many {External Entity set} related by {External Entity Data Item target}->S_EE[R11]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR11(ExternalEntityDataItem_c target)
 ExternalEntity_c[] getManyS_EEsOnR11(ExternalEntityDataItem_c[] targets)
@@ -7099,12 +7174,12 @@ ExternalEntity_c[] getManyS_EEsOnR11(ExternalEntityDataItem_c[] targets)
 
 ###### R933 - External Entity *represents participant of* External Entity Participant
 
-######  select one <External Entity instance> related by <External Entity Participant target>->S_EE[R933]
+######  select one {External Entity instance} related by {External Entity Participant target}->S_EE[R933]
 <pre>
 ExternalEntity_c getOneS_EEOnR933(ExternalEntityParticipant_c target)
 ExternalEntity_c getOneS_EEOnR933(ExternalEntityParticipant_c[] targets)
 </pre>
-######  select many <External Entity set> related by <External Entity Participant target>->S_EE[R933]
+######  select many {External Entity set} related by {External Entity Participant target}->S_EE[R933]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR933(ExternalEntityParticipant_c target)
 ExternalEntity_c[] getManyS_EEsOnR933(ExternalEntityParticipant_c[] targets)
@@ -7112,12 +7187,12 @@ ExternalEntity_c[] getManyS_EEsOnR933(ExternalEntityParticipant_c[] targets)
 
 ###### R8 - External Entity *interacts with* Domain
 
-######  select one <External Entity instance> related by <Domain target>->S_EE[R8]
+######  select one {External Entity instance} related by {Domain target}->S_EE[R8]
 <pre>
 ExternalEntity_c getOneS_EEOnR8(Domain_c target)
 ExternalEntity_c getOneS_EEOnR8(Domain_c[] targets)
 </pre>
-######  select many <External Entity set> related by <Domain target>->S_EE[R8]
+######  select many {External Entity set} related by {Domain target}->S_EE[R8]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR8(Domain_c target)
 ExternalEntity_c[] getManyS_EEsOnR8(Domain_c[] targets)
@@ -7125,22 +7200,23 @@ ExternalEntity_c[] getManyS_EEsOnR8(Domain_c[] targets)
 
 ###### R19 - External Entity *uses* Bridge
 
-######  select one <External Entity instance> related by <Bridge target>->S_EE[R19]
+######  select one {External Entity instance} related by {Bridge target}->S_EE[R19]
 <pre>
 ExternalEntity_c getOneS_EEOnR19(Bridge_c target)
 ExternalEntity_c getOneS_EEOnR19(Bridge_c[] targets)
 </pre>
-######  select many <External Entity set> related by <Bridge target>->S_EE[R19]
+######  select many {External Entity set} related by {Bridge target}->S_EE[R19]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR19(Bridge_c target)
 ExternalEntity_c[] getManyS_EEsOnR19(Bridge_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <External Entity instance> related by <Packageable Element target>->S_EE[R8001]
+######  select one {External Entity instance} related by {Packageable Element target}->S_EE[R8001]
 <pre>
 ExternalEntity_c getOneS_EEOnR8001(PackageableElement_c target)
 </pre>
-######  select many <External Entity set> related by <Packageable Element target>->S_EE[R8001]
+######  select many {External Entity set} related by {Packageable Element target}->S_EE[R8001]
 <pre>
 ExternalEntity_c[] getManyS_EEsOnR8001(PackageableElement_c[] targets)
 </pre>
@@ -7157,13 +7233,13 @@ ExternalEntity_c[] getManyS_EEsOnR8001(PackageableElement_c[] targets)
 
 <pre>
   -  java.util.UUID        	getEnum_id()
-  - void			setEnum_id(java.util.UUID         newValue)
+  -  void			setEnum_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -7174,12 +7250,12 @@ ExternalEntity_c[] getManyS_EEsOnR8001(PackageableElement_c[] targets)
 
 ###### R824 - Enumerator *is value of* Literal Enumerator
 
-######  select one <Enumerator instance> related by <Literal Enumerator target>->S_ENUM[R824]
+######  select one {Enumerator instance} related by {Literal Enumerator target}->S_ENUM[R824]
 <pre>
 Enumerator_c getOneS_ENUMOnR824(LiteralEnumerator_c target)
 Enumerator_c getOneS_ENUMOnR824(LiteralEnumerator_c[] targets)
 </pre>
-######  select many <Enumerator set> related by <Literal Enumerator target>->S_ENUM[R824]
+######  select many {Enumerator set} related by {Literal Enumerator target}->S_ENUM[R824]
 <pre>
 Enumerator_c[] getManyS_ENUMsOnR824(LiteralEnumerator_c target)
 Enumerator_c[] getManyS_ENUMsOnR824(LiteralEnumerator_c[] targets)
@@ -7187,12 +7263,12 @@ Enumerator_c[] getManyS_ENUMsOnR824(LiteralEnumerator_c[] targets)
 
 ###### R27 - Enumerator *is defined by* Enumeration Data Type
 
-######  select one <Enumerator instance> related by <Enumeration Data Type target>->S_ENUM[R27]
+######  select one {Enumerator instance} related by {Enumeration Data Type target}->S_ENUM[R27]
 <pre>
 Enumerator_c getOneS_ENUMOnR27(EnumerationDataType_c target)
 Enumerator_c getOneS_ENUMOnR27(EnumerationDataType_c[] targets)
 </pre>
-######  select many <Enumerator set> related by <Enumeration Data Type target>->S_ENUM[R27]
+######  select many {Enumerator set} related by {Enumeration Data Type target}->S_ENUM[R27]
 <pre>
 Enumerator_c[] getManyS_ENUMsOnR27(EnumerationDataType_c target)
 Enumerator_c[] getManyS_ENUMsOnR27(EnumerationDataType_c[] targets)
@@ -7215,22 +7291,23 @@ Enumerator_c[] getManyS_ENUMsOnR27(EnumerationDataType_c[] targets)
 
 ###### R27 - Enumeration Data Type *defines* Enumerator
 
-######  select one <Enumeration Data Type instance> related by <Enumerator target>->S_EDT[R27]
+######  select one {Enumeration Data Type instance} related by {Enumerator target}->S_EDT[R27]
 <pre>
 EnumerationDataType_c getOneS_EDTOnR27(Enumerator_c target)
 EnumerationDataType_c getOneS_EDTOnR27(Enumerator_c[] targets)
 </pre>
-######  select many <Enumeration Data Type set> related by <Enumerator target>->S_EDT[R27]
+######  select many {Enumeration Data Type set} related by {Enumerator target}->S_EDT[R27]
 <pre>
 EnumerationDataType_c[] getManyS_EDTsOnR27(Enumerator_c target)
 EnumerationDataType_c[] getManyS_EDTsOnR27(Enumerator_c[] targets)
 </pre>
+###### R17 (Subtype)
 
-######  select one <Enumeration Data Type instance> related by <Data Type target>->S_EDT[R17]
+######  select one {Enumeration Data Type instance} related by {Data Type target}->S_EDT[R17]
 <pre>
 EnumerationDataType_c getOneS_EDTOnR17(DataType_c target)
 </pre>
-######  select many <Enumeration Data Type set> related by <Data Type target>->S_EDT[R17]
+######  select many {Enumeration Data Type set} related by {Data Type target}->S_EDT[R17]
 <pre>
 EnumerationDataType_c[] getManyS_EDTsOnR17(DataType_c[] targets)
 </pre>
@@ -7250,12 +7327,12 @@ EnumerationDataType_c[] getManyS_EDTsOnR17(DataType_c[] targets)
 
 ###### R34 - EE Package in Package *contains children of* External Entity Package
 
-######  select one <EE Package in Package instance> related by <External Entity Package target>->S_EEPIP[R34]
+######  select one {EE Package in Package instance} related by {External Entity Package target}->S_EEPIP[R34]
 <pre>
 EePackageInPackage_c getOneS_EEPIPOnR34(ExternalEntityPackage_c target)
 EePackageInPackage_c getOneS_EEPIPOnR34(ExternalEntityPackage_c[] targets)
 </pre>
-######  select many <EE Package in Package set> related by <External Entity Package target>->S_EEPIP[R34]
+######  select many {EE Package in Package set} related by {External Entity Package target}->S_EEPIP[R34]
 <pre>
 EePackageInPackage_c[] getManyS_EEPIPsOnR34(ExternalEntityPackage_c target)
 EePackageInPackage_c[] getManyS_EEPIPsOnR34(ExternalEntityPackage_c[] targets)
@@ -7263,12 +7340,12 @@ EePackageInPackage_c[] getManyS_EEPIPsOnR34(ExternalEntityPackage_c[] targets)
 
 ###### R35 - EE Package in Package *contains* External Entity Package
 
-######  select one <EE Package in Package instance> related by <External Entity Package target>->S_EEPIP[R35]
+######  select one {EE Package in Package instance} related by {External Entity Package target}->S_EEPIP[R35]
 <pre>
 EePackageInPackage_c getOneS_EEPIPOnR35(ExternalEntityPackage_c target)
 EePackageInPackage_c getOneS_EEPIPOnR35(ExternalEntityPackage_c[] targets)
 </pre>
-######  select many <EE Package in Package set> related by <External Entity Package target>->S_EEPIP[R35]
+######  select many {EE Package in Package set} related by {External Entity Package target}->S_EEPIP[R35]
 <pre>
 EePackageInPackage_c[] getManyS_EEPIPsOnR35(ExternalEntityPackage_c target)
 EePackageInPackage_c[] getManyS_EEPIPsOnR35(ExternalEntityPackage_c[] targets)
@@ -7286,22 +7363,22 @@ EePackageInPackage_c[] getManyS_EEPIPsOnR35(ExternalEntityPackage_c[] targets)
 
 <pre>
   -  java.util.UUID        	getDom_id()
-  - void			setDom_id(java.util.UUID         newValue)
+  -  void			setDom_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  int         	getFull_der()
-  - void			setFull_der(int          newValue)
+  -  void			setFull_der(int          newValue)
 
   -  java.util.UUID        	getConfig_id()
-  - void			setConfig_id(java.util.UUID         newValue)
+  -  void			setConfig_id(java.util.UUID         newValue)
 
   -  boolean     	getIsbeingverified()
-  - void			setIsbeingverified(boolean      newValue)
+  -  void			setIsbeingverified(boolean      newValue)
 
 </pre>
 
@@ -7312,12 +7389,12 @@ EePackageInPackage_c[] getManyS_EEPIPsOnR35(ExternalEntityPackage_c[] targets)
 
 ###### R28
 
-######  select one <Domain instance> related by <System Model target>->S_DOM[R28]
+######  select one {Domain instance} related by {System Model target}->S_DOM[R28]
 <pre>
 Domain_c getOneS_DOMOnR28(SystemModel_c target)
 Domain_c getOneS_DOMOnR28(SystemModel_c[] targets)
 </pre>
-######  select many <Domain set> related by <System Model target>->S_DOM[R28]
+######  select many {Domain set} related by {System Model target}->S_DOM[R28]
 <pre>
 Domain_c[] getManyS_DOMsOnR28(SystemModel_c target)
 Domain_c[] getManyS_DOMsOnR28(SystemModel_c[] targets)
@@ -7325,23 +7402,23 @@ Domain_c[] getManyS_DOMsOnR28(SystemModel_c[] targets)
 
 ###### R43 - Domain *has top level subsystems* Subsystem (via Subsystem in Domain)
 
-######  select one <Domain instance> related by <Subsystem in Domain target>->S_DOM[R43]
+######  select one {Domain instance} related by {Subsystem in Domain target}->S_DOM[R43]
 <pre>
 Domain_c getOneS_DOMOnR43(SubsystemInDomain_c target)
 Domain_c getOneS_DOMOnR43(SubsystemInDomain_c[] targets)
 </pre>
-######  select many <Domain set> related by <Subsystem in Domain target>->S_DOM[R43]
+######  select many {Domain set} related by {Subsystem in Domain target}->S_DOM[R43]
 <pre>
 Domain_c[] getManyS_DOMsOnR43(SubsystemInDomain_c target)
 Domain_c[] getManyS_DOMsOnR43(SubsystemInDomain_c[] targets)
 </pre>
 
-######  select one <Domain instance> related by <Subsystem target>->S_DOM[R43]
+######  select one {Domain instance} related by {Subsystem target}->S_DOM[R43]
 <pre>
 Domain_c getOneS_DOMOnR43(Subsystem_c target)
 Domain_c getOneS_DOMOnR43(Subsystem_c[] targets)
 </pre>
-######  select many <Domain set> related by <Subsystem target>->S_DOM[R43]
+######  select many {Domain set} related by {Subsystem target}->S_DOM[R43]
 <pre>
 Domain_c[] getManyS_DOMsOnR43(Subsystem_c target)
 Domain_c[] getManyS_DOMsOnR43(Subsystem_c[] targets)
@@ -7349,12 +7426,12 @@ Domain_c[] getManyS_DOMsOnR43(Subsystem_c[] targets)
 
 ###### R1 - Domain *is partitioned into* Subsystem
 
-######  select one <Domain instance> related by <Subsystem target>->S_DOM[R1]
+######  select one {Domain instance} related by {Subsystem target}->S_DOM[R1]
 <pre>
 Domain_c getOneS_DOMOnR1(Subsystem_c target)
 Domain_c getOneS_DOMOnR1(Subsystem_c[] targets)
 </pre>
-######  select many <Domain set> related by <Subsystem target>->S_DOM[R1]
+######  select many {Domain set} related by {Subsystem target}->S_DOM[R1]
 <pre>
 Domain_c[] getManyS_DOMsOnR1(Subsystem_c target)
 Domain_c[] getManyS_DOMsOnR1(Subsystem_c[] targets)
@@ -7362,12 +7439,12 @@ Domain_c[] getManyS_DOMsOnR1(Subsystem_c[] targets)
 
 ###### R29 - Domain *contains* Function Package
 
-######  select one <Domain instance> related by <Function Package target>->S_DOM[R29]
+######  select one {Domain instance} related by {Function Package target}->S_DOM[R29]
 <pre>
 Domain_c getOneS_DOMOnR29(FunctionPackage_c target)
 Domain_c getOneS_DOMOnR29(FunctionPackage_c[] targets)
 </pre>
-######  select many <Domain set> related by <Function Package target>->S_DOM[R29]
+######  select many {Domain set} related by {Function Package target}->S_DOM[R29]
 <pre>
 Domain_c[] getManyS_DOMsOnR29(FunctionPackage_c target)
 Domain_c[] getManyS_DOMsOnR29(FunctionPackage_c[] targets)
@@ -7375,23 +7452,23 @@ Domain_c[] getManyS_DOMsOnR29(FunctionPackage_c[] targets)
 
 ###### R301 - Domain *contains* Function Package (via Function Package in Domain)
 
-######  select one <Domain instance> related by <Function Package target>->S_DOM[R301]
+######  select one {Domain instance} related by {Function Package target}->S_DOM[R301]
 <pre>
 Domain_c getOneS_DOMOnR301(FunctionPackage_c target)
 Domain_c getOneS_DOMOnR301(FunctionPackage_c[] targets)
 </pre>
-######  select many <Domain set> related by <Function Package target>->S_DOM[R301]
+######  select many {Domain set} related by {Function Package target}->S_DOM[R301]
 <pre>
 Domain_c[] getManyS_DOMsOnR301(FunctionPackage_c target)
 Domain_c[] getManyS_DOMsOnR301(FunctionPackage_c[] targets)
 </pre>
 
-######  select one <Domain instance> related by <Function Package in Domain target>->S_DOM[R301]
+######  select one {Domain instance} related by {Function Package in Domain target}->S_DOM[R301]
 <pre>
 Domain_c getOneS_DOMOnR301(FunctionPackageInDomain_c target)
 Domain_c getOneS_DOMOnR301(FunctionPackageInDomain_c[] targets)
 </pre>
-######  select many <Domain set> related by <Function Package in Domain target>->S_DOM[R301]
+######  select many {Domain set} related by {Function Package in Domain target}->S_DOM[R301]
 <pre>
 Domain_c[] getManyS_DOMsOnR301(FunctionPackageInDomain_c target)
 Domain_c[] getManyS_DOMsOnR301(FunctionPackageInDomain_c[] targets)
@@ -7399,12 +7476,12 @@ Domain_c[] getManyS_DOMsOnR301(FunctionPackageInDomain_c[] targets)
 
 ###### R23 - Domain *defines* Function
 
-######  select one <Domain instance> related by <Function target>->S_DOM[R23]
+######  select one {Domain instance} related by {Function target}->S_DOM[R23]
 <pre>
 Domain_c getOneS_DOMOnR23(Function_c target)
 Domain_c getOneS_DOMOnR23(Function_c[] targets)
 </pre>
-######  select many <Domain set> related by <Function target>->S_DOM[R23]
+######  select many {Domain set} related by {Function target}->S_DOM[R23]
 <pre>
 Domain_c[] getManyS_DOMsOnR23(Function_c target)
 Domain_c[] getManyS_DOMsOnR23(Function_c[] targets)
@@ -7412,12 +7489,12 @@ Domain_c[] getManyS_DOMsOnR23(Function_c[] targets)
 
 ###### R36 - Domain *contains* External Entity Package
 
-######  select one <Domain instance> related by <External Entity Package target>->S_DOM[R36]
+######  select one {Domain instance} related by {External Entity Package target}->S_DOM[R36]
 <pre>
 Domain_c getOneS_DOMOnR36(ExternalEntityPackage_c target)
 Domain_c getOneS_DOMOnR36(ExternalEntityPackage_c[] targets)
 </pre>
-######  select many <Domain set> related by <External Entity Package target>->S_DOM[R36]
+######  select many {Domain set} related by {External Entity Package target}->S_DOM[R36]
 <pre>
 Domain_c[] getManyS_DOMsOnR36(ExternalEntityPackage_c target)
 Domain_c[] getManyS_DOMsOnR36(ExternalEntityPackage_c[] targets)
@@ -7425,23 +7502,23 @@ Domain_c[] getManyS_DOMsOnR36(ExternalEntityPackage_c[] targets)
 
 ###### R300 - Domain *contains* External Entity Package (via External Entity Package in Domain)
 
-######  select one <Domain instance> related by <External Entity Package target>->S_DOM[R300]
+######  select one {Domain instance} related by {External Entity Package target}->S_DOM[R300]
 <pre>
 Domain_c getOneS_DOMOnR300(ExternalEntityPackage_c target)
 Domain_c getOneS_DOMOnR300(ExternalEntityPackage_c[] targets)
 </pre>
-######  select many <Domain set> related by <External Entity Package target>->S_DOM[R300]
+######  select many {Domain set} related by {External Entity Package target}->S_DOM[R300]
 <pre>
 Domain_c[] getManyS_DOMsOnR300(ExternalEntityPackage_c target)
 Domain_c[] getManyS_DOMsOnR300(ExternalEntityPackage_c[] targets)
 </pre>
 
-######  select one <Domain instance> related by <External Entity Package in Domain target>->S_DOM[R300]
+######  select one {Domain instance} related by {External Entity Package in Domain target}->S_DOM[R300]
 <pre>
 Domain_c getOneS_DOMOnR300(ExternalEntityPackageInDomain_c target)
 Domain_c getOneS_DOMOnR300(ExternalEntityPackageInDomain_c[] targets)
 </pre>
-######  select many <Domain set> related by <External Entity Package in Domain target>->S_DOM[R300]
+######  select many {Domain set} related by {External Entity Package in Domain target}->S_DOM[R300]
 <pre>
 Domain_c[] getManyS_DOMsOnR300(ExternalEntityPackageInDomain_c target)
 Domain_c[] getManyS_DOMsOnR300(ExternalEntityPackageInDomain_c[] targets)
@@ -7449,12 +7526,12 @@ Domain_c[] getManyS_DOMsOnR300(ExternalEntityPackageInDomain_c[] targets)
 
 ###### R8 - Domain *interacts with* External Entity
 
-######  select one <Domain instance> related by <External Entity target>->S_DOM[R8]
+######  select one {Domain instance} related by {External Entity target}->S_DOM[R8]
 <pre>
 Domain_c getOneS_DOMOnR8(ExternalEntity_c target)
 Domain_c getOneS_DOMOnR8(ExternalEntity_c[] targets)
 </pre>
-######  select many <Domain set> related by <External Entity target>->S_DOM[R8]
+######  select many {Domain set} related by {External Entity target}->S_DOM[R8]
 <pre>
 Domain_c[] getManyS_DOMsOnR8(ExternalEntity_c target)
 Domain_c[] getManyS_DOMsOnR8(ExternalEntity_c[] targets)
@@ -7462,12 +7539,12 @@ Domain_c[] getManyS_DOMsOnR8(ExternalEntity_c[] targets)
 
 ###### R1201 - Domain *can display* Use Case Diagram
 
-######  select one <Domain instance> related by <Use Case Diagram target>->S_DOM[R1201]
+######  select one {Domain instance} related by {Use Case Diagram target}->S_DOM[R1201]
 <pre>
 Domain_c getOneS_DOMOnR1201(UseCaseDiagram_c target)
 Domain_c getOneS_DOMOnR1201(UseCaseDiagram_c[] targets)
 </pre>
-######  select many <Domain set> related by <Use Case Diagram target>->S_DOM[R1201]
+######  select many {Domain set} related by {Use Case Diagram target}->S_DOM[R1201]
 <pre>
 Domain_c[] getManyS_DOMsOnR1201(UseCaseDiagram_c target)
 Domain_c[] getManyS_DOMsOnR1201(UseCaseDiagram_c[] targets)
@@ -7475,12 +7552,12 @@ Domain_c[] getManyS_DOMsOnR1201(UseCaseDiagram_c[] targets)
 
 ###### R913 - Domain *can show* Sequence
 
-######  select one <Domain instance> related by <Sequence target>->S_DOM[R913]
+######  select one {Domain instance} related by {Sequence target}->S_DOM[R913]
 <pre>
 Domain_c getOneS_DOMOnR913(Sequence_c target)
 Domain_c getOneS_DOMOnR913(Sequence_c[] targets)
 </pre>
-######  select many <Domain set> related by <Sequence target>->S_DOM[R913]
+######  select many {Domain set} related by {Sequence target}->S_DOM[R913]
 <pre>
 Domain_c[] getManyS_DOMsOnR913(Sequence_c target)
 Domain_c[] getManyS_DOMsOnR913(Sequence_c[] targets)
@@ -7488,12 +7565,12 @@ Domain_c[] getManyS_DOMsOnR913(Sequence_c[] targets)
 
 ###### R2948 - Domain *is being verified by* Component Instance
 
-######  select one <Domain instance> related by <Component Instance target>->S_DOM[R2948]
+######  select one {Domain instance} related by {Component Instance target}->S_DOM[R2948]
 <pre>
 Domain_c getOneS_DOMOnR2948(ComponentInstance_c target)
 Domain_c getOneS_DOMOnR2948(ComponentInstance_c[] targets)
 </pre>
-######  select many <Domain set> related by <Component Instance target>->S_DOM[R2948]
+######  select many {Domain set} related by {Component Instance target}->S_DOM[R2948]
 <pre>
 Domain_c[] getManyS_DOMsOnR2948(ComponentInstance_c target)
 Domain_c[] getManyS_DOMsOnR2948(ComponentInstance_c[] targets)
@@ -7501,12 +7578,12 @@ Domain_c[] getManyS_DOMsOnR2948(ComponentInstance_c[] targets)
 
 ###### R14 - Domain *contains defined* Data Type
 
-######  select one <Domain instance> related by <Data Type target>->S_DOM[R14]
+######  select one {Domain instance} related by {Data Type target}->S_DOM[R14]
 <pre>
 Domain_c getOneS_DOMOnR14(DataType_c target)
 Domain_c getOneS_DOMOnR14(DataType_c[] targets)
 </pre>
-######  select many <Domain set> related by <Data Type target>->S_DOM[R14]
+######  select many {Domain set} related by {Data Type target}->S_DOM[R14]
 <pre>
 Domain_c[] getManyS_DOMsOnR14(DataType_c target)
 Domain_c[] getManyS_DOMsOnR14(DataType_c[] targets)
@@ -7514,12 +7591,12 @@ Domain_c[] getManyS_DOMsOnR14(DataType_c[] targets)
 
 ###### R40 - Domain *contains* Data Type Package
 
-######  select one <Domain instance> related by <Data Type Package target>->S_DOM[R40]
+######  select one {Domain instance} related by {Data Type Package target}->S_DOM[R40]
 <pre>
 Domain_c getOneS_DOMOnR40(DataTypePackage_c target)
 Domain_c getOneS_DOMOnR40(DataTypePackage_c[] targets)
 </pre>
-######  select many <Domain set> related by <Data Type Package target>->S_DOM[R40]
+######  select many {Domain set} related by {Data Type Package target}->S_DOM[R40]
 <pre>
 Domain_c[] getManyS_DOMsOnR40(DataTypePackage_c target)
 Domain_c[] getManyS_DOMsOnR40(DataTypePackage_c[] targets)
@@ -7527,23 +7604,23 @@ Domain_c[] getManyS_DOMsOnR40(DataTypePackage_c[] targets)
 
 ###### R47 - Domain *contains suppressed* Data Type (via Datatype In Suppression)
 
-######  select one <Domain instance> related by <Data Type target>->S_DOM[R47]
+######  select one {Domain instance} related by {Data Type target}->S_DOM[R47]
 <pre>
 Domain_c getOneS_DOMOnR47(DataType_c target)
 Domain_c getOneS_DOMOnR47(DataType_c[] targets)
 </pre>
-######  select many <Domain set> related by <Data Type target>->S_DOM[R47]
+######  select many {Domain set} related by {Data Type target}->S_DOM[R47]
 <pre>
 Domain_c[] getManyS_DOMsOnR47(DataType_c target)
 Domain_c[] getManyS_DOMsOnR47(DataType_c[] targets)
 </pre>
 
-######  select one <Domain instance> related by <Datatype In Suppression target>->S_DOM[R47]
+######  select one {Domain instance} related by {Datatype In Suppression target}->S_DOM[R47]
 <pre>
 Domain_c getOneS_DOMOnR47(DatatypeInSuppression_c target)
 Domain_c getOneS_DOMOnR47(DatatypeInSuppression_c[] targets)
 </pre>
-######  select many <Domain set> related by <Datatype In Suppression target>->S_DOM[R47]
+######  select many {Domain set} related by {Datatype In Suppression target}->S_DOM[R47]
 <pre>
 Domain_c[] getManyS_DOMsOnR47(DatatypeInSuppression_c target)
 Domain_c[] getManyS_DOMsOnR47(DatatypeInSuppression_c[] targets)
@@ -7551,23 +7628,23 @@ Domain_c[] getManyS_DOMsOnR47(DatatypeInSuppression_c[] targets)
 
 ###### R4204 - Domain *defined subject matter for* Component (via Domain As Component)
 
-######  select one <Domain instance> related by <Component target>->S_DOM[R4204]
+######  select one {Domain instance} related by {Component target}->S_DOM[R4204]
 <pre>
 Domain_c getOneS_DOMOnR4204(Component_c target)
 Domain_c getOneS_DOMOnR4204(Component_c[] targets)
 </pre>
-######  select many <Domain set> related by <Component target>->S_DOM[R4204]
+######  select many {Domain set} related by {Component target}->S_DOM[R4204]
 <pre>
 Domain_c[] getManyS_DOMsOnR4204(Component_c target)
 Domain_c[] getManyS_DOMsOnR4204(Component_c[] targets)
 </pre>
 
-######  select one <Domain instance> related by <Domain As Component target>->S_DOM[R4204]
+######  select one {Domain instance} related by {Domain As Component target}->S_DOM[R4204]
 <pre>
 Domain_c getOneS_DOMOnR4204(DomainAsComponent_c target)
 Domain_c getOneS_DOMOnR4204(DomainAsComponent_c[] targets)
 </pre>
-######  select many <Domain set> related by <Domain As Component target>->S_DOM[R4204]
+######  select many {Domain set} related by {Domain As Component target}->S_DOM[R4204]
 <pre>
 Domain_c[] getManyS_DOMsOnR4204(DomainAsComponent_c target)
 Domain_c[] getManyS_DOMsOnR4204(DomainAsComponent_c[] targets)
@@ -7575,12 +7652,12 @@ Domain_c[] getManyS_DOMsOnR4204(DomainAsComponent_c[] targets)
 
 ###### R1132 - Domain *can display* Communication
 
-######  select one <Domain instance> related by <Communication target>->S_DOM[R1132]
+######  select one {Domain instance} related by {Communication target}->S_DOM[R1132]
 <pre>
 Domain_c getOneS_DOMOnR1132(Communication_c target)
 Domain_c getOneS_DOMOnR1132(Communication_c[] targets)
 </pre>
-######  select many <Domain set> related by <Communication target>->S_DOM[R1132]
+######  select many {Domain set} related by {Communication target}->S_DOM[R1132]
 <pre>
 Domain_c[] getManyS_DOMsOnR1132(Communication_c target)
 Domain_c[] getManyS_DOMsOnR1132(Communication_c[] targets)
@@ -7588,12 +7665,12 @@ Domain_c[] getManyS_DOMsOnR1132(Communication_c[] targets)
 
 ###### R1100 - Domain *contains* Activity
 
-######  select one <Domain instance> related by <Activity target>->S_DOM[R1100]
+######  select one {Domain instance} related by {Activity target}->S_DOM[R1100]
 <pre>
 Domain_c getOneS_DOMOnR1100(Activity_c target)
 Domain_c getOneS_DOMOnR1100(Activity_c[] targets)
 </pre>
-######  select many <Domain set> related by <Activity target>->S_DOM[R1100]
+######  select many {Domain set} related by {Activity target}->S_DOM[R1100]
 <pre>
 Domain_c[] getManyS_DOMsOnR1100(Activity_c target)
 Domain_c[] getManyS_DOMsOnR1100(Activity_c[] targets)
@@ -7611,13 +7688,13 @@ Domain_c[] getManyS_DOMsOnR1100(Activity_c[] targets)
 
 <pre>
   -  int         	getElementcount()
-  - void			setElementcount(int          newValue)
+  -  void			setElementcount(int          newValue)
 
   -  int         	getDimensioncount()
-  - void			setDimensioncount(int          newValue)
+  -  void			setDimensioncount(int          newValue)
 
   -  java.util.UUID        	getDim_id()
-  - void			setDim_id(java.util.UUID         newValue)
+  -  void			setDim_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -7628,12 +7705,12 @@ Domain_c[] getManyS_DOMsOnR1100(Activity_c[] targets)
 
 ###### R121 - Dimensions *specifies occurrences of* Operation Parameter
 
-######  select one <Dimensions instance> related by <Operation Parameter target>->S_DIM[R121]
+######  select one {Dimensions instance} related by {Operation Parameter target}->S_DIM[R121]
 <pre>
 Dimensions_c getOneS_DIMOnR121(OperationParameter_c target)
 Dimensions_c getOneS_DIMOnR121(OperationParameter_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Operation Parameter target>->S_DIM[R121]
+######  select many {Dimensions set} related by {Operation Parameter target}->S_DIM[R121]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR121(OperationParameter_c target)
 Dimensions_c[] getManyS_DIMsOnR121(OperationParameter_c[] targets)
@@ -7641,12 +7718,12 @@ Dimensions_c[] getManyS_DIMsOnR121(OperationParameter_c[] targets)
 
 ###### R122 - Dimensions *defines return value dimensions for* Operation
 
-######  select one <Dimensions instance> related by <Operation target>->S_DIM[R122]
+######  select one {Dimensions instance} related by {Operation target}->S_DIM[R122]
 <pre>
 Dimensions_c getOneS_DIMOnR122(Operation_c target)
 Dimensions_c getOneS_DIMOnR122(Operation_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Operation target>->S_DIM[R122]
+######  select many {Dimensions set} related by {Operation target}->S_DIM[R122]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR122(Operation_c target)
 Dimensions_c[] getManyS_DIMsOnR122(Operation_c[] targets)
@@ -7654,12 +7731,12 @@ Dimensions_c[] getManyS_DIMsOnR122(Operation_c[] targets)
 
 ###### R120 - Dimensions *specifies occurrences of* Attribute
 
-######  select one <Dimensions instance> related by <Attribute target>->S_DIM[R120]
+######  select one {Dimensions instance} related by {Attribute target}->S_DIM[R120]
 <pre>
 Dimensions_c getOneS_DIMOnR120(Attribute_c target)
 Dimensions_c getOneS_DIMOnR120(Attribute_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Attribute target>->S_DIM[R120]
+######  select many {Dimensions set} related by {Attribute target}->S_DIM[R120]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR120(Attribute_c target)
 Dimensions_c[] getManyS_DIMsOnR120(Attribute_c[] targets)
@@ -7667,12 +7744,12 @@ Dimensions_c[] getManyS_DIMsOnR120(Attribute_c[] targets)
 
 ###### R531 - Dimensions *specifies occurrences of* State Machine Event Data Item
 
-######  select one <Dimensions instance> related by <State Machine Event Data Item target>->S_DIM[R531]
+######  select one {Dimensions instance} related by {State Machine Event Data Item target}->S_DIM[R531]
 <pre>
 Dimensions_c getOneS_DIMOnR531(StateMachineEventDataItem_c target)
 Dimensions_c getOneS_DIMOnR531(StateMachineEventDataItem_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <State Machine Event Data Item target>->S_DIM[R531]
+######  select many {Dimensions set} related by {State Machine Event Data Item target}->S_DIM[R531]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR531(StateMachineEventDataItem_c target)
 Dimensions_c[] getManyS_DIMsOnR531(StateMachineEventDataItem_c[] targets)
@@ -7680,12 +7757,12 @@ Dimensions_c[] getManyS_DIMsOnR531(StateMachineEventDataItem_c[] targets)
 
 ###### R53 - Dimensions *specifies occurrences of* Structure Member
 
-######  select one <Dimensions instance> related by <Structure Member target>->S_DIM[R53]
+######  select one {Dimensions instance} related by {Structure Member target}->S_DIM[R53]
 <pre>
 Dimensions_c getOneS_DIMOnR53(StructureMember_c target)
 Dimensions_c getOneS_DIMOnR53(StructureMember_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Structure Member target>->S_DIM[R53]
+######  select many {Dimensions set} related by {Structure Member target}->S_DIM[R53]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR53(StructureMember_c target)
 Dimensions_c[] getManyS_DIMsOnR53(StructureMember_c[] targets)
@@ -7693,12 +7770,12 @@ Dimensions_c[] getManyS_DIMsOnR53(StructureMember_c[] targets)
 
 ###### R52 - Dimensions *specifies occurrences of* Function Parameter
 
-######  select one <Dimensions instance> related by <Function Parameter target>->S_DIM[R52]
+######  select one {Dimensions instance} related by {Function Parameter target}->S_DIM[R52]
 <pre>
 Dimensions_c getOneS_DIMOnR52(FunctionParameter_c target)
 Dimensions_c getOneS_DIMOnR52(FunctionParameter_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Function Parameter target>->S_DIM[R52]
+######  select many {Dimensions set} related by {Function Parameter target}->S_DIM[R52]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR52(FunctionParameter_c target)
 Dimensions_c[] getManyS_DIMsOnR52(FunctionParameter_c[] targets)
@@ -7706,12 +7783,12 @@ Dimensions_c[] getManyS_DIMsOnR52(FunctionParameter_c[] targets)
 
 ###### R51 - Dimensions *defines return value dimensions for* Function
 
-######  select one <Dimensions instance> related by <Function target>->S_DIM[R51]
+######  select one {Dimensions instance} related by {Function target}->S_DIM[R51]
 <pre>
 Dimensions_c getOneS_DIMOnR51(Function_c target)
 Dimensions_c getOneS_DIMOnR51(Function_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Function target>->S_DIM[R51]
+######  select many {Dimensions set} related by {Function target}->S_DIM[R51]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR51(Function_c target)
 Dimensions_c[] getManyS_DIMsOnR51(Function_c[] targets)
@@ -7719,12 +7796,12 @@ Dimensions_c[] getManyS_DIMsOnR51(Function_c[] targets)
 
 ###### R844 - Dimensions *specifies occurrences of* Transient Var
 
-######  select one <Dimensions instance> related by <Transient Var target>->S_DIM[R844]
+######  select one {Dimensions instance} related by {Transient Var target}->S_DIM[R844]
 <pre>
 Dimensions_c getOneS_DIMOnR844(TransientVar_c target)
 Dimensions_c getOneS_DIMOnR844(TransientVar_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Transient Var target>->S_DIM[R844]
+######  select many {Dimensions set} related by {Transient Var target}->S_DIM[R844]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR844(TransientVar_c target)
 Dimensions_c[] getManyS_DIMsOnR844(TransientVar_c[] targets)
@@ -7732,12 +7809,12 @@ Dimensions_c[] getManyS_DIMsOnR844(TransientVar_c[] targets)
 
 ###### R849 - Dimensions *specifies occurrences of* Variable
 
-######  select one <Dimensions instance> related by <Variable target>->S_DIM[R849]
+######  select one {Dimensions instance} related by {Variable target}->S_DIM[R849]
 <pre>
 Dimensions_c getOneS_DIMOnR849(Variable_c target)
 Dimensions_c getOneS_DIMOnR849(Variable_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Variable target>->S_DIM[R849]
+######  select many {Dimensions set} related by {Variable target}->S_DIM[R849]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR849(Variable_c target)
 Dimensions_c[] getManyS_DIMsOnR849(Variable_c[] targets)
@@ -7745,12 +7822,12 @@ Dimensions_c[] getManyS_DIMsOnR849(Variable_c[] targets)
 
 ###### R49 - Dimensions *specifies occurrences of* Bridge Parameter
 
-######  select one <Dimensions instance> related by <Bridge Parameter target>->S_DIM[R49]
+######  select one {Dimensions instance} related by {Bridge Parameter target}->S_DIM[R49]
 <pre>
 Dimensions_c getOneS_DIMOnR49(BridgeParameter_c target)
 Dimensions_c getOneS_DIMOnR49(BridgeParameter_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Bridge Parameter target>->S_DIM[R49]
+######  select many {Dimensions set} related by {Bridge Parameter target}->S_DIM[R49]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR49(BridgeParameter_c target)
 Dimensions_c[] getManyS_DIMsOnR49(BridgeParameter_c[] targets)
@@ -7758,12 +7835,12 @@ Dimensions_c[] getManyS_DIMsOnR49(BridgeParameter_c[] targets)
 
 ###### R50 - Dimensions *defines return value dimensions for* Bridge
 
-######  select one <Dimensions instance> related by <Bridge target>->S_DIM[R50]
+######  select one {Dimensions instance} related by {Bridge target}->S_DIM[R50]
 <pre>
 Dimensions_c getOneS_DIMOnR50(Bridge_c target)
 Dimensions_c getOneS_DIMOnR50(Bridge_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Bridge target>->S_DIM[R50]
+######  select many {Dimensions set} related by {Bridge target}->S_DIM[R50]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR50(Bridge_c target)
 Dimensions_c[] getManyS_DIMsOnR50(Bridge_c[] targets)
@@ -7771,12 +7848,12 @@ Dimensions_c[] getManyS_DIMsOnR50(Bridge_c[] targets)
 
 ###### R4017 - Dimensions *specifies occurrences of* Property Parameter
 
-######  select one <Dimensions instance> related by <Property Parameter target>->S_DIM[R4017]
+######  select one {Dimensions instance} related by {Property Parameter target}->S_DIM[R4017]
 <pre>
 Dimensions_c getOneS_DIMOnR4017(PropertyParameter_c target)
 Dimensions_c getOneS_DIMOnR4017(PropertyParameter_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Property Parameter target>->S_DIM[R4017]
+######  select many {Dimensions set} related by {Property Parameter target}->S_DIM[R4017]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR4017(PropertyParameter_c target)
 Dimensions_c[] getManyS_DIMsOnR4017(PropertyParameter_c[] targets)
@@ -7784,12 +7861,12 @@ Dimensions_c[] getManyS_DIMsOnR4017(PropertyParameter_c[] targets)
 
 ###### R4018 - Dimensions *defines return value dimensions for * Interface Operation
 
-######  select one <Dimensions instance> related by <Interface Operation target>->S_DIM[R4018]
+######  select one {Dimensions instance} related by {Interface Operation target}->S_DIM[R4018]
 <pre>
 Dimensions_c getOneS_DIMOnR4018(InterfaceOperation_c target)
 Dimensions_c getOneS_DIMOnR4018(InterfaceOperation_c[] targets)
 </pre>
-######  select many <Dimensions set> related by <Interface Operation target>->S_DIM[R4018]
+######  select many {Dimensions set} related by {Interface Operation target}->S_DIM[R4018]
 <pre>
 Dimensions_c[] getManyS_DIMsOnR4018(InterfaceOperation_c target)
 Dimensions_c[] getManyS_DIMsOnR4018(InterfaceOperation_c[] targets)
@@ -7810,23 +7887,23 @@ Dimensions_c[] getManyS_DIMsOnR4018(InterfaceOperation_c[] targets)
 
 ###### R47 - Domain *contains suppressed* Data Type (via Datatype In Suppression)
 
-######  select one <Datatype In Suppression instance> related by <Domain target>->S_DIS[R47]
+######  select one {Datatype In Suppression instance} related by {Domain target}->S_DIS[R47]
 <pre>
 DatatypeInSuppression_c getOneS_DISOnR47(Domain_c target)
 DatatypeInSuppression_c getOneS_DISOnR47(Domain_c[] targets)
 </pre>
-######  select many <Datatype In Suppression set> related by <Domain target>->S_DIS[R47]
+######  select many {Datatype In Suppression set} related by {Domain target}->S_DIS[R47]
 <pre>
 DatatypeInSuppression_c[] getManyS_DISsOnR47(Domain_c target)
 DatatypeInSuppression_c[] getManyS_DISsOnR47(Domain_c[] targets)
 </pre>
 
-######  select one <Datatype In Suppression instance> related by <Data Type target>->S_DIS[R47]
+######  select one {Datatype In Suppression instance} related by {Data Type target}->S_DIS[R47]
 <pre>
 DatatypeInSuppression_c getOneS_DISOnR47(DataType_c target)
 DatatypeInSuppression_c getOneS_DISOnR47(DataType_c[] targets)
 </pre>
-######  select many <Datatype In Suppression set> related by <Data Type target>->S_DIS[R47]
+######  select many {Datatype In Suppression set} related by {Data Type target}->S_DIS[R47]
 <pre>
 DatatypeInSuppression_c[] getManyS_DISsOnR47(DataType_c target)
 DatatypeInSuppression_c[] getManyS_DISsOnR47(DataType_c[] targets)
@@ -7847,12 +7924,12 @@ DatatypeInSuppression_c[] getManyS_DISsOnR47(DataType_c[] targets)
 
 ###### R37 - Data Type Package in Package *contains children of* Data Type Package
 
-######  select one <Data Type Package in Package instance> related by <Data Type Package target>->S_DPIP[R37]
+######  select one {Data Type Package in Package instance} related by {Data Type Package target}->S_DPIP[R37]
 <pre>
 DataTypePackageInPackage_c getOneS_DPIPOnR37(DataTypePackage_c target)
 DataTypePackageInPackage_c getOneS_DPIPOnR37(DataTypePackage_c[] targets)
 </pre>
-######  select many <Data Type Package in Package set> related by <Data Type Package target>->S_DPIP[R37]
+######  select many {Data Type Package in Package set} related by {Data Type Package target}->S_DPIP[R37]
 <pre>
 DataTypePackageInPackage_c[] getManyS_DPIPsOnR37(DataTypePackage_c target)
 DataTypePackageInPackage_c[] getManyS_DPIPsOnR37(DataTypePackage_c[] targets)
@@ -7860,12 +7937,12 @@ DataTypePackageInPackage_c[] getManyS_DPIPsOnR37(DataTypePackage_c[] targets)
 
 ###### R38 - Data Type Package in Package *contains* Data Type Package
 
-######  select one <Data Type Package in Package instance> related by <Data Type Package target>->S_DPIP[R38]
+######  select one {Data Type Package in Package instance} related by {Data Type Package target}->S_DPIP[R38]
 <pre>
 DataTypePackageInPackage_c getOneS_DPIPOnR38(DataTypePackage_c target)
 DataTypePackageInPackage_c getOneS_DPIPOnR38(DataTypePackage_c[] targets)
 </pre>
-######  select many <Data Type Package in Package set> related by <Data Type Package target>->S_DPIP[R38]
+######  select many {Data Type Package in Package set} related by {Data Type Package target}->S_DPIP[R38]
 <pre>
 DataTypePackageInPackage_c[] getManyS_DPIPsOnR38(DataTypePackage_c target)
 DataTypePackageInPackage_c[] getManyS_DPIPsOnR38(DataTypePackage_c[] targets)
@@ -7883,7 +7960,7 @@ DataTypePackageInPackage_c[] getManyS_DPIPsOnR38(DataTypePackage_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
 </pre>
 
@@ -7894,23 +7971,23 @@ DataTypePackageInPackage_c[] getManyS_DPIPsOnR38(DataTypePackage_c[] targets)
 
 ###### R4400 - Data Type Package *is contained in* System Model (via System Datatype Package)
 
-######  select one <Data Type Package instance> related by <System Model target>->S_DPK[R4400]
+######  select one {Data Type Package instance} related by {System Model target}->S_DPK[R4400]
 <pre>
 DataTypePackage_c getOneS_DPKOnR4400(SystemModel_c target)
 DataTypePackage_c getOneS_DPKOnR4400(SystemModel_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <System Model target>->S_DPK[R4400]
+######  select many {Data Type Package set} related by {System Model target}->S_DPK[R4400]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR4400(SystemModel_c target)
 DataTypePackage_c[] getManyS_DPKsOnR4400(SystemModel_c[] targets)
 </pre>
 
-######  select one <Data Type Package instance> related by <System Datatype Package target>->S_DPK[R4400]
+######  select one {Data Type Package instance} related by {System Datatype Package target}->S_DPK[R4400]
 <pre>
 DataTypePackage_c getOneS_DPKOnR4400(SystemDatatypePackage_c target)
 DataTypePackage_c getOneS_DPKOnR4400(SystemDatatypePackage_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <System Datatype Package target>->S_DPK[R4400]
+######  select many {Data Type Package set} related by {System Datatype Package target}->S_DPK[R4400]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR4400(SystemDatatypePackage_c target)
 DataTypePackage_c[] getManyS_DPKsOnR4400(SystemDatatypePackage_c[] targets)
@@ -7918,12 +7995,12 @@ DataTypePackage_c[] getManyS_DPKsOnR4400(SystemDatatypePackage_c[] targets)
 
 ###### R40 - Data Type Package *is contained in* Domain
 
-######  select one <Data Type Package instance> related by <Domain target>->S_DPK[R40]
+######  select one {Data Type Package instance} related by {Domain target}->S_DPK[R40]
 <pre>
 DataTypePackage_c getOneS_DPKOnR40(Domain_c target)
 DataTypePackage_c getOneS_DPKOnR40(Domain_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Domain target>->S_DPK[R40]
+######  select many {Data Type Package set} related by {Domain target}->S_DPK[R40]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR40(Domain_c target)
 DataTypePackage_c[] getManyS_DPKsOnR40(Domain_c[] targets)
@@ -7931,12 +8008,12 @@ DataTypePackage_c[] getManyS_DPKsOnR40(Domain_c[] targets)
 
 ###### R37 - Data Type Package *is parent to other packages via* Data Type Package in Package
 
-######  select one <Data Type Package instance> related by <Data Type Package in Package target>->S_DPK[R37]
+######  select one {Data Type Package instance} related by {Data Type Package in Package target}->S_DPK[R37]
 <pre>
 DataTypePackage_c getOneS_DPKOnR37(DataTypePackageInPackage_c target)
 DataTypePackage_c getOneS_DPKOnR37(DataTypePackageInPackage_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Data Type Package in Package target>->S_DPK[R37]
+######  select many {Data Type Package set} related by {Data Type Package in Package target}->S_DPK[R37]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR37(DataTypePackageInPackage_c target)
 DataTypePackage_c[] getManyS_DPKsOnR37(DataTypePackageInPackage_c[] targets)
@@ -7944,12 +8021,12 @@ DataTypePackage_c[] getManyS_DPKsOnR37(DataTypePackageInPackage_c[] targets)
 
 ###### R38 - Data Type Package *is child via* Data Type Package in Package
 
-######  select one <Data Type Package instance> related by <Data Type Package in Package target>->S_DPK[R38]
+######  select one {Data Type Package instance} related by {Data Type Package in Package target}->S_DPK[R38]
 <pre>
 DataTypePackage_c getOneS_DPKOnR38(DataTypePackageInPackage_c target)
 DataTypePackage_c getOneS_DPKOnR38(DataTypePackageInPackage_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Data Type Package in Package target>->S_DPK[R38]
+######  select many {Data Type Package set} related by {Data Type Package in Package target}->S_DPK[R38]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR38(DataTypePackageInPackage_c target)
 DataTypePackage_c[] getManyS_DPKsOnR38(DataTypePackageInPackage_c[] targets)
@@ -7957,23 +8034,23 @@ DataTypePackage_c[] getManyS_DPKsOnR38(DataTypePackageInPackage_c[] targets)
 
 ###### R4401 - Data Type Package *may show* Data Type (via System Datatype in Package)
 
-######  select one <Data Type Package instance> related by <Data Type target>->S_DPK[R4401]
+######  select one {Data Type Package instance} related by {Data Type target}->S_DPK[R4401]
 <pre>
 DataTypePackage_c getOneS_DPKOnR4401(DataType_c target)
 DataTypePackage_c getOneS_DPKOnR4401(DataType_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Data Type target>->S_DPK[R4401]
+######  select many {Data Type Package set} related by {Data Type target}->S_DPK[R4401]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR4401(DataType_c target)
 DataTypePackage_c[] getManyS_DPKsOnR4401(DataType_c[] targets)
 </pre>
 
-######  select one <Data Type Package instance> related by <System Datatype in Package target>->S_DPK[R4401]
+######  select one {Data Type Package instance} related by {System Datatype in Package target}->S_DPK[R4401]
 <pre>
 DataTypePackage_c getOneS_DPKOnR4401(SystemDatatypeInPackage_c target)
 DataTypePackage_c getOneS_DPKOnR4401(SystemDatatypeInPackage_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <System Datatype in Package target>->S_DPK[R4401]
+######  select many {Data Type Package set} related by {System Datatype in Package target}->S_DPK[R4401]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR4401(SystemDatatypeInPackage_c target)
 DataTypePackage_c[] getManyS_DPKsOnR4401(SystemDatatypeInPackage_c[] targets)
@@ -7981,23 +8058,23 @@ DataTypePackage_c[] getManyS_DPKsOnR4401(SystemDatatypeInPackage_c[] targets)
 
 ###### R4403 - Data Type Package *may show* Constant Specification (via System Constant in Package)
 
-######  select one <Data Type Package instance> related by <Constant Specification target>->S_DPK[R4403]
+######  select one {Data Type Package instance} related by {Constant Specification target}->S_DPK[R4403]
 <pre>
 DataTypePackage_c getOneS_DPKOnR4403(ConstantSpecification_c target)
 DataTypePackage_c getOneS_DPKOnR4403(ConstantSpecification_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Constant Specification target>->S_DPK[R4403]
+######  select many {Data Type Package set} related by {Constant Specification target}->S_DPK[R4403]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR4403(ConstantSpecification_c target)
 DataTypePackage_c[] getManyS_DPKsOnR4403(ConstantSpecification_c[] targets)
 </pre>
 
-######  select one <Data Type Package instance> related by <System Constant in Package target>->S_DPK[R4403]
+######  select one {Data Type Package instance} related by {System Constant in Package target}->S_DPK[R4403]
 <pre>
 DataTypePackage_c getOneS_DPKOnR4403(SystemConstantInPackage_c target)
 DataTypePackage_c getOneS_DPKOnR4403(SystemConstantInPackage_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <System Constant in Package target>->S_DPK[R4403]
+######  select many {Data Type Package set} related by {System Constant in Package target}->S_DPK[R4403]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR4403(SystemConstantInPackage_c target)
 DataTypePackage_c[] getManyS_DPKsOnR4403(SystemConstantInPackage_c[] targets)
@@ -8005,23 +8082,23 @@ DataTypePackage_c[] getManyS_DPKsOnR4403(SystemConstantInPackage_c[] targets)
 
 ###### R39 - Data Type Package *contains* Data Type (via Data Type in Package)
 
-######  select one <Data Type Package instance> related by <Data Type target>->S_DPK[R39]
+######  select one {Data Type Package instance} related by {Data Type target}->S_DPK[R39]
 <pre>
 DataTypePackage_c getOneS_DPKOnR39(DataType_c target)
 DataTypePackage_c getOneS_DPKOnR39(DataType_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Data Type target>->S_DPK[R39]
+######  select many {Data Type Package set} related by {Data Type target}->S_DPK[R39]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR39(DataType_c target)
 DataTypePackage_c[] getManyS_DPKsOnR39(DataType_c[] targets)
 </pre>
 
-######  select one <Data Type Package instance> related by <Data Type in Package target>->S_DPK[R39]
+######  select one {Data Type Package instance} related by {Data Type in Package target}->S_DPK[R39]
 <pre>
 DataTypePackage_c getOneS_DPKOnR39(DataTypeInPackage_c target)
 DataTypePackage_c getOneS_DPKOnR39(DataTypeInPackage_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Data Type in Package target>->S_DPK[R39]
+######  select many {Data Type Package set} related by {Data Type in Package target}->S_DPK[R39]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR39(DataTypeInPackage_c target)
 DataTypePackage_c[] getManyS_DPKsOnR39(DataTypeInPackage_c[] targets)
@@ -8029,33 +8106,34 @@ DataTypePackage_c[] getManyS_DPKsOnR39(DataTypeInPackage_c[] targets)
 
 ###### R1506 - Data Type Package *contains* Constant Specification (via Constant in Package)
 
-######  select one <Data Type Package instance> related by <Constant Specification target>->S_DPK[R1506]
+######  select one {Data Type Package instance} related by {Constant Specification target}->S_DPK[R1506]
 <pre>
 DataTypePackage_c getOneS_DPKOnR1506(ConstantSpecification_c target)
 DataTypePackage_c getOneS_DPKOnR1506(ConstantSpecification_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Constant Specification target>->S_DPK[R1506]
+######  select many {Data Type Package set} related by {Constant Specification target}->S_DPK[R1506]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR1506(ConstantSpecification_c target)
 DataTypePackage_c[] getManyS_DPKsOnR1506(ConstantSpecification_c[] targets)
 </pre>
 
-######  select one <Data Type Package instance> related by <Constant in Package target>->S_DPK[R1506]
+######  select one {Data Type Package instance} related by {Constant in Package target}->S_DPK[R1506]
 <pre>
 DataTypePackage_c getOneS_DPKOnR1506(ConstantInPackage_c target)
 DataTypePackage_c getOneS_DPKOnR1506(ConstantInPackage_c[] targets)
 </pre>
-######  select many <Data Type Package set> related by <Constant in Package target>->S_DPK[R1506]
+######  select many {Data Type Package set} related by {Constant in Package target}->S_DPK[R1506]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR1506(ConstantInPackage_c target)
 DataTypePackage_c[] getManyS_DPKsOnR1506(ConstantInPackage_c[] targets)
 </pre>
+###### R1402 (Subtype)
 
-######  select one <Data Type Package instance> related by <Specification Package target>->S_DPK[R1402]
+######  select one {Data Type Package instance} related by {Specification Package target}->S_DPK[R1402]
 <pre>
 DataTypePackage_c getOneS_DPKOnR1402(SpecificationPackage_c target)
 </pre>
-######  select many <Data Type Package set> related by <Specification Package target>->S_DPK[R1402]
+######  select many {Data Type Package set} related by {Specification Package target}->S_DPK[R1402]
 <pre>
 DataTypePackage_c[] getManyS_DPKsOnR1402(SpecificationPackage_c[] targets)
 </pre>
@@ -8075,23 +8153,23 @@ DataTypePackage_c[] getManyS_DPKsOnR1402(SpecificationPackage_c[] targets)
 
 ###### R39 - Data Type *is contained in* Data Type Package (via Data Type in Package)
 
-######  select one <Data Type in Package instance> related by <Data Type Package target>->S_DIP[R39]
+######  select one {Data Type in Package instance} related by {Data Type Package target}->S_DIP[R39]
 <pre>
 DataTypeInPackage_c getOneS_DIPOnR39(DataTypePackage_c target)
 DataTypeInPackage_c getOneS_DIPOnR39(DataTypePackage_c[] targets)
 </pre>
-######  select many <Data Type in Package set> related by <Data Type Package target>->S_DIP[R39]
+######  select many {Data Type in Package set} related by {Data Type Package target}->S_DIP[R39]
 <pre>
 DataTypeInPackage_c[] getManyS_DIPsOnR39(DataTypePackage_c target)
 DataTypeInPackage_c[] getManyS_DIPsOnR39(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <Data Type in Package instance> related by <Data Type target>->S_DIP[R39]
+######  select one {Data Type in Package instance} related by {Data Type target}->S_DIP[R39]
 <pre>
 DataTypeInPackage_c getOneS_DIPOnR39(DataType_c target)
 DataTypeInPackage_c getOneS_DIPOnR39(DataType_c[] targets)
 </pre>
-######  select many <Data Type in Package set> related by <Data Type target>->S_DIP[R39]
+######  select many {Data Type in Package set} related by {Data Type target}->S_DIP[R39]
 <pre>
 DataTypeInPackage_c[] getManyS_DIPsOnR39(DataType_c target)
 DataTypeInPackage_c[] getManyS_DIPsOnR39(DataType_c[] targets)
@@ -8109,13 +8187,13 @@ DataTypeInPackage_c[] getManyS_DIPsOnR39(DataType_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  String      	getDefaultvalue()
-  - void			setDefaultvalue(String       newValue)
+  -  void			setDefaultvalue(String       newValue)
 
 </pre>
 
@@ -8126,12 +8204,12 @@ DataTypeInPackage_c[] getManyS_DIPsOnR39(DataType_c[] targets)
 
 ###### R118 - Data Type *defines the type of * Operation Parameter
 
-######  select one <Data Type instance> related by <Operation Parameter target>->S_DT[R118]
+######  select one {Data Type instance} related by {Operation Parameter target}->S_DT[R118]
 <pre>
 DataType_c getOneS_DTOnR118(OperationParameter_c target)
 DataType_c getOneS_DTOnR118(OperationParameter_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Operation Parameter target>->S_DT[R118]
+######  select many {Data Type set} related by {Operation Parameter target}->S_DT[R118]
 <pre>
 DataType_c[] getManyS_DTsOnR118(OperationParameter_c target)
 DataType_c[] getManyS_DTsOnR118(OperationParameter_c[] targets)
@@ -8139,12 +8217,12 @@ DataType_c[] getManyS_DTsOnR118(OperationParameter_c[] targets)
 
 ###### R116 - Data Type *defines the type of return code* Operation
 
-######  select one <Data Type instance> related by <Operation target>->S_DT[R116]
+######  select one {Data Type instance} related by {Operation target}->S_DT[R116]
 <pre>
 DataType_c getOneS_DTOnR116(Operation_c target)
 DataType_c getOneS_DTOnR116(Operation_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Operation target>->S_DT[R116]
+######  select many {Data Type set} related by {Operation target}->S_DT[R116]
 <pre>
 DataType_c[] getManyS_DTsOnR116(Operation_c target)
 DataType_c[] getManyS_DTsOnR116(Operation_c[] targets)
@@ -8152,12 +8230,12 @@ DataType_c[] getManyS_DTsOnR116(Operation_c[] targets)
 
 ###### R114 - Data Type *is defined by* Attribute
 
-######  select one <Data Type instance> related by <Attribute target>->S_DT[R114]
+######  select one {Data Type instance} related by {Attribute target}->S_DT[R114]
 <pre>
 DataType_c getOneS_DTOnR114(Attribute_c target)
 DataType_c getOneS_DTOnR114(Attribute_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Attribute target>->S_DT[R114]
+######  select many {Data Type set} related by {Attribute target}->S_DT[R114]
 <pre>
 DataType_c[] getManyS_DTsOnR114(Attribute_c target)
 DataType_c[] getManyS_DTsOnR114(Attribute_c[] targets)
@@ -8165,12 +8243,12 @@ DataType_c[] getManyS_DTsOnR114(Attribute_c[] targets)
 
 ###### R524 - Data Type *defines the type of* State Machine Event Data Item
 
-######  select one <Data Type instance> related by <State Machine Event Data Item target>->S_DT[R524]
+######  select one {Data Type instance} related by {State Machine Event Data Item target}->S_DT[R524]
 <pre>
 DataType_c getOneS_DTOnR524(StateMachineEventDataItem_c target)
 DataType_c getOneS_DTOnR524(StateMachineEventDataItem_c[] targets)
 </pre>
-######  select many <Data Type set> related by <State Machine Event Data Item target>->S_DT[R524]
+######  select many {Data Type set} related by {State Machine Event Data Item target}->S_DT[R524]
 <pre>
 DataType_c[] getManyS_DTsOnR524(StateMachineEventDataItem_c target)
 DataType_c[] getManyS_DTsOnR524(StateMachineEventDataItem_c[] targets)
@@ -8178,12 +8256,12 @@ DataType_c[] getManyS_DTsOnR524(StateMachineEventDataItem_c[] targets)
 
 ###### R18 - Data Type *defines domain of* User Data Type
 
-######  select one <Data Type instance> related by <User Data Type target>->S_DT[R18]
+######  select one {Data Type instance} related by {User Data Type target}->S_DT[R18]
 <pre>
 DataType_c getOneS_DTOnR18(UserDataType_c target)
 DataType_c getOneS_DTOnR18(UserDataType_c[] targets)
 </pre>
-######  select many <Data Type set> related by <User Data Type target>->S_DT[R18]
+######  select many {Data Type set} related by {User Data Type target}->S_DT[R18]
 <pre>
 DataType_c[] getManyS_DTsOnR18(UserDataType_c target)
 DataType_c[] getManyS_DTsOnR18(UserDataType_c[] targets)
@@ -8191,12 +8269,12 @@ DataType_c[] getManyS_DTsOnR18(UserDataType_c[] targets)
 
 ###### R45 - Data Type *defines the type of* Structure Member
 
-######  select one <Data Type instance> related by <Structure Member target>->S_DT[R45]
+######  select one {Data Type instance} related by {Structure Member target}->S_DT[R45]
 <pre>
 DataType_c getOneS_DTOnR45(StructureMember_c target)
 DataType_c getOneS_DTOnR45(StructureMember_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Structure Member target>->S_DT[R45]
+######  select many {Data Type set} related by {Structure Member target}->S_DT[R45]
 <pre>
 DataType_c[] getManyS_DTsOnR45(StructureMember_c target)
 DataType_c[] getManyS_DTsOnR45(StructureMember_c[] targets)
@@ -8204,12 +8282,12 @@ DataType_c[] getManyS_DTsOnR45(StructureMember_c[] targets)
 
 ###### R26 - Data Type *describes type of* Function Parameter
 
-######  select one <Data Type instance> related by <Function Parameter target>->S_DT[R26]
+######  select one {Data Type instance} related by {Function Parameter target}->S_DT[R26]
 <pre>
 DataType_c getOneS_DTOnR26(FunctionParameter_c target)
 DataType_c getOneS_DTOnR26(FunctionParameter_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Function Parameter target>->S_DT[R26]
+######  select many {Data Type set} related by {Function Parameter target}->S_DT[R26]
 <pre>
 DataType_c[] getManyS_DTsOnR26(FunctionParameter_c target)
 DataType_c[] getManyS_DTsOnR26(FunctionParameter_c[] targets)
@@ -8217,12 +8295,12 @@ DataType_c[] getManyS_DTsOnR26(FunctionParameter_c[] targets)
 
 ###### R25 - Data Type *defines return type* Function
 
-######  select one <Data Type instance> related by <Function target>->S_DT[R25]
+######  select one {Data Type instance} related by {Function target}->S_DT[R25]
 <pre>
 DataType_c getOneS_DTOnR25(Function_c target)
 DataType_c getOneS_DTOnR25(Function_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Function target>->S_DT[R25]
+######  select many {Data Type set} related by {Function target}->S_DT[R25]
 <pre>
 DataType_c[] getManyS_DTsOnR25(Function_c target)
 DataType_c[] getManyS_DTsOnR25(Function_c[] targets)
@@ -8230,12 +8308,12 @@ DataType_c[] getManyS_DTsOnR25(Function_c[] targets)
 
 ###### R16 - Data Type *defines the type of* External Entity Event Data Item
 
-######  select one <Data Type instance> related by <External Entity Event Data Item target>->S_DT[R16]
+######  select one {Data Type instance} related by {External Entity Event Data Item target}->S_DT[R16]
 <pre>
 DataType_c getOneS_DTOnR16(ExternalEntityEventDataItem_c target)
 DataType_c getOneS_DTOnR16(ExternalEntityEventDataItem_c[] targets)
 </pre>
-######  select many <Data Type set> related by <External Entity Event Data Item target>->S_DT[R16]
+######  select many {Data Type set} related by {External Entity Event Data Item target}->S_DT[R16]
 <pre>
 DataType_c[] getManyS_DTsOnR16(ExternalEntityEventDataItem_c target)
 DataType_c[] getManyS_DTsOnR16(ExternalEntityEventDataItem_c[] targets)
@@ -8243,12 +8321,12 @@ DataType_c[] getManyS_DTsOnR16(ExternalEntityEventDataItem_c[] targets)
 
 ###### R15 - Data Type *defines the type of* External Entity Data Item
 
-######  select one <Data Type instance> related by <External Entity Data Item target>->S_DT[R15]
+######  select one {Data Type instance} related by {External Entity Data Item target}->S_DT[R15]
 <pre>
 DataType_c getOneS_DTOnR15(ExternalEntityDataItem_c target)
 DataType_c getOneS_DTOnR15(ExternalEntityDataItem_c[] targets)
 </pre>
-######  select many <Data Type set> related by <External Entity Data Item target>->S_DT[R15]
+######  select many {Data Type set} related by {External Entity Data Item target}->S_DT[R15]
 <pre>
 DataType_c[] getManyS_DTsOnR15(ExternalEntityDataItem_c target)
 DataType_c[] getManyS_DTsOnR15(ExternalEntityDataItem_c[] targets)
@@ -8256,12 +8334,12 @@ DataType_c[] getManyS_DTsOnR15(ExternalEntityDataItem_c[] targets)
 
 ###### R14 - Data Type *defines types available within* Domain
 
-######  select one <Data Type instance> related by <Domain target>->S_DT[R14]
+######  select one {Data Type instance} related by {Domain target}->S_DT[R14]
 <pre>
 DataType_c getOneS_DTOnR14(Domain_c target)
 DataType_c getOneS_DTOnR14(Domain_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Domain target>->S_DT[R14]
+######  select many {Data Type set} related by {Domain target}->S_DT[R14]
 <pre>
 DataType_c[] getManyS_DTsOnR14(Domain_c target)
 DataType_c[] getManyS_DTsOnR14(Domain_c[] targets)
@@ -8269,23 +8347,23 @@ DataType_c[] getManyS_DTsOnR14(Domain_c[] targets)
 
 ###### R47 - Data Type *is suppressed in* Domain (via Datatype In Suppression)
 
-######  select one <Data Type instance> related by <Domain target>->S_DT[R47]
+######  select one {Data Type instance} related by {Domain target}->S_DT[R47]
 <pre>
 DataType_c getOneS_DTOnR47(Domain_c target)
 DataType_c getOneS_DTOnR47(Domain_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Domain target>->S_DT[R47]
+######  select many {Data Type set} related by {Domain target}->S_DT[R47]
 <pre>
 DataType_c[] getManyS_DTsOnR47(Domain_c target)
 DataType_c[] getManyS_DTsOnR47(Domain_c[] targets)
 </pre>
 
-######  select one <Data Type instance> related by <Datatype In Suppression target>->S_DT[R47]
+######  select one {Data Type instance} related by {Datatype In Suppression target}->S_DT[R47]
 <pre>
 DataType_c getOneS_DTOnR47(DatatypeInSuppression_c target)
 DataType_c getOneS_DTOnR47(DatatypeInSuppression_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Datatype In Suppression target>->S_DT[R47]
+######  select many {Data Type set} related by {Datatype In Suppression target}->S_DT[R47]
 <pre>
 DataType_c[] getManyS_DTsOnR47(DatatypeInSuppression_c target)
 DataType_c[] getManyS_DTsOnR47(DatatypeInSuppression_c[] targets)
@@ -8293,23 +8371,23 @@ DataType_c[] getManyS_DTsOnR47(DatatypeInSuppression_c[] targets)
 
 ###### R4401 - Data Type *can show in lower package* Data Type Package (via System Datatype in Package)
 
-######  select one <Data Type instance> related by <Data Type Package target>->S_DT[R4401]
+######  select one {Data Type instance} related by {Data Type Package target}->S_DT[R4401]
 <pre>
 DataType_c getOneS_DTOnR4401(DataTypePackage_c target)
 DataType_c getOneS_DTOnR4401(DataTypePackage_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Data Type Package target>->S_DT[R4401]
+######  select many {Data Type set} related by {Data Type Package target}->S_DT[R4401]
 <pre>
 DataType_c[] getManyS_DTsOnR4401(DataTypePackage_c target)
 DataType_c[] getManyS_DTsOnR4401(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <Data Type instance> related by <System Datatype in Package target>->S_DT[R4401]
+######  select one {Data Type instance} related by {System Datatype in Package target}->S_DT[R4401]
 <pre>
 DataType_c getOneS_DTOnR4401(SystemDatatypeInPackage_c target)
 DataType_c getOneS_DTOnR4401(SystemDatatypeInPackage_c[] targets)
 </pre>
-######  select many <Data Type set> related by <System Datatype in Package target>->S_DT[R4401]
+######  select many {Data Type set} related by {System Datatype in Package target}->S_DT[R4401]
 <pre>
 DataType_c[] getManyS_DTsOnR4401(SystemDatatypeInPackage_c target)
 DataType_c[] getManyS_DTsOnR4401(SystemDatatypeInPackage_c[] targets)
@@ -8317,23 +8395,23 @@ DataType_c[] getManyS_DTsOnR4401(SystemDatatypeInPackage_c[] targets)
 
 ###### R39 - Data Type *is contained in* Data Type Package (via Data Type in Package)
 
-######  select one <Data Type instance> related by <Data Type Package target>->S_DT[R39]
+######  select one {Data Type instance} related by {Data Type Package target}->S_DT[R39]
 <pre>
 DataType_c getOneS_DTOnR39(DataTypePackage_c target)
 DataType_c getOneS_DTOnR39(DataTypePackage_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Data Type Package target>->S_DT[R39]
+######  select many {Data Type set} related by {Data Type Package target}->S_DT[R39]
 <pre>
 DataType_c[] getManyS_DTsOnR39(DataTypePackage_c target)
 DataType_c[] getManyS_DTsOnR39(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <Data Type instance> related by <Data Type in Package target>->S_DT[R39]
+######  select one {Data Type instance} related by {Data Type in Package target}->S_DT[R39]
 <pre>
 DataType_c getOneS_DTOnR39(DataTypeInPackage_c target)
 DataType_c getOneS_DTOnR39(DataTypeInPackage_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Data Type in Package target>->S_DT[R39]
+######  select many {Data Type set} related by {Data Type in Package target}->S_DT[R39]
 <pre>
 DataType_c[] getManyS_DTsOnR39(DataTypeInPackage_c target)
 DataType_c[] getManyS_DTsOnR39(DataTypeInPackage_c[] targets)
@@ -8341,12 +8419,12 @@ DataType_c[] getManyS_DTsOnR39(DataTypeInPackage_c[] targets)
 
 ###### R820 - Data Type *is type of* Value
 
-######  select one <Data Type instance> related by <Value target>->S_DT[R820]
+######  select one {Data Type instance} related by {Value target}->S_DT[R820]
 <pre>
 DataType_c getOneS_DTOnR820(Value_c target)
 DataType_c getOneS_DTOnR820(Value_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Value target>->S_DT[R820]
+######  select many {Data Type set} related by {Value target}->S_DT[R820]
 <pre>
 DataType_c[] getManyS_DTsOnR820(Value_c target)
 DataType_c[] getManyS_DTsOnR820(Value_c[] targets)
@@ -8354,12 +8432,12 @@ DataType_c[] getManyS_DTsOnR820(Value_c[] targets)
 
 ###### R821 - Data Type *is type of* Transient Var
 
-######  select one <Data Type instance> related by <Transient Var target>->S_DT[R821]
+######  select one {Data Type instance} related by {Transient Var target}->S_DT[R821]
 <pre>
 DataType_c getOneS_DTOnR821(TransientVar_c target)
 DataType_c getOneS_DTOnR821(TransientVar_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Transient Var target>->S_DT[R821]
+######  select many {Data Type set} related by {Transient Var target}->S_DT[R821]
 <pre>
 DataType_c[] getManyS_DTsOnR821(TransientVar_c target)
 DataType_c[] getManyS_DTsOnR821(TransientVar_c[] targets)
@@ -8367,12 +8445,12 @@ DataType_c[] getManyS_DTsOnR821(TransientVar_c[] targets)
 
 ###### R848 - Data Type *is type of* Variable
 
-######  select one <Data Type instance> related by <Variable target>->S_DT[R848]
+######  select one {Data Type instance} related by {Variable target}->S_DT[R848]
 <pre>
 DataType_c getOneS_DTOnR848(Variable_c target)
 DataType_c getOneS_DTOnR848(Variable_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Variable target>->S_DT[R848]
+######  select many {Data Type set} related by {Variable target}->S_DT[R848]
 <pre>
 DataType_c[] getManyS_DTsOnR848(Variable_c target)
 DataType_c[] getManyS_DTsOnR848(Variable_c[] targets)
@@ -8380,12 +8458,12 @@ DataType_c[] getManyS_DTsOnR848(Variable_c[] targets)
 
 ###### R3307
 
-######  select one <Data Type instance> related by <Runtime Value target>->S_DT[R3307]
+######  select one {Data Type instance} related by {Runtime Value target}->S_DT[R3307]
 <pre>
 DataType_c getOneS_DTOnR3307(RuntimeValue_c target)
 DataType_c getOneS_DTOnR3307(RuntimeValue_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Runtime Value target>->S_DT[R3307]
+######  select many {Data Type set} related by {Runtime Value target}->S_DT[R3307]
 <pre>
 DataType_c[] getManyS_DTsOnR3307(RuntimeValue_c target)
 DataType_c[] getManyS_DTsOnR3307(RuntimeValue_c[] targets)
@@ -8393,12 +8471,12 @@ DataType_c[] getManyS_DTsOnR3307(RuntimeValue_c[] targets)
 
 ###### R20 - Data Type *defines the return value* Bridge
 
-######  select one <Data Type instance> related by <Bridge target>->S_DT[R20]
+######  select one {Data Type instance} related by {Bridge target}->S_DT[R20]
 <pre>
 DataType_c getOneS_DTOnR20(Bridge_c target)
 DataType_c getOneS_DTOnR20(Bridge_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Bridge target>->S_DT[R20]
+######  select many {Data Type set} related by {Bridge target}->S_DT[R20]
 <pre>
 DataType_c[] getManyS_DTsOnR20(Bridge_c target)
 DataType_c[] getManyS_DTsOnR20(Bridge_c[] targets)
@@ -8406,12 +8484,12 @@ DataType_c[] getManyS_DTsOnR20(Bridge_c[] targets)
 
 ###### R22 - Data Type *defines the type of* Bridge Parameter
 
-######  select one <Data Type instance> related by <Bridge Parameter target>->S_DT[R22]
+######  select one {Data Type instance} related by {Bridge Parameter target}->S_DT[R22]
 <pre>
 DataType_c getOneS_DTOnR22(BridgeParameter_c target)
 DataType_c getOneS_DTOnR22(BridgeParameter_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Bridge Parameter target>->S_DT[R22]
+######  select many {Data Type set} related by {Bridge Parameter target}->S_DT[R22]
 <pre>
 DataType_c[] getManyS_DTsOnR22(BridgeParameter_c target)
 DataType_c[] getManyS_DTsOnR22(BridgeParameter_c[] targets)
@@ -8419,12 +8497,12 @@ DataType_c[] getManyS_DTsOnR22(BridgeParameter_c[] targets)
 
 ###### R1500 - Data Type *defines the type of* Symbolic Constant
 
-######  select one <Data Type instance> related by <Symbolic Constant target>->S_DT[R1500]
+######  select one {Data Type instance} related by {Symbolic Constant target}->S_DT[R1500]
 <pre>
 DataType_c getOneS_DTOnR1500(SymbolicConstant_c target)
 DataType_c getOneS_DTOnR1500(SymbolicConstant_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Symbolic Constant target>->S_DT[R1500]
+######  select many {Data Type set} related by {Symbolic Constant target}->S_DT[R1500]
 <pre>
 DataType_c[] getManyS_DTsOnR1500(SymbolicConstant_c target)
 DataType_c[] getManyS_DTsOnR1500(SymbolicConstant_c[] targets)
@@ -8432,12 +8510,12 @@ DataType_c[] getManyS_DTsOnR1500(SymbolicConstant_c[] targets)
 
 ###### R4007 - Data Type *Defines the type* Property Parameter
 
-######  select one <Data Type instance> related by <Property Parameter target>->S_DT[R4007]
+######  select one {Data Type instance} related by {Property Parameter target}->S_DT[R4007]
 <pre>
 DataType_c getOneS_DTOnR4007(PropertyParameter_c target)
 DataType_c getOneS_DTOnR4007(PropertyParameter_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Property Parameter target>->S_DT[R4007]
+######  select many {Data Type set} related by {Property Parameter target}->S_DT[R4007]
 <pre>
 DataType_c[] getManyS_DTsOnR4007(PropertyParameter_c target)
 DataType_c[] getManyS_DTsOnR4007(PropertyParameter_c[] targets)
@@ -8445,67 +8523,69 @@ DataType_c[] getManyS_DTsOnR4007(PropertyParameter_c[] targets)
 
 ###### R4008 - Data Type *defines return type* Interface Operation
 
-######  select one <Data Type instance> related by <Interface Operation target>->S_DT[R4008]
+######  select one {Data Type instance} related by {Interface Operation target}->S_DT[R4008]
 <pre>
 DataType_c getOneS_DTOnR4008(InterfaceOperation_c target)
 DataType_c getOneS_DTOnR4008(InterfaceOperation_c[] targets)
 </pre>
-######  select many <Data Type set> related by <Interface Operation target>->S_DT[R4008]
+######  select many {Data Type set} related by {Interface Operation target}->S_DT[R4008]
 <pre>
 DataType_c[] getManyS_DTsOnR4008(InterfaceOperation_c target)
 DataType_c[] getManyS_DTsOnR4008(InterfaceOperation_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Data Type instance> related by <Packageable Element target>->S_DT[R8001]
+######  select one {Data Type instance} related by {Packageable Element target}->S_DT[R8001]
 <pre>
 DataType_c getOneS_DTOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Data Type set> related by <Packageable Element target>->S_DT[R8001]
+######  select many {Data Type set} related by {Packageable Element target}->S_DT[R8001]
 <pre>
 DataType_c[] getManyS_DTsOnR8001(PackageableElement_c[] targets)
 </pre>
+###### R17 (Subtype)
 
-######  select one <Data Type instance> related by <Core Data Type target>->S_DT[R17]
+######  select one {Data Type instance} related by {Core Data Type target}->S_DT[R17]
 <pre>
 DataType_c getOneS_DTOnR17(CoreDataType_c target)
 </pre>
-######  select many <Data Type set> related by <Core Data Type target set>->S_DT[R17]
+######  select many {Data Type set} related by {Core Data Type target set}->S_DT[R17]
 <pre>
 DataType_c[] getManyS_DTsOnR17(CoreDataType_c[] targets)
 </pre>
 
-######  select one <Data Type instance> related by <User Data Type target>->S_DT[R17]
+######  select one {Data Type instance} related by {User Data Type target}->S_DT[R17]
 <pre>
 DataType_c getOneS_DTOnR17(UserDataType_c target)
 </pre>
-######  select many <Data Type set> related by <User Data Type target set>->S_DT[R17]
+######  select many {Data Type set} related by {User Data Type target set}->S_DT[R17]
 <pre>
 DataType_c[] getManyS_DTsOnR17(UserDataType_c[] targets)
 </pre>
 
-######  select one <Data Type instance> related by <Enumeration Data Type target>->S_DT[R17]
+######  select one {Data Type instance} related by {Enumeration Data Type target}->S_DT[R17]
 <pre>
 DataType_c getOneS_DTOnR17(EnumerationDataType_c target)
 </pre>
-######  select many <Data Type set> related by <Enumeration Data Type target set>->S_DT[R17]
+######  select many {Data Type set} related by {Enumeration Data Type target set}->S_DT[R17]
 <pre>
 DataType_c[] getManyS_DTsOnR17(EnumerationDataType_c[] targets)
 </pre>
 
-######  select one <Data Type instance> related by <Structured Data Type target>->S_DT[R17]
+######  select one {Data Type instance} related by {Structured Data Type target}->S_DT[R17]
 <pre>
 DataType_c getOneS_DTOnR17(StructuredDataType_c target)
 </pre>
-######  select many <Data Type set> related by <Structured Data Type target set>->S_DT[R17]
+######  select many {Data Type set} related by {Structured Data Type target set}->S_DT[R17]
 <pre>
 DataType_c[] getManyS_DTsOnR17(StructuredDataType_c[] targets)
 </pre>
 
-######  select one <Data Type instance> related by <Instance Reference Data Type target>->S_DT[R17]
+######  select one {Data Type instance} related by {Instance Reference Data Type target}->S_DT[R17]
 <pre>
 DataType_c getOneS_DTOnR17(InstanceReferenceDataType_c target)
 </pre>
-######  select many <Data Type set> related by <Instance Reference Data Type target set>->S_DT[R17]
+######  select many {Data Type set} related by {Instance Reference Data Type target set}->S_DT[R17]
 <pre>
 DataType_c[] getManyS_DTsOnR17(InstanceReferenceDataType_c[] targets)
 </pre>
@@ -8522,7 +8602,7 @@ DataType_c[] getManyS_DTsOnR17(InstanceReferenceDataType_c[] targets)
 
 <pre>
   -  int         	getCore_typ()
-  - void			setCore_typ(int          newValue)
+  -  void			setCore_typ(int          newValue)
 
 </pre>
 
@@ -8530,12 +8610,13 @@ DataType_c[] getManyS_DTsOnR17(InstanceReferenceDataType_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R17 (Subtype)
 
-######  select one <Core Data Type instance> related by <Data Type target>->S_CDT[R17]
+######  select one {Core Data Type instance} related by {Data Type target}->S_CDT[R17]
 <pre>
 CoreDataType_c getOneS_CDTOnR17(DataType_c target)
 </pre>
-######  select many <Core Data Type set> related by <Data Type target>->S_CDT[R17]
+######  select many {Core Data Type set} related by {Data Type target}->S_CDT[R17]
 <pre>
 CoreDataType_c[] getManyS_CDTsOnR17(DataType_c[] targets)
 </pre>
@@ -8552,19 +8633,19 @@ CoreDataType_c[] getManyS_CDTsOnR17(DataType_c[] targets)
 
 <pre>
   -  java.util.UUID        	getBparm_id()
-  - void			setBparm_id(java.util.UUID         newValue)
+  -  void			setBparm_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  int         	getBy_ref()
-  - void			setBy_ref(int          newValue)
+  -  void			setBy_ref(int          newValue)
 
   -  String      	getDimensions()
-  - void			setDimensions(String       newValue)
+  -  void			setDimensions(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -8575,12 +8656,12 @@ CoreDataType_c[] getManyS_CDTsOnR17(DataType_c[] targets)
 
 ###### R3009 - Bridge Parameter *has value* Local
 
-######  select one <Bridge Parameter instance> related by <Local target>->S_BPARM[R3009]
+######  select one {Bridge Parameter instance} related by {Local target}->S_BPARM[R3009]
 <pre>
 BridgeParameter_c getOneS_BPARMOnR3009(Local_c target)
 BridgeParameter_c getOneS_BPARMOnR3009(Local_c[] targets)
 </pre>
-######  select many <Bridge Parameter set> related by <Local target>->S_BPARM[R3009]
+######  select many {Bridge Parameter set} related by {Local target}->S_BPARM[R3009]
 <pre>
 BridgeParameter_c[] getManyS_BPARMsOnR3009(Local_c target)
 BridgeParameter_c[] getManyS_BPARMsOnR3009(Local_c[] targets)
@@ -8588,12 +8669,12 @@ BridgeParameter_c[] getManyS_BPARMsOnR3009(Local_c[] targets)
 
 ###### R49 - Bridge Parameter *may have* Dimensions
 
-######  select one <Bridge Parameter instance> related by <Dimensions target>->S_BPARM[R49]
+######  select one {Bridge Parameter instance} related by {Dimensions target}->S_BPARM[R49]
 <pre>
 BridgeParameter_c getOneS_BPARMOnR49(Dimensions_c target)
 BridgeParameter_c getOneS_BPARMOnR49(Dimensions_c[] targets)
 </pre>
-######  select many <Bridge Parameter set> related by <Dimensions target>->S_BPARM[R49]
+######  select many {Bridge Parameter set} related by {Dimensions target}->S_BPARM[R49]
 <pre>
 BridgeParameter_c[] getManyS_BPARMsOnR49(Dimensions_c target)
 BridgeParameter_c[] getManyS_BPARMsOnR49(Dimensions_c[] targets)
@@ -8601,12 +8682,12 @@ BridgeParameter_c[] getManyS_BPARMsOnR49(Dimensions_c[] targets)
 
 ###### R22 - Bridge Parameter *is defined by* Data Type
 
-######  select one <Bridge Parameter instance> related by <Data Type target>->S_BPARM[R22]
+######  select one {Bridge Parameter instance} related by {Data Type target}->S_BPARM[R22]
 <pre>
 BridgeParameter_c getOneS_BPARMOnR22(DataType_c target)
 BridgeParameter_c getOneS_BPARMOnR22(DataType_c[] targets)
 </pre>
-######  select many <Bridge Parameter set> related by <Data Type target>->S_BPARM[R22]
+######  select many {Bridge Parameter set} related by {Data Type target}->S_BPARM[R22]
 <pre>
 BridgeParameter_c[] getManyS_BPARMsOnR22(DataType_c target)
 BridgeParameter_c[] getManyS_BPARMsOnR22(DataType_c[] targets)
@@ -8614,12 +8695,12 @@ BridgeParameter_c[] getManyS_BPARMsOnR22(DataType_c[] targets)
 
 ###### R831 - Parameter Value *is a value of* Bridge Parameter
 
-######  select one <Bridge Parameter instance> related by <Parameter Value target>->S_BPARM[R831]
+######  select one {Bridge Parameter instance} related by {Parameter Value target}->S_BPARM[R831]
 <pre>
 BridgeParameter_c getOneS_BPARMOnR831(ParameterValue_c target)
 BridgeParameter_c getOneS_BPARMOnR831(ParameterValue_c[] targets)
 </pre>
-######  select many <Bridge Parameter set> related by <Parameter Value target>->S_BPARM[R831]
+######  select many {Bridge Parameter set} related by {Parameter Value target}->S_BPARM[R831]
 <pre>
 BridgeParameter_c[] getManyS_BPARMsOnR831(ParameterValue_c target)
 BridgeParameter_c[] getManyS_BPARMsOnR831(ParameterValue_c[] targets)
@@ -8627,12 +8708,12 @@ BridgeParameter_c[] getManyS_BPARMsOnR831(ParameterValue_c[] targets)
 
 ###### R1014 - Bridge Parameter *represents* Bridge Argument
 
-######  select one <Bridge Parameter instance> related by <Bridge Argument target>->S_BPARM[R1014]
+######  select one {Bridge Parameter instance} related by {Bridge Argument target}->S_BPARM[R1014]
 <pre>
 BridgeParameter_c getOneS_BPARMOnR1014(BridgeArgument_c target)
 BridgeParameter_c getOneS_BPARMOnR1014(BridgeArgument_c[] targets)
 </pre>
-######  select many <Bridge Parameter set> related by <Bridge Argument target>->S_BPARM[R1014]
+######  select many {Bridge Parameter set} related by {Bridge Argument target}->S_BPARM[R1014]
 <pre>
 BridgeParameter_c[] getManyS_BPARMsOnR1014(BridgeArgument_c target)
 BridgeParameter_c[] getManyS_BPARMsOnR1014(BridgeArgument_c[] targets)
@@ -8640,12 +8721,12 @@ BridgeParameter_c[] getManyS_BPARMsOnR1014(BridgeArgument_c[] targets)
 
 ###### R21 - Bridge Parameter *contains* Bridge
 
-######  select one <Bridge Parameter instance> related by <Bridge target>->S_BPARM[R21]
+######  select one {Bridge Parameter instance} related by {Bridge target}->S_BPARM[R21]
 <pre>
 BridgeParameter_c getOneS_BPARMOnR21(Bridge_c target)
 BridgeParameter_c getOneS_BPARMOnR21(Bridge_c[] targets)
 </pre>
-######  select many <Bridge Parameter set> related by <Bridge target>->S_BPARM[R21]
+######  select many {Bridge Parameter set} related by {Bridge target}->S_BPARM[R21]
 <pre>
 BridgeParameter_c[] getManyS_BPARMsOnR21(Bridge_c target)
 BridgeParameter_c[] getManyS_BPARMsOnR21(Bridge_c[] targets)
@@ -8665,28 +8746,28 @@ BridgeParameter_c[] getManyS_BPARMsOnR21(Bridge_c[] targets)
 
 <pre>
   -  java.util.UUID        	getBrg_id()
-  - void			setBrg_id(java.util.UUID         newValue)
+  -  void			setBrg_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  int         	getBrg_typ()
-  - void			setBrg_typ(int          newValue)
+  -  void			setBrg_typ(int          newValue)
 
   -  String      	getAction_semantics()
-  - void			setAction_semantics(String       newValue)
+  -  void			setAction_semantics(String       newValue)
 
   -  int 	getSuc_pars()
-  - void			setSuc_pars(int  newValue)
+  -  void			setSuc_pars(int  newValue)
 
   -  String      	getAction_semantics_internal()
-  - void			setAction_semantics_internal(String       newValue)
+  -  void			setAction_semantics_internal(String       newValue)
 
   -  String      	getReturn_dimensions()
-  - void			setReturn_dimensions(String       newValue)
+  -  void			setReturn_dimensions(String       newValue)
 
 </pre>
 
@@ -8697,12 +8778,12 @@ BridgeParameter_c[] getManyS_BPARMsOnR21(Bridge_c[] targets)
 
 ###### R3200 - Bridge *is executed through* Automatic Wiring
 
-######  select one <Bridge instance> related by <Automatic Wiring target>->S_BRG[R3200]
+######  select one {Bridge instance} related by {Automatic Wiring target}->S_BRG[R3200]
 <pre>
 Bridge_c getOneS_BRGOnR3200(AutomaticWiring_c target)
 Bridge_c getOneS_BRGOnR3200(AutomaticWiring_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Automatic Wiring target>->S_BRG[R3200]
+######  select many {Bridge set} related by {Automatic Wiring target}->S_BRG[R3200]
 <pre>
 Bridge_c[] getManyS_BRGsOnR3200(AutomaticWiring_c target)
 Bridge_c[] getManyS_BRGsOnR3200(AutomaticWiring_c[] targets)
@@ -8710,12 +8791,12 @@ Bridge_c[] getManyS_BRGsOnR3200(AutomaticWiring_c[] targets)
 
 ###### R19 - Bridge *provides access to* External Entity
 
-######  select one <Bridge instance> related by <External Entity target>->S_BRG[R19]
+######  select one {Bridge instance} related by {External Entity target}->S_BRG[R19]
 <pre>
 Bridge_c getOneS_BRGOnR19(ExternalEntity_c target)
 Bridge_c getOneS_BRGOnR19(ExternalEntity_c[] targets)
 </pre>
-######  select many <Bridge set> related by <External Entity target>->S_BRG[R19]
+######  select many {Bridge set} related by {External Entity target}->S_BRG[R19]
 <pre>
 Bridge_c[] getManyS_BRGsOnR19(ExternalEntity_c target)
 Bridge_c[] getManyS_BRGsOnR19(ExternalEntity_c[] targets)
@@ -8723,12 +8804,12 @@ Bridge_c[] getManyS_BRGsOnR19(ExternalEntity_c[] targets)
 
 ###### R50 - Bridge *return value may have* Dimensions
 
-######  select one <Bridge instance> related by <Dimensions target>->S_BRG[R50]
+######  select one {Bridge instance} related by {Dimensions target}->S_BRG[R50]
 <pre>
 Bridge_c getOneS_BRGOnR50(Dimensions_c target)
 Bridge_c getOneS_BRGOnR50(Dimensions_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Dimensions target>->S_BRG[R50]
+######  select many {Bridge set} related by {Dimensions target}->S_BRG[R50]
 <pre>
 Bridge_c[] getManyS_BRGsOnR50(Dimensions_c target)
 Bridge_c[] getManyS_BRGsOnR50(Dimensions_c[] targets)
@@ -8736,12 +8817,12 @@ Bridge_c[] getManyS_BRGsOnR50(Dimensions_c[] targets)
 
 ###### R20 - Bridge *return value defined by* Data Type
 
-######  select one <Bridge instance> related by <Data Type target>->S_BRG[R20]
+######  select one {Bridge instance} related by {Data Type target}->S_BRG[R20]
 <pre>
 Bridge_c getOneS_BRGOnR20(DataType_c target)
 Bridge_c getOneS_BRGOnR20(DataType_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Data Type target>->S_BRG[R20]
+######  select many {Bridge set} related by {Data Type target}->S_BRG[R20]
 <pre>
 Bridge_c[] getManyS_BRGsOnR20(DataType_c target)
 Bridge_c[] getManyS_BRGsOnR20(DataType_c[] targets)
@@ -8749,12 +8830,12 @@ Bridge_c[] getManyS_BRGsOnR20(DataType_c[] targets)
 
 ###### R21 - Bridge *is part of* Bridge Parameter
 
-######  select one <Bridge instance> related by <Bridge Parameter target>->S_BRG[R21]
+######  select one {Bridge instance} related by {Bridge Parameter target}->S_BRG[R21]
 <pre>
 Bridge_c getOneS_BRGOnR21(BridgeParameter_c target)
 Bridge_c getOneS_BRGOnR21(BridgeParameter_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Bridge Parameter target>->S_BRG[R21]
+######  select many {Bridge set} related by {Bridge Parameter target}->S_BRG[R21]
 <pre>
 Bridge_c[] getManyS_BRGsOnR21(BridgeParameter_c target)
 Bridge_c[] getManyS_BRGsOnR21(BridgeParameter_c[] targets)
@@ -8762,12 +8843,12 @@ Bridge_c[] getManyS_BRGsOnR21(BridgeParameter_c[] targets)
 
 ###### R828
 
-######  select one <Bridge instance> related by <Bridge Value target>->S_BRG[R828]
+######  select one {Bridge instance} related by {Bridge Value target}->S_BRG[R828]
 <pre>
 Bridge_c getOneS_BRGOnR828(BridgeValue_c target)
 Bridge_c getOneS_BRGOnR828(BridgeValue_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Bridge Value target>->S_BRG[R828]
+######  select many {Bridge set} related by {Bridge Value target}->S_BRG[R828]
 <pre>
 Bridge_c[] getManyS_BRGsOnR828(BridgeValue_c target)
 Bridge_c[] getManyS_BRGsOnR828(BridgeValue_c[] targets)
@@ -8775,12 +8856,12 @@ Bridge_c[] getManyS_BRGsOnR828(BridgeValue_c[] targets)
 
 ###### R1012 - Bridge *is invoked by* Bridge Message
 
-######  select one <Bridge instance> related by <Bridge Message target>->S_BRG[R1012]
+######  select one {Bridge instance} related by {Bridge Message target}->S_BRG[R1012]
 <pre>
 Bridge_c getOneS_BRGOnR1012(BridgeMessage_c target)
 Bridge_c getOneS_BRGOnR1012(BridgeMessage_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Bridge Message target>->S_BRG[R1012]
+######  select many {Bridge set} related by {Bridge Message target}->S_BRG[R1012]
 <pre>
 Bridge_c[] getManyS_BRGsOnR1012(BridgeMessage_c target)
 Bridge_c[] getManyS_BRGsOnR1012(BridgeMessage_c[] targets)
@@ -8788,12 +8869,12 @@ Bridge_c[] getManyS_BRGsOnR1012(BridgeMessage_c[] targets)
 
 ###### R674 - Bridge Invocation *is an invocation of* Bridge
 
-######  select one <Bridge instance> related by <Bridge Invocation target>->S_BRG[R674]
+######  select one {Bridge instance} related by {Bridge Invocation target}->S_BRG[R674]
 <pre>
 Bridge_c getOneS_BRGOnR674(BridgeInvocation_c target)
 Bridge_c getOneS_BRGOnR674(BridgeInvocation_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Bridge Invocation target>->S_BRG[R674]
+######  select many {Bridge set} related by {Bridge Invocation target}->S_BRG[R674]
 <pre>
 Bridge_c[] getManyS_BRGsOnR674(BridgeInvocation_c target)
 Bridge_c[] getManyS_BRGsOnR674(BridgeInvocation_c[] targets)
@@ -8801,12 +8882,12 @@ Bridge_c[] getManyS_BRGsOnR674(BridgeInvocation_c[] targets)
 
 ###### R697 - Bridge Body *specifies processing for* Bridge
 
-######  select one <Bridge instance> related by <Bridge Body target>->S_BRG[R697]
+######  select one {Bridge instance} related by {Bridge Body target}->S_BRG[R697]
 <pre>
 Bridge_c getOneS_BRGOnR697(BridgeBody_c target)
 Bridge_c getOneS_BRGOnR697(BridgeBody_c[] targets)
 </pre>
-######  select many <Bridge set> related by <Bridge Body target>->S_BRG[R697]
+######  select many {Bridge set} related by {Bridge Body target}->S_BRG[R697]
 <pre>
 Bridge_c[] getManyS_BRGsOnR697(BridgeBody_c target)
 Bridge_c[] getManyS_BRGsOnR697(BridgeBody_c[] targets)
@@ -8824,13 +8905,13 @@ Bridge_c[] getManyS_BRGsOnR697(BridgeBody_c[] targets)
 
 <pre>
   -  java.util.UUID        	getConst_id()
-  - void			setConst_id(java.util.UUID         newValue)
+  -  void			setConst_id(java.util.UUID         newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -8841,12 +8922,12 @@ Bridge_c[] getManyS_BRGsOnR697(BridgeBody_c[] targets)
 
 ###### R1500 - Symbolic Constant *is defined by* Data Type
 
-######  select one <Symbolic Constant instance> related by <Data Type target>->CNST_SYC[R1500]
+######  select one {Symbolic Constant instance} related by {Data Type target}->CNST_SYC[R1500]
 <pre>
 SymbolicConstant_c getOneCNST_SYCOnR1500(DataType_c target)
 SymbolicConstant_c getOneCNST_SYCOnR1500(DataType_c[] targets)
 </pre>
-######  select many <Symbolic Constant set> related by <Data Type target>->CNST_SYC[R1500]
+######  select many {Symbolic Constant set} related by {Data Type target}->CNST_SYC[R1500]
 <pre>
 SymbolicConstant_c[] getManyCNST_SYCsOnR1500(DataType_c target)
 SymbolicConstant_c[] getManyCNST_SYCsOnR1500(DataType_c[] targets)
@@ -8854,12 +8935,12 @@ SymbolicConstant_c[] getManyCNST_SYCsOnR1500(DataType_c[] targets)
 
 ###### R850
 
-######  select one <Symbolic Constant instance> related by <Symbolic Constant Value target>->CNST_SYC[R850]
+######  select one {Symbolic Constant instance} related by {Symbolic Constant Value target}->CNST_SYC[R850]
 <pre>
 SymbolicConstant_c getOneCNST_SYCOnR850(SymbolicConstantValue_c target)
 SymbolicConstant_c getOneCNST_SYCOnR850(SymbolicConstantValue_c[] targets)
 </pre>
-######  select many <Symbolic Constant set> related by <Symbolic Constant Value target>->CNST_SYC[R850]
+######  select many {Symbolic Constant set} related by {Symbolic Constant Value target}->CNST_SYC[R850]
 <pre>
 SymbolicConstant_c[] getManyCNST_SYCsOnR850(SymbolicConstantValue_c target)
 SymbolicConstant_c[] getManyCNST_SYCsOnR850(SymbolicConstantValue_c[] targets)
@@ -8867,24 +8948,25 @@ SymbolicConstant_c[] getManyCNST_SYCsOnR850(SymbolicConstantValue_c[] targets)
 
 ###### R1504 - Symbolic Constant *is contained by* Constant Specification
 
-######  select one <Symbolic Constant instance> related by <Constant Specification target>->CNST_SYC[R1504]
+######  select one {Symbolic Constant instance} related by {Constant Specification target}->CNST_SYC[R1504]
 <pre>
 SymbolicConstant_c getOneCNST_SYCOnR1504(ConstantSpecification_c target)
 SymbolicConstant_c getOneCNST_SYCOnR1504(ConstantSpecification_c[] targets)
 </pre>
-######  select many <Symbolic Constant set> related by <Constant Specification target>->CNST_SYC[R1504]
+######  select many {Symbolic Constant set} related by {Constant Specification target}->CNST_SYC[R1504]
 <pre>
 SymbolicConstant_c[] getManyCNST_SYCsOnR1504(ConstantSpecification_c target)
 SymbolicConstant_c[] getManyCNST_SYCsOnR1504(ConstantSpecification_c[] targets)
 </pre>
 
 ###### R1505 - Symbolic Constant *precedes* Symbolic Constant
+###### R1502 (Subtype)
 
-######  select one <Symbolic Constant instance> related by <Leaf Symbolic Constant target>->CNST_SYC[R1502]
+######  select one {Symbolic Constant instance} related by {Leaf Symbolic Constant target}->CNST_SYC[R1502]
 <pre>
 SymbolicConstant_c getOneCNST_SYCOnR1502(LeafSymbolicConstant_c target)
 </pre>
-######  select many <Symbolic Constant set> related by <Leaf Symbolic Constant target set>->CNST_SYC[R1502]
+######  select many {Symbolic Constant set} related by {Leaf Symbolic Constant target set}->CNST_SYC[R1502]
 <pre>
 SymbolicConstant_c[] getManyCNST_SYCsOnR1502(LeafSymbolicConstant_c[] targets)
 </pre>
@@ -8901,7 +8983,7 @@ SymbolicConstant_c[] getManyCNST_SYCsOnR1502(LeafSymbolicConstant_c[] targets)
 
 <pre>
   -  String      	getValue()
-  - void			setValue(String       newValue)
+  -  void			setValue(String       newValue)
 
 </pre>
 
@@ -8909,12 +8991,13 @@ SymbolicConstant_c[] getManyCNST_SYCsOnR1502(LeafSymbolicConstant_c[] targets)
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R1503 (Subtype)
 
-######  select one <Literal Symbolic Constant instance> related by <Leaf Symbolic Constant target>->CNST_LSC[R1503]
+######  select one {Literal Symbolic Constant instance} related by {Leaf Symbolic Constant target}->CNST_LSC[R1503]
 <pre>
 LiteralSymbolicConstant_c getOneCNST_LSCOnR1503(LeafSymbolicConstant_c target)
 </pre>
-######  select many <Literal Symbolic Constant set> related by <Leaf Symbolic Constant target>->CNST_LSC[R1503]
+######  select many {Literal Symbolic Constant set} related by {Leaf Symbolic Constant target}->CNST_LSC[R1503]
 <pre>
 LiteralSymbolicConstant_c[] getManyCNST_LSCsOnR1503(LeafSymbolicConstant_c[] targets)
 </pre>
@@ -8931,21 +9014,23 @@ LiteralSymbolicConstant_c[] getManyCNST_LSCsOnR1503(LeafSymbolicConstant_c[] tar
 
 *The action of these methods is described by the equivalent OAL listed.*
 
+###### R1502 (Subtype)
 
-######  select one <Leaf Symbolic Constant instance> related by <Symbolic Constant target>->CNST_LFSC[R1502]
+######  select one {Leaf Symbolic Constant instance} related by {Symbolic Constant target}->CNST_LFSC[R1502]
 <pre>
 LeafSymbolicConstant_c getOneCNST_LFSCOnR1502(SymbolicConstant_c target)
 </pre>
-######  select many <Leaf Symbolic Constant set> related by <Symbolic Constant target>->CNST_LFSC[R1502]
+######  select many {Leaf Symbolic Constant set} related by {Symbolic Constant target}->CNST_LFSC[R1502]
 <pre>
 LeafSymbolicConstant_c[] getManyCNST_LFSCsOnR1502(SymbolicConstant_c[] targets)
 </pre>
+###### R1503 (Subtype)
 
-######  select one <Leaf Symbolic Constant instance> related by <Literal Symbolic Constant target>->CNST_LFSC[R1503]
+######  select one {Leaf Symbolic Constant instance} related by {Literal Symbolic Constant target}->CNST_LFSC[R1503]
 <pre>
 LeafSymbolicConstant_c getOneCNST_LFSCOnR1503(LiteralSymbolicConstant_c target)
 </pre>
-######  select many <Leaf Symbolic Constant set> related by <Literal Symbolic Constant target set>->CNST_LFSC[R1503]
+######  select many {Leaf Symbolic Constant set} related by {Literal Symbolic Constant target set}->CNST_LFSC[R1503]
 <pre>
 LeafSymbolicConstant_c[] getManyCNST_LFSCsOnR1503(LiteralSymbolicConstant_c[] targets)
 </pre>
@@ -8962,10 +9047,10 @@ LeafSymbolicConstant_c[] getManyCNST_LFSCsOnR1503(LiteralSymbolicConstant_c[] ta
 
 <pre>
   -  String      	getInformalgroupname()
-  - void			setInformalgroupname(String       newValue)
+  -  void			setInformalgroupname(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -8976,23 +9061,23 @@ LeafSymbolicConstant_c[] getManyCNST_LFSCsOnR1503(LiteralSymbolicConstant_c[] ta
 
 ###### R4403 - Constant Specification *can show in lower package* Data Type Package (via System Constant in Package)
 
-######  select one <Constant Specification instance> related by <Data Type Package target>->CNST_CSP[R4403]
+######  select one {Constant Specification instance} related by {Data Type Package target}->CNST_CSP[R4403]
 <pre>
 ConstantSpecification_c getOneCNST_CSPOnR4403(DataTypePackage_c target)
 ConstantSpecification_c getOneCNST_CSPOnR4403(DataTypePackage_c[] targets)
 </pre>
-######  select many <Constant Specification set> related by <Data Type Package target>->CNST_CSP[R4403]
+######  select many {Constant Specification set} related by {Data Type Package target}->CNST_CSP[R4403]
 <pre>
 ConstantSpecification_c[] getManyCNST_CSPsOnR4403(DataTypePackage_c target)
 ConstantSpecification_c[] getManyCNST_CSPsOnR4403(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <Constant Specification instance> related by <System Constant in Package target>->CNST_CSP[R4403]
+######  select one {Constant Specification instance} related by {System Constant in Package target}->CNST_CSP[R4403]
 <pre>
 ConstantSpecification_c getOneCNST_CSPOnR4403(SystemConstantInPackage_c target)
 ConstantSpecification_c getOneCNST_CSPOnR4403(SystemConstantInPackage_c[] targets)
 </pre>
-######  select many <Constant Specification set> related by <System Constant in Package target>->CNST_CSP[R4403]
+######  select many {Constant Specification set} related by {System Constant in Package target}->CNST_CSP[R4403]
 <pre>
 ConstantSpecification_c[] getManyCNST_CSPsOnR4403(SystemConstantInPackage_c target)
 ConstantSpecification_c[] getManyCNST_CSPsOnR4403(SystemConstantInPackage_c[] targets)
@@ -9000,23 +9085,23 @@ ConstantSpecification_c[] getManyCNST_CSPsOnR4403(SystemConstantInPackage_c[] ta
 
 ###### R1506 - Constant Specification *is contained in* Data Type Package (via Constant in Package)
 
-######  select one <Constant Specification instance> related by <Data Type Package target>->CNST_CSP[R1506]
+######  select one {Constant Specification instance} related by {Data Type Package target}->CNST_CSP[R1506]
 <pre>
 ConstantSpecification_c getOneCNST_CSPOnR1506(DataTypePackage_c target)
 ConstantSpecification_c getOneCNST_CSPOnR1506(DataTypePackage_c[] targets)
 </pre>
-######  select many <Constant Specification set> related by <Data Type Package target>->CNST_CSP[R1506]
+######  select many {Constant Specification set} related by {Data Type Package target}->CNST_CSP[R1506]
 <pre>
 ConstantSpecification_c[] getManyCNST_CSPsOnR1506(DataTypePackage_c target)
 ConstantSpecification_c[] getManyCNST_CSPsOnR1506(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <Constant Specification instance> related by <Constant in Package target>->CNST_CSP[R1506]
+######  select one {Constant Specification instance} related by {Constant in Package target}->CNST_CSP[R1506]
 <pre>
 ConstantSpecification_c getOneCNST_CSPOnR1506(ConstantInPackage_c target)
 ConstantSpecification_c getOneCNST_CSPOnR1506(ConstantInPackage_c[] targets)
 </pre>
-######  select many <Constant Specification set> related by <Constant in Package target>->CNST_CSP[R1506]
+######  select many {Constant Specification set} related by {Constant in Package target}->CNST_CSP[R1506]
 <pre>
 ConstantSpecification_c[] getManyCNST_CSPsOnR1506(ConstantInPackage_c target)
 ConstantSpecification_c[] getManyCNST_CSPsOnR1506(ConstantInPackage_c[] targets)
@@ -9024,22 +9109,23 @@ ConstantSpecification_c[] getManyCNST_CSPsOnR1506(ConstantInPackage_c[] targets)
 
 ###### R1504 - Constant Specification *contains* Symbolic Constant
 
-######  select one <Constant Specification instance> related by <Symbolic Constant target>->CNST_CSP[R1504]
+######  select one {Constant Specification instance} related by {Symbolic Constant target}->CNST_CSP[R1504]
 <pre>
 ConstantSpecification_c getOneCNST_CSPOnR1504(SymbolicConstant_c target)
 ConstantSpecification_c getOneCNST_CSPOnR1504(SymbolicConstant_c[] targets)
 </pre>
-######  select many <Constant Specification set> related by <Symbolic Constant target>->CNST_CSP[R1504]
+######  select many {Constant Specification set} related by {Symbolic Constant target}->CNST_CSP[R1504]
 <pre>
 ConstantSpecification_c[] getManyCNST_CSPsOnR1504(SymbolicConstant_c target)
 ConstantSpecification_c[] getManyCNST_CSPsOnR1504(SymbolicConstant_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Constant Specification instance> related by <Packageable Element target>->CNST_CSP[R8001]
+######  select one {Constant Specification instance} related by {Packageable Element target}->CNST_CSP[R8001]
 <pre>
 ConstantSpecification_c getOneCNST_CSPOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Constant Specification set> related by <Packageable Element target>->CNST_CSP[R8001]
+######  select many {Constant Specification set} related by {Packageable Element target}->CNST_CSP[R8001]
 <pre>
 ConstantSpecification_c[] getManyCNST_CSPsOnR8001(PackageableElement_c[] targets)
 </pre>
@@ -9059,23 +9145,23 @@ ConstantSpecification_c[] getManyCNST_CSPsOnR8001(PackageableElement_c[] targets
 
 ###### R1506 - Constant Specification *is contained in* Data Type Package (via Constant in Package)
 
-######  select one <Constant in Package instance> related by <Data Type Package target>->CNST_CIP[R1506]
+######  select one {Constant in Package instance} related by {Data Type Package target}->CNST_CIP[R1506]
 <pre>
 ConstantInPackage_c getOneCNST_CIPOnR1506(DataTypePackage_c target)
 ConstantInPackage_c getOneCNST_CIPOnR1506(DataTypePackage_c[] targets)
 </pre>
-######  select many <Constant in Package set> related by <Data Type Package target>->CNST_CIP[R1506]
+######  select many {Constant in Package set} related by {Data Type Package target}->CNST_CIP[R1506]
 <pre>
 ConstantInPackage_c[] getManyCNST_CIPsOnR1506(DataTypePackage_c target)
 ConstantInPackage_c[] getManyCNST_CIPsOnR1506(DataTypePackage_c[] targets)
 </pre>
 
-######  select one <Constant in Package instance> related by <Constant Specification target>->CNST_CIP[R1506]
+######  select one {Constant in Package instance} related by {Constant Specification target}->CNST_CIP[R1506]
 <pre>
 ConstantInPackage_c getOneCNST_CIPOnR1506(ConstantSpecification_c target)
 ConstantInPackage_c getOneCNST_CIPOnR1506(ConstantSpecification_c[] targets)
 </pre>
-######  select many <Constant in Package set> related by <Constant Specification target>->CNST_CIP[R1506]
+######  select many {Constant in Package set} related by {Constant Specification target}->CNST_CIP[R1506]
 <pre>
 ConstantInPackage_c[] getManyCNST_CIPsOnR1506(ConstantSpecification_c target)
 ConstantInPackage_c[] getManyCNST_CIPsOnR1506(ConstantSpecification_c[] targets)
@@ -9093,7 +9179,7 @@ ConstantInPackage_c[] getManyCNST_CIPsOnR1506(ConstantSpecification_c[] targets)
 
 <pre>
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
 </pre>
 
@@ -9104,12 +9190,12 @@ ConstantInPackage_c[] getManyCNST_CIPsOnR1506(ConstantSpecification_c[] targets)
 
 ###### R4600 - Component Package in Package *may be nested in* Component Package
 
-######  select one <Component Package in Package instance> related by <Component Package target>->CP_CPINP[R4600]
+######  select one {Component Package in Package instance} related by {Component Package target}->CP_CPINP[R4600]
 <pre>
 ComponentPackageInPackage_c getOneCP_CPINPOnR4600(ComponentPackage_c target)
 ComponentPackageInPackage_c getOneCP_CPINPOnR4600(ComponentPackage_c[] targets)
 </pre>
-######  select many <Component Package in Package set> related by <Component Package target>->CP_CPINP[R4600]
+######  select many {Component Package in Package set} related by {Component Package target}->CP_CPINP[R4600]
 <pre>
 ComponentPackageInPackage_c[] getManyCP_CPINPsOnR4600(ComponentPackage_c target)
 ComponentPackageInPackage_c[] getManyCP_CPINPsOnR4600(ComponentPackage_c[] targets)
@@ -9117,12 +9203,12 @@ ComponentPackageInPackage_c[] getManyCP_CPINPsOnR4600(ComponentPackage_c[] targe
 
 ###### R4601 - Component Package in Package *provides nesting* Component Package
 
-######  select one <Component Package in Package instance> related by <Component Package target>->CP_CPINP[R4601]
+######  select one {Component Package in Package instance} related by {Component Package target}->CP_CPINP[R4601]
 <pre>
 ComponentPackageInPackage_c getOneCP_CPINPOnR4601(ComponentPackage_c target)
 ComponentPackageInPackage_c getOneCP_CPINPOnR4601(ComponentPackage_c[] targets)
 </pre>
-######  select many <Component Package in Package set> related by <Component Package target>->CP_CPINP[R4601]
+######  select many {Component Package in Package set} related by {Component Package target}->CP_CPINP[R4601]
 <pre>
 ComponentPackageInPackage_c[] getManyCP_CPINPsOnR4601(ComponentPackage_c target)
 ComponentPackageInPackage_c[] getManyCP_CPINPsOnR4601(ComponentPackage_c[] targets)
@@ -9140,10 +9226,10 @@ ComponentPackageInPackage_c[] getManyCP_CPINPsOnR4601(ComponentPackage_c[] targe
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -9154,12 +9240,12 @@ ComponentPackageInPackage_c[] getManyCP_CPINPsOnR4601(ComponentPackage_c[] targe
 
 ###### R4602 - Component Package *may be contained within* System Model
 
-######  select one <Component Package instance> related by <System Model target>->CP_CP[R4602]
+######  select one {Component Package instance} related by {System Model target}->CP_CP[R4602]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4602(SystemModel_c target)
 ComponentPackage_c getOneCP_CPOnR4602(SystemModel_c[] targets)
 </pre>
-######  select many <Component Package set> related by <System Model target>->CP_CP[R4602]
+######  select many {Component Package set} related by {System Model target}->CP_CP[R4602]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4602(SystemModel_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4602(SystemModel_c[] targets)
@@ -9167,12 +9253,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4602(SystemModel_c[] targets)
 
 ###### R4606 - Component Package *is containing system* System Model
 
-######  select one <Component Package instance> related by <System Model target>->CP_CP[R4606]
+######  select one {Component Package instance} related by {System Model target}->CP_CP[R4606]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4606(SystemModel_c target)
 ComponentPackage_c getOneCP_CPOnR4606(SystemModel_c[] targets)
 </pre>
-######  select many <Component Package set> related by <System Model target>->CP_CP[R4606]
+######  select many {Component Package set} related by {System Model target}->CP_CP[R4606]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4606(SystemModel_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4606(SystemModel_c[] targets)
@@ -9180,12 +9266,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4606(SystemModel_c[] targets)
 
 ###### R4600 - Component Package *may nest* Component Package in Package
 
-######  select one <Component Package instance> related by <Component Package in Package target>->CP_CP[R4600]
+######  select one {Component Package instance} related by {Component Package in Package target}->CP_CP[R4600]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4600(ComponentPackageInPackage_c target)
 ComponentPackage_c getOneCP_CPOnR4600(ComponentPackageInPackage_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Component Package in Package target>->CP_CP[R4600]
+######  select many {Component Package set} related by {Component Package in Package target}->CP_CP[R4600]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4600(ComponentPackageInPackage_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4600(ComponentPackageInPackage_c[] targets)
@@ -9193,12 +9279,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4600(ComponentPackageInPackage_c[] targets)
 
 ###### R4601 - Component Package *is nested through* Component Package in Package
 
-######  select one <Component Package instance> related by <Component Package in Package target>->CP_CP[R4601]
+######  select one {Component Package instance} related by {Component Package in Package target}->CP_CP[R4601]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4601(ComponentPackageInPackage_c target)
 ComponentPackage_c getOneCP_CPOnR4601(ComponentPackageInPackage_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Component Package in Package target>->CP_CP[R4601]
+######  select many {Component Package set} related by {Component Package in Package target}->CP_CP[R4601]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4601(ComponentPackageInPackage_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4601(ComponentPackageInPackage_c[] targets)
@@ -9206,12 +9292,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4601(ComponentPackageInPackage_c[] targets)
 
 ###### R1212 - Component Package *can display* Use Case Diagram
 
-######  select one <Component Package instance> related by <Use Case Diagram target>->CP_CP[R1212]
+######  select one {Component Package instance} related by {Use Case Diagram target}->CP_CP[R1212]
 <pre>
 ComponentPackage_c getOneCP_CPOnR1212(UseCaseDiagram_c target)
 ComponentPackage_c getOneCP_CPOnR1212(UseCaseDiagram_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Use Case Diagram target>->CP_CP[R1212]
+######  select many {Component Package set} related by {Use Case Diagram target}->CP_CP[R1212]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR1212(UseCaseDiagram_c target)
 ComponentPackage_c[] getManyCP_CPsOnR1212(UseCaseDiagram_c[] targets)
@@ -9219,12 +9305,12 @@ ComponentPackage_c[] getManyCP_CPsOnR1212(UseCaseDiagram_c[] targets)
 
 ###### R951 - Component Package *can show* Sequence
 
-######  select one <Component Package instance> related by <Sequence target>->CP_CP[R951]
+######  select one {Component Package instance} related by {Sequence target}->CP_CP[R951]
 <pre>
 ComponentPackage_c getOneCP_CPOnR951(Sequence_c target)
 ComponentPackage_c getOneCP_CPOnR951(Sequence_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Sequence target>->CP_CP[R951]
+######  select many {Component Package set} related by {Sequence target}->CP_CP[R951]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR951(Sequence_c target)
 ComponentPackage_c[] getManyCP_CPsOnR951(Sequence_c[] targets)
@@ -9232,23 +9318,23 @@ ComponentPackage_c[] getManyCP_CPsOnR951(Sequence_c[] targets)
 
 ###### R9001
 
-######  select one <Component Package instance> related by <Satisfaction In Component Package target>->CP_CP[R9001]
+######  select one {Component Package instance} related by {Satisfaction In Component Package target}->CP_CP[R9001]
 <pre>
 ComponentPackage_c getOneCP_CPOnR9001(SatisfactionInComponentPackage_c target)
 ComponentPackage_c getOneCP_CPOnR9001(SatisfactionInComponentPackage_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Satisfaction In Component Package target>->CP_CP[R9001]
+######  select many {Component Package set} related by {Satisfaction In Component Package target}->CP_CP[R9001]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR9001(SatisfactionInComponentPackage_c target)
 ComponentPackage_c[] getManyCP_CPsOnR9001(SatisfactionInComponentPackage_c[] targets)
 </pre>
 
-######  select one <Component Package instance> related by <Satisfaction target>->CP_CP[R9001]
+######  select one {Component Package instance} related by {Satisfaction target}->CP_CP[R9001]
 <pre>
 ComponentPackage_c getOneCP_CPOnR9001(Satisfaction_c target)
 ComponentPackage_c getOneCP_CPOnR9001(Satisfaction_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Satisfaction target>->CP_CP[R9001]
+######  select many {Component Package set} related by {Satisfaction target}->CP_CP[R9001]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR9001(Satisfaction_c target)
 ComponentPackage_c[] getManyCP_CPsOnR9001(Satisfaction_c[] targets)
@@ -9256,12 +9342,12 @@ ComponentPackage_c[] getManyCP_CPsOnR9001(Satisfaction_c[] targets)
 
 ###### R4604 - Component Package *may contain* Component
 
-######  select one <Component Package instance> related by <Component target>->CP_CP[R4604]
+######  select one {Component Package instance} related by {Component target}->CP_CP[R4604]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4604(Component_c target)
 ComponentPackage_c getOneCP_CPOnR4604(Component_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Component target>->CP_CP[R4604]
+######  select many {Component Package set} related by {Component target}->CP_CP[R4604]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4604(Component_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4604(Component_c[] targets)
@@ -9269,12 +9355,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4604(Component_c[] targets)
 
 ###### R4607 - Component Package *may contain* Interface Package
 
-######  select one <Component Package instance> related by <Interface Package target>->CP_CP[R4607]
+######  select one {Component Package instance} related by {Interface Package target}->CP_CP[R4607]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4607(InterfacePackage_c target)
 ComponentPackage_c getOneCP_CPOnR4607(InterfacePackage_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Interface Package target>->CP_CP[R4607]
+######  select many {Component Package set} related by {Interface Package target}->CP_CP[R4607]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4607(InterfacePackage_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4607(InterfacePackage_c[] targets)
@@ -9282,12 +9368,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4607(InterfacePackage_c[] targets)
 
 ###### R4605 - Component Package *contains* Component Reference
 
-######  select one <Component Package instance> related by <Component Reference target>->CP_CP[R4605]
+######  select one {Component Package instance} related by {Component Reference target}->CP_CP[R4605]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4605(ComponentReference_c target)
 ComponentPackage_c getOneCP_CPOnR4605(ComponentReference_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Component Reference target>->CP_CP[R4605]
+######  select many {Component Package set} related by {Component Reference target}->CP_CP[R4605]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4605(ComponentReference_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4605(ComponentReference_c[] targets)
@@ -9295,12 +9381,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4605(ComponentReference_c[] targets)
 
 ###### R4608 - Component Package *is root for* Component
 
-######  select one <Component Package instance> related by <Component target>->CP_CP[R4608]
+######  select one {Component Package instance} related by {Component target}->CP_CP[R4608]
 <pre>
 ComponentPackage_c getOneCP_CPOnR4608(Component_c target)
 ComponentPackage_c getOneCP_CPOnR4608(Component_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Component target>->CP_CP[R4608]
+######  select many {Component Package set} related by {Component target}->CP_CP[R4608]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR4608(Component_c target)
 ComponentPackage_c[] getManyCP_CPsOnR4608(Component_c[] targets)
@@ -9308,12 +9394,12 @@ ComponentPackage_c[] getManyCP_CPsOnR4608(Component_c[] targets)
 
 ###### R1137 - Component Package *is displayed in* Communication
 
-######  select one <Component Package instance> related by <Communication target>->CP_CP[R1137]
+######  select one {Component Package instance} related by {Communication target}->CP_CP[R1137]
 <pre>
 ComponentPackage_c getOneCP_CPOnR1137(Communication_c target)
 ComponentPackage_c getOneCP_CPOnR1137(Communication_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Communication target>->CP_CP[R1137]
+######  select many {Component Package set} related by {Communication target}->CP_CP[R1137]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR1137(Communication_c target)
 ComponentPackage_c[] getManyCP_CPsOnR1137(Communication_c[] targets)
@@ -9321,22 +9407,23 @@ ComponentPackage_c[] getManyCP_CPsOnR1137(Communication_c[] targets)
 
 ###### R1114 - Component Package *contains* Activity
 
-######  select one <Component Package instance> related by <Activity target>->CP_CP[R1114]
+######  select one {Component Package instance} related by {Activity target}->CP_CP[R1114]
 <pre>
 ComponentPackage_c getOneCP_CPOnR1114(Activity_c target)
 ComponentPackage_c getOneCP_CPOnR1114(Activity_c[] targets)
 </pre>
-######  select many <Component Package set> related by <Activity target>->CP_CP[R1114]
+######  select many {Component Package set} related by {Activity target}->CP_CP[R1114]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR1114(Activity_c target)
 ComponentPackage_c[] getManyCP_CPsOnR1114(Activity_c[] targets)
 </pre>
+###### R1402 (Subtype)
 
-######  select one <Component Package instance> related by <Specification Package target>->CP_CP[R1402]
+######  select one {Component Package instance} related by {Specification Package target}->CP_CP[R1402]
 <pre>
 ComponentPackage_c getOneCP_CPOnR1402(SpecificationPackage_c target)
 </pre>
-######  select many <Component Package set> related by <Specification Package target>->CP_CP[R1402]
+######  select many {Component Package set} related by {Specification Package target}->CP_CP[R1402]
 <pre>
 ComponentPackage_c[] getManyCP_CPsOnR1402(SpecificationPackage_c[] targets)
 </pre>
@@ -9353,10 +9440,10 @@ ComponentPackage_c[] getManyCP_CPsOnR1402(SpecificationPackage_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -9367,22 +9454,23 @@ ComponentPackage_c[] getManyCP_CPsOnR1402(SpecificationPackage_c[] targets)
 
 ###### R4706 - Imported Requirement *provides satisfaction through* Satisfaction
 
-######  select one <Imported Requirement instance> related by <Satisfaction target>->CL_IR[R4706]
+######  select one {Imported Requirement instance} related by {Satisfaction target}->CL_IR[R4706]
 <pre>
 ImportedRequirement_c getOneCL_IROnR4706(Satisfaction_c target)
 ImportedRequirement_c getOneCL_IROnR4706(Satisfaction_c[] targets)
 </pre>
-######  select many <Imported Requirement set> related by <Satisfaction target>->CL_IR[R4706]
+######  select many {Imported Requirement set} related by {Satisfaction target}->CL_IR[R4706]
 <pre>
 ImportedRequirement_c[] getManyCL_IRsOnR4706(Satisfaction_c target)
 ImportedRequirement_c[] getManyCL_IRsOnR4706(Satisfaction_c[] targets)
 </pre>
+###### R4703 (Subtype)
 
-######  select one <Imported Requirement instance> related by <Imported Reference target>->CL_IR[R4703]
+######  select one {Imported Requirement instance} related by {Imported Reference target}->CL_IR[R4703]
 <pre>
 ImportedRequirement_c getOneCL_IROnR4703(ImportedReference_c target)
 </pre>
-######  select many <Imported Requirement set> related by <Imported Reference target>->CL_IR[R4703]
+######  select many {Imported Requirement set} related by {Imported Reference target}->CL_IR[R4703]
 <pre>
 ImportedRequirement_c[] getManyCL_IRsOnR4703(ImportedReference_c[] targets)
 </pre>
@@ -9399,13 +9487,13 @@ ImportedRequirement_c[] getManyCL_IRsOnR4703(ImportedReference_c[] targets)
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
   -  java.util.UUID        	getId()
-  - void			setId(java.util.UUID         newValue)
+  -  void			setId(java.util.UUID         newValue)
 
 </pre>
 
@@ -9416,12 +9504,12 @@ ImportedRequirement_c[] getManyCL_IRsOnR4703(ImportedReference_c[] targets)
 
 ###### R4700 - Imported Reference *originates from* Component Reference
 
-######  select one <Imported Reference instance> related by <Component Reference target>->CL_IIR[R4700]
+######  select one {Imported Reference instance} related by {Component Reference target}->CL_IIR[R4700]
 <pre>
 ImportedReference_c getOneCL_IIROnR4700(ComponentReference_c target)
 ImportedReference_c getOneCL_IIROnR4700(ComponentReference_c[] targets)
 </pre>
-######  select many <Imported Reference set> related by <Component Reference target>->CL_IIR[R4700]
+######  select many {Imported Reference set} related by {Component Reference target}->CL_IIR[R4700]
 <pre>
 ImportedReference_c[] getManyCL_IIRsOnR4700(ComponentReference_c target)
 ImportedReference_c[] getManyCL_IIRsOnR4700(ComponentReference_c[] targets)
@@ -9429,12 +9517,12 @@ ImportedReference_c[] getManyCL_IIRsOnR4700(ComponentReference_c[] targets)
 
 ###### R4701 - Imported Reference *imports* Interface Reference
 
-######  select one <Imported Reference instance> related by <Interface Reference target>->CL_IIR[R4701]
+######  select one {Imported Reference instance} related by {Interface Reference target}->CL_IIR[R4701]
 <pre>
 ImportedReference_c getOneCL_IIROnR4701(InterfaceReference_c target)
 ImportedReference_c getOneCL_IIROnR4701(InterfaceReference_c[] targets)
 </pre>
-######  select many <Imported Reference set> related by <Interface Reference target>->CL_IIR[R4701]
+######  select many {Imported Reference set} related by {Interface Reference target}->CL_IIR[R4701]
 <pre>
 ImportedReference_c[] getManyCL_IIRsOnR4701(InterfaceReference_c target)
 ImportedReference_c[] getManyCL_IIRsOnR4701(InterfaceReference_c[] targets)
@@ -9442,31 +9530,32 @@ ImportedReference_c[] getManyCL_IIRsOnR4701(InterfaceReference_c[] targets)
 
 ###### R4704 - Imported Reference *accepts communication through* Delegation
 
-######  select one <Imported Reference instance> related by <Delegation target>->CL_IIR[R4704]
+######  select one {Imported Reference instance} related by {Delegation target}->CL_IIR[R4704]
 <pre>
 ImportedReference_c getOneCL_IIROnR4704(Delegation_c target)
 ImportedReference_c getOneCL_IIROnR4704(Delegation_c[] targets)
 </pre>
-######  select many <Imported Reference set> related by <Delegation target>->CL_IIR[R4704]
+######  select many {Imported Reference set} related by {Delegation target}->CL_IIR[R4704]
 <pre>
 ImportedReference_c[] getManyCL_IIRsOnR4704(Delegation_c target)
 ImportedReference_c[] getManyCL_IIRsOnR4704(Delegation_c[] targets)
 </pre>
+###### R4703 (Subtype)
 
-######  select one <Imported Reference instance> related by <Imported Provision target>->CL_IIR[R4703]
+######  select one {Imported Reference instance} related by {Imported Provision target}->CL_IIR[R4703]
 <pre>
 ImportedReference_c getOneCL_IIROnR4703(ImportedProvision_c target)
 </pre>
-######  select many <Imported Reference set> related by <Imported Provision target set>->CL_IIR[R4703]
+######  select many {Imported Reference set} related by {Imported Provision target set}->CL_IIR[R4703]
 <pre>
 ImportedReference_c[] getManyCL_IIRsOnR4703(ImportedProvision_c[] targets)
 </pre>
 
-######  select one <Imported Reference instance> related by <Imported Requirement target>->CL_IIR[R4703]
+######  select one {Imported Reference instance} related by {Imported Requirement target}->CL_IIR[R4703]
 <pre>
 ImportedReference_c getOneCL_IIROnR4703(ImportedRequirement_c target)
 </pre>
-######  select many <Imported Reference set> related by <Imported Requirement target set>->CL_IIR[R4703]
+######  select many {Imported Reference set} related by {Imported Requirement target set}->CL_IIR[R4703]
 <pre>
 ImportedReference_c[] getManyCL_IIRsOnR4703(ImportedRequirement_c[] targets)
 </pre>
@@ -9486,23 +9575,23 @@ ImportedReference_c[] getManyCL_IIRsOnR4703(ImportedRequirement_c[] targets)
 
 ###### R4705 - Satisfaction *satisfaction made with* Imported Provision (via Imported Provision In Satisfaction)
 
-######  select one <Imported Provision In Satisfaction instance> related by <Satisfaction target>->CL_IPINS[R4705]
+######  select one {Imported Provision In Satisfaction instance} related by {Satisfaction target}->CL_IPINS[R4705]
 <pre>
 ImportedProvisionInSatisfaction_c getOneCL_IPINSOnR4705(Satisfaction_c target)
 ImportedProvisionInSatisfaction_c getOneCL_IPINSOnR4705(Satisfaction_c[] targets)
 </pre>
-######  select many <Imported Provision In Satisfaction set> related by <Satisfaction target>->CL_IPINS[R4705]
+######  select many {Imported Provision In Satisfaction set} related by {Satisfaction target}->CL_IPINS[R4705]
 <pre>
 ImportedProvisionInSatisfaction_c[] getManyCL_IPINSsOnR4705(Satisfaction_c target)
 ImportedProvisionInSatisfaction_c[] getManyCL_IPINSsOnR4705(Satisfaction_c[] targets)
 </pre>
 
-######  select one <Imported Provision In Satisfaction instance> related by <Imported Provision target>->CL_IPINS[R4705]
+######  select one {Imported Provision In Satisfaction instance} related by {Imported Provision target}->CL_IPINS[R4705]
 <pre>
 ImportedProvisionInSatisfaction_c getOneCL_IPINSOnR4705(ImportedProvision_c target)
 ImportedProvisionInSatisfaction_c getOneCL_IPINSOnR4705(ImportedProvision_c[] targets)
 </pre>
-######  select many <Imported Provision In Satisfaction set> related by <Imported Provision target>->CL_IPINS[R4705]
+######  select many {Imported Provision In Satisfaction set} related by {Imported Provision target}->CL_IPINS[R4705]
 <pre>
 ImportedProvisionInSatisfaction_c[] getManyCL_IPINSsOnR4705(ImportedProvision_c target)
 ImportedProvisionInSatisfaction_c[] getManyCL_IPINSsOnR4705(ImportedProvision_c[] targets)
@@ -9520,10 +9609,10 @@ ImportedProvisionInSatisfaction_c[] getManyCL_IPINSsOnR4705(ImportedProvision_c[
 
 <pre>
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -9534,33 +9623,34 @@ ImportedProvisionInSatisfaction_c[] getManyCL_IPINSsOnR4705(ImportedProvision_c[
 
 ###### R4705 - Imported Provision *provides satisfaction through* Satisfaction (via Imported Provision In Satisfaction)
 
-######  select one <Imported Provision instance> related by <Imported Provision In Satisfaction target>->CL_IP[R4705]
+######  select one {Imported Provision instance} related by {Imported Provision In Satisfaction target}->CL_IP[R4705]
 <pre>
 ImportedProvision_c getOneCL_IPOnR4705(ImportedProvisionInSatisfaction_c target)
 ImportedProvision_c getOneCL_IPOnR4705(ImportedProvisionInSatisfaction_c[] targets)
 </pre>
-######  select many <Imported Provision set> related by <Imported Provision In Satisfaction target>->CL_IP[R4705]
+######  select many {Imported Provision set} related by {Imported Provision In Satisfaction target}->CL_IP[R4705]
 <pre>
 ImportedProvision_c[] getManyCL_IPsOnR4705(ImportedProvisionInSatisfaction_c target)
 ImportedProvision_c[] getManyCL_IPsOnR4705(ImportedProvisionInSatisfaction_c[] targets)
 </pre>
 
-######  select one <Imported Provision instance> related by <Satisfaction target>->CL_IP[R4705]
+######  select one {Imported Provision instance} related by {Satisfaction target}->CL_IP[R4705]
 <pre>
 ImportedProvision_c getOneCL_IPOnR4705(Satisfaction_c target)
 ImportedProvision_c getOneCL_IPOnR4705(Satisfaction_c[] targets)
 </pre>
-######  select many <Imported Provision set> related by <Satisfaction target>->CL_IP[R4705]
+######  select many {Imported Provision set} related by {Satisfaction target}->CL_IP[R4705]
 <pre>
 ImportedProvision_c[] getManyCL_IPsOnR4705(Satisfaction_c target)
 ImportedProvision_c[] getManyCL_IPsOnR4705(Satisfaction_c[] targets)
 </pre>
+###### R4703 (Subtype)
 
-######  select one <Imported Provision instance> related by <Imported Reference target>->CL_IP[R4703]
+######  select one {Imported Provision instance} related by {Imported Reference target}->CL_IP[R4703]
 <pre>
 ImportedProvision_c getOneCL_IPOnR4703(ImportedReference_c target)
 </pre>
-######  select many <Imported Provision set> related by <Imported Reference target>->CL_IP[R4703]
+######  select many {Imported Provision set} related by {Imported Reference target}->CL_IP[R4703]
 <pre>
 ImportedProvision_c[] getManyCL_IPsOnR4703(ImportedReference_c[] targets)
 </pre>
@@ -9577,16 +9667,16 @@ ImportedProvision_c[] getManyCL_IPsOnR4703(ImportedReference_c[] targets)
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
   -  String      	getClassifiername()
-  - void			setClassifiername(String       newValue)
+  -  void			setClassifiername(String       newValue)
 
   -  String      	getName()
-  - void			setName(String       newValue)
+  -  void			setName(String       newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -9597,12 +9687,12 @@ ImportedProvision_c[] getManyCL_IPsOnR4703(ImportedReference_c[] targets)
 
 ###### R4605 - Component Reference *exists in* Component Package
 
-######  select one <Component Reference instance> related by <Component Package target>->CL_IC[R4605]
+######  select one {Component Reference instance} related by {Component Package target}->CL_IC[R4605]
 <pre>
 ComponentReference_c getOneCL_ICOnR4605(ComponentPackage_c target)
 ComponentReference_c getOneCL_ICOnR4605(ComponentPackage_c[] targets)
 </pre>
-######  select many <Component Reference set> related by <Component Package target>->CL_IC[R4605]
+######  select many {Component Reference set} related by {Component Package target}->CL_IC[R4605]
 <pre>
 ComponentReference_c[] getManyCL_ICsOnR4605(ComponentPackage_c target)
 ComponentReference_c[] getManyCL_ICsOnR4605(ComponentPackage_c[] targets)
@@ -9610,12 +9700,12 @@ ComponentReference_c[] getManyCL_ICsOnR4605(ComponentPackage_c[] targets)
 
 ###### R4700 - Component Reference *communicates through* Imported Reference
 
-######  select one <Component Reference instance> related by <Imported Reference target>->CL_IC[R4700]
+######  select one {Component Reference instance} related by {Imported Reference target}->CL_IC[R4700]
 <pre>
 ComponentReference_c getOneCL_ICOnR4700(ImportedReference_c target)
 ComponentReference_c getOneCL_ICOnR4700(ImportedReference_c[] targets)
 </pre>
-######  select many <Component Reference set> related by <Imported Reference target>->CL_IC[R4700]
+######  select many {Component Reference set} related by {Imported Reference target}->CL_IC[R4700]
 <pre>
 ComponentReference_c[] getManyCL_ICsOnR4700(ImportedReference_c target)
 ComponentReference_c[] getManyCL_ICsOnR4700(ImportedReference_c[] targets)
@@ -9623,12 +9713,12 @@ ComponentReference_c[] getManyCL_ICsOnR4700(ImportedReference_c[] targets)
 
 ###### R2963 - Component Reference *instance being verified by* Component Instance
 
-######  select one <Component Reference instance> related by <Component Instance target>->CL_IC[R2963]
+######  select one {Component Reference instance} related by {Component Instance target}->CL_IC[R2963]
 <pre>
 ComponentReference_c getOneCL_ICOnR2963(ComponentInstance_c target)
 ComponentReference_c getOneCL_ICOnR2963(ComponentInstance_c[] targets)
 </pre>
-######  select many <Component Reference set> related by <Component Instance target>->CL_IC[R2963]
+######  select many {Component Reference set} related by {Component Instance target}->CL_IC[R2963]
 <pre>
 ComponentReference_c[] getManyCL_ICsOnR2963(ComponentInstance_c target)
 ComponentReference_c[] getManyCL_ICsOnR2963(ComponentInstance_c[] targets)
@@ -9636,12 +9726,12 @@ ComponentReference_c[] getManyCL_ICsOnR2963(ComponentInstance_c[] targets)
 
 ###### R4201 - Component Reference *represents* Component
 
-######  select one <Component Reference instance> related by <Component target>->CL_IC[R4201]
+######  select one {Component Reference instance} related by {Component target}->CL_IC[R4201]
 <pre>
 ComponentReference_c getOneCL_ICOnR4201(Component_c target)
 ComponentReference_c getOneCL_ICOnR4201(Component_c[] targets)
 </pre>
-######  select many <Component Reference set> related by <Component target>->CL_IC[R4201]
+######  select many {Component Reference set} related by {Component target}->CL_IC[R4201]
 <pre>
 ComponentReference_c[] getManyCL_ICsOnR4201(Component_c target)
 ComponentReference_c[] getManyCL_ICsOnR4201(Component_c[] targets)
@@ -9649,22 +9739,23 @@ ComponentReference_c[] getManyCL_ICsOnR4201(Component_c[] targets)
 
 ###### R4205 - Component Reference *nested in* Component
 
-######  select one <Component Reference instance> related by <Component target>->CL_IC[R4205]
+######  select one {Component Reference instance} related by {Component target}->CL_IC[R4205]
 <pre>
 ComponentReference_c getOneCL_ICOnR4205(Component_c target)
 ComponentReference_c getOneCL_ICOnR4205(Component_c[] targets)
 </pre>
-######  select many <Component Reference set> related by <Component target>->CL_IC[R4205]
+######  select many {Component Reference set} related by {Component target}->CL_IC[R4205]
 <pre>
 ComponentReference_c[] getManyCL_ICsOnR4205(Component_c target)
 ComponentReference_c[] getManyCL_ICsOnR4205(Component_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Component Reference instance> related by <Packageable Element target>->CL_IC[R8001]
+######  select one {Component Reference instance} related by {Packageable Element target}->CL_IC[R8001]
 <pre>
 ComponentReference_c getOneCL_ICOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Component Reference set> related by <Packageable Element target>->CL_IC[R8001]
+######  select many {Component Reference set} related by {Packageable Element target}->CL_IC[R8001]
 <pre>
 ComponentReference_c[] getManyCL_ICsOnR8001(PackageableElement_c[] targets)
 </pre>
@@ -9684,12 +9775,12 @@ ComponentReference_c[] getManyCL_ICsOnR8001(PackageableElement_c[] targets)
 
 ###### R409 - SM to SM Event Comm *represents communication of* State Machine Event
 
-######  select one <SM to SM Event Comm instance> related by <State Machine Event target>->CA_SMSME[R409]
+######  select one {SM to SM Event Comm instance} related by {State Machine Event target}->CA_SMSME[R409]
 <pre>
 SmToSmEventComm_c getOneCA_SMSMEOnR409(StateMachineEvent_c target)
 SmToSmEventComm_c getOneCA_SMSMEOnR409(StateMachineEvent_c[] targets)
 </pre>
-######  select many <SM to SM Event Comm set> related by <State Machine Event target>->CA_SMSME[R409]
+######  select many {SM to SM Event Comm set} related by {State Machine Event target}->CA_SMSME[R409]
 <pre>
 SmToSmEventComm_c[] getManyCA_SMSMEsOnR409(StateMachineEvent_c target)
 SmToSmEventComm_c[] getManyCA_SMSMEsOnR409(StateMachineEvent_c[] targets)
@@ -9697,12 +9788,12 @@ SmToSmEventComm_c[] getManyCA_SMSMEsOnR409(StateMachineEvent_c[] targets)
 
 ###### R408 - SM to SM Event Comm *is carried by* SM to SM Comm Path
 
-######  select one <SM to SM Event Comm instance> related by <SM to SM Comm Path target>->CA_SMSME[R408]
+######  select one {SM to SM Event Comm instance} related by {SM to SM Comm Path target}->CA_SMSME[R408]
 <pre>
 SmToSmEventComm_c getOneCA_SMSMEOnR408(SmToSmCommPath_c target)
 SmToSmEventComm_c getOneCA_SMSMEOnR408(SmToSmCommPath_c[] targets)
 </pre>
-######  select many <SM to SM Event Comm set> related by <SM to SM Comm Path target>->CA_SMSME[R408]
+######  select many {SM to SM Event Comm set} related by {SM to SM Comm Path target}->CA_SMSME[R408]
 <pre>
 SmToSmEventComm_c[] getManyCA_SMSMEsOnR408(SmToSmCommPath_c target)
 SmToSmEventComm_c[] getManyCA_SMSMEsOnR408(SmToSmCommPath_c[] targets)
@@ -9723,12 +9814,12 @@ SmToSmEventComm_c[] getManyCA_SMSMEsOnR408(SmToSmCommPath_c[] targets)
 
 ###### R414 - SM to SM Comm Path *destination SM can be represented by* Imported Class
 
-######  select one <SM to SM Comm Path instance> related by <Imported Class target>->CA_SMSMC[R414]
+######  select one {SM to SM Comm Path instance} related by {Imported Class target}->CA_SMSMC[R414]
 <pre>
 SmToSmCommPath_c getOneCA_SMSMCOnR414(ImportedClass_c target)
 SmToSmCommPath_c getOneCA_SMSMCOnR414(ImportedClass_c[] targets)
 </pre>
-######  select many <SM to SM Comm Path set> related by <Imported Class target>->CA_SMSMC[R414]
+######  select many {SM to SM Comm Path set} related by {Imported Class target}->CA_SMSMC[R414]
 <pre>
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR414(ImportedClass_c target)
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR414(ImportedClass_c[] targets)
@@ -9736,12 +9827,12 @@ SmToSmCommPath_c[] getManyCA_SMSMCsOnR414(ImportedClass_c[] targets)
 
 ###### R424 - SM to SM Comm Path *origination SM can be represented by* Imported Class
 
-######  select one <SM to SM Comm Path instance> related by <Imported Class target>->CA_SMSMC[R424]
+######  select one {SM to SM Comm Path instance} related by {Imported Class target}->CA_SMSMC[R424]
 <pre>
 SmToSmCommPath_c getOneCA_SMSMCOnR424(ImportedClass_c target)
 SmToSmCommPath_c getOneCA_SMSMCOnR424(ImportedClass_c[] targets)
 </pre>
-######  select many <SM to SM Comm Path set> related by <Imported Class target>->CA_SMSMC[R424]
+######  select many {SM to SM Comm Path set} related by {Imported Class target}->CA_SMSMC[R424]
 <pre>
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR424(ImportedClass_c target)
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR424(ImportedClass_c[] targets)
@@ -9749,12 +9840,12 @@ SmToSmCommPath_c[] getManyCA_SMSMCsOnR424(ImportedClass_c[] targets)
 
 ###### R406 - SM to SM Comm Path *originates from* State Machine
 
-######  select one <SM to SM Comm Path instance> related by <State Machine target>->CA_SMSMC[R406]
+######  select one {SM to SM Comm Path instance} related by {State Machine target}->CA_SMSMC[R406]
 <pre>
 SmToSmCommPath_c getOneCA_SMSMCOnR406(StateMachine_c target)
 SmToSmCommPath_c getOneCA_SMSMCOnR406(StateMachine_c[] targets)
 </pre>
-######  select many <SM to SM Comm Path set> related by <State Machine target>->CA_SMSMC[R406]
+######  select many {SM to SM Comm Path set} related by {State Machine target}->CA_SMSMC[R406]
 <pre>
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR406(StateMachine_c target)
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR406(StateMachine_c[] targets)
@@ -9762,12 +9853,12 @@ SmToSmCommPath_c[] getManyCA_SMSMCsOnR406(StateMachine_c[] targets)
 
 ###### R407 - SM to SM Comm Path *shows event communication to* State Machine
 
-######  select one <SM to SM Comm Path instance> related by <State Machine target>->CA_SMSMC[R407]
+######  select one {SM to SM Comm Path instance} related by {State Machine target}->CA_SMSMC[R407]
 <pre>
 SmToSmCommPath_c getOneCA_SMSMCOnR407(StateMachine_c target)
 SmToSmCommPath_c getOneCA_SMSMCOnR407(StateMachine_c[] targets)
 </pre>
-######  select many <SM to SM Comm Path set> related by <State Machine target>->CA_SMSMC[R407]
+######  select many {SM to SM Comm Path set} related by {State Machine target}->CA_SMSMC[R407]
 <pre>
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR407(StateMachine_c target)
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR407(StateMachine_c[] targets)
@@ -9775,22 +9866,23 @@ SmToSmCommPath_c[] getManyCA_SMSMCsOnR407(StateMachine_c[] targets)
 
 ###### R408 - SM to SM Comm Path *carries* SM to SM Event Comm
 
-######  select one <SM to SM Comm Path instance> related by <SM to SM Event Comm target>->CA_SMSMC[R408]
+######  select one {SM to SM Comm Path instance} related by {SM to SM Event Comm target}->CA_SMSMC[R408]
 <pre>
 SmToSmCommPath_c getOneCA_SMSMCOnR408(SmToSmEventComm_c target)
 SmToSmCommPath_c getOneCA_SMSMCOnR408(SmToSmEventComm_c[] targets)
 </pre>
-######  select many <SM to SM Comm Path set> related by <SM to SM Event Comm target>->CA_SMSMC[R408]
+######  select many {SM to SM Comm Path set} related by {SM to SM Event Comm target}->CA_SMSMC[R408]
 <pre>
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR408(SmToSmEventComm_c target)
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR408(SmToSmEventComm_c[] targets)
 </pre>
+###### R401 (Subtype)
 
-######  select one <SM to SM Comm Path instance> related by <Communication Path target>->CA_SMSMC[R401]
+######  select one {SM to SM Comm Path instance} related by {Communication Path target}->CA_SMSMC[R401]
 <pre>
 SmToSmCommPath_c getOneCA_SMSMCOnR401(CommunicationPath_c target)
 </pre>
-######  select many <SM to SM Comm Path set> related by <Communication Path target>->CA_SMSMC[R401]
+######  select many {SM to SM Comm Path set} related by {Communication Path target}->CA_SMSMC[R401]
 <pre>
 SmToSmCommPath_c[] getManyCA_SMSMCsOnR401(CommunicationPath_c[] targets)
 </pre>
@@ -9810,12 +9902,12 @@ SmToSmCommPath_c[] getManyCA_SMSMCsOnR401(CommunicationPath_c[] targets)
 
 ###### R419 - SM to OBJ Attribute Access *represents access of* Attribute
 
-######  select one <SM to OBJ Attribute Access instance> related by <Attribute target>->CA_SMOAA[R419]
+######  select one {SM to OBJ Attribute Access instance} related by {Attribute target}->CA_SMOAA[R419]
 <pre>
 SmToObjAttributeAccess_c getOneCA_SMOAAOnR419(Attribute_c target)
 SmToObjAttributeAccess_c getOneCA_SMOAAOnR419(Attribute_c[] targets)
 </pre>
-######  select many <SM to OBJ Attribute Access set> related by <Attribute target>->CA_SMOAA[R419]
+######  select many {SM to OBJ Attribute Access set} related by {Attribute target}->CA_SMOAA[R419]
 <pre>
 SmToObjAttributeAccess_c[] getManyCA_SMOAAsOnR419(Attribute_c target)
 SmToObjAttributeAccess_c[] getManyCA_SMOAAsOnR419(Attribute_c[] targets)
@@ -9823,12 +9915,12 @@ SmToObjAttributeAccess_c[] getManyCA_SMOAAsOnR419(Attribute_c[] targets)
 
 ###### R418 - SM to OBJ Attribute Access *is carried by * SM to OBJ Access Path
 
-######  select one <SM to OBJ Attribute Access instance> related by <SM to OBJ Access Path target>->CA_SMOAA[R418]
+######  select one {SM to OBJ Attribute Access instance} related by {SM to OBJ Access Path target}->CA_SMOAA[R418]
 <pre>
 SmToObjAttributeAccess_c getOneCA_SMOAAOnR418(SmToObjAccessPath_c target)
 SmToObjAttributeAccess_c getOneCA_SMOAAOnR418(SmToObjAccessPath_c[] targets)
 </pre>
-######  select many <SM to OBJ Attribute Access set> related by <SM to OBJ Access Path target>->CA_SMOAA[R418]
+######  select many {SM to OBJ Attribute Access set} related by {SM to OBJ Access Path target}->CA_SMOAA[R418]
 <pre>
 SmToObjAttributeAccess_c[] getManyCA_SMOAAsOnR418(SmToObjAccessPath_c target)
 SmToObjAttributeAccess_c[] getManyCA_SMOAAsOnR418(SmToObjAccessPath_c[] targets)
@@ -9849,12 +9941,12 @@ SmToObjAttributeAccess_c[] getManyCA_SMOAAsOnR418(SmToObjAccessPath_c[] targets)
 
 ###### R417 - SM to OBJ Access Path *shows accesses of data from* Model Class
 
-######  select one <SM to OBJ Access Path instance> related by <Model Class target>->CA_SMOA[R417]
+######  select one {SM to OBJ Access Path instance} related by {Model Class target}->CA_SMOA[R417]
 <pre>
 SmToObjAccessPath_c getOneCA_SMOAOnR417(ModelClass_c target)
 SmToObjAccessPath_c getOneCA_SMOAOnR417(ModelClass_c[] targets)
 </pre>
-######  select many <SM to OBJ Access Path set> related by <Model Class target>->CA_SMOA[R417]
+######  select many {SM to OBJ Access Path set} related by {Model Class target}->CA_SMOA[R417]
 <pre>
 SmToObjAccessPath_c[] getManyCA_SMOAsOnR417(ModelClass_c target)
 SmToObjAccessPath_c[] getManyCA_SMOAsOnR417(ModelClass_c[] targets)
@@ -9862,12 +9954,12 @@ SmToObjAccessPath_c[] getManyCA_SMOAsOnR417(ModelClass_c[] targets)
 
 ###### R420 - SM to OBJ Access Path *destination OBJ can be represented by* Imported Class
 
-######  select one <SM to OBJ Access Path instance> related by <Imported Class target>->CA_SMOA[R420]
+######  select one {SM to OBJ Access Path instance} related by {Imported Class target}->CA_SMOA[R420]
 <pre>
 SmToObjAccessPath_c getOneCA_SMOAOnR420(ImportedClass_c target)
 SmToObjAccessPath_c getOneCA_SMOAOnR420(ImportedClass_c[] targets)
 </pre>
-######  select many <SM to OBJ Access Path set> related by <Imported Class target>->CA_SMOA[R420]
+######  select many {SM to OBJ Access Path set} related by {Imported Class target}->CA_SMOA[R420]
 <pre>
 SmToObjAccessPath_c[] getManyCA_SMOAsOnR420(ImportedClass_c target)
 SmToObjAccessPath_c[] getManyCA_SMOAsOnR420(ImportedClass_c[] targets)
@@ -9875,22 +9967,23 @@ SmToObjAccessPath_c[] getManyCA_SMOAsOnR420(ImportedClass_c[] targets)
 
 ###### R418 - SM to OBJ Access Path *carries* SM to OBJ Attribute Access
 
-######  select one <SM to OBJ Access Path instance> related by <SM to OBJ Attribute Access target>->CA_SMOA[R418]
+######  select one {SM to OBJ Access Path instance} related by {SM to OBJ Attribute Access target}->CA_SMOA[R418]
 <pre>
 SmToObjAccessPath_c getOneCA_SMOAOnR418(SmToObjAttributeAccess_c target)
 SmToObjAccessPath_c getOneCA_SMOAOnR418(SmToObjAttributeAccess_c[] targets)
 </pre>
-######  select many <SM to OBJ Access Path set> related by <SM to OBJ Attribute Access target>->CA_SMOA[R418]
+######  select many {SM to OBJ Access Path set} related by {SM to OBJ Attribute Access target}->CA_SMOA[R418]
 <pre>
 SmToObjAccessPath_c[] getManyCA_SMOAsOnR418(SmToObjAttributeAccess_c target)
 SmToObjAccessPath_c[] getManyCA_SMOAsOnR418(SmToObjAttributeAccess_c[] targets)
 </pre>
+###### R415 (Subtype)
 
-######  select one <SM to OBJ Access Path instance> related by <Access Path target>->CA_SMOA[R415]
+######  select one {SM to OBJ Access Path instance} related by {Access Path target}->CA_SMOA[R415]
 <pre>
 SmToObjAccessPath_c getOneCA_SMOAOnR415(AccessPath_c target)
 </pre>
-######  select many <SM to OBJ Access Path set> related by <Access Path target>->CA_SMOA[R415]
+######  select many {SM to OBJ Access Path set} related by {Access Path target}->CA_SMOA[R415]
 <pre>
 SmToObjAccessPath_c[] getManyCA_SMOAsOnR415(AccessPath_c[] targets)
 </pre>
@@ -9910,12 +10003,12 @@ SmToObjAccessPath_c[] getManyCA_SMOAsOnR415(AccessPath_c[] targets)
 
 ###### R413 - SM to EE Event Comm *represents communication of* External Entity Event
 
-######  select one <SM to EE Event Comm instance> related by <External Entity Event target>->CA_SMEEE[R413]
+######  select one {SM to EE Event Comm instance} related by {External Entity Event target}->CA_SMEEE[R413]
 <pre>
 SmToEeEventComm_c getOneCA_SMEEEOnR413(ExternalEntityEvent_c target)
 SmToEeEventComm_c getOneCA_SMEEEOnR413(ExternalEntityEvent_c[] targets)
 </pre>
-######  select many <SM to EE Event Comm set> related by <External Entity Event target>->CA_SMEEE[R413]
+######  select many {SM to EE Event Comm set} related by {External Entity Event target}->CA_SMEEE[R413]
 <pre>
 SmToEeEventComm_c[] getManyCA_SMEEEsOnR413(ExternalEntityEvent_c target)
 SmToEeEventComm_c[] getManyCA_SMEEEsOnR413(ExternalEntityEvent_c[] targets)
@@ -9923,12 +10016,12 @@ SmToEeEventComm_c[] getManyCA_SMEEEsOnR413(ExternalEntityEvent_c[] targets)
 
 ###### R412 - SM to EE Event Comm *is carried by* SM to EE Comm Path
 
-######  select one <SM to EE Event Comm instance> related by <SM to EE Comm Path target>->CA_SMEEE[R412]
+######  select one {SM to EE Event Comm instance} related by {SM to EE Comm Path target}->CA_SMEEE[R412]
 <pre>
 SmToEeEventComm_c getOneCA_SMEEEOnR412(SmToEeCommPath_c target)
 SmToEeEventComm_c getOneCA_SMEEEOnR412(SmToEeCommPath_c[] targets)
 </pre>
-######  select many <SM to EE Event Comm set> related by <SM to EE Comm Path target>->CA_SMEEE[R412]
+######  select many {SM to EE Event Comm set} related by {SM to EE Comm Path target}->CA_SMEEE[R412]
 <pre>
 SmToEeEventComm_c[] getManyCA_SMEEEsOnR412(SmToEeCommPath_c target)
 SmToEeEventComm_c[] getManyCA_SMEEEsOnR412(SmToEeCommPath_c[] targets)
@@ -9949,12 +10042,12 @@ SmToEeEventComm_c[] getManyCA_SMEEEsOnR412(SmToEeCommPath_c[] targets)
 
 ###### R423 - SM to EE Data Item Access *represents access of* External Entity Data Item
 
-######  select one <SM to EE Data Item Access instance> related by <External Entity Data Item target>->CA_SMEED[R423]
+######  select one {SM to EE Data Item Access instance} related by {External Entity Data Item target}->CA_SMEED[R423]
 <pre>
 SmToEeDataItemAccess_c getOneCA_SMEEDOnR423(ExternalEntityDataItem_c target)
 SmToEeDataItemAccess_c getOneCA_SMEEDOnR423(ExternalEntityDataItem_c[] targets)
 </pre>
-######  select many <SM to EE Data Item Access set> related by <External Entity Data Item target>->CA_SMEED[R423]
+######  select many {SM to EE Data Item Access set} related by {External Entity Data Item target}->CA_SMEED[R423]
 <pre>
 SmToEeDataItemAccess_c[] getManyCA_SMEEDsOnR423(ExternalEntityDataItem_c target)
 SmToEeDataItemAccess_c[] getManyCA_SMEEDsOnR423(ExternalEntityDataItem_c[] targets)
@@ -9962,12 +10055,12 @@ SmToEeDataItemAccess_c[] getManyCA_SMEEDsOnR423(ExternalEntityDataItem_c[] targe
 
 ###### R422 - SM to EE Data Item Access *is carried by* SM to EE Access Path
 
-######  select one <SM to EE Data Item Access instance> related by <SM to EE Access Path target>->CA_SMEED[R422]
+######  select one {SM to EE Data Item Access instance} related by {SM to EE Access Path target}->CA_SMEED[R422]
 <pre>
 SmToEeDataItemAccess_c getOneCA_SMEEDOnR422(SmToEeAccessPath_c target)
 SmToEeDataItemAccess_c getOneCA_SMEEDOnR422(SmToEeAccessPath_c[] targets)
 </pre>
-######  select many <SM to EE Data Item Access set> related by <SM to EE Access Path target>->CA_SMEED[R422]
+######  select many {SM to EE Data Item Access set} related by {SM to EE Access Path target}->CA_SMEED[R422]
 <pre>
 SmToEeDataItemAccess_c[] getManyCA_SMEEDsOnR422(SmToEeAccessPath_c target)
 SmToEeDataItemAccess_c[] getManyCA_SMEEDsOnR422(SmToEeAccessPath_c[] targets)
@@ -9988,12 +10081,12 @@ SmToEeDataItemAccess_c[] getManyCA_SMEEDsOnR422(SmToEeAccessPath_c[] targets)
 
 ###### R410 - SM to EE Comm Path *originates from* State Machine
 
-######  select one <SM to EE Comm Path instance> related by <State Machine target>->CA_SMEEC[R410]
+######  select one {SM to EE Comm Path instance} related by {State Machine target}->CA_SMEEC[R410]
 <pre>
 SmToEeCommPath_c getOneCA_SMEECOnR410(StateMachine_c target)
 SmToEeCommPath_c getOneCA_SMEECOnR410(StateMachine_c[] targets)
 </pre>
-######  select many <SM to EE Comm Path set> related by <State Machine target>->CA_SMEEC[R410]
+######  select many {SM to EE Comm Path set} related by {State Machine target}->CA_SMEEC[R410]
 <pre>
 SmToEeCommPath_c[] getManyCA_SMEECsOnR410(StateMachine_c target)
 SmToEeCommPath_c[] getManyCA_SMEECsOnR410(StateMachine_c[] targets)
@@ -10001,12 +10094,12 @@ SmToEeCommPath_c[] getManyCA_SMEECsOnR410(StateMachine_c[] targets)
 
 ###### R411 - SM to EE Comm Path *shows event communication to* External Entity in Model
 
-######  select one <SM to EE Comm Path instance> related by <External Entity in Model target>->CA_SMEEC[R411]
+######  select one {SM to EE Comm Path instance} related by {External Entity in Model target}->CA_SMEEC[R411]
 <pre>
 SmToEeCommPath_c getOneCA_SMEECOnR411(ExternalEntityInModel_c target)
 SmToEeCommPath_c getOneCA_SMEECOnR411(ExternalEntityInModel_c[] targets)
 </pre>
-######  select many <SM to EE Comm Path set> related by <External Entity in Model target>->CA_SMEEC[R411]
+######  select many {SM to EE Comm Path set} related by {External Entity in Model target}->CA_SMEEC[R411]
 <pre>
 SmToEeCommPath_c[] getManyCA_SMEECsOnR411(ExternalEntityInModel_c target)
 SmToEeCommPath_c[] getManyCA_SMEECsOnR411(ExternalEntityInModel_c[] targets)
@@ -10014,22 +10107,23 @@ SmToEeCommPath_c[] getManyCA_SMEECsOnR411(ExternalEntityInModel_c[] targets)
 
 ###### R412 - SM to EE Comm Path *carries* SM to EE Event Comm
 
-######  select one <SM to EE Comm Path instance> related by <SM to EE Event Comm target>->CA_SMEEC[R412]
+######  select one {SM to EE Comm Path instance} related by {SM to EE Event Comm target}->CA_SMEEC[R412]
 <pre>
 SmToEeCommPath_c getOneCA_SMEECOnR412(SmToEeEventComm_c target)
 SmToEeCommPath_c getOneCA_SMEECOnR412(SmToEeEventComm_c[] targets)
 </pre>
-######  select many <SM to EE Comm Path set> related by <SM to EE Event Comm target>->CA_SMEEC[R412]
+######  select many {SM to EE Comm Path set} related by {SM to EE Event Comm target}->CA_SMEEC[R412]
 <pre>
 SmToEeCommPath_c[] getManyCA_SMEECsOnR412(SmToEeEventComm_c target)
 SmToEeCommPath_c[] getManyCA_SMEECsOnR412(SmToEeEventComm_c[] targets)
 </pre>
+###### R401 (Subtype)
 
-######  select one <SM to EE Comm Path instance> related by <Communication Path target>->CA_SMEEC[R401]
+######  select one {SM to EE Comm Path instance} related by {Communication Path target}->CA_SMEEC[R401]
 <pre>
 SmToEeCommPath_c getOneCA_SMEECOnR401(CommunicationPath_c target)
 </pre>
-######  select many <SM to EE Comm Path set> related by <Communication Path target>->CA_SMEEC[R401]
+######  select many {SM to EE Comm Path set} related by {Communication Path target}->CA_SMEEC[R401]
 <pre>
 SmToEeCommPath_c[] getManyCA_SMEECsOnR401(CommunicationPath_c[] targets)
 </pre>
@@ -10049,12 +10143,12 @@ SmToEeCommPath_c[] getManyCA_SMEECsOnR401(CommunicationPath_c[] targets)
 
 ###### R421 - SM to EE Access Path *accesses data of* External Entity in Model
 
-######  select one <SM to EE Access Path instance> related by <External Entity in Model target>->CA_SMEEA[R421]
+######  select one {SM to EE Access Path instance} related by {External Entity in Model target}->CA_SMEEA[R421]
 <pre>
 SmToEeAccessPath_c getOneCA_SMEEAOnR421(ExternalEntityInModel_c target)
 SmToEeAccessPath_c getOneCA_SMEEAOnR421(ExternalEntityInModel_c[] targets)
 </pre>
-######  select many <SM to EE Access Path set> related by <External Entity in Model target>->CA_SMEEA[R421]
+######  select many {SM to EE Access Path set} related by {External Entity in Model target}->CA_SMEEA[R421]
 <pre>
 SmToEeAccessPath_c[] getManyCA_SMEEAsOnR421(ExternalEntityInModel_c target)
 SmToEeAccessPath_c[] getManyCA_SMEEAsOnR421(ExternalEntityInModel_c[] targets)
@@ -10062,22 +10156,23 @@ SmToEeAccessPath_c[] getManyCA_SMEEAsOnR421(ExternalEntityInModel_c[] targets)
 
 ###### R422 - SM to EE Access Path *carries* SM to EE Data Item Access
 
-######  select one <SM to EE Access Path instance> related by <SM to EE Data Item Access target>->CA_SMEEA[R422]
+######  select one {SM to EE Access Path instance} related by {SM to EE Data Item Access target}->CA_SMEEA[R422]
 <pre>
 SmToEeAccessPath_c getOneCA_SMEEAOnR422(SmToEeDataItemAccess_c target)
 SmToEeAccessPath_c getOneCA_SMEEAOnR422(SmToEeDataItemAccess_c[] targets)
 </pre>
-######  select many <SM to EE Access Path set> related by <SM to EE Data Item Access target>->CA_SMEEA[R422]
+######  select many {SM to EE Access Path set} related by {SM to EE Data Item Access target}->CA_SMEEA[R422]
 <pre>
 SmToEeAccessPath_c[] getManyCA_SMEEAsOnR422(SmToEeDataItemAccess_c target)
 SmToEeAccessPath_c[] getManyCA_SMEEAsOnR422(SmToEeDataItemAccess_c[] targets)
 </pre>
+###### R415 (Subtype)
 
-######  select one <SM to EE Access Path instance> related by <Access Path target>->CA_SMEEA[R415]
+######  select one {SM to EE Access Path instance} related by {Access Path target}->CA_SMEEA[R415]
 <pre>
 SmToEeAccessPath_c getOneCA_SMEEAOnR415(AccessPath_c target)
 </pre>
-######  select many <SM to EE Access Path set> related by <Access Path target>->CA_SMEEA[R415]
+######  select many {SM to EE Access Path set} related by {Access Path target}->CA_SMEEA[R415]
 <pre>
 SmToEeAccessPath_c[] getManyCA_SMEEAsOnR415(AccessPath_c[] targets)
 </pre>
@@ -10097,12 +10192,12 @@ SmToEeAccessPath_c[] getManyCA_SMEEAsOnR415(AccessPath_c[] targets)
 
 ###### R405 - EE to SM Event Comm *represents communication of* State Machine Event
 
-######  select one <EE to SM Event Comm instance> related by <State Machine Event target>->CA_EESME[R405]
+######  select one {EE to SM Event Comm instance} related by {State Machine Event target}->CA_EESME[R405]
 <pre>
 EeToSmEventComm_c getOneCA_EESMEOnR405(StateMachineEvent_c target)
 EeToSmEventComm_c getOneCA_EESMEOnR405(StateMachineEvent_c[] targets)
 </pre>
-######  select many <EE to SM Event Comm set> related by <State Machine Event target>->CA_EESME[R405]
+######  select many {EE to SM Event Comm set} related by {State Machine Event target}->CA_EESME[R405]
 <pre>
 EeToSmEventComm_c[] getManyCA_EESMEsOnR405(StateMachineEvent_c target)
 EeToSmEventComm_c[] getManyCA_EESMEsOnR405(StateMachineEvent_c[] targets)
@@ -10110,12 +10205,12 @@ EeToSmEventComm_c[] getManyCA_EESMEsOnR405(StateMachineEvent_c[] targets)
 
 ###### R404 - EE to SM Event Comm *is carried by* EE to SM Comm Path
 
-######  select one <EE to SM Event Comm instance> related by <EE to SM Comm Path target>->CA_EESME[R404]
+######  select one {EE to SM Event Comm instance} related by {EE to SM Comm Path target}->CA_EESME[R404]
 <pre>
 EeToSmEventComm_c getOneCA_EESMEOnR404(EeToSmCommPath_c target)
 EeToSmEventComm_c getOneCA_EESMEOnR404(EeToSmCommPath_c[] targets)
 </pre>
-######  select many <EE to SM Event Comm set> related by <EE to SM Comm Path target>->CA_EESME[R404]
+######  select many {EE to SM Event Comm set} related by {EE to SM Comm Path target}->CA_EESME[R404]
 <pre>
 EeToSmEventComm_c[] getManyCA_EESMEsOnR404(EeToSmCommPath_c target)
 EeToSmEventComm_c[] getManyCA_EESMEsOnR404(EeToSmCommPath_c[] targets)
@@ -10136,12 +10231,12 @@ EeToSmEventComm_c[] getManyCA_EESMEsOnR404(EeToSmCommPath_c[] targets)
 
 ###### R403 - EE to SM Comm Path *shows event communication to* State Machine
 
-######  select one <EE to SM Comm Path instance> related by <State Machine target>->CA_EESMC[R403]
+######  select one {EE to SM Comm Path instance} related by {State Machine target}->CA_EESMC[R403]
 <pre>
 EeToSmCommPath_c getOneCA_EESMCOnR403(StateMachine_c target)
 EeToSmCommPath_c getOneCA_EESMCOnR403(StateMachine_c[] targets)
 </pre>
-######  select many <EE to SM Comm Path set> related by <State Machine target>->CA_EESMC[R403]
+######  select many {EE to SM Comm Path set} related by {State Machine target}->CA_EESMC[R403]
 <pre>
 EeToSmCommPath_c[] getManyCA_EESMCsOnR403(StateMachine_c target)
 EeToSmCommPath_c[] getManyCA_EESMCsOnR403(StateMachine_c[] targets)
@@ -10149,12 +10244,12 @@ EeToSmCommPath_c[] getManyCA_EESMCsOnR403(StateMachine_c[] targets)
 
 ###### R402 - EE to SM Comm Path *originates from* External Entity in Model
 
-######  select one <EE to SM Comm Path instance> related by <External Entity in Model target>->CA_EESMC[R402]
+######  select one {EE to SM Comm Path instance} related by {External Entity in Model target}->CA_EESMC[R402]
 <pre>
 EeToSmCommPath_c getOneCA_EESMCOnR402(ExternalEntityInModel_c target)
 EeToSmCommPath_c getOneCA_EESMCOnR402(ExternalEntityInModel_c[] targets)
 </pre>
-######  select many <EE to SM Comm Path set> related by <External Entity in Model target>->CA_EESMC[R402]
+######  select many {EE to SM Comm Path set} related by {External Entity in Model target}->CA_EESMC[R402]
 <pre>
 EeToSmCommPath_c[] getManyCA_EESMCsOnR402(ExternalEntityInModel_c target)
 EeToSmCommPath_c[] getManyCA_EESMCsOnR402(ExternalEntityInModel_c[] targets)
@@ -10162,22 +10257,23 @@ EeToSmCommPath_c[] getManyCA_EESMCsOnR402(ExternalEntityInModel_c[] targets)
 
 ###### R404 - EE to SM Comm Path *carries* EE to SM Event Comm
 
-######  select one <EE to SM Comm Path instance> related by <EE to SM Event Comm target>->CA_EESMC[R404]
+######  select one {EE to SM Comm Path instance} related by {EE to SM Event Comm target}->CA_EESMC[R404]
 <pre>
 EeToSmCommPath_c getOneCA_EESMCOnR404(EeToSmEventComm_c target)
 EeToSmCommPath_c getOneCA_EESMCOnR404(EeToSmEventComm_c[] targets)
 </pre>
-######  select many <EE to SM Comm Path set> related by <EE to SM Event Comm target>->CA_EESMC[R404]
+######  select many {EE to SM Comm Path set} related by {EE to SM Event Comm target}->CA_EESMC[R404]
 <pre>
 EeToSmCommPath_c[] getManyCA_EESMCsOnR404(EeToSmEventComm_c target)
 EeToSmCommPath_c[] getManyCA_EESMCsOnR404(EeToSmEventComm_c[] targets)
 </pre>
+###### R401 (Subtype)
 
-######  select one <EE to SM Comm Path instance> related by <Communication Path target>->CA_EESMC[R401]
+######  select one {EE to SM Comm Path instance} related by {Communication Path target}->CA_EESMC[R401]
 <pre>
 EeToSmCommPath_c getOneCA_EESMCOnR401(CommunicationPath_c target)
 </pre>
-######  select many <EE to SM Comm Path set> related by <Communication Path target>->CA_EESMC[R401]
+######  select many {EE to SM Comm Path set} related by {Communication Path target}->CA_EESMC[R401]
 <pre>
 EeToSmCommPath_c[] getManyCA_EESMCsOnR401(CommunicationPath_c[] targets)
 </pre>
@@ -10194,7 +10290,7 @@ EeToSmCommPath_c[] getManyCA_EESMCsOnR401(CommunicationPath_c[] targets)
 
 <pre>
   -  java.util.UUID        	getCpath_id()
-  - void			setCpath_id(java.util.UUID         newValue)
+  -  void			setCpath_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -10205,40 +10301,41 @@ EeToSmCommPath_c[] getManyCA_EESMCsOnR401(CommunicationPath_c[] targets)
 
 ###### R5 - Communication Path *abstracts asynchronous communication between classes in* Subsystem
 
-######  select one <Communication Path instance> related by <Subsystem target>->CA_COMM[R5]
+######  select one {Communication Path instance} related by {Subsystem target}->CA_COMM[R5]
 <pre>
 CommunicationPath_c getOneCA_COMMOnR5(Subsystem_c target)
 CommunicationPath_c getOneCA_COMMOnR5(Subsystem_c[] targets)
 </pre>
-######  select many <Communication Path set> related by <Subsystem target>->CA_COMM[R5]
+######  select many {Communication Path set} related by {Subsystem target}->CA_COMM[R5]
 <pre>
 CommunicationPath_c[] getManyCA_COMMsOnR5(Subsystem_c target)
 CommunicationPath_c[] getManyCA_COMMsOnR5(Subsystem_c[] targets)
 </pre>
+###### R401 (Subtype)
 
-######  select one <Communication Path instance> related by <EE to SM Comm Path target>->CA_COMM[R401]
+######  select one {Communication Path instance} related by {EE to SM Comm Path target}->CA_COMM[R401]
 <pre>
 CommunicationPath_c getOneCA_COMMOnR401(EeToSmCommPath_c target)
 </pre>
-######  select many <Communication Path set> related by <EE to SM Comm Path target set>->CA_COMM[R401]
+######  select many {Communication Path set} related by {EE to SM Comm Path target set}->CA_COMM[R401]
 <pre>
 CommunicationPath_c[] getManyCA_COMMsOnR401(EeToSmCommPath_c[] targets)
 </pre>
 
-######  select one <Communication Path instance> related by <SM to EE Comm Path target>->CA_COMM[R401]
+######  select one {Communication Path instance} related by {SM to EE Comm Path target}->CA_COMM[R401]
 <pre>
 CommunicationPath_c getOneCA_COMMOnR401(SmToEeCommPath_c target)
 </pre>
-######  select many <Communication Path set> related by <SM to EE Comm Path target set>->CA_COMM[R401]
+######  select many {Communication Path set} related by {SM to EE Comm Path target set}->CA_COMM[R401]
 <pre>
 CommunicationPath_c[] getManyCA_COMMsOnR401(SmToEeCommPath_c[] targets)
 </pre>
 
-######  select one <Communication Path instance> related by <SM to SM Comm Path target>->CA_COMM[R401]
+######  select one {Communication Path instance} related by {SM to SM Comm Path target}->CA_COMM[R401]
 <pre>
 CommunicationPath_c getOneCA_COMMOnR401(SmToSmCommPath_c target)
 </pre>
-######  select many <Communication Path set> related by <SM to SM Comm Path target set>->CA_COMM[R401]
+######  select many {Communication Path set} related by {SM to SM Comm Path target set}->CA_COMM[R401]
 <pre>
 CommunicationPath_c[] getManyCA_COMMsOnR401(SmToSmCommPath_c[] targets)
 </pre>
@@ -10255,7 +10352,7 @@ CommunicationPath_c[] getManyCA_COMMsOnR401(SmToSmCommPath_c[] targets)
 
 <pre>
   -  java.util.UUID        	getApath_id()
-  - void			setApath_id(java.util.UUID         newValue)
+  -  void			setApath_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -10266,12 +10363,12 @@ CommunicationPath_c[] getManyCA_COMMsOnR401(SmToSmCommPath_c[] targets)
 
 ###### R425 - Access Path *origination OBJ can be represented by* Imported Class
 
-######  select one <Access Path instance> related by <Imported Class target>->CA_ACC[R425]
+######  select one {Access Path instance} related by {Imported Class target}->CA_ACC[R425]
 <pre>
 AccessPath_c getOneCA_ACCOnR425(ImportedClass_c target)
 AccessPath_c getOneCA_ACCOnR425(ImportedClass_c[] targets)
 </pre>
-######  select many <Access Path set> related by <Imported Class target>->CA_ACC[R425]
+######  select many {Access Path set} related by {Imported Class target}->CA_ACC[R425]
 <pre>
 AccessPath_c[] getManyCA_ACCsOnR425(ImportedClass_c target)
 AccessPath_c[] getManyCA_ACCsOnR425(ImportedClass_c[] targets)
@@ -10279,12 +10376,12 @@ AccessPath_c[] getManyCA_ACCsOnR425(ImportedClass_c[] targets)
 
 ###### R416 - Access Path *originates from* State Machine
 
-######  select one <Access Path instance> related by <State Machine target>->CA_ACC[R416]
+######  select one {Access Path instance} related by {State Machine target}->CA_ACC[R416]
 <pre>
 AccessPath_c getOneCA_ACCOnR416(StateMachine_c target)
 AccessPath_c getOneCA_ACCOnR416(StateMachine_c[] targets)
 </pre>
-######  select many <Access Path set> related by <State Machine target>->CA_ACC[R416]
+######  select many {Access Path set} related by {State Machine target}->CA_ACC[R416]
 <pre>
 AccessPath_c[] getManyCA_ACCsOnR416(StateMachine_c target)
 AccessPath_c[] getManyCA_ACCsOnR416(StateMachine_c[] targets)
@@ -10292,31 +10389,32 @@ AccessPath_c[] getManyCA_ACCsOnR416(StateMachine_c[] targets)
 
 ###### R6 - Access Path *abstracts synchronous data access between classes in* Subsystem
 
-######  select one <Access Path instance> related by <Subsystem target>->CA_ACC[R6]
+######  select one {Access Path instance} related by {Subsystem target}->CA_ACC[R6]
 <pre>
 AccessPath_c getOneCA_ACCOnR6(Subsystem_c target)
 AccessPath_c getOneCA_ACCOnR6(Subsystem_c[] targets)
 </pre>
-######  select many <Access Path set> related by <Subsystem target>->CA_ACC[R6]
+######  select many {Access Path set} related by {Subsystem target}->CA_ACC[R6]
 <pre>
 AccessPath_c[] getManyCA_ACCsOnR6(Subsystem_c target)
 AccessPath_c[] getManyCA_ACCsOnR6(Subsystem_c[] targets)
 </pre>
+###### R415 (Subtype)
 
-######  select one <Access Path instance> related by <SM to OBJ Access Path target>->CA_ACC[R415]
+######  select one {Access Path instance} related by {SM to OBJ Access Path target}->CA_ACC[R415]
 <pre>
 AccessPath_c getOneCA_ACCOnR415(SmToObjAccessPath_c target)
 </pre>
-######  select many <Access Path set> related by <SM to OBJ Access Path target set>->CA_ACC[R415]
+######  select many {Access Path set} related by {SM to OBJ Access Path target set}->CA_ACC[R415]
 <pre>
 AccessPath_c[] getManyCA_ACCsOnR415(SmToObjAccessPath_c[] targets)
 </pre>
 
-######  select one <Access Path instance> related by <SM to EE Access Path target>->CA_ACC[R415]
+######  select one {Access Path instance} related by {SM to EE Access Path target}->CA_ACC[R415]
 <pre>
 AccessPath_c getOneCA_ACCOnR415(SmToEeAccessPath_c target)
 </pre>
-######  select many <Access Path set> related by <SM to EE Access Path target set>->CA_ACC[R415]
+######  select many {Access Path set} related by {SM to EE Access Path target set}->CA_ACC[R415]
 <pre>
 AccessPath_c[] getManyCA_ACCsOnR415(SmToEeAccessPath_c[] targets)
 </pre>
@@ -10336,12 +10434,12 @@ AccessPath_c[] getManyCA_ACCsOnR415(SmToEeAccessPath_c[] targets)
 
 ###### R212 - Subtype Supertype Association *relates* Class As Supertype
 
-######  select one <Subtype Supertype Association instance> related by <Class As Supertype target>->R_SUBSUP[R212]
+######  select one {Subtype Supertype Association instance} related by {Class As Supertype target}->R_SUBSUP[R212]
 <pre>
 SubtypeSupertypeAssociation_c getOneR_SUBSUPOnR212(ClassAsSupertype_c target)
 SubtypeSupertypeAssociation_c getOneR_SUBSUPOnR212(ClassAsSupertype_c[] targets)
 </pre>
-######  select many <Subtype Supertype Association set> related by <Class As Supertype target>->R_SUBSUP[R212]
+######  select many {Subtype Supertype Association set} related by {Class As Supertype target}->R_SUBSUP[R212]
 <pre>
 SubtypeSupertypeAssociation_c[] getManyR_SUBSUPsOnR212(ClassAsSupertype_c target)
 SubtypeSupertypeAssociation_c[] getManyR_SUBSUPsOnR212(ClassAsSupertype_c[] targets)
@@ -10349,22 +10447,23 @@ SubtypeSupertypeAssociation_c[] getManyR_SUBSUPsOnR212(ClassAsSupertype_c[] targ
 
 ###### R213 - Subtype Supertype Association *relates* Class As Subtype
 
-######  select one <Subtype Supertype Association instance> related by <Class As Subtype target>->R_SUBSUP[R213]
+######  select one {Subtype Supertype Association instance} related by {Class As Subtype target}->R_SUBSUP[R213]
 <pre>
 SubtypeSupertypeAssociation_c getOneR_SUBSUPOnR213(ClassAsSubtype_c target)
 SubtypeSupertypeAssociation_c getOneR_SUBSUPOnR213(ClassAsSubtype_c[] targets)
 </pre>
-######  select many <Subtype Supertype Association set> related by <Class As Subtype target>->R_SUBSUP[R213]
+######  select many {Subtype Supertype Association set} related by {Class As Subtype target}->R_SUBSUP[R213]
 <pre>
 SubtypeSupertypeAssociation_c[] getManyR_SUBSUPsOnR213(ClassAsSubtype_c target)
 SubtypeSupertypeAssociation_c[] getManyR_SUBSUPsOnR213(ClassAsSubtype_c[] targets)
 </pre>
+###### R206 (Subtype)
 
-######  select one <Subtype Supertype Association instance> related by <Association target>->R_SUBSUP[R206]
+######  select one {Subtype Supertype Association instance} related by {Association target}->R_SUBSUP[R206]
 <pre>
 SubtypeSupertypeAssociation_c getOneR_SUBSUPOnR206(Association_c target)
 </pre>
-######  select many <Subtype Supertype Association set> related by <Association target>->R_SUBSUP[R206]
+######  select many {Subtype Supertype Association set} related by {Association target}->R_SUBSUP[R206]
 <pre>
 SubtypeSupertypeAssociation_c[] getManyR_SUBSUPsOnR206(Association_c[] targets)
 </pre>
@@ -10384,12 +10483,12 @@ SubtypeSupertypeAssociation_c[] getManyR_SUBSUPsOnR206(Association_c[] targets)
 
 ###### R207 - Simple Association *relates* Class As Simple Participant
 
-######  select one <Simple Association instance> related by <Class As Simple Participant target>->R_SIMP[R207]
+######  select one {Simple Association instance} related by {Class As Simple Participant target}->R_SIMP[R207]
 <pre>
 SimpleAssociation_c getOneR_SIMPOnR207(ClassAsSimpleParticipant_c target)
 SimpleAssociation_c getOneR_SIMPOnR207(ClassAsSimpleParticipant_c[] targets)
 </pre>
-######  select many <Simple Association set> related by <Class As Simple Participant target>->R_SIMP[R207]
+######  select many {Simple Association set} related by {Class As Simple Participant target}->R_SIMP[R207]
 <pre>
 SimpleAssociation_c[] getManyR_SIMPsOnR207(ClassAsSimpleParticipant_c target)
 SimpleAssociation_c[] getManyR_SIMPsOnR207(ClassAsSimpleParticipant_c[] targets)
@@ -10397,22 +10496,23 @@ SimpleAssociation_c[] getManyR_SIMPsOnR207(ClassAsSimpleParticipant_c[] targets)
 
 ###### R208 - Simple Association *relates* Class As Simple Formalizer
 
-######  select one <Simple Association instance> related by <Class As Simple Formalizer target>->R_SIMP[R208]
+######  select one {Simple Association instance} related by {Class As Simple Formalizer target}->R_SIMP[R208]
 <pre>
 SimpleAssociation_c getOneR_SIMPOnR208(ClassAsSimpleFormalizer_c target)
 SimpleAssociation_c getOneR_SIMPOnR208(ClassAsSimpleFormalizer_c[] targets)
 </pre>
-######  select many <Simple Association set> related by <Class As Simple Formalizer target>->R_SIMP[R208]
+######  select many {Simple Association set} related by {Class As Simple Formalizer target}->R_SIMP[R208]
 <pre>
 SimpleAssociation_c[] getManyR_SIMPsOnR208(ClassAsSimpleFormalizer_c target)
 SimpleAssociation_c[] getManyR_SIMPsOnR208(ClassAsSimpleFormalizer_c[] targets)
 </pre>
+###### R206 (Subtype)
 
-######  select one <Simple Association instance> related by <Association target>->R_SIMP[R206]
+######  select one {Simple Association instance} related by {Association target}->R_SIMP[R206]
 <pre>
 SimpleAssociation_c getOneR_SIMPOnR206(Association_c target)
 </pre>
-######  select many <Simple Association set> related by <Association target>->R_SIMP[R206]
+######  select many {Simple Association set} related by {Association target}->R_SIMP[R206]
 <pre>
 SimpleAssociation_c[] getManyR_SIMPsOnR206(Association_c[] targets)
 </pre>
@@ -10432,60 +10532,62 @@ SimpleAssociation_c[] getManyR_SIMPsOnR206(Association_c[] targets)
 
 ###### R111 - Referring Class In Assoc *refers across association via* Referred To Identifier Attribute (via Attribute Reference in Class)
 
-######  select one <Referring Class In Assoc instance> related by <Referred To Identifier Attribute target>->R_RGO[R111]
+######  select one {Referring Class In Assoc instance} related by {Referred To Identifier Attribute target}->R_RGO[R111]
 <pre>
 ReferringClassInAssoc_c getOneR_RGOOnR111(ReferredToIdentifierAttribute_c target)
 ReferringClassInAssoc_c getOneR_RGOOnR111(ReferredToIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Referring Class In Assoc set> related by <Referred To Identifier Attribute target>->R_RGO[R111]
+######  select many {Referring Class In Assoc set} related by {Referred To Identifier Attribute target}->R_RGO[R111]
 <pre>
 ReferringClassInAssoc_c[] getManyR_RGOsOnR111(ReferredToIdentifierAttribute_c target)
 ReferringClassInAssoc_c[] getManyR_RGOsOnR111(ReferredToIdentifierAttribute_c[] targets)
 </pre>
 
-######  select one <Referring Class In Assoc instance> related by <Attribute Reference in Class target>->R_RGO[R111]
+######  select one {Referring Class In Assoc instance} related by {Attribute Reference in Class target}->R_RGO[R111]
 <pre>
 ReferringClassInAssoc_c getOneR_RGOOnR111(AttributeReferenceInClass_c target)
 ReferringClassInAssoc_c getOneR_RGOOnR111(AttributeReferenceInClass_c[] targets)
 </pre>
-######  select many <Referring Class In Assoc set> related by <Attribute Reference in Class target>->R_RGO[R111]
+######  select many {Referring Class In Assoc set} related by {Attribute Reference in Class target}->R_RGO[R111]
 <pre>
 ReferringClassInAssoc_c[] getManyR_RGOsOnR111(AttributeReferenceInClass_c target)
 ReferringClassInAssoc_c[] getManyR_RGOsOnR111(AttributeReferenceInClass_c[] targets)
 </pre>
+###### R203 (Subtype)
 
-######  select one <Referring Class In Assoc instance> related by <Class In Association target>->R_RGO[R203]
+######  select one {Referring Class In Assoc instance} related by {Class In Association target}->R_RGO[R203]
 <pre>
 ReferringClassInAssoc_c getOneR_RGOOnR203(ClassInAssociation_c target)
 </pre>
-######  select many <Referring Class In Assoc set> related by <Class In Association target>->R_RGO[R203]
+######  select many {Referring Class In Assoc set} related by {Class In Association target}->R_RGO[R203]
 <pre>
 ReferringClassInAssoc_c[] getManyR_RGOsOnR203(ClassInAssociation_c[] targets)
 </pre>
+###### R205 (Subtype)
 
-######  select one <Referring Class In Assoc instance> related by <Class As Subtype target>->R_RGO[R205]
+######  select one {Referring Class In Assoc instance} related by {Class As Subtype target}->R_RGO[R205]
 <pre>
 ReferringClassInAssoc_c getOneR_RGOOnR205(ClassAsSubtype_c target)
 </pre>
-######  select many <Referring Class In Assoc set> related by <Class As Subtype target set>->R_RGO[R205]
+######  select many {Referring Class In Assoc set} related by {Class As Subtype target set}->R_RGO[R205]
 <pre>
 ReferringClassInAssoc_c[] getManyR_RGOsOnR205(ClassAsSubtype_c[] targets)
 </pre>
 
-######  select one <Referring Class In Assoc instance> related by <Class As Simple Formalizer target>->R_RGO[R205]
+######  select one {Referring Class In Assoc instance} related by {Class As Simple Formalizer target}->R_RGO[R205]
 <pre>
 ReferringClassInAssoc_c getOneR_RGOOnR205(ClassAsSimpleFormalizer_c target)
 </pre>
-######  select many <Referring Class In Assoc set> related by <Class As Simple Formalizer target set>->R_RGO[R205]
+######  select many {Referring Class In Assoc set} related by {Class As Simple Formalizer target set}->R_RGO[R205]
 <pre>
 ReferringClassInAssoc_c[] getManyR_RGOsOnR205(ClassAsSimpleFormalizer_c[] targets)
 </pre>
 
-######  select one <Referring Class In Assoc instance> related by <Class As Link target>->R_RGO[R205]
+######  select one {Referring Class In Assoc instance} related by {Class As Link target}->R_RGO[R205]
 <pre>
 ReferringClassInAssoc_c getOneR_RGOOnR205(ClassAsLink_c target)
 </pre>
-######  select many <Referring Class In Assoc set> related by <Class As Link target set>->R_RGO[R205]
+######  select many {Referring Class In Assoc set} related by {Class As Link target set}->R_RGO[R205]
 <pre>
 ReferringClassInAssoc_c[] getManyR_RGOsOnR205(ClassAsLink_c[] targets)
 </pre>
@@ -10505,23 +10607,23 @@ ReferringClassInAssoc_c[] getManyR_RGOsOnR205(ClassAsLink_c[] targets)
 
 ###### R110 - Referred To Class in Assoc *is identified in this association by* Class Identifier Attribute (via Referred To Identifier Attribute)
 
-######  select one <Referred To Class in Assoc instance> related by <Referred To Identifier Attribute target>->R_RTO[R110]
+######  select one {Referred To Class in Assoc instance} related by {Referred To Identifier Attribute target}->R_RTO[R110]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR110(ReferredToIdentifierAttribute_c target)
 ReferredToClassInAssoc_c getOneR_RTOOnR110(ReferredToIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Referred To Identifier Attribute target>->R_RTO[R110]
+######  select many {Referred To Class in Assoc set} related by {Referred To Identifier Attribute target}->R_RTO[R110]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR110(ReferredToIdentifierAttribute_c target)
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR110(ReferredToIdentifierAttribute_c[] targets)
 </pre>
 
-######  select one <Referred To Class in Assoc instance> related by <Class Identifier Attribute target>->R_RTO[R110]
+######  select one {Referred To Class in Assoc instance} related by {Class Identifier Attribute target}->R_RTO[R110]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR110(ClassIdentifierAttribute_c target)
 ReferredToClassInAssoc_c getOneR_RTOOnR110(ClassIdentifierAttribute_c[] targets)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Class Identifier Attribute target>->R_RTO[R110]
+######  select many {Referred To Class in Assoc set} related by {Class Identifier Attribute target}->R_RTO[R110]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR110(ClassIdentifierAttribute_c target)
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR110(ClassIdentifierAttribute_c[] targets)
@@ -10529,58 +10631,60 @@ ReferredToClassInAssoc_c[] getManyR_RTOsOnR110(ClassIdentifierAttribute_c[] targ
 
 ###### R109 - Referred To Class in Assoc *is identified in this association by* Class Identifier
 
-######  select one <Referred To Class in Assoc instance> related by <Class Identifier target>->R_RTO[R109]
+######  select one {Referred To Class in Assoc instance} related by {Class Identifier target}->R_RTO[R109]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR109(ClassIdentifier_c target)
 ReferredToClassInAssoc_c getOneR_RTOOnR109(ClassIdentifier_c[] targets)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Class Identifier target>->R_RTO[R109]
+######  select many {Referred To Class in Assoc set} related by {Class Identifier target}->R_RTO[R109]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR109(ClassIdentifier_c target)
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR109(ClassIdentifier_c[] targets)
 </pre>
+###### R203 (Subtype)
 
-######  select one <Referred To Class in Assoc instance> related by <Class In Association target>->R_RTO[R203]
+######  select one {Referred To Class in Assoc instance} related by {Class In Association target}->R_RTO[R203]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR203(ClassInAssociation_c target)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Class In Association target>->R_RTO[R203]
+######  select many {Referred To Class in Assoc set} related by {Class In Association target}->R_RTO[R203]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR203(ClassInAssociation_c[] targets)
 </pre>
+###### R204 (Subtype)
 
-######  select one <Referred To Class in Assoc instance> related by <Class As Supertype target>->R_RTO[R204]
+######  select one {Referred To Class in Assoc instance} related by {Class As Supertype target}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR204(ClassAsSupertype_c target)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Class As Supertype target set>->R_RTO[R204]
+######  select many {Referred To Class in Assoc set} related by {Class As Supertype target set}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR204(ClassAsSupertype_c[] targets)
 </pre>
 
-######  select one <Referred To Class in Assoc instance> related by <Class As Simple Participant target>->R_RTO[R204]
+######  select one {Referred To Class in Assoc instance} related by {Class As Simple Participant target}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR204(ClassAsSimpleParticipant_c target)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Class As Simple Participant target set>->R_RTO[R204]
+######  select many {Referred To Class in Assoc set} related by {Class As Simple Participant target set}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR204(ClassAsSimpleParticipant_c[] targets)
 </pre>
 
-######  select one <Referred To Class in Assoc instance> related by <Class As Associated One Side target>->R_RTO[R204]
+######  select one {Referred To Class in Assoc instance} related by {Class As Associated One Side target}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR204(ClassAsAssociatedOneSide_c target)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Class As Associated One Side target set>->R_RTO[R204]
+######  select many {Referred To Class in Assoc set} related by {Class As Associated One Side target set}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR204(ClassAsAssociatedOneSide_c[] targets)
 </pre>
 
-######  select one <Referred To Class in Assoc instance> related by <Class As Associated Other Side target>->R_RTO[R204]
+######  select one {Referred To Class in Assoc instance} related by {Class As Associated Other Side target}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c getOneR_RTOOnR204(ClassAsAssociatedOtherSide_c target)
 </pre>
-######  select many <Referred To Class in Assoc set> related by <Class As Associated Other Side target set>->R_RTO[R204]
+######  select many {Referred To Class in Assoc set} related by {Class As Associated Other Side target set}->R_RTO[R204]
 <pre>
 ReferredToClassInAssoc_c[] getManyR_RTOsOnR204(ClassAsAssociatedOtherSide_c[] targets)
 </pre>
@@ -10600,12 +10704,12 @@ ReferredToClassInAssoc_c[] getManyR_RTOsOnR204(ClassAsAssociatedOtherSide_c[] ta
 
 ###### R209 - Linked Association *relates* Class As Associated One Side
 
-######  select one <Linked Association instance> related by <Class As Associated One Side target>->R_ASSOC[R209]
+######  select one {Linked Association instance} related by {Class As Associated One Side target}->R_ASSOC[R209]
 <pre>
 LinkedAssociation_c getOneR_ASSOCOnR209(ClassAsAssociatedOneSide_c target)
 LinkedAssociation_c getOneR_ASSOCOnR209(ClassAsAssociatedOneSide_c[] targets)
 </pre>
-######  select many <Linked Association set> related by <Class As Associated One Side target>->R_ASSOC[R209]
+######  select many {Linked Association set} related by {Class As Associated One Side target}->R_ASSOC[R209]
 <pre>
 LinkedAssociation_c[] getManyR_ASSOCsOnR209(ClassAsAssociatedOneSide_c target)
 LinkedAssociation_c[] getManyR_ASSOCsOnR209(ClassAsAssociatedOneSide_c[] targets)
@@ -10613,12 +10717,12 @@ LinkedAssociation_c[] getManyR_ASSOCsOnR209(ClassAsAssociatedOneSide_c[] targets
 
 ###### R210 - Linked Association *relates* Class As Associated Other Side
 
-######  select one <Linked Association instance> related by <Class As Associated Other Side target>->R_ASSOC[R210]
+######  select one {Linked Association instance} related by {Class As Associated Other Side target}->R_ASSOC[R210]
 <pre>
 LinkedAssociation_c getOneR_ASSOCOnR210(ClassAsAssociatedOtherSide_c target)
 LinkedAssociation_c getOneR_ASSOCOnR210(ClassAsAssociatedOtherSide_c[] targets)
 </pre>
-######  select many <Linked Association set> related by <Class As Associated Other Side target>->R_ASSOC[R210]
+######  select many {Linked Association set} related by {Class As Associated Other Side target}->R_ASSOC[R210]
 <pre>
 LinkedAssociation_c[] getManyR_ASSOCsOnR210(ClassAsAssociatedOtherSide_c target)
 LinkedAssociation_c[] getManyR_ASSOCsOnR210(ClassAsAssociatedOtherSide_c[] targets)
@@ -10626,22 +10730,23 @@ LinkedAssociation_c[] getManyR_ASSOCsOnR210(ClassAsAssociatedOtherSide_c[] targe
 
 ###### R211 - Linked Association *uses a formalizer* Class As Link
 
-######  select one <Linked Association instance> related by <Class As Link target>->R_ASSOC[R211]
+######  select one {Linked Association instance} related by {Class As Link target}->R_ASSOC[R211]
 <pre>
 LinkedAssociation_c getOneR_ASSOCOnR211(ClassAsLink_c target)
 LinkedAssociation_c getOneR_ASSOCOnR211(ClassAsLink_c[] targets)
 </pre>
-######  select many <Linked Association set> related by <Class As Link target>->R_ASSOC[R211]
+######  select many {Linked Association set} related by {Class As Link target}->R_ASSOC[R211]
 <pre>
 LinkedAssociation_c[] getManyR_ASSOCsOnR211(ClassAsLink_c target)
 LinkedAssociation_c[] getManyR_ASSOCsOnR211(ClassAsLink_c[] targets)
 </pre>
+###### R206 (Subtype)
 
-######  select one <Linked Association instance> related by <Association target>->R_ASSOC[R206]
+######  select one {Linked Association instance} related by {Association target}->R_ASSOC[R206]
 <pre>
 LinkedAssociation_c getOneR_ASSOCOnR206(Association_c target)
 </pre>
-######  select many <Linked Association set> related by <Association target>->R_ASSOC[R206]
+######  select many {Linked Association set} related by {Association target}->R_ASSOC[R206]
 <pre>
 LinkedAssociation_c[] getManyR_ASSOCsOnR206(Association_c[] targets)
 </pre>
@@ -10658,7 +10763,7 @@ LinkedAssociation_c[] getManyR_ASSOCsOnR206(Association_c[] targets)
 
 <pre>
   -  String      	getRel_chn()
-  - void			setRel_chn(String       newValue)
+  -  void			setRel_chn(String       newValue)
 
 </pre>
 
@@ -10669,12 +10774,12 @@ LinkedAssociation_c[] getManyR_ASSOCsOnR206(Association_c[] targets)
 
 ###### R214 - Derived Association *relates* Class As Derived One Side
 
-######  select one <Derived Association instance> related by <Class As Derived One Side target>->R_COMP[R214]
+######  select one {Derived Association instance} related by {Class As Derived One Side target}->R_COMP[R214]
 <pre>
 DerivedAssociation_c getOneR_COMPOnR214(ClassAsDerivedOneSide_c target)
 DerivedAssociation_c getOneR_COMPOnR214(ClassAsDerivedOneSide_c[] targets)
 </pre>
-######  select many <Derived Association set> related by <Class As Derived One Side target>->R_COMP[R214]
+######  select many {Derived Association set} related by {Class As Derived One Side target}->R_COMP[R214]
 <pre>
 DerivedAssociation_c[] getManyR_COMPsOnR214(ClassAsDerivedOneSide_c target)
 DerivedAssociation_c[] getManyR_COMPsOnR214(ClassAsDerivedOneSide_c[] targets)
@@ -10682,22 +10787,23 @@ DerivedAssociation_c[] getManyR_COMPsOnR214(ClassAsDerivedOneSide_c[] targets)
 
 ###### R215 - Derived Association *relates* Class As Derived Other Side
 
-######  select one <Derived Association instance> related by <Class As Derived Other Side target>->R_COMP[R215]
+######  select one {Derived Association instance} related by {Class As Derived Other Side target}->R_COMP[R215]
 <pre>
 DerivedAssociation_c getOneR_COMPOnR215(ClassAsDerivedOtherSide_c target)
 DerivedAssociation_c getOneR_COMPOnR215(ClassAsDerivedOtherSide_c[] targets)
 </pre>
-######  select many <Derived Association set> related by <Class As Derived Other Side target>->R_COMP[R215]
+######  select many {Derived Association set} related by {Class As Derived Other Side target}->R_COMP[R215]
 <pre>
 DerivedAssociation_c[] getManyR_COMPsOnR215(ClassAsDerivedOtherSide_c target)
 DerivedAssociation_c[] getManyR_COMPsOnR215(ClassAsDerivedOtherSide_c[] targets)
 </pre>
+###### R206 (Subtype)
 
-######  select one <Derived Association instance> related by <Association target>->R_COMP[R206]
+######  select one {Derived Association instance} related by {Association target}->R_COMP[R206]
 <pre>
 DerivedAssociation_c getOneR_COMPOnR206(Association_c target)
 </pre>
-######  select many <Derived Association set> related by <Association target>->R_COMP[R206]
+######  select many {Derived Association set} related by {Association target}->R_COMP[R206]
 <pre>
 DerivedAssociation_c[] getManyR_COMPsOnR206(Association_c[] targets)
 </pre>
@@ -10714,7 +10820,7 @@ DerivedAssociation_c[] getManyR_COMPsOnR206(Association_c[] targets)
 
 <pre>
   -  java.util.UUID        	getOir_id()
-  - void			setOir_id(java.util.UUID         newValue)
+  -  void			setOir_id(java.util.UUID         newValue)
 
 </pre>
 
@@ -10725,23 +10831,23 @@ DerivedAssociation_c[] getManyR_COMPsOnR206(Association_c[] targets)
 
 ###### R201 - Association *abstracts association between instances of* Model Class (via Class In Association)
 
-######  select one <Class In Association instance> related by <Model Class target>->R_OIR[R201]
+######  select one {Class In Association instance} related by {Model Class target}->R_OIR[R201]
 <pre>
 ClassInAssociation_c getOneR_OIROnR201(ModelClass_c target)
 ClassInAssociation_c getOneR_OIROnR201(ModelClass_c[] targets)
 </pre>
-######  select many <Class In Association set> related by <Model Class target>->R_OIR[R201]
+######  select many {Class In Association set} related by {Model Class target}->R_OIR[R201]
 <pre>
 ClassInAssociation_c[] getManyR_OIRsOnR201(ModelClass_c target)
 ClassInAssociation_c[] getManyR_OIRsOnR201(ModelClass_c[] targets)
 </pre>
 
-######  select one <Class In Association instance> related by <Association target>->R_OIR[R201]
+######  select one {Class In Association instance} related by {Association target}->R_OIR[R201]
 <pre>
 ClassInAssociation_c getOneR_OIROnR201(Association_c target)
 ClassInAssociation_c getOneR_OIROnR201(Association_c[] targets)
 </pre>
-######  select many <Class In Association set> related by <Association target>->R_OIR[R201]
+######  select many {Class In Association set} related by {Association target}->R_OIR[R201]
 <pre>
 ClassInAssociation_c[] getManyR_OIRsOnR201(Association_c target)
 ClassInAssociation_c[] getManyR_OIRsOnR201(Association_c[] targets)
@@ -10749,49 +10855,50 @@ ClassInAssociation_c[] getManyR_OIRsOnR201(Association_c[] targets)
 
 ###### R202 - Class In Association *may be represented by* Imported Class
 
-######  select one <Class In Association instance> related by <Imported Class target>->R_OIR[R202]
+######  select one {Class In Association instance} related by {Imported Class target}->R_OIR[R202]
 <pre>
 ClassInAssociation_c getOneR_OIROnR202(ImportedClass_c target)
 ClassInAssociation_c getOneR_OIROnR202(ImportedClass_c[] targets)
 </pre>
-######  select many <Class In Association set> related by <Imported Class target>->R_OIR[R202]
+######  select many {Class In Association set} related by {Imported Class target}->R_OIR[R202]
 <pre>
 ClassInAssociation_c[] getManyR_OIRsOnR202(ImportedClass_c target)
 ClassInAssociation_c[] getManyR_OIRsOnR202(ImportedClass_c[] targets)
 </pre>
+###### R203 (Subtype)
 
-######  select one <Class In Association instance> related by <Referred To Class in Assoc target>->R_OIR[R203]
+######  select one {Class In Association instance} related by {Referred To Class in Assoc target}->R_OIR[R203]
 <pre>
 ClassInAssociation_c getOneR_OIROnR203(ReferredToClassInAssoc_c target)
 </pre>
-######  select many <Class In Association set> related by <Referred To Class in Assoc target set>->R_OIR[R203]
+######  select many {Class In Association set} related by {Referred To Class in Assoc target set}->R_OIR[R203]
 <pre>
 ClassInAssociation_c[] getManyR_OIRsOnR203(ReferredToClassInAssoc_c[] targets)
 </pre>
 
-######  select one <Class In Association instance> related by <Referring Class In Assoc target>->R_OIR[R203]
+######  select one {Class In Association instance} related by {Referring Class In Assoc target}->R_OIR[R203]
 <pre>
 ClassInAssociation_c getOneR_OIROnR203(ReferringClassInAssoc_c target)
 </pre>
-######  select many <Class In Association set> related by <Referring Class In Assoc target set>->R_OIR[R203]
+######  select many {Class In Association set} related by {Referring Class In Assoc target set}->R_OIR[R203]
 <pre>
 ClassInAssociation_c[] getManyR_OIRsOnR203(ReferringClassInAssoc_c[] targets)
 </pre>
 
-######  select one <Class In Association instance> related by <Class As Derived One Side target>->R_OIR[R203]
+######  select one {Class In Association instance} related by {Class As Derived One Side target}->R_OIR[R203]
 <pre>
 ClassInAssociation_c getOneR_OIROnR203(ClassAsDerivedOneSide_c target)
 </pre>
-######  select many <Class In Association set> related by <Class As Derived One Side target set>->R_OIR[R203]
+######  select many {Class In Association set} related by {Class As Derived One Side target set}->R_OIR[R203]
 <pre>
 ClassInAssociation_c[] getManyR_OIRsOnR203(ClassAsDerivedOneSide_c[] targets)
 </pre>
 
-######  select one <Class In Association instance> related by <Class As Derived Other Side target>->R_OIR[R203]
+######  select one {Class In Association instance} related by {Class As Derived Other Side target}->R_OIR[R203]
 <pre>
 ClassInAssociation_c getOneR_OIROnR203(ClassAsDerivedOtherSide_c target)
 </pre>
-######  select many <Class In Association set> related by <Class As Derived Other Side target set>->R_OIR[R203]
+######  select many {Class In Association set} related by {Class As Derived Other Side target set}->R_OIR[R203]
 <pre>
 ClassInAssociation_c[] getManyR_OIRsOnR203(ClassAsDerivedOtherSide_c[] targets)
 </pre>
@@ -10811,22 +10918,23 @@ ClassInAssociation_c[] getManyR_OIRsOnR203(ClassAsDerivedOtherSide_c[] targets)
 
 ###### R212 - Class As Supertype *is related to subtypes via* Subtype Supertype Association
 
-######  select one <Class As Supertype instance> related by <Subtype Supertype Association target>->R_SUPER[R212]
+######  select one {Class As Supertype instance} related by {Subtype Supertype Association target}->R_SUPER[R212]
 <pre>
 ClassAsSupertype_c getOneR_SUPEROnR212(SubtypeSupertypeAssociation_c target)
 ClassAsSupertype_c getOneR_SUPEROnR212(SubtypeSupertypeAssociation_c[] targets)
 </pre>
-######  select many <Class As Supertype set> related by <Subtype Supertype Association target>->R_SUPER[R212]
+######  select many {Class As Supertype set} related by {Subtype Supertype Association target}->R_SUPER[R212]
 <pre>
 ClassAsSupertype_c[] getManyR_SUPERsOnR212(SubtypeSupertypeAssociation_c target)
 ClassAsSupertype_c[] getManyR_SUPERsOnR212(SubtypeSupertypeAssociation_c[] targets)
 </pre>
+###### R204 (Subtype)
 
-######  select one <Class As Supertype instance> related by <Referred To Class in Assoc target>->R_SUPER[R204]
+######  select one {Class As Supertype instance} related by {Referred To Class in Assoc target}->R_SUPER[R204]
 <pre>
 ClassAsSupertype_c getOneR_SUPEROnR204(ReferredToClassInAssoc_c target)
 </pre>
-######  select many <Class As Supertype set> related by <Referred To Class in Assoc target>->R_SUPER[R204]
+######  select many {Class As Supertype set} related by {Referred To Class in Assoc target}->R_SUPER[R204]
 <pre>
 ClassAsSupertype_c[] getManyR_SUPERsOnR204(ReferredToClassInAssoc_c[] targets)
 </pre>
@@ -10846,22 +10954,23 @@ ClassAsSupertype_c[] getManyR_SUPERsOnR204(ReferredToClassInAssoc_c[] targets)
 
 ###### R213 - Class As Subtype *is related to supertype via* Subtype Supertype Association
 
-######  select one <Class As Subtype instance> related by <Subtype Supertype Association target>->R_SUB[R213]
+######  select one {Class As Subtype instance} related by {Subtype Supertype Association target}->R_SUB[R213]
 <pre>
 ClassAsSubtype_c getOneR_SUBOnR213(SubtypeSupertypeAssociation_c target)
 ClassAsSubtype_c getOneR_SUBOnR213(SubtypeSupertypeAssociation_c[] targets)
 </pre>
-######  select many <Class As Subtype set> related by <Subtype Supertype Association target>->R_SUB[R213]
+######  select many {Class As Subtype set} related by {Subtype Supertype Association target}->R_SUB[R213]
 <pre>
 ClassAsSubtype_c[] getManyR_SUBsOnR213(SubtypeSupertypeAssociation_c target)
 ClassAsSubtype_c[] getManyR_SUBsOnR213(SubtypeSupertypeAssociation_c[] targets)
 </pre>
+###### R205 (Subtype)
 
-######  select one <Class As Subtype instance> related by <Referring Class In Assoc target>->R_SUB[R205]
+######  select one {Class As Subtype instance} related by {Referring Class In Assoc target}->R_SUB[R205]
 <pre>
 ClassAsSubtype_c getOneR_SUBOnR205(ReferringClassInAssoc_c target)
 </pre>
-######  select many <Class As Subtype set> related by <Referring Class In Assoc target>->R_SUB[R205]
+######  select many {Class As Subtype set} related by {Referring Class In Assoc target}->R_SUB[R205]
 <pre>
 ClassAsSubtype_c[] getManyR_SUBsOnR205(ReferringClassInAssoc_c[] targets)
 </pre>
@@ -10878,13 +10987,13 @@ ClassAsSubtype_c[] getManyR_SUBsOnR205(ReferringClassInAssoc_c[] targets)
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
   -  int         	getCond()
-  - void			setCond(int          newValue)
+  -  void			setCond(int          newValue)
 
   -  String      	getTxt_phrs()
-  - void			setTxt_phrs(String       newValue)
+  -  void			setTxt_phrs(String       newValue)
 
 </pre>
 
@@ -10895,22 +11004,23 @@ ClassAsSubtype_c[] getManyR_SUBsOnR205(ReferringClassInAssoc_c[] targets)
 
 ###### R207 - Class As Simple Participant *is related to formalizer via* Simple Association
 
-######  select one <Class As Simple Participant instance> related by <Simple Association target>->R_PART[R207]
+######  select one {Class As Simple Participant instance} related by {Simple Association target}->R_PART[R207]
 <pre>
 ClassAsSimpleParticipant_c getOneR_PARTOnR207(SimpleAssociation_c target)
 ClassAsSimpleParticipant_c getOneR_PARTOnR207(SimpleAssociation_c[] targets)
 </pre>
-######  select many <Class As Simple Participant set> related by <Simple Association target>->R_PART[R207]
+######  select many {Class As Simple Participant set} related by {Simple Association target}->R_PART[R207]
 <pre>
 ClassAsSimpleParticipant_c[] getManyR_PARTsOnR207(SimpleAssociation_c target)
 ClassAsSimpleParticipant_c[] getManyR_PARTsOnR207(SimpleAssociation_c[] targets)
 </pre>
+###### R204 (Subtype)
 
-######  select one <Class As Simple Participant instance> related by <Referred To Class in Assoc target>->R_PART[R204]
+######  select one {Class As Simple Participant instance} related by {Referred To Class in Assoc target}->R_PART[R204]
 <pre>
 ClassAsSimpleParticipant_c getOneR_PARTOnR204(ReferredToClassInAssoc_c target)
 </pre>
-######  select many <Class As Simple Participant set> related by <Referred To Class in Assoc target>->R_PART[R204]
+######  select many {Class As Simple Participant set} related by {Referred To Class in Assoc target}->R_PART[R204]
 <pre>
 ClassAsSimpleParticipant_c[] getManyR_PARTsOnR204(ReferredToClassInAssoc_c[] targets)
 </pre>
@@ -10927,13 +11037,13 @@ ClassAsSimpleParticipant_c[] getManyR_PARTsOnR204(ReferredToClassInAssoc_c[] tar
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
   -  int         	getCond()
-  - void			setCond(int          newValue)
+  -  void			setCond(int          newValue)
 
   -  String      	getTxt_phrs()
-  - void			setTxt_phrs(String       newValue)
+  -  void			setTxt_phrs(String       newValue)
 
 </pre>
 
@@ -10944,22 +11054,23 @@ ClassAsSimpleParticipant_c[] getManyR_PARTsOnR204(ReferredToClassInAssoc_c[] tar
 
 ###### R208 - Class As Simple Formalizer *is related to participant via* Simple Association
 
-######  select one <Class As Simple Formalizer instance> related by <Simple Association target>->R_FORM[R208]
+######  select one {Class As Simple Formalizer instance} related by {Simple Association target}->R_FORM[R208]
 <pre>
 ClassAsSimpleFormalizer_c getOneR_FORMOnR208(SimpleAssociation_c target)
 ClassAsSimpleFormalizer_c getOneR_FORMOnR208(SimpleAssociation_c[] targets)
 </pre>
-######  select many <Class As Simple Formalizer set> related by <Simple Association target>->R_FORM[R208]
+######  select many {Class As Simple Formalizer set} related by {Simple Association target}->R_FORM[R208]
 <pre>
 ClassAsSimpleFormalizer_c[] getManyR_FORMsOnR208(SimpleAssociation_c target)
 ClassAsSimpleFormalizer_c[] getManyR_FORMsOnR208(SimpleAssociation_c[] targets)
 </pre>
+###### R205 (Subtype)
 
-######  select one <Class As Simple Formalizer instance> related by <Referring Class In Assoc target>->R_FORM[R205]
+######  select one {Class As Simple Formalizer instance} related by {Referring Class In Assoc target}->R_FORM[R205]
 <pre>
 ClassAsSimpleFormalizer_c getOneR_FORMOnR205(ReferringClassInAssoc_c target)
 </pre>
-######  select many <Class As Simple Formalizer set> related by <Referring Class In Assoc target>->R_FORM[R205]
+######  select many {Class As Simple Formalizer set} related by {Referring Class In Assoc target}->R_FORM[R205]
 <pre>
 ClassAsSimpleFormalizer_c[] getManyR_FORMsOnR205(ReferringClassInAssoc_c[] targets)
 </pre>
@@ -10976,7 +11087,7 @@ ClassAsSimpleFormalizer_c[] getManyR_FORMsOnR205(ReferringClassInAssoc_c[] targe
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
 </pre>
 
@@ -10987,22 +11098,23 @@ ClassAsSimpleFormalizer_c[] getManyR_FORMsOnR205(ReferringClassInAssoc_c[] targe
 
 ###### R211 - Class As Link *formalizes association between associated classes* Linked Association
 
-######  select one <Class As Link instance> related by <Linked Association target>->R_ASSR[R211]
+######  select one {Class As Link instance} related by {Linked Association target}->R_ASSR[R211]
 <pre>
 ClassAsLink_c getOneR_ASSROnR211(LinkedAssociation_c target)
 ClassAsLink_c getOneR_ASSROnR211(LinkedAssociation_c[] targets)
 </pre>
-######  select many <Class As Link set> related by <Linked Association target>->R_ASSR[R211]
+######  select many {Class As Link set} related by {Linked Association target}->R_ASSR[R211]
 <pre>
 ClassAsLink_c[] getManyR_ASSRsOnR211(LinkedAssociation_c target)
 ClassAsLink_c[] getManyR_ASSRsOnR211(LinkedAssociation_c[] targets)
 </pre>
+###### R205 (Subtype)
 
-######  select one <Class As Link instance> related by <Referring Class In Assoc target>->R_ASSR[R205]
+######  select one {Class As Link instance} related by {Referring Class In Assoc target}->R_ASSR[R205]
 <pre>
 ClassAsLink_c getOneR_ASSROnR205(ReferringClassInAssoc_c target)
 </pre>
-######  select many <Class As Link set> related by <Referring Class In Assoc target>->R_ASSR[R205]
+######  select many {Class As Link set} related by {Referring Class In Assoc target}->R_ASSR[R205]
 <pre>
 ClassAsLink_c[] getManyR_ASSRsOnR205(ReferringClassInAssoc_c[] targets)
 </pre>
@@ -11019,13 +11131,13 @@ ClassAsLink_c[] getManyR_ASSRsOnR205(ReferringClassInAssoc_c[] targets)
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
   -  int         	getCond()
-  - void			setCond(int          newValue)
+  -  void			setCond(int          newValue)
 
   -  String      	getTxt_phrs()
-  - void			setTxt_phrs(String       newValue)
+  -  void			setTxt_phrs(String       newValue)
 
 </pre>
 
@@ -11036,22 +11148,23 @@ ClassAsLink_c[] getManyR_ASSRsOnR205(ReferringClassInAssoc_c[] targets)
 
 ###### R215 - Class As Derived Other Side *is related to one side via* Derived Association
 
-######  select one <Class As Derived Other Side instance> related by <Derived Association target>->R_COTH[R215]
+######  select one {Class As Derived Other Side instance} related by {Derived Association target}->R_COTH[R215]
 <pre>
 ClassAsDerivedOtherSide_c getOneR_COTHOnR215(DerivedAssociation_c target)
 ClassAsDerivedOtherSide_c getOneR_COTHOnR215(DerivedAssociation_c[] targets)
 </pre>
-######  select many <Class As Derived Other Side set> related by <Derived Association target>->R_COTH[R215]
+######  select many {Class As Derived Other Side set} related by {Derived Association target}->R_COTH[R215]
 <pre>
 ClassAsDerivedOtherSide_c[] getManyR_COTHsOnR215(DerivedAssociation_c target)
 ClassAsDerivedOtherSide_c[] getManyR_COTHsOnR215(DerivedAssociation_c[] targets)
 </pre>
+###### R203 (Subtype)
 
-######  select one <Class As Derived Other Side instance> related by <Class In Association target>->R_COTH[R203]
+######  select one {Class As Derived Other Side instance} related by {Class In Association target}->R_COTH[R203]
 <pre>
 ClassAsDerivedOtherSide_c getOneR_COTHOnR203(ClassInAssociation_c target)
 </pre>
-######  select many <Class As Derived Other Side set> related by <Class In Association target>->R_COTH[R203]
+######  select many {Class As Derived Other Side set} related by {Class In Association target}->R_COTH[R203]
 <pre>
 ClassAsDerivedOtherSide_c[] getManyR_COTHsOnR203(ClassInAssociation_c[] targets)
 </pre>
@@ -11068,13 +11181,13 @@ ClassAsDerivedOtherSide_c[] getManyR_COTHsOnR203(ClassInAssociation_c[] targets)
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
   -  int         	getCond()
-  - void			setCond(int          newValue)
+  -  void			setCond(int          newValue)
 
   -  String      	getTxt_phrs()
-  - void			setTxt_phrs(String       newValue)
+  -  void			setTxt_phrs(String       newValue)
 
 </pre>
 
@@ -11085,22 +11198,23 @@ ClassAsDerivedOtherSide_c[] getManyR_COTHsOnR203(ClassInAssociation_c[] targets)
 
 ###### R214 - Class As Derived One Side *is related to other type via* Derived Association
 
-######  select one <Class As Derived One Side instance> related by <Derived Association target>->R_CONE[R214]
+######  select one {Class As Derived One Side instance} related by {Derived Association target}->R_CONE[R214]
 <pre>
 ClassAsDerivedOneSide_c getOneR_CONEOnR214(DerivedAssociation_c target)
 ClassAsDerivedOneSide_c getOneR_CONEOnR214(DerivedAssociation_c[] targets)
 </pre>
-######  select many <Class As Derived One Side set> related by <Derived Association target>->R_CONE[R214]
+######  select many {Class As Derived One Side set} related by {Derived Association target}->R_CONE[R214]
 <pre>
 ClassAsDerivedOneSide_c[] getManyR_CONEsOnR214(DerivedAssociation_c target)
 ClassAsDerivedOneSide_c[] getManyR_CONEsOnR214(DerivedAssociation_c[] targets)
 </pre>
+###### R203 (Subtype)
 
-######  select one <Class As Derived One Side instance> related by <Class In Association target>->R_CONE[R203]
+######  select one {Class As Derived One Side instance} related by {Class In Association target}->R_CONE[R203]
 <pre>
 ClassAsDerivedOneSide_c getOneR_CONEOnR203(ClassInAssociation_c target)
 </pre>
-######  select many <Class As Derived One Side set> related by <Class In Association target>->R_CONE[R203]
+######  select many {Class As Derived One Side set} related by {Class In Association target}->R_CONE[R203]
 <pre>
 ClassAsDerivedOneSide_c[] getManyR_CONEsOnR203(ClassInAssociation_c[] targets)
 </pre>
@@ -11117,13 +11231,13 @@ ClassAsDerivedOneSide_c[] getManyR_CONEsOnR203(ClassInAssociation_c[] targets)
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
   -  int         	getCond()
-  - void			setCond(int          newValue)
+  -  void			setCond(int          newValue)
 
   -  String      	getTxt_phrs()
-  - void			setTxt_phrs(String       newValue)
+  -  void			setTxt_phrs(String       newValue)
 
 </pre>
 
@@ -11134,22 +11248,23 @@ ClassAsDerivedOneSide_c[] getManyR_CONEsOnR203(ClassInAssociation_c[] targets)
 
 ###### R210 - Class As Associated Other Side *is related to one side via* Linked Association
 
-######  select one <Class As Associated Other Side instance> related by <Linked Association target>->R_AOTH[R210]
+######  select one {Class As Associated Other Side instance} related by {Linked Association target}->R_AOTH[R210]
 <pre>
 ClassAsAssociatedOtherSide_c getOneR_AOTHOnR210(LinkedAssociation_c target)
 ClassAsAssociatedOtherSide_c getOneR_AOTHOnR210(LinkedAssociation_c[] targets)
 </pre>
-######  select many <Class As Associated Other Side set> related by <Linked Association target>->R_AOTH[R210]
+######  select many {Class As Associated Other Side set} related by {Linked Association target}->R_AOTH[R210]
 <pre>
 ClassAsAssociatedOtherSide_c[] getManyR_AOTHsOnR210(LinkedAssociation_c target)
 ClassAsAssociatedOtherSide_c[] getManyR_AOTHsOnR210(LinkedAssociation_c[] targets)
 </pre>
+###### R204 (Subtype)
 
-######  select one <Class As Associated Other Side instance> related by <Referred To Class in Assoc target>->R_AOTH[R204]
+######  select one {Class As Associated Other Side instance} related by {Referred To Class in Assoc target}->R_AOTH[R204]
 <pre>
 ClassAsAssociatedOtherSide_c getOneR_AOTHOnR204(ReferredToClassInAssoc_c target)
 </pre>
-######  select many <Class As Associated Other Side set> related by <Referred To Class in Assoc target>->R_AOTH[R204]
+######  select many {Class As Associated Other Side set} related by {Referred To Class in Assoc target}->R_AOTH[R204]
 <pre>
 ClassAsAssociatedOtherSide_c[] getManyR_AOTHsOnR204(ReferredToClassInAssoc_c[] targets)
 </pre>
@@ -11166,13 +11281,13 @@ ClassAsAssociatedOtherSide_c[] getManyR_AOTHsOnR204(ReferredToClassInAssoc_c[] t
 
 <pre>
   -  int         	getMult()
-  - void			setMult(int          newValue)
+  -  void			setMult(int          newValue)
 
   -  int         	getCond()
-  - void			setCond(int          newValue)
+  -  void			setCond(int          newValue)
 
   -  String      	getTxt_phrs()
-  - void			setTxt_phrs(String       newValue)
+  -  void			setTxt_phrs(String       newValue)
 
 </pre>
 
@@ -11183,22 +11298,23 @@ ClassAsAssociatedOtherSide_c[] getManyR_AOTHsOnR204(ReferredToClassInAssoc_c[] t
 
 ###### R209 - Class As Associated One Side *is related to other side via* Linked Association
 
-######  select one <Class As Associated One Side instance> related by <Linked Association target>->R_AONE[R209]
+######  select one {Class As Associated One Side instance} related by {Linked Association target}->R_AONE[R209]
 <pre>
 ClassAsAssociatedOneSide_c getOneR_AONEOnR209(LinkedAssociation_c target)
 ClassAsAssociatedOneSide_c getOneR_AONEOnR209(LinkedAssociation_c[] targets)
 </pre>
-######  select many <Class As Associated One Side set> related by <Linked Association target>->R_AONE[R209]
+######  select many {Class As Associated One Side set} related by {Linked Association target}->R_AONE[R209]
 <pre>
 ClassAsAssociatedOneSide_c[] getManyR_AONEsOnR209(LinkedAssociation_c target)
 ClassAsAssociatedOneSide_c[] getManyR_AONEsOnR209(LinkedAssociation_c[] targets)
 </pre>
+###### R204 (Subtype)
 
-######  select one <Class As Associated One Side instance> related by <Referred To Class in Assoc target>->R_AONE[R204]
+######  select one {Class As Associated One Side instance} related by {Referred To Class in Assoc target}->R_AONE[R204]
 <pre>
 ClassAsAssociatedOneSide_c getOneR_AONEOnR204(ReferredToClassInAssoc_c target)
 </pre>
-######  select many <Class As Associated One Side set> related by <Referred To Class in Assoc target>->R_AONE[R204]
+######  select many {Class As Associated One Side set} related by {Referred To Class in Assoc target}->R_AONE[R204]
 <pre>
 ClassAsAssociatedOneSide_c[] getManyR_AONEsOnR204(ReferredToClassInAssoc_c[] targets)
 </pre>
@@ -11215,10 +11331,10 @@ ClassAsAssociatedOneSide_c[] getManyR_AONEsOnR204(ReferredToClassInAssoc_c[] tar
 
 <pre>
   -  int         	getNumb()
-  - void			setNumb(int          newValue)
+  -  void			setNumb(int          newValue)
 
   -  String      	getDescrip()
-  - void			setDescrip(String       newValue)
+  -  void			setDescrip(String       newValue)
 
 </pre>
 
@@ -11229,23 +11345,23 @@ ClassAsAssociatedOneSide_c[] getManyR_AONEsOnR204(ReferredToClassInAssoc_c[] tar
 
 ###### R201 - Association *abstracts association between instances of* Model Class (via Class In Association)
 
-######  select one <Association instance> related by <Model Class target>->R_REL[R201]
+######  select one {Association instance} related by {Model Class target}->R_REL[R201]
 <pre>
 Association_c getOneR_RELOnR201(ModelClass_c target)
 Association_c getOneR_RELOnR201(ModelClass_c[] targets)
 </pre>
-######  select many <Association set> related by <Model Class target>->R_REL[R201]
+######  select many {Association set} related by {Model Class target}->R_REL[R201]
 <pre>
 Association_c[] getManyR_RELsOnR201(ModelClass_c target)
 Association_c[] getManyR_RELsOnR201(ModelClass_c[] targets)
 </pre>
 
-######  select one <Association instance> related by <Class In Association target>->R_REL[R201]
+######  select one {Association instance} related by {Class In Association target}->R_REL[R201]
 <pre>
 Association_c getOneR_RELOnR201(ClassInAssociation_c target)
 Association_c getOneR_RELOnR201(ClassInAssociation_c[] targets)
 </pre>
-######  select many <Association set> related by <Class In Association target>->R_REL[R201]
+######  select many {Association set} related by {Class In Association target}->R_REL[R201]
 <pre>
 Association_c[] getManyR_RELsOnR201(ClassInAssociation_c target)
 Association_c[] getManyR_RELsOnR201(ClassInAssociation_c[] targets)
@@ -11253,12 +11369,12 @@ Association_c[] getManyR_RELsOnR201(ClassInAssociation_c[] targets)
 
 ###### R4 - Association *abstracts associations between classes in* Subsystem
 
-######  select one <Association instance> related by <Subsystem target>->R_REL[R4]
+######  select one {Association instance} related by {Subsystem target}->R_REL[R4]
 <pre>
 Association_c getOneR_RELOnR4(Subsystem_c target)
 Association_c getOneR_RELOnR4(Subsystem_c[] targets)
 </pre>
-######  select many <Association set> related by <Subsystem target>->R_REL[R4]
+######  select many {Association set} related by {Subsystem target}->R_REL[R4]
 <pre>
 Association_c[] getManyR_RELsOnR4(Subsystem_c target)
 Association_c[] getManyR_RELsOnR4(Subsystem_c[] targets)
@@ -11266,12 +11382,12 @@ Association_c[] getManyR_RELsOnR4(Subsystem_c[] targets)
 
 ###### R681 - Chain Link *specifies traversal of* Association
 
-######  select one <Association instance> related by <Chain Link target>->R_REL[R681]
+######  select one {Association instance} related by {Chain Link target}->R_REL[R681]
 <pre>
 Association_c getOneR_RELOnR681(ChainLink_c target)
 Association_c getOneR_RELOnR681(ChainLink_c[] targets)
 </pre>
-######  select many <Association set> related by <Chain Link target>->R_REL[R681]
+######  select many {Association set} related by {Chain Link target}->R_REL[R681]
 <pre>
 Association_c[] getManyR_RELsOnR681(ChainLink_c target)
 Association_c[] getManyR_RELsOnR681(ChainLink_c[] targets)
@@ -11279,12 +11395,12 @@ Association_c[] getManyR_RELsOnR681(ChainLink_c[] targets)
 
 ###### R653 - Relate *creates* Association
 
-######  select one <Association instance> related by <Relate target>->R_REL[R653]
+######  select one {Association instance} related by {Relate target}->R_REL[R653]
 <pre>
 Association_c getOneR_RELOnR653(Relate_c target)
 Association_c getOneR_RELOnR653(Relate_c[] targets)
 </pre>
-######  select many <Association set> related by <Relate target>->R_REL[R653]
+######  select many {Association set} related by {Relate target}->R_REL[R653]
 <pre>
 Association_c[] getManyR_RELsOnR653(Relate_c target)
 Association_c[] getManyR_RELsOnR653(Relate_c[] targets)
@@ -11292,12 +11408,12 @@ Association_c[] getManyR_RELsOnR653(Relate_c[] targets)
 
 ###### R654 - Relate Using *creates* Association
 
-######  select one <Association instance> related by <Relate Using target>->R_REL[R654]
+######  select one {Association instance} related by {Relate Using target}->R_REL[R654]
 <pre>
 Association_c getOneR_RELOnR654(RelateUsing_c target)
 Association_c getOneR_RELOnR654(RelateUsing_c[] targets)
 </pre>
-######  select many <Association set> related by <Relate Using target>->R_REL[R654]
+######  select many {Association set} related by {Relate Using target}->R_REL[R654]
 <pre>
 Association_c[] getManyR_RELsOnR654(RelateUsing_c target)
 Association_c[] getManyR_RELsOnR654(RelateUsing_c[] targets)
@@ -11305,12 +11421,12 @@ Association_c[] getManyR_RELsOnR654(RelateUsing_c[] targets)
 
 ###### R655 - Unrelate *destroys* Association
 
-######  select one <Association instance> related by <Unrelate target>->R_REL[R655]
+######  select one {Association instance} related by {Unrelate target}->R_REL[R655]
 <pre>
 Association_c getOneR_RELOnR655(Unrelate_c target)
 Association_c getOneR_RELOnR655(Unrelate_c[] targets)
 </pre>
-######  select many <Association set> related by <Unrelate target>->R_REL[R655]
+######  select many {Association set} related by {Unrelate target}->R_REL[R655]
 <pre>
 Association_c[] getManyR_RELsOnR655(Unrelate_c target)
 Association_c[] getManyR_RELsOnR655(Unrelate_c[] targets)
@@ -11318,12 +11434,12 @@ Association_c[] getManyR_RELsOnR655(Unrelate_c[] targets)
 
 ###### R656 - Unrelate Using *destroys* Association
 
-######  select one <Association instance> related by <Unrelate Using target>->R_REL[R656]
+######  select one {Association instance} related by {Unrelate Using target}->R_REL[R656]
 <pre>
 Association_c getOneR_RELOnR656(UnrelateUsing_c target)
 Association_c getOneR_RELOnR656(UnrelateUsing_c[] targets)
 </pre>
-######  select many <Association set> related by <Unrelate Using target>->R_REL[R656]
+######  select many {Association set} related by {Unrelate Using target}->R_REL[R656]
 <pre>
 Association_c[] getManyR_RELsOnR656(UnrelateUsing_c target)
 Association_c[] getManyR_RELsOnR656(UnrelateUsing_c[] targets)
@@ -11331,12 +11447,12 @@ Association_c[] getManyR_RELsOnR656(UnrelateUsing_c[] targets)
 
 ###### R2904 - Association *has instances* Link
 
-######  select one <Association instance> related by <Link target>->R_REL[R2904]
+######  select one {Association instance} related by {Link target}->R_REL[R2904]
 <pre>
 Association_c getOneR_RELOnR2904(Link_c target)
 Association_c getOneR_RELOnR2904(Link_c[] targets)
 </pre>
-######  select many <Association set> related by <Link target>->R_REL[R2904]
+######  select many {Association set} related by {Link target}->R_REL[R2904]
 <pre>
 Association_c[] getManyR_RELsOnR2904(Link_c target)
 Association_c[] getManyR_RELsOnR2904(Link_c[] targets)
@@ -11344,12 +11460,12 @@ Association_c[] getManyR_RELsOnR2904(Link_c[] targets)
 
 ###### R2959
 
-######  select one <Association instance> related by <Link Participation target>->R_REL[R2959]
+######  select one {Association instance} related by {Link Participation target}->R_REL[R2959]
 <pre>
 Association_c getOneR_RELOnR2959(LinkParticipation_c target)
 Association_c getOneR_RELOnR2959(LinkParticipation_c[] targets)
 </pre>
-######  select many <Association set> related by <Link Participation target>->R_REL[R2959]
+######  select many {Association set} related by {Link Participation target}->R_REL[R2959]
 <pre>
 Association_c[] getManyR_RELsOnR2959(LinkParticipation_c target)
 Association_c[] getManyR_RELsOnR2959(LinkParticipation_c[] targets)
@@ -11357,58 +11473,60 @@ Association_c[] getManyR_RELsOnR2959(LinkParticipation_c[] targets)
 
 ###### R1128 - Association *represents formal instance* Communication Link
 
-######  select one <Association instance> related by <Communication Link target>->R_REL[R1128]
+######  select one {Association instance} related by {Communication Link target}->R_REL[R1128]
 <pre>
 Association_c getOneR_RELOnR1128(CommunicationLink_c target)
 Association_c getOneR_RELOnR1128(CommunicationLink_c[] targets)
 </pre>
-######  select many <Association set> related by <Communication Link target>->R_REL[R1128]
+######  select many {Association set} related by {Communication Link target}->R_REL[R1128]
 <pre>
 Association_c[] getManyR_RELsOnR1128(CommunicationLink_c target)
 Association_c[] getManyR_RELsOnR1128(CommunicationLink_c[] targets)
 </pre>
+###### R8001 (Subtype)
 
-######  select one <Association instance> related by <Packageable Element target>->R_REL[R8001]
+######  select one {Association instance} related by {Packageable Element target}->R_REL[R8001]
 <pre>
 Association_c getOneR_RELOnR8001(PackageableElement_c target)
 </pre>
-######  select many <Association set> related by <Packageable Element target>->R_REL[R8001]
+######  select many {Association set} related by {Packageable Element target}->R_REL[R8001]
 <pre>
 Association_c[] getManyR_RELsOnR8001(PackageableElement_c[] targets)
 </pre>
+###### R206 (Subtype)
 
-######  select one <Association instance> related by <Simple Association target>->R_REL[R206]
+######  select one {Association instance} related by {Simple Association target}->R_REL[R206]
 <pre>
 Association_c getOneR_RELOnR206(SimpleAssociation_c target)
 </pre>
-######  select many <Association set> related by <Simple Association target set>->R_REL[R206]
+######  select many {Association set} related by {Simple Association target set}->R_REL[R206]
 <pre>
 Association_c[] getManyR_RELsOnR206(SimpleAssociation_c[] targets)
 </pre>
 
-######  select one <Association instance> related by <Derived Association target>->R_REL[R206]
+######  select one {Association instance} related by {Derived Association target}->R_REL[R206]
 <pre>
 Association_c getOneR_RELOnR206(DerivedAssociation_c target)
 </pre>
-######  select many <Association set> related by <Derived Association target set>->R_REL[R206]
+######  select many {Association set} related by {Derived Association target set}->R_REL[R206]
 <pre>
 Association_c[] getManyR_RELsOnR206(DerivedAssociation_c[] targets)
 </pre>
 
-######  select one <Association instance> related by <Linked Association target>->R_REL[R206]
+######  select one {Association instance} related by {Linked Association target}->R_REL[R206]
 <pre>
 Association_c getOneR_RELOnR206(LinkedAssociation_c target)
 </pre>
-######  select many <Association set> related by <Linked Association target set>->R_REL[R206]
+######  select many {Association set} related by {Linked Association target set}->R_REL[R206]
 <pre>
 Association_c[] getManyR_RELsOnR206(LinkedAssociation_c[] targets)
 </pre>
 
-######  select one <Association instance> related by <Subtype Supertype Association target>->R_REL[R206]
+######  select one {Association instance} related by {Subtype Supertype Association target}->R_REL[R206]
 <pre>
 Association_c getOneR_RELOnR206(SubtypeSupertypeAssociation_c target)
 </pre>
-######  select many <Association set> related by <Subtype Supertype Association target set>->R_REL[R206]
+######  select many {Association set} related by {Subtype Supertype Association target set}->R_REL[R206]
 <pre>
 Association_c[] getManyR_RELsOnR206(SubtypeSupertypeAssociation_c[] targets)
 </pre>
