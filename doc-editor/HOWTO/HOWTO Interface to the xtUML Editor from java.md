@@ -24,7 +24,8 @@
  The above class illustrates a convenient way to obtain an instance of a
  selected meta-model class. Once you have a suitable starting instance,
  you can use the API's described below to traverse the model database as
- desired.
+ desired. Note that you need to import import com.mentor.nucleus.bp.core
+ to access the xtUML Editor classes.
 
  For example, supposing you wish to find all the classes contained in a
  selected package...
