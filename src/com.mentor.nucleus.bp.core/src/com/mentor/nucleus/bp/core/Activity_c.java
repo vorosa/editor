@@ -371,6 +371,8 @@ public static Activity_c getOneA_AOnR1402(SpecificationPackage_c [] targets)
     return getOneA_AOnR1402(targets, null);
 }
 
+public void test() { }
+
 public static Activity_c getOneA_AOnR1402(SpecificationPackage_c [] targets, ClassQueryInterface_c test)
 {
     Activity_c ret_val = null;
