@@ -67,6 +67,19 @@
                menubarPath="com.mentor.nucleus.bp.utilities/com.mentor.nucleus.bp.utilities.separator">
          </action>
       </objectContribution>
+
+      <objectContribution
+            adaptable="true"
+            id="com.mentor.nucleus.bp.utilities.ListPackageContentsContribution"
+            objectClass="com.mentor.nucleus.bp.core.Package_c">
+         <action
+               class="com.mentor.nucleus.bp.utilities.data.ListPackageContents"
+               enablesFor="+"
+               id="com.mentor.nucleus.bp.utilities.ListPackageContentsAction"
+               label="List Package Contents"
+               menubarPath="com.mentor.nucleus.bp.utilities/com.mentor.nucleus.bp.utilities.separator">
+         </action>
+      </objectContribution>
       
    </extension>
    
