@@ -8,7 +8,9 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IActionDelegate;
 import org.eclipse.ui.PlatformUI;
 
+import com.mentor.nucleus.bp.core.Component_c;
 import com.mentor.nucleus.bp.core.Package_c;
+import com.mentor.nucleus.bp.core.PackageableElement_c;
 import com.mentor.nucleus.bp.core.util.UIUtil;
 import com.mentor.nucleus.bp.core.util.UIUtil.BPMessageTypes;
 
@@ -25,9 +27,30 @@ public class ListPackageContents implements IActionDelegate {
             for (Iterator<?> iterator = ss.iterator(); iterator.hasNext();) {
                 Object selected = iterator.next();
                 if (selected instanceof Package_c) {
-                    Package_c pkg = (Package_c) selected;
+                    Package_c parentPkg = (Package_c) selected;
                  
-                    // TODO - Fill in functionality here
+                    // select many pkgs related by parentPkg->PE_PE[R8000]->EP_PKG[R8001]
+                    Package_c[] pkgs = Package_c.getManyEP_PKGsOnR8001(PackageableElement_c.getManyPE_PEsOnR8000(parentPkg));
+                    
+                    if ( pkgs.length != 0 ) {
+                        msg += "Packages:\n";
+                    }
+                    for (Package_c pkg: pkgs) {
+                        msg += "    " + pkg.getName() + "\n";
+                    }
+                    
+                    // select many comps related by parentPkg->PE_PE[R8000]->C_C[R8001]
+                    Component_c[] comps = Component_c.getManyC_CsOnR8001(PackageableElement_c.getManyPE_PEsOnR8000(parentPkg));
+                    
+                    if ( comps.length != 0 ) {
+                        if (pkgs.length != 0) { 
+                            msg += "\n";
+                        }
+                        msg += "Components:\n";
+                    }
+                    for (Component_c comp: comps) {
+                        msg += "    " + comp.getName() + "\n";
+                    }
                 }
             }
         }
